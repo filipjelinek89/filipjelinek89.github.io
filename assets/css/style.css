@@ -1,0 +1,24 @@
+/* ==================================================
+   QA Portfolio Website
+   Main Stylesheet
+
+   Author: Filip Jelinek
+   Version: 1.0
+================================================== */
+
+/* Base */
+@import url("reset.css");
+@import url("variables.css");
+@import url("typography.css");
+
+/* Layout */
+@import url("layout.css");
+
+/* Components */
+@import url("components.css");
+
+/* Utilities */
+@import url("utilities.css");
+
+/* Responsive */
+@import url("responsive.css");

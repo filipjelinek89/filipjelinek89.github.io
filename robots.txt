@@ -1,0 +1,9 @@
+# File: robots.txt
+
+``` text
+User-agent: *
+
+Allow: /
+
+Sitemap: https://YOUR_GITHUB_USERNAME.github.io/sitemap.xml
+```

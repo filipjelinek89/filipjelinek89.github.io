@@ -1,0 +1,55 @@
+# File: .gitignore
+
+``` gitignore
+# ============================
+# QA Portfolio Website
+# .gitignore
+# ============================
+
+# Operating System
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Visual Studio Code
+.vscode/
+
+# JetBrains IDEs
+.idea/
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.temp
+
+# Node modules (if added later)
+node_modules/
+
+# Environment variables
+.env
+.env.*
+
+# Build output
+dist/
+build/
+
+# Coverage
+coverage/
+
+# Local cache
+.cache/
+
+# Mac
+.AppleDouble
+.LSOverride
+
+# Windows
+ehthumbs.db
+
+# Backup files
+*.bak
+*.old
+*.orig
+```
