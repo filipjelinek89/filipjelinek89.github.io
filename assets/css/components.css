@@ -233,11 +233,17 @@
     margin-top: auto;
 }
 
-.project-buttons .btn {
-    flex: 1;
+.project-button,
+.btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 56px;
+    padding: 0 24px;
+
     text-align: center;
 }
-
 .project-content {
 
     display: flex;
