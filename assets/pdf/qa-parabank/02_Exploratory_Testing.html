@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc 3.10.1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Exploratory Testing</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Exploratory Testing</h1>
+</header>
+<h1 id="exploratory-testing">Exploratory Testing</h1>
+<p><strong>Project:</strong> ParaBank Manual Testing Project</p>
+<p><strong>Application:</strong> ParaBank</p>
+<p><strong>Version:</strong> 1.0</p>
+<p><strong>Prepared by:</strong> Filip Jelinek</p>
+<hr />
+<h1 id="purpose">1. Purpose</h1>
+<p>The purpose of exploratory testing is to evaluate the application’s
+behavior beyond predefined test cases by simultaneously learning,
+designing, and executing tests. This approach helps identify unexpected
+defects, usability issues, and inconsistencies that may not be covered
+by scripted testing.</p>
+<hr />
+<h1 id="test-charter">2. Test Charter</h1>
+<p><strong>Session Goal:</strong></p>
+<p>Explore the ParaBank application from the perspective of a new
+banking customer and identify functional issues, UI inconsistencies,
+validation problems, navigation defects, and unexpected application
+behavior.</p>
+<hr />
+<h1 id="test-environment">3. Test Environment</h1>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Application</td>
+<td>ParaBank</td>
+</tr>
+<tr>
+<td>URL</td>
+<td>https://parabank.parasoft.com/</td>
+</tr>
+<tr>
+<td>Browser</td>
+<td>Google Chrome</td>
+</tr>
+<tr>
+<td>Operating System</td>
+<td>Windows 11</td>
+</tr>
+<tr>
+<td>Testing Type</td>
+<td>Manual Exploratory Testing</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="areas-explored">4. Areas Explored</h1>
+<p>The following application areas were explored during the session:</p>
+<ul>
+<li>User Registration</li>
+<li>User Login</li>
+<li>Navigation Menu</li>
+<li>Account Overview</li>
+<li>Open New Account</li>
+<li>Transfer Funds</li>
+<li>Bill Payment</li>
+<li>Request Loan</li>
+<li>Account History</li>
+<li>Logout</li>
+</ul>
+<hr />
+<h1 id="testing-approach">5. Testing Approach</h1>
+<p>The following exploratory techniques were used:</p>
+<ul>
+<li>Free-form exploration</li>
+<li>Error guessing</li>
+<li>Boundary value exploration</li>
+<li>Negative input testing</li>
+<li>Random navigation</li>
+<li>Session-based testing</li>
+<li>UI consistency checks</li>
+</ul>
+<hr />
+<h1 id="test-notes">6. Test Notes</h1>
+<p>During the exploratory session, attention was given to:</p>
+<ul>
+<li>Invalid user inputs</li>
+<li>Empty form submissions</li>
+<li>Long text values</li>
+<li>Unexpected navigation paths</li>
+<li>Browser refresh behavior</li>
+<li>Back button behavior</li>
+<li>Multiple clicks on buttons</li>
+<li>Session timeout handling</li>
+<li>User feedback messages</li>
+<li>Page loading behavior</li>
+<li>Form validation messages</li>
+</ul>
+<hr />
+<h1 id="potential-risks-investigated">7. Potential Risks
+Investigated</h1>
+<p>The following risks were explored:</p>
+<table>
+<thead>
+<tr>
+<th>Area</th>
+<th>Risk</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Registration</td>
+<td>Invalid account creation</td>
+</tr>
+<tr>
+<td>Login</td>
+<td>Authentication failures</td>
+</tr>
+<tr>
+<td>Transfers</td>
+<td>Incorrect transaction processing</td>
+</tr>
+<tr>
+<td>Bill Payment</td>
+<td>Missing validation</td>
+</tr>
+<tr>
+<td>Loan Requests</td>
+<td>Invalid approval logic</td>
+</tr>
+<tr>
+<td>Navigation</td>
+<td>Broken links</td>
+</tr>
+<tr>
+<td>Session Management</td>
+<td>Unauthorized access after logout</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="findings">8. Findings</h1>
+<p>Examples of findings that may be discovered during exploratory
+testing include:</p>
+<ul>
+<li>Missing validation messages</li>
+<li>Inconsistent page layouts</li>
+<li>Incorrect navigation flow</li>
+<li>Unexpected system errors</li>
+<li>Buttons with inconsistent behavior</li>
+<li>UI alignment issues</li>
+<li>Broken links</li>
+<li>Slow page responses</li>
+</ul>
+<p>Detailed defects are documented separately in the <strong>Bug
+Reports</strong> section.</p>
+<hr />
+<h1 id="recommendations">9. Recommendations</h1>
+<p>Based on the exploratory session:</p>
+<ul>
+<li>Improve input validation for all user forms.</li>
+<li>Ensure consistent error messages across the application.</li>
+<li>Verify navigation between all banking features.</li>
+<li>Validate user session behavior after logout.</li>
+<li>Review UI consistency across all pages.</li>
+</ul>
+<hr />
+<h1 id="session-summary">10. Session Summary</h1>
+<table>
+<colgroup>
+<col style="width: 42%" />
+<col style="width: 57%" />
+</colgroup>
+<thead>
+<tr>
+<th>Item</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Session Type</td>
+<td>Session-Based Exploratory Testing</td>
+</tr>
+<tr>
+<td>Application Coverage</td>
+<td>Core Banking Features</td>
+</tr>
+<tr>
+<td>Test Status</td>
+<td>Completed</td>
+</tr>
+<tr>
+<td>Defects</td>
+<td>See Bug Reports</td>
+</tr>
+<tr>
+<td>Notes</td>
+<td>Exploratory testing complemented scripted functional testing.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="document-version-history">Document Version History</h1>
+<table>
+<thead>
+<tr>
+<th>Version</th>
+<th>Date</th>
+<th>Author</th>
+<th>Changes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.0</td>
+<td>YYYY-MM-DD</td>
+<td>Filip Jelinek</td>
+<td>Initial version</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p>⬅️ Back to QA ParaBank README</p>
+<p><a href="qa-parabank-README.md">QA-ParaBank-README.md</a></p>
+</body>
+</html>

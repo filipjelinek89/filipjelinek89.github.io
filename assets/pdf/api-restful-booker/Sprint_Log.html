@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc 3.10.1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Sprint Log</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Sprint Log</h1>
+</header>
+<h1 id="project-progress">Project Progress</h1>
+<p><strong>Project:</strong> Restful Booker API Testing Project<br />
+<strong>Document Type:</strong> Project Progress<br />
+<strong>Version:</strong> 5.0<br />
+<strong>Prepared by:</strong> Filip Jelinek</p>
+<hr />
+<h1 id="in-page-navigation">In-page Navigation</h1>
+<ul>
+<li><a href="#1-purpose">1. Purpose</a></li>
+<li><a href="#2-project-roadmap">2. Project Roadmap</a></li>
+<li><a href="#3-overall-progress">3. Overall Progress</a></li>
+<li><a href="#4-sprint-overview">4. Sprint Overview</a></li>
+<li><a href="#5-skills-acquired">5. Skills Acquired</a></li>
+<li><a href="#6-sprint-log">6. Sprint Log</a></li>
+<li><a href="#7-final-project-summary">7. Final Project Summary</a></li>
+</ul>
+<hr />
+<h1 id="purpose">1. Purpose</h1>
+<p>This document records the complete development history of the Restful
+Booker API Testing Project.</p>
+<p>It documents every sprint, the skills acquired, documentation
+created, automation implemented, and the evolution of the project from a
+simple Health Check endpoint to a fully documented professional API
+testing portfolio.</p>
+<hr />
+<h1 id="project-roadmap">2. Project Roadmap</h1>
+<table>
+<thead>
+<tr>
+<th>Sprint</th>
+<th>Module</th>
+<th>Status</th>
+<th style="text-align: right;">Progress</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sprint 1</td>
+<td>Health Check</td>
+<td>✅ Completed</td>
+<td style="text-align: right;">100%</td>
+</tr>
+<tr>
+<td>Sprint 2</td>
+<td>Authentication</td>
+<td>✅ Completed</td>
+<td style="text-align: right;">100%</td>
+</tr>
+<tr>
+<td>Sprint 3</td>
+<td>Retrieve Booking IDs</td>
+<td>✅ Completed</td>
+<td style="text-align: right;">100%</td>
+</tr>
+<tr>
+<td>Sprint 4</td>
+<td>Create Booking</td>
+<td>✅ Completed</td>
+<td style="text-align: right;">100%</td>
+</tr>
+<tr>
+<td>Sprint 5</td>
+<td>Update Booking</td>
+<td>✅ Completed</td>
+<td style="text-align: right;">100%</td>
+</tr>
+<tr>
+<td>Sprint 6</td>
+<td>Partial Update Booking</td>
+<td>✅ Completed</td>
+<td style="text-align: right;">100%</td>
+</tr>
+<tr>
+<td>Sprint 7</td>
+<td>Delete Booking</td>
+<td>✅ Completed</td>
+<td style="text-align: right;">100%</td>
+</tr>
+<tr>
+<td>Sprint 8</td>
+<td>JSON Schema Validation</td>
+<td>✅ Completed</td>
+<td style="text-align: right;">100%</td>
+</tr>
+<tr>
+<td>Sprint 9</td>
+<td>End-to-End Workflow</td>
+<td>✅ Completed</td>
+<td style="text-align: right;">100%</td>
+</tr>
+<tr>
+<td>Sprint 10</td>
+<td>Newman CLI</td>
+<td>✅ Completed</td>
+<td style="text-align: right;">100%</td>
+</tr>
+<tr>
+<td>Sprint 11</td>
+<td>GitHub Actions CI/CD</td>
+<td>✅ Completed</td>
+<td style="text-align: right;">100%</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="overall-progress">3. Overall Progress</h1>
+<table>
+<thead>
+<tr>
+<th>Area</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Project Documentation</td>
+<td>✅ Completed</td>
+</tr>
+<tr>
+<td>API Analysis</td>
+<td>✅ Completed</td>
+</tr>
+<tr>
+<td>Endpoint Inventory</td>
+<td>✅ Completed</td>
+</tr>
+<tr>
+<td>Requirements Analysis</td>
+<td>✅ Completed</td>
+</tr>
+<tr>
+<td>Test Scenarios</td>
+<td>✅ Completed</td>
+</tr>
+<tr>
+<td>Test Cases</td>
+<td>✅ Completed</td>
+</tr>
+<tr>
+<td>Test Execution</td>
+<td>✅ Completed</td>
+</tr>
+<tr>
+<td>Bug Reports</td>
+<td>✅ Completed</td>
+</tr>
+<tr>
+<td>Test Evidence</td>
+<td>✅ Completed</td>
+</tr>
+<tr>
+<td>JSON Schema Validation</td>
+<td>✅ Completed</td>
+</tr>
+<tr>
+<td>Postman Collection</td>
+<td>✅ Completed</td>
+</tr>
+<tr>
+<td>Newman CLI</td>
+<td>✅ Completed</td>
+</tr>
+<tr>
+<td>GitHub Actions CI/CD</td>
+<td>✅ Completed</td>
+</tr>
+<tr>
+<td>Professional Portfolio</td>
+<td>✅ Completed</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="sprint-overview">4. Sprint Overview</h1>
+<table>
+<thead>
+<tr>
+<th>Sprint</th>
+<th>Main Topics</th>
+<th>Documentation</th>
+<th>Evidence</th>
+<th>Git</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sprint 1</td>
+<td>Health Check</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Sprint 2</td>
+<td>Authentication</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Sprint 3</td>
+<td>Retrieve Booking IDs</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Sprint 4</td>
+<td>Create Booking</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Sprint 5</td>
+<td>Update Booking</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Sprint 6</td>
+<td>Partial Update Booking</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Sprint 7</td>
+<td>Delete Booking</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Sprint 8</td>
+<td>JSON Schema Validation</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Sprint 9</td>
+<td>End-to-End Workflow</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Sprint 10</td>
+<td>Newman CLI</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Sprint 11</td>
+<td>GitHub Actions CI/CD</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="skills-acquired">5. Skills Acquired</h1>
+<h2 id="api-testing">API Testing</h2>
+<ul>
+<li>✅ REST API Fundamentals</li>
+<li>✅ HTTP Methods</li>
+<li>✅ HTTP Status Codes</li>
+<li>✅ REST Principles</li>
+<li>✅ CRUD Operations</li>
+<li>✅ Request &amp; Response Validation</li>
+<li>✅ Authentication Testing</li>
+<li>✅ Authorization Testing</li>
+<li>✅ Positive Testing</li>
+<li>✅ Negative Testing</li>
+<li>✅ Boundary Value Analysis</li>
+<li>✅ Data Type Validation</li>
+<li>✅ JSON Schema Validation</li>
+<li>✅ API Contract Validation</li>
+<li>✅ End-to-End API Testing</li>
+</ul>
+<h2 id="postman">Postman</h2>
+<ul>
+<li>✅ Collections</li>
+<li>✅ Environment Variables</li>
+<li>✅ Collection Variables</li>
+<li>✅ JavaScript Assertions</li>
+<li>✅ Request Chaining</li>
+<li>✅ Dynamic Variables</li>
+<li>✅ Collection Runner</li>
+</ul>
+<h2 id="automation">Automation</h2>
+<ul>
+<li>✅ Newman CLI</li>
+<li>✅ HTML Reports</li>
+<li>✅ JSON Reports</li>
+<li>✅ JUnit Reports</li>
+<li>✅ GitHub Actions CI/CD</li>
+</ul>
+<h2 id="development-tools">Development Tools</h2>
+<ul>
+<li>✅ Git</li>
+<li>✅ GitHub</li>
+<li>✅ Markdown Documentation</li>
+<li>✅ Professional QA Repository Structure</li>
+</ul>
+<hr />
+<h1 id="sprint-log">6. Sprint Log</h1>
+<h2 id="sprint-1">Sprint 1</h2>
+<p>✅ Health Check</p>
+<p>Completed successfully.</p>
+<hr />
+<h2 id="sprint-2">Sprint 2</h2>
+<p>✅ Authentication</p>
+<p>Completed successfully.</p>
+<hr />
+<h2 id="sprint-3">Sprint 3</h2>
+<p>✅ Retrieve Booking IDs</p>
+<p>Completed successfully.</p>
+<hr />
+<h2 id="sprint-4">Sprint 4</h2>
+<p>✅ Create Booking</p>
+<p>Completed successfully.</p>
+<hr />
+<h2 id="sprint-5">Sprint 5</h2>
+<p>✅ Update Booking</p>
+<p>Completed successfully.</p>
+<hr />
+<h2 id="sprint-6">Sprint 6</h2>
+<p>✅ Partial Update Booking</p>
+<p>Completed successfully.</p>
+<hr />
+<h2 id="sprint-7">Sprint 7</h2>
+<p>✅ Delete Booking</p>
+<p>Completed successfully.</p>
+<hr />
+<h2 id="sprint-8">Sprint 8</h2>
+<p>✅ JSON Schema Validation</p>
+<p>Completed successfully.</p>
+<hr />
+<h2 id="sprint-9">Sprint 9</h2>
+<p>✅ End-to-End Workflow</p>
+<p>Completed successfully.</p>
+<hr />
+<h2 id="sprint-10">Sprint 10</h2>
+<p>✅ Newman CLI</p>
+<p>Achievements:</p>
+<ul>
+<li>Automated command-line execution</li>
+<li>HTML reporting</li>
+<li>JSON reporting</li>
+<li>JUnit reporting</li>
+<li>Regression execution</li>
+</ul>
+<hr />
+<h2 id="sprint-11">Sprint 11</h2>
+<p>✅ GitHub Actions CI/CD</p>
+<p>Achievements:</p>
+<ul>
+<li>Automated workflow</li>
+<li>Automatic Newman execution</li>
+<li>Automated regression</li>
+<li>Artifact generation</li>
+<li>Continuous Integration</li>
+<li>Professional CI/CD pipeline</li>
+</ul>
+<hr />
+<h1 id="final-project-summary">7. Final Project Summary</h1>
+<p>The Restful Booker API Testing Project has been successfully
+completed.</p>
+<p>Final project deliverables include:</p>
+<ul>
+<li>Complete API documentation</li>
+<li>Requirements Analysis</li>
+<li>Endpoint Inventory</li>
+<li>API Analysis</li>
+<li>Professional Test Scenarios</li>
+<li>Professional Test Cases</li>
+<li>Test Execution Reports</li>
+<li>Bug Reports</li>
+<li>Test Evidence</li>
+<li>JSON Schema Validation</li>
+<li>Automated Postman assertions</li>
+<li>Newman CLI automation</li>
+<li>GitHub Actions CI/CD</li>
+<li>End-to-End API workflow</li>
+</ul>
+<p>The project demonstrates a complete manual API testing workflow
+enhanced with automation and continuous integration, providing a
+professional QA portfolio suitable for showcasing API testing
+skills.</p>
+<hr />
+<h1 id="revision-history">Revision History</h1>
+<table>
+<colgroup>
+<col style="width: 34%" />
+<col style="width: 20%" />
+<col style="width: 44%" />
+</colgroup>
+<thead>
+<tr>
+<th>Version</th>
+<th>Date</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.0</td>
+<td>Initial version</td>
+<td>Project progress tracking</td>
+</tr>
+<tr>
+<td>2.0</td>
+<td>Sprint 1 completed</td>
+<td>Added Sprint 1 documentation</td>
+</tr>
+<tr>
+<td>3.0</td>
+<td>Sprint 2 completed</td>
+<td>Added Authentication sprint</td>
+</tr>
+<tr>
+<td>4.0</td>
+<td>Sprint 3 completed</td>
+<td>Added Retrieve Booking IDs sprint</td>
+</tr>
+<tr>
+<td>5.0</td>
+<td>July 2026</td>
+<td>Final project update including Sprints 4–11, Newman CLI, GitHub
+Actions CI/CD, completed roadmap, updated skills matrix and final
+project summary</td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>

@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc 3.10.1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Test Plan</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="../assets/css/docs.css" />
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Test Plan</h1>
+</header>
+<h1 id="test-plan">Test Plan</h1>
+<p><strong>Project:</strong> SauceDemo Manual Testing Project</p>
+<p><strong>Version:</strong> 1.0</p>
+<p><strong>Prepared by:</strong> Filip Jelinek</p>
+<p><strong>Date:</strong> June 2026</p>
+<hr />
+<h1 id="in-page-navigation">In-page Navigation</h1>
+<ul>
+<li><a href="#1-introduction">1. Introduction</a></li>
+<li><a href="#2-objectives">2. Objectives</a></li>
+<li><a href="#3-application-under-test">3. Application Under
+Test</a></li>
+<li><a href="#4-scope">4. Scope</a></li>
+<li><a href="#5-test-strategy">5. Test Strategy</a></li>
+<li><a href="#6-test-environment">6. Test Environment</a></li>
+<li><a href="#7-test-data">7. Test Data</a></li>
+<li><a href="#8-entry-criteria">8. Entry Criteria</a></li>
+<li><a href="#9-exit-criteria">9. Exit Criteria</a></li>
+<li><a href="#10-deliverables">10. Deliverables</a></li>
+<li><a href="#11-risks">11. Risks</a></li>
+<li><a href="#12-assumptions">12. Assumptions</a></li>
+<li><a href="#13-test-schedule">13. Test Schedule</a></li>
+<li><a href="#14-approval">14. Approval</a></li>
+</ul>
+<hr />
+<h1 id="introduction">1. Introduction</h1>
+<p>This Test Plan defines the strategy, objectives, scope, resources,
+and approach for manually testing the SauceDemo web application.</p>
+<p>The purpose of this document is to ensure that testing activities are
+planned, executed, and documented in a structured and repeatable manner
+while validating the application’s core functionality and identifying
+potential defects.</p>
+<hr />
+<h1 id="objectives">2. Objectives</h1>
+<p>The objectives of this testing project are to:</p>
+<ul>
+<li>Verify that core application features work as intended.</li>
+<li>Validate critical user workflows.</li>
+<li>Identify functional defects and usability issues.</li>
+<li>Confirm that the application behaves consistently under normal user
+interactions.</li>
+<li>Produce professional QA documentation demonstrating
+industry-standard testing practices.</li>
+</ul>
+<hr />
+<h1 id="application-under-test">3. Application Under Test</h1>
+<p><strong>Application:</strong> SauceDemo</p>
+<p><strong>URL:</strong> https://www.saucedemo.com/</p>
+<p><strong>Application Type:</strong> Web Application</p>
+<p><strong>Domain:</strong> E-commerce</p>
+<hr />
+<h1 id="scope">4. Scope</h1>
+<h2 id="in-scope">In Scope</h2>
+<p>The following functionality will be tested:</p>
+<ul>
+<li>User Login</li>
+<li>Product Inventory</li>
+<li>Product Details</li>
+<li>Shopping Cart</li>
+<li>Product Sorting</li>
+<li>Checkout Process</li>
+<li>Navigation</li>
+<li>Logout</li>
+<li>Form Validation</li>
+<li>Error Messages</li>
+</ul>
+<h2 id="out-of-scope">Out of Scope</h2>
+<p>The following areas are not included in this project:</p>
+<ul>
+<li>Performance Testing</li>
+<li>Load Testing</li>
+<li>Stress Testing</li>
+<li>Security Testing</li>
+<li>Accessibility Testing</li>
+<li>Source Code Review</li>
+<li>Automation Testing</li>
+</ul>
+<hr />
+<h1 id="test-strategy">5. Test Strategy</h1>
+<p>Testing will primarily consist of manual functional testing supported
+by exploratory testing techniques.</p>
+<p>The testing approach includes:</p>
+<ul>
+<li>Functional Testing</li>
+<li>Positive Testing</li>
+<li>Negative Testing</li>
+<li>Boundary Value Testing (where applicable)</li>
+<li>Exploratory Testing</li>
+<li>Regression Testing</li>
+<li>User Interface (UI) Testing</li>
+</ul>
+<p>Testing will be performed using predefined test cases while also
+exploring unexpected user behavior to identify additional defects.</p>
+<hr />
+<h1 id="test-environment">6. Test Environment</h1>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Operating System</td>
+<td>Windows 11</td>
+</tr>
+<tr>
+<td>Browser</td>
+<td>Google Chrome version: 149.0.7827.197</td>
+</tr>
+<tr>
+<td>Internet Connection</td>
+<td>Stable broadband connection</td>
+</tr>
+<tr>
+<td>Test Device</td>
+<td>HP Omen Laptop</td>
+</tr>
+<tr>
+<td>Application URL</td>
+<td>https://www.saucedemo.com</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="test-data">7. Test Data</h1>
+<p>The following test data will be used:</p>
+<h3 id="valid-users">Valid Users</h3>
+<ul>
+<li>standard_user</li>
+<li>problem_user</li>
+<li>performance_glitch_user</li>
+<li>error_user</li>
+<li>visual_user</li>
+</ul>
+<h3 id="invalid-data">Invalid Data</h3>
+<ul>
+<li>Invalid usernames</li>
+<li>Invalid passwords</li>
+<li>Empty username</li>
+<li>Empty password</li>
+<li>Empty login form</li>
+</ul>
+<hr />
+<h1 id="entry-criteria">8. Entry Criteria</h1>
+<p>Testing may begin when:</p>
+<ul>
+<li>The application is accessible.</li>
+<li>Test environment is available.</li>
+<li>Test data is prepared.</li>
+<li>Test documentation has been completed.</li>
+</ul>
+<hr />
+<h1 id="exit-criteria">9. Exit Criteria</h1>
+<p>Testing will be considered complete when:</p>
+<ul>
+<li>All planned test cases have been executed.</li>
+<li>Critical and High severity defects have been documented.</li>
+<li>Test execution results have been recorded.</li>
+<li>Test Summary Report has been completed.</li>
+</ul>
+<hr />
+<h1 id="deliverables">10. Deliverables</h1>
+<p>The following documents will be produced:</p>
+<ul>
+<li>Test Plan</li>
+<li>Requirements Analysis</li>
+<li>Test Scenarios</li>
+<li>Test Cases</li>
+<li>Bug Reports</li>
+<li>Test Execution Report</li>
+<li>Test Summary Report</li>
+<li>Test Data</li>
+<li>Screenshots</li>
+<li>Requirements Traceability Matrix</li>
+</ul>
+<hr />
+<h1 id="risks">11. Risks</h1>
+<p>Potential risks include:</p>
+<ul>
+<li>Limited application functionality.</li>
+<li>Test environment instability.</li>
+<li>Browser updates during testing.</li>
+<li>Existing application defects affecting additional test
+execution.</li>
+</ul>
+<hr />
+<h1 id="assumptions">12. Assumptions</h1>
+<p>This project assumes that:</p>
+<ul>
+<li>SauceDemo remains publicly available.</li>
+<li>Test user accounts remain functional.</li>
+<li>No major application changes occur during testing.</li>
+</ul>
+<hr />
+<h1 id="test-schedule">13. Test Schedule</h1>
+<table>
+<thead>
+<tr>
+<th>Activity</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Test Planning</td>
+<td>Completed</td>
+</tr>
+<tr>
+<td>Requirements Analysis</td>
+<td>Completed</td>
+</tr>
+<tr>
+<td>Test Scenario Design</td>
+<td>Completed</td>
+</tr>
+<tr>
+<td>Test Case Creation</td>
+<td>Completed</td>
+</tr>
+<tr>
+<td>Test Execution</td>
+<td>Completed</td>
+</tr>
+<tr>
+<td>Bug Reporting</td>
+<td>Completed</td>
+</tr>
+<tr>
+<td>Test Summary</td>
+<td>Completed</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="approval">14. Approval</h1>
+<p>This document was prepared as part of a personal QA portfolio project
+to demonstrate manual software testing skills and professional
+documentation practices.</p>
+<hr />
+<p>⬅️ <strong>Back to Saucedemo</strong></p>
+<p><a
+href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-saucedemo/qa-saucedemo-README.md">qa-saucedemo-README.md</a></p>
+</body>
+</html>

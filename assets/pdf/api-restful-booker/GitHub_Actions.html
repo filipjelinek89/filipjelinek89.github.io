@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc 3.10.1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>GitHub Actions</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">GitHub Actions</h1>
+</header>
+<h1 id="github-actions">GitHub Actions</h1>
+<h2 id="document-information">Document Information</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Project</td>
+<td>Restful Booker API Testing Portfolio</td>
+</tr>
+<tr>
+<td>Document</td>
+<td>GitHub Actions</td>
+</tr>
+<tr>
+<td>Version</td>
+<td>1.0</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Approved</td>
+</tr>
+<tr>
+<td>Author</td>
+<td>Filip Jelinek</td>
+</tr>
+<tr>
+<td>Last Updated</td>
+<td>July 2026</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="purpose">Purpose</h1>
+<p>This document describes the GitHub Actions workflow implemented in
+the Restful Booker API Testing Portfolio project.</p>
+<p>The workflow automatically executes the API automation test suite
+after repository updates and generates execution reports without
+requiring any manual interaction.</p>
+<p>The implementation demonstrates practical Continuous Integration (CI)
+using GitHub Actions and Newman.</p>
+<hr />
+<h1 id="what-is-github-actions">What is GitHub Actions?</h1>
+<p>GitHub Actions is GitHub’s built-in automation platform.</p>
+<p>It allows workflows to execute automatically when predefined events
+occur within a repository.</p>
+<p>Instead of manually running API tests after every code change, GitHub
+performs the execution automatically.</p>
+<p>Typical workflow events include:</p>
+<ul>
+<li>Push</li>
+<li>Pull Request</li>
+<li>Schedule</li>
+<li>Manual execution</li>
+<li>Release creation</li>
+</ul>
+<p>This project currently uses <strong>Push</strong> and <strong>Pull
+Request</strong> events.</p>
+<hr />
+<h1 id="workflow-file-location">Workflow File Location</h1>
+<p>GitHub automatically searches for workflow definitions in the
+following directory:</p>
+<pre class="text"><code>.github/
+└── workflows/
+    └── newman.yml</code></pre>
+<p>Every YAML file placed inside this folder is recognized as an
+executable workflow.</p>
+<hr />
+<h1 id="workflow-overview">Workflow Overview</h1>
+<p>The implemented workflow performs the following sequence:</p>
+<pre class="text"><code>Developer pushes code
+        │
+        ▼
+GitHub detects repository update
+        │
+        ▼
+Start Ubuntu Runner
+        │
+        ▼
+Download repository
+        │
+        ▼
+Install Node.js
+        │
+        ▼
+Install Newman
+        │
+        ▼
+Install HTML Reporter
+        │
+        ▼
+Execute Postman Collection
+        │
+        ▼
+Run JavaScript Assertions
+        │
+        ▼
+Generate Reports
+        │
+        ▼
+Upload Artifacts
+        │
+        ▼
+Workflow Finished</code></pre>
+<hr />
+<h1 id="workflow-trigger">Workflow Trigger</h1>
+<p>The workflow starts automatically after specific repository
+events.</p>
+<p>Current configuration:</p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">on</span><span class="kw">:</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">push</span><span class="kw">:</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">branches</span><span class="kw">:</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> main</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">pull_request</span><span class="kw">:</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">branches</span><span class="kw">:</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> main</span></span></code></pre></div>
+<p>Meaning:</p>
+<ul>
+<li>Every push to the <strong>main</strong> branch starts the
+workflow.</li>
+<li>Every pull request targeting <strong>main</strong> also starts the
+workflow.</li>
+</ul>
+<p>No manual execution is required.</p>
+<hr />
+<h1 id="job-configuration">Job Configuration</h1>
+<p>The workflow contains a single job.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">jobs</span><span class="kw">:</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">newman-tests</span><span class="kw">:</span></span></code></pre></div>
+<p>A job represents a complete execution process.</p>
+<p>This project uses one job because the API testing process is executed
+as a single pipeline.</p>
+<hr />
+<h1 id="runner">Runner</h1>
+<p>The workflow executes on:</p>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">runs-on</span><span class="kw">:</span><span class="at"> ubuntu-latest</span></span></code></pre></div>
+<p>GitHub creates a temporary Ubuntu Linux virtual machine.</p>
+<p>Characteristics:</p>
+<ul>
+<li>Clean environment</li>
+<li>Fresh operating system</li>
+<li>No previous project files</li>
+<li>Automatically deleted after execution</li>
+</ul>
+<p>This ensures identical execution conditions for every workflow.</p>
+<hr />
+<h1 id="step-1-repository-checkout">Step 1 — Repository Checkout</h1>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/checkout@v4</span></span></code></pre></div>
+<p>Purpose:</p>
+<p>Download the latest repository contents into the GitHub runner.</p>
+<p>Without this step the runner would not have access to:</p>
+<ul>
+<li>README</li>
+<li>Postman Collection</li>
+<li>Documentation</li>
+<li>Workflow resources</li>
+</ul>
+<hr />
+<h1 id="step-2-install-node.js">Step 2 — Install Node.js</h1>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/setup-node@v4</span></span></code></pre></div>
+<p>Purpose:</p>
+<p>Install Node.js.</p>
+<p>Node.js is required because Newman is distributed as a Node
+package.</p>
+<hr />
+<h1 id="step-3-install-newman">Step 3 — Install Newman</h1>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="at">npm install -g newman</span></span></code></pre></div>
+<p>Purpose:</p>
+<p>Install the Newman command-line runner.</p>
+<p>Newman executes the Postman collection without opening the Postman
+application.</p>
+<hr />
+<h1 id="step-4-install-html-reporter">Step 4 — Install HTML
+Reporter</h1>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="at">npm install -g newman-reporter-htmlextra</span></span></code></pre></div>
+<p>Purpose:</p>
+<p>Generate detailed HTML execution reports.</p>
+<p>Without this package Newman would only produce console output.</p>
+<hr />
+<h1 id="step-5-create-report-directories">Step 5 — Create Report
+Directories</h1>
+<p>Before execution the workflow creates directories for generated
+reports.</p>
+<pre class="text"><code>reports/
+├── HTML/
+├── JSON/
+└── JUnit/</code></pre>
+<p>Separating reports by format improves project organization.</p>
+<hr />
+<h1 id="step-6-execute-the-automation-collection">Step 6 — Execute the
+Automation Collection</h1>
+<p>The workflow executes:</p>
+<pre class="text"><code>RestfulBooker.postman_collection.json</code></pre>
+<p>The collection contains the complete automation workflow
+including:</p>
+<ul>
+<li>Health Check</li>
+<li>Authentication</li>
+<li>Create Booking</li>
+<li>Retrieve Booking</li>
+<li>Update Booking</li>
+<li>Partial Update</li>
+<li>Delete Booking</li>
+<li>Verify Deletion</li>
+</ul>
+<p>The collection is self-contained.</p>
+<p>It uses collection variables and therefore does not require a Postman
+environment file.</p>
+<hr />
+<h1 id="automated-assertions">Automated Assertions</h1>
+<p>Every request executes JavaScript tests.</p>
+<p>Validation includes:</p>
+<ul>
+<li>HTTP Status Codes</li>
+<li>Response Headers</li>
+<li>Response Time</li>
+<li>Content-Type</li>
+<li>JSON Structure</li>
+<li>Data Types</li>
+<li>Required Fields</li>
+<li>Authentication Token</li>
+<li>Booking ID</li>
+<li>Request Chaining</li>
+<li>End-to-End Validation</li>
+</ul>
+<p>These assertions determine whether the workflow succeeds or
+fails.</p>
+<hr />
+<h1 id="report-generation">Report Generation</h1>
+<p>After execution Newman generates multiple report formats.</p>
+<table>
+<thead>
+<tr>
+<th>Report</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>HTML</td>
+<td>Human-readable report</td>
+</tr>
+<tr>
+<td>JSON</td>
+<td>Machine-readable output</td>
+</tr>
+<tr>
+<td>JUnit XML</td>
+<td>CI/CD reporting</td>
+</tr>
+</tbody>
+</table>
+<p>Each report contains detailed execution results.</p>
+<hr />
+<h1 id="artifact-upload">Artifact Upload</h1>
+<p>The generated reports are uploaded automatically.</p>
+<p>Artifacts remain available after the workflow finishes.</p>
+<p>Benefits include:</p>
+<ul>
+<li>Downloadable reports</li>
+<li>Historical execution records</li>
+<li>Easier debugging</li>
+<li>CI documentation</li>
+</ul>
+<hr />
+<h1 id="workflow-result">Workflow Result</h1>
+<p>The workflow ends with one of two possible outcomes.</p>
+<h2 id="successful-execution">Successful Execution</h2>
+<p>Requirements:</p>
+<ul>
+<li>Collection executes successfully</li>
+<li>All assertions pass</li>
+<li>Reports generated</li>
+<li>Artifacts uploaded</li>
+</ul>
+<p>GitHub displays a green workflow status.</p>
+<hr />
+<h2 id="failed-execution">Failed Execution</h2>
+<p>Possible reasons:</p>
+<ul>
+<li>Assertion failure</li>
+<li>Invalid request</li>
+<li>Missing dependency</li>
+<li>Configuration issue</li>
+<li>Newman execution error</li>
+</ul>
+<p>GitHub immediately reports the failure.</p>
+<hr />
+<h1 id="current-project-implementation">Current Project
+Implementation</h1>
+<p>The current workflow successfully performs:</p>
+<p>✅ Checkout Repository</p>
+<p>✅ Install Node.js</p>
+<p>✅ Install Newman</p>
+<p>✅ Install Newman HTML Reporter</p>
+<p>✅ Execute Postman Collection</p>
+<p>✅ Run JavaScript Assertions</p>
+<p>✅ Generate HTML Report</p>
+<p>✅ Generate JSON Report</p>
+<p>✅ Generate JUnit Report</p>
+<p>✅ Upload Reports as Artifacts</p>
+<hr />
+<h1 id="advantages-of-github-actions">Advantages of GitHub Actions</h1>
+<p>The implemented solution provides several benefits.</p>
+<h2 id="automation">Automation</h2>
+<p>No manual execution is required.</p>
+<hr />
+<h2 id="repeatability">Repeatability</h2>
+<p>Every workflow executes in the same clean environment.</p>
+<hr />
+<h2 id="early-regression-detection">Early Regression Detection</h2>
+<p>API failures are detected immediately after code changes.</p>
+<hr />
+<h2 id="documentation">Documentation</h2>
+<p>Workflow executions become part of the project history.</p>
+<hr />
+<h2 id="professional-portfolio">Professional Portfolio</h2>
+<p>The implementation demonstrates practical knowledge of:</p>
+<ul>
+<li>Git</li>
+<li>GitHub</li>
+<li>CI</li>
+<li>API Automation</li>
+<li>Newman</li>
+<li>GitHub Actions</li>
+</ul>
+<p>These are commonly requested skills for Junior QA Engineers.</p>
+<hr />
+<h1 id="best-practices-applied">Best Practices Applied</h1>
+<p>The project follows several CI/CD best practices.</p>
+<ul>
+<li>Version-controlled workflow</li>
+<li>Dedicated automation collection</li>
+<li>Automated report generation</li>
+<li>Organized report structure</li>
+<li>Repeatable execution</li>
+<li>Clean runner environment</li>
+<li>Collection variables instead of hardcoded values</li>
+<li>Standardized artifact storage</li>
+</ul>
+<hr />
+<h1 id="future-enhancements">Future Enhancements</h1>
+<p>Potential improvements include:</p>
+<ul>
+<li>Scheduled nightly execution</li>
+<li>Matrix builds</li>
+<li>Parallel execution</li>
+<li>Secrets management</li>
+<li>Email or Slack notifications</li>
+<li>Performance testing integration</li>
+<li>Multiple deployment environments</li>
+</ul>
+<p>These enhancements are outside the scope of the current portfolio
+project.</p>
+<hr />
+<h1 id="conclusion">Conclusion</h1>
+<p>GitHub Actions provides an automated Continuous Integration pipeline
+for this project.</p>
+<p>Every repository update automatically executes the Postman automation
+collection using Newman, validates API behavior through JavaScript
+assertions, generates execution reports, uploads workflow artifacts, and
+returns a clear PASS or FAIL result.</p>
+<p>The implementation demonstrates practical experience with modern
+CI/CD workflows and automated API testing while improving the
+reliability, repeatability, and maintainability of the test suite.</p>
+</body>
+</html>

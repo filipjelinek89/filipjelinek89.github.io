@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc 3.10.1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Bug Reports</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Bug Reports</h1>
+</header>
+<h1 id="bug-reports">Bug Reports</h1>
+<p><strong>Project:</strong> ParaBank Manual Testing Project</p>
+<p><strong>Version:</strong> 1.0</p>
+<p><strong>Prepared by:</strong> Filip Jelinek</p>
+<hr />
+<h1 id="in-page-navigation">In-page Navigation</h1>
+<ul>
+<li><a href="#1-purpose">1. Purpose</a></li>
+<li><a href="#2-bug-report-summary">2. Bug Report Summary</a></li>
+<li><a href="#3-severity-definitions">3. Severity Definitions</a></li>
+<li><a href="#4-priority-definitions">4. Priority Definitions</a></li>
+<li><a href="#5-bug-report-list">5. Bug Report List</a></li>
+<li><a href="#6-bug-report-structure">6. Bug Report Structure</a></li>
+</ul>
+<hr />
+<h1 id="purpose">1. Purpose</h1>
+<p>This document serves as the central index of all confirmed defects
+identified during manual testing of the ParaBank application.</p>
+<p>Each defect has been documented in an individual Markdown file
+containing detailed reproduction steps, expected and actual results,
+severity, priority, supporting evidence, and QA assessment.</p>
+<hr />
+<h1 id="bug-report-summary">2. Bug Report Summary</h1>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th style="text-align: right;">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Total Bugs</strong></td>
+<td style="text-align: right;"><strong>16</strong></td>
+</tr>
+<tr>
+<td>🔴 Critical</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr>
+<td>🟠 High</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr>
+<td>🟡 Medium</td>
+<td style="text-align: right;">7</td>
+</tr>
+<tr>
+<td>🔵 Low</td>
+<td style="text-align: right;">4</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="severity-definitions">3. Severity Definitions</h1>
+<table>
+<colgroup>
+<col style="width: 45%" />
+<col style="width: 54%" />
+</colgroup>
+<thead>
+<tr>
+<th>Severity</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>🔴 <strong>Critical</strong></td>
+<td>Prevents the use of a core banking feature, causes application
+failure, data corruption, or presents a significant security risk.</td>
+</tr>
+<tr>
+<td>🟠 <strong>High</strong></td>
+<td>Major functionality is affected and significantly impacts user
+experience, although a workaround may exist.</td>
+</tr>
+<tr>
+<td>🟡 <strong>Medium</strong></td>
+<td>Functionality behaves incorrectly but does not prevent normal
+application use.</td>
+</tr>
+<tr>
+<td>🔵 <strong>Low</strong></td>
+<td>Minor cosmetic, usability, or non-critical issue with little impact
+on functionality.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="priority-definitions">4. Priority Definitions</h1>
+<table>
+<colgroup>
+<col style="width: 43%" />
+<col style="width: 56%" />
+</colgroup>
+<thead>
+<tr>
+<th>Priority</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>🔴 High</td>
+<td>Requires immediate attention and should be fixed before
+release.</td>
+</tr>
+<tr>
+<td>🟠 Medium</td>
+<td>Should be resolved in an upcoming release.</td>
+</tr>
+<tr>
+<td>🔵 Low</td>
+<td>Can be addressed when development resources are available.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="bug-report-list">5. Bug Report List</h1>
+<table>
+<colgroup>
+<col style="width: 12%" />
+<col style="width: 11%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 12%" />
+<col style="width: 30%" />
+</colgroup>
+<thead>
+<tr>
+<th>Bug ID</th>
+<th>Title</th>
+<th>Severity</th>
+<th>Priority</th>
+<th>Status</th>
+<th>Related Test Case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BUG001</td>
+<td>Registration accepts duplicate username</td>
+<td>🟡 Medium</td>
+<td>High</td>
+<td>Open</td>
+<td>TC005</td>
+</tr>
+<tr>
+<td>BUG002</td>
+<td>Registration accepts special characters in First Name</td>
+<td>🟡 Medium</td>
+<td>Medium</td>
+<td>Open</td>
+<td>TC009</td>
+</tr>
+<tr>
+<td>BUG003</td>
+<td>Registration accepts numeric values in First Name</td>
+<td>🟡 Medium</td>
+<td>Medium</td>
+<td>Open</td>
+<td>TC010</td>
+</tr>
+<tr>
+<td>BUG004</td>
+<td>Transfer accepts zero amount</td>
+<td>🟠 High</td>
+<td>High</td>
+<td>Open</td>
+<td>TC039</td>
+</tr>
+<tr>
+<td>BUG005</td>
+<td>Transfer accepts negative amount</td>
+<td>🟠 High</td>
+<td>High</td>
+<td>Open</td>
+<td>TC040</td>
+</tr>
+<tr>
+<td>BUG006</td>
+<td>Transfer allows amount exceeding available balance</td>
+<td>🔴 Critical</td>
+<td>High</td>
+<td>Open</td>
+<td>TC041</td>
+</tr>
+<tr>
+<td>BUG007</td>
+<td>Empty transfer amount causes Internal Server Error</td>
+<td>🟠 High</td>
+<td>High</td>
+<td>Open</td>
+<td>TC042</td>
+</tr>
+<tr>
+<td>BUG008</td>
+<td>Bill payment accepts non-existing account number</td>
+<td>🟠 High</td>
+<td>High</td>
+<td>Open</td>
+<td>TC049</td>
+</tr>
+<tr>
+<td>BUG009</td>
+<td>Bill payment accepts negative payment amount</td>
+<td>🟡 Medium</td>
+<td>Medium</td>
+<td>Open</td>
+<td>TC051</td>
+</tr>
+<tr>
+<td>BUG010</td>
+<td>Bill payment accepts invalid ZIP code</td>
+<td>🟡 Medium</td>
+<td>Medium</td>
+<td>Open</td>
+<td>TC055</td>
+</tr>
+<tr>
+<td>BUG011</td>
+<td>Bill payment accepts invalid phone number</td>
+<td>🟡 Medium</td>
+<td>Medium</td>
+<td>Open</td>
+<td>TC056</td>
+</tr>
+<tr>
+<td>BUG012</td>
+<td>Loan request returns Internal Server Error</td>
+<td>🔴 Critical</td>
+<td>High</td>
+<td>Open</td>
+<td>TC061–TC067</td>
+</tr>
+<tr>
+<td>BUG013</td>
+<td>Browser Back button allows access after logout</td>
+<td>🟡 Medium</td>
+<td>Medium</td>
+<td>Open</td>
+<td>TC068</td>
+</tr>
+<tr>
+<td>BUG014</td>
+<td>HTML input prevents JavaScript injection (Security Test)</td>
+<td>🔵 Low</td>
+<td>Low</td>
+<td>Closed (Expected Behavior)</td>
+<td>TC063</td>
+</tr>
+<tr>
+<td>BUG015</td>
+<td>Unicode characters not handled correctly</td>
+<td>🔵 Low</td>
+<td>Low</td>
+<td>Open</td>
+<td>TC064</td>
+</tr>
+<tr>
+<td>BUG016</td>
+<td>Multiple browser tabs produce Internal Server Error after
+logout</td>
+<td>🔵 Low</td>
+<td>Low</td>
+<td>Open</td>
+<td>TC070</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Note:</strong> Several test cases related to the loan request
+functionality were blocked due to <strong>BUG012</strong>, which
+prevented successful completion of the workflow.</p>
+</blockquote>
+<hr />
+<h1 id="bug-report-structure">6. Bug Report Structure</h1>
+<p>Each defect is documented in a separate Markdown file using the
+following naming convention:</p>
+<pre><code>BUG001_Short_Description.md
+BUG002_Short_Description.md
+BUG003_Short_Description.md
+...</code></pre>
+<p>Every bug report includes:</p>
+<ul>
+<li>Bug ID</li>
+<li>Title</li>
+<li>Environment</li>
+<li>Browser</li>
+<li>Browser Version</li>
+<li>Operating System</li>
+<li>Related Test Case</li>
+<li>Severity</li>
+<li>Priority</li>
+<li>Status</li>
+<li>Preconditions</li>
+<li>Steps to Reproduce</li>
+<li>Expected Result</li>
+<li>Actual Result</li>
+<li>Impact</li>
+<li>Attachments (Screenshots)</li>
+<li>QA Assessment</li>
+<li>Test Evidence</li>
+</ul>
+<hr />
+<h2 id="folder-structure">Folder Structure</h2>
+<pre><code>04_Bug_Reports/
+│
+├── 04_Bug_Reports.md
+├── BUG001_Registration_Unique_Username_Validation.md
+├── BUG002_Registration_Special_Characters_Accepted.md
+├── BUG003_Registration_Numeric_Values_Accepted.md
+├── BUG004_Transfer_Zero_Amount_Accepted.md
+├── BUG005_Transfer_Negative_Amount_Accepted.md
+├── BUG006_Transfer_Exceeding_Balance_Accepted.md
+├── BUG007_Transfer_Empty_Amount_Internal_Error.md
+├── BUG008_Bill_Payment_Non_Existent_Account_Accepted.md
+├── BUG009_Bill_Payment_Negative_Amount_Accepted.md
+├── BUG010_Bill_Payment_Invalid_ZIP_Code_Accepted.md
+├── BUG011_Bill_Payment_Invalid_Phone_Number_Accepted.md
+├── BUG012_Loan_Request_Internal_Error.md
+├── BUG013_Back_Button_Access_After_Logout.md
+├── BUG014_HTML_JavaScript_Input_Security_Block.md
+├── BUG015_Unicode_Characters_Not_Handled_Correctly.md
+├── BUG016_Multiple_Browser_Tabs_Session_Internal_Error.md
+└── BUGXXX_Bug_Template.md</code></pre>
+<hr />
+<h1 id="document-version-history">Document Version History</h1>
+<table>
+<thead>
+<tr>
+<th>Version</th>
+<th>Date</th>
+<th>Author</th>
+<th>Changes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.0</td>
+<td>2026-07</td>
+<td>Filip Jelinek</td>
+<td>Initial completed version</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p>⬅️ <strong>Back to QA ParaBank README</strong></p>
+<p><a href="qa-parabank-README.md">QA-ParaBank-README.md</a></p>
+</body>
+</html>

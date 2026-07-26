@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc 3.10.1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Test Cases</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Test Cases</h1>
+</header>
+<h1 id="test-cases">Test Cases</h1>
+<p><strong>Project:</strong> ParaBank Manual Testing Project<br />
+<strong>Version:</strong> 1.1<br />
+<strong>Prepared by:</strong> Filip Jelinek</p>
+<hr />
+<h1 id="in-page-navigation">In-page Navigation</h1>
+<ul>
+<li><a href="#1-test-case-summary">1. Test Case Summary</a></li>
+<li><a href="#2-user-registration">2. User Registration</a></li>
+<li><a href="#3-login">3. Login</a></li>
+<li><a href="#4-account-overview">4. Account Overview</a></li>
+<li><a href="#5-open-new-account">5. Open New Account</a></li>
+<li><a href="#6-transfer-funds">6. Transfer Funds</a></li>
+<li><a href="#7-bill-payment">7. Bill Payment</a></li>
+<li><a href="#8-request-loan">8. Request Loan</a></li>
+<li><a href="#9-navigation--logout">9. Navigation &amp; Logout</a></li>
+<li><a href="#10-validation--negative-testing">10. Validation &amp;
+Negative Testing</a></li>
+</ul>
+<hr />
+<h1 id="test-case-summary">1. Test Case Summary</h1>
+<table>
+<thead>
+<tr>
+<th>Module</th>
+<th style="text-align: center;">Number of Test Cases</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>User Registration</td>
+<td style="text-align: center;">8</td>
+</tr>
+<tr>
+<td>Login</td>
+<td style="text-align: center;">8</td>
+</tr>
+<tr>
+<td>Account Overview</td>
+<td style="text-align: center;">7</td>
+</tr>
+<tr>
+<td>Open New Account</td>
+<td style="text-align: center;">7</td>
+</tr>
+<tr>
+<td>Transfer Funds</td>
+<td style="text-align: center;">10</td>
+</tr>
+<tr>
+<td>Bill Payment</td>
+<td style="text-align: center;">9</td>
+</tr>
+<tr>
+<td>Request Loan</td>
+<td style="text-align: center;">7</td>
+</tr>
+<tr>
+<td>Navigation &amp; Logout</td>
+<td style="text-align: center;">6</td>
+</tr>
+<tr>
+<td>Validation &amp; Negative Testing</td>
+<td style="text-align: center;">8</td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td style="text-align: center;"><strong>70</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="user-registration">2. User Registration</h1>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr>
+<th>ID</th>
+<th>Test Case</th>
+<th>Type</th>
+<th>Priority</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a
+href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-parabank/03_Test_Cases/TC001%20%E2%80%93%20Verify%20Successful%20User%20Registration.md">TC001</a></td>
+<td>Verify successful user registration</td>
+<td>Functional</td>
+<td>High</td>
+</tr>
+<tr>
+<td><a
+href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-parabank/03_Test_Cases/TC002%20%E2%80%93%20Verify%20Registration%20with%20Required%20Fields%20Only.md">TC002</a></td>
+<td>Verify registration with required fields only</td>
+<td>Functional</td>
+<td>High</td>
+</tr>
+<tr>
+<td><a
+href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-parabank/03_Test_Cases/TC003%20%E2%80%93%20Verify%20Registration%20with%20Empty%20Required%20Fields.md">TC003</a></td>
+<td>Verify registration with empty required fields</td>
+<td>Negative</td>
+<td>High</td>
+</tr>
+<tr>
+<td><a
+href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-parabank/03_Test_Cases/TC004%20%E2%80%93%20Verify%20Registration%20with%20an%20Existing%20Username.md">TC004</a></td>
+<td>Verify registration with an existing username</td>
+<td>Negative</td>
+<td>High</td>
+</tr>
+<tr>
+<td><a
+href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-parabank/03_Test_Cases/TC005%20%E2%80%93%20Verify%20Password%20Confirmation%20Validation.md">TC005</a></td>
+<td>Verify password confirmation validation</td>
+<td>Validation</td>
+<td>High</td>
+</tr>
+<tr>
+<td><a
+href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-parabank/03_Test_Cases/TC006%20%E2%80%93%20Verify%20Registration%20with%20Maximum%20Field%20Lengths.md">TC006</a></td>
+<td>Verify registration with maximum field lengths</td>
+<td>Boundary</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td><a
+href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-parabank/03_Test_Cases/TC007%20%E2%80%93%20Verify%20Registration%20with%20Special%20Characters.md">TC007</a></td>
+<td>Verify registration with special characters</td>
+<td>Validation</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td><a
+href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-parabank/03_Test_Cases/TC008%20%E2%80%93%20Verify%20Registration%20with%20Invalid%20ZIP%20Code.md">TC008</a></td>
+<td>Verify registration with invalid ZIP code</td>
+<td>Negative</td>
+<td>Medium</td>
+</tr>
+</tbody>
+</table>
+<p><a href="#in-page-navigation">⬆ Back to Top</a></p>
+<hr />
+<h1 id="login">3. Login</h1>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr>
+<th>ID</th>
+<th>Test Case</th>
+<th>Type</th>
+<th>Priority</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a
+href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-parabank/03_Test_Cases/TC009%20%E2%80%93%20Verify%20Login%20with%20Valid%20Credentials.md">TC009</a></td>
+<td>Verify login with valid credentials</td>
+<td>Functional</td>
+<td>High</td>
+</tr>
+<tr>
+<td><a
+href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-parabank/03_Test_Cases/TC010%20%E2%80%93%20Verify%20Login%20with%20Invalid%20Password.md">TC010</a></td>
+<td>Verify login with invalid password</td>
+<td>Negative</td>
+<td>High</td>
+</tr>
+<tr>
+<td><a
+href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-parabank/03_Test_Cases/TC011%20%E2%80%93%20Verify%20Login%20with%20Invalid%20Username.md">TC011</a></td>
+<td>Verify login with invalid username</td>
+<td>Negative</td>
+<td>High</td>
+</tr>
+<tr>
+<td><a
+href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-parabank/03_Test_Cases/TC012%20%E2%80%93%20Verify%20Login%20with%20Empty%20Username.md">TC012</a></td>
+<td>Verify login with empty username</td>
+<td>Validation</td>
+<td>High</td>
+</tr>
+<tr>
+<td><a
+href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-parabank/03_Test_Cases/TC013%20%E2%80%93%20Verify%20Login%20with%20Empty%20Password.md">TC013</a></td>
+<td>Verify login with empty password</td>
+<td>Validation</td>
+<td>High</td>
+</tr>
+<tr>
+<td><a
+href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-parabank/03_Test_Cases/TC014%20%E2%80%93%20Verify%20Login%20with%20Both%20Fields%20Empty.md">TC014</a></td>
+<td>Verify login with both fields empty</td>
+<td>Validation</td>
+<td>High</td>
+</tr>
+<tr>
+<td><a
+href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-parabank/03_Test_Cases/TC015%20%E2%80%93%20Verify%20Session%20Persists%20After%20Page%20Refresh.md">TC015</a></td>
+<td>Verify session persists after page refresh</td>
+<td>Session</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td><a
+href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-parabank/03_Test_Cases/TC016%20%E2%80%93%20Verify%20User%20Can%20Log%20In%20After%20Logout.md">TC016</a></td>
+<td>Verify user can log in after logout</td>
+<td>Functional</td>
+<td>Medium</td>
+</tr>
+</tbody>
+</table>
+<p><a href="#in-page-navigation">⬆ Back to Top</a></p>
+<hr />
+<h1 id="account-overview">4. Account Overview</h1>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr>
+<th>ID</th>
+<th>Test Case</th>
+<th>Type</th>
+<th>Priority</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a
+href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-parabank/03_Test_Cases/TC017%20%E2%80%93%20Verify%20Account%20Overview%20Page%20Displays%20Correctly.md">TC017</a></td>
+<td>Verify Account Overview page displays correctly</td>
+<td>UI / Functional</td>
+<td>High</td>
+</tr>
+<tr>
+<td><a
+href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-parabank/03_Test_Cases/TC018%20%E2%80%93%20Verify%20Account%20Balances%20Are%20Displayed%20Correctly.md">TC018</a></td>
+<td>Verify account balances are displayed</td>
+<td>Functional</td>
+<td>High</td>
+</tr>
+<tr>
+<td><a
+href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-parabank/03_Test_Cases/TC019%20%E2%80%93%20Verify%20Account%20Details%20Page.md">TC019</a></td>
+<td>Verify account details page</td>
+<td>Functional</td>
+<td>High</td>
+</tr>
+<tr>
+<td><a
+href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-parabank/03_Test_Cases/TC020%20%E2%80%93%20Verify%20Transaction%20History%20Display.md">TC020</a></td>
+<td>Verify transaction history</td>
+<td>Functional</td>
+<td>High</td>
+</tr>
+<tr>
+<td><a
+href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-parabank/03_Test_Cases/TC021%20%E2%80%93%20Verify%20Multiple%20Accounts%20Are%20Displayed.md">TC021</a></td>
+<td>Verify multiple accounts are displayed</td>
+<td>Functional</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td><a
+href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-parabank/03_Test_Cases/TC022%20%E2%80%93%20Verify%20Account%20Overview%20After%20Page%20Refresh.md">TC022</a></td>
+<td>Verify account overview after refresh</td>
+<td>Session</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td><a
+href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-parabank/03_Test_Cases/TC023%20%E2%80%93%20Verify%20Transaction%20History%20for%20a%20New%20Account.md">TC023</a></td>
+<td>Verify transaction history for a new account</td>
+<td>Functional</td>
+<td>Medium</td>
+</tr>
+</tbody>
+</table>
+<p><a href="#in-page-navigation">⬆ Back to Top</a></p>
+<hr />
+<h1 id="open-new-account">5. Open New Account</h1>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr>
+<th>ID</th>
+<th>Test Case</th>
+<th>Type</th>
+<th>Priority</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a
+href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-parabank/03_Test_Cases/TC024%20%E2%80%93%20Verify%20Opening%20a%20New%20Checking%20Account.md">TC024</a></td>
+<td>Verify opening a new checking account</td>
+<td>Functional</td>
+<td>High</td>
+</tr>
+<tr>
+<td><a
+href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-parabank/03_Test_Cases/TC025%20%E2%80%93%20Verify%20Opening%20a%20New%20Savings%20Account.md">TC025</a></td>
+<td>Verify opening a new savings account</td>
+<td>Functional</td>
+<td>High</td>
+</tr>
+<tr>
+<td><a
+href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-parabank/03_Test_Cases/TC026%20%E2%80%93%20Verify%20Newly%20Created%20Account%20Appears%20in%20Account%20Overview.md">TC026</a></td>
+<td>Verify newly created account appears in Account Overview</td>
+<td>Functional</td>
+<td>High</td>
+</tr>
+<tr>
+<td><a
+href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-parabank/03_Test_Cases/TC027%20%E2%80%93%20Verify%20New%20Account%20Receives%20a%20Unique%20Account%20Number.md">TC027</a></td>
+<td>Verify unique account number is generated</td>
+<td>Functional</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td><a
+href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-parabank/03_Test_Cases/TC028%20%E2%80%93%20Verify%20Initial%20Account%20Balance.md">TC028</a></td>
+<td>Verify initial account balance</td>
+<td>Functional</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td><a
+href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-parabank/03_Test_Cases/TC029%20%E2%80%93%20Verify%20Opening%20Multiple%20Accounts.md">TC029</a></td>
+<td>Verify opening multiple accounts</td>
+<td>Functional</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td><a
+href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-parabank/03_Test_Cases/TC030%20%E2%80%93%20Verify%20Account%20Creation%20Using%20Different%20Funding%20Accounts.md">TC030</a></td>
+<td>Verify account creation using different funding accounts</td>
+<td>Functional</td>
+<td>Medium</td>
+</tr>
+</tbody>
+</table>
+<p><a href="#in-page-navigation">⬆ Back to Top</a></p>
+<hr />
+<h1 id="transfer-funds">6. Transfer Funds</h1>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr>
+<th>ID</th>
+<th>Test Case</th>
+<th>Type</th>
+<th>Priority</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a
+href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-parabank/03_Test_Cases/TC031%20%E2%80%93%20Verify%20Successful%20Transfer%20Between%20Accounts.md">TC031</a></td>
+<td>Verify successful transfer between accounts</td>
+<td>Functional</td>
+<td>Critical</td>
+</tr>
+<tr>
+<td><a
+href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-parabank/03_Test_Cases/TC032%20%E2%80%93%20Verify%20Transfer%20of%20Entire%20Account%20Balance.md">TC032</a></td>
+<td>Verify transfer of entire account balance</td>
+<td>Functional</td>
+<td>High</td>
+</tr>
+<tr>
+<td><a
+href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-parabank/03_Test_Cases/TC033%20%E2%80%93%20Verify%20Transfer%20with%20Zero%20Amount.md">TC033</a></td>
+<td>Verify transfer with zero amount</td>
+<td>Negative</td>
+<td>High</td>
+</tr>
+<tr>
+<td><a
+href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-parabank/03_Test_Cases/TC034%20%E2%80%93%20Verify%20Transfer%20with%20Negative%20Amount.md">TC034</a></td>
+<td>Verify transfer with negative amount</td>
+<td>Negative</td>
+<td>High</td>
+</tr>
+<tr>
+<td><a
+href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-parabank/03_Test_Cases/TC035%20%E2%80%93%20Verify%20Transfer%20with%20Decimal%20Amount.md">TC035</a></td>
+<td>Verify transfer with decimal amount</td>
+<td>Functional</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td><a
+href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-parabank/03_Test_Cases/TC036%20%E2%80%93%20Verify%20Transfer%20with%20a%20Large%20Amount.md">TC036</a></td>
+<td>Verify transfer with a large amount</td>
+<td>Boundary</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td><a
+href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-parabank/03_Test_Cases/TC037%20%E2%80%93%20Verify%20Transfer%20Between%20the%20Same%20Account.md">TC037</a></td>
+<td>Verify transfer between the same account</td>
+<td>Negative</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td><a
+href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-parabank/03_Test_Cases/TC038%20%E2%80%93%20Verify%20Transfer%20with%20Empty%20Amount.md">TC038</a></td>
+<td>Verify transfer with empty amount</td>
+<td>Validation</td>
+<td>High</td>
+</tr>
+<tr>
+<td><a
+href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-parabank/03_Test_Cases/TC039%20%E2%80%93%20Verify%20Account%20Balances%20Update%20After%20Transfer.md">TC039</a></td>
+<td>Verify account balances update after transfer</td>
+<td>Functional</td>
+<td>Critical</td>
+</tr>
+<tr>
+<td><a
+href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-parabank/03_Test_Cases/TC040%20%E2%80%93%20Verify%20Transfer%20Confirmation%20Message.md">TC040</a></td>
+<td>Verify transfer confirmation message</td>
+<td>Functional</td>
+<td>High</td>
+</tr>
+</tbody>
+</table>
+<p><a href="#in-page-navigation">⬆ Back to Top</a></p>
+<hr />
+<h1 id="bill-payment">7. Bill Payment</h1>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr>
+<th>ID</th>
+<th>Test Case</th>
+<th>Type</th>
+<th>Priority</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a
+href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-parabank/03_Test_Cases/TC041%20%E2%80%93%20Verify%20Successful%20Bill%20Payment.md">TC041</a></td>
+<td>Verify successful bill payment</td>
+<td>Functional</td>
+<td>Critical</td>
+</tr>
+<tr>
+<td><a
+href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-parabank/03_Test_Cases/TC042%20%E2%80%93%20Verify%20Bill%20Payment%20with%20Empty%20Required%20Fields.md">TC042</a></td>
+<td>Verify bill payment with empty required fields</td>
+<td>Validation</td>
+<td>High</td>
+</tr>
+<tr>
+<td><a
+href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-parabank/03_Test_Cases/TC043%20%E2%80%93%20Verify%20Bill%20Payment%20with%20Non-Existent%20Account%20Number.md">TC043</a></td>
+<td>Verify bill payment with invalid account number</td>
+<td>Negative</td>
+<td>High</td>
+</tr>
+<tr>
+<td><a
+href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-parabank/03_Test_Cases/TC044%20%E2%80%93%20Verify%20Bill%20Payment%20with%20Empty%20Amount.md">TC044</a></td>
+<td>Verify bill payment with empty amount</td>
+<td>Validation</td>
+<td>High</td>
+</tr>
+<tr>
+<td><a
+href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-parabank/03_Test_Cases/TC045%20%E2%80%93%20Verify%20Bill%20Payment%20with%20Negative%20Amount.md">TC045</a></td>
+<td>Verify bill payment with negative amount</td>
+<td>Negative</td>
+<td>High</td>
+</tr>
+<tr>
+<td><a
+href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-parabank/03_Test_Cases/TC046%20%E2%80%93%20Verify%20Bill%20Payment%20with%20Decimal%20Amount.md">TC046</a></td>
+<td>Verify bill payment with decimal amount</td>
+<td>Functional</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td><a
+href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-parabank/03_Test_Cases/TC047%20%E2%80%93%20Verify%20Bill%20Payment%20with%20Invalid%20ZIP%20Code.md">TC047</a></td>
+<td>Verify bill payment with invalid ZIP code</td>
+<td>Negative</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td><a
+href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-parabank/03_Test_Cases/TC048%20%E2%80%93%20Verify%20Bill%20Payment%20with%20Invalid%20Phone%20Number.md">TC048</a></td>
+<td>Verify bill payment with invalid phone number</td>
+<td>Validation</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td><a
+href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-parabank/03_Test_Cases/TC049%20%E2%80%93%20Verify%20Payment%20Confirmation%20Message.md">TC049</a></td>
+<td>Verify payment confirmation message</td>
+<td>Functional</td>
+<td>High</td>
+</tr>
+</tbody>
+</table>
+<p><a href="#in-page-navigation">⬆ Back to Top</a></p>
+<hr />
+<h1 id="request-loan">8. Request Loan</h1>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr>
+<th>ID</th>
+<th>Test Case</th>
+<th>Type</th>
+<th>Priority</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a
+href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-parabank/03_Test_Cases/TC050%20%E2%80%93%20Verify%20Successful%20Loan%20Request.md">TC050</a></td>
+<td>Verify successful loan request</td>
+<td>Functional</td>
+<td>High</td>
+</tr>
+<tr>
+<td><a
+href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-parabank/03_Test_Cases/TC051%20%E2%80%93%20Verify%20Loan%20Request%20with%20Zero%20Amount.md">TC051</a></td>
+<td>Verify loan request with zero amount</td>
+<td>Negative</td>
+<td>High</td>
+</tr>
+<tr>
+<td><a
+href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-parabank/03_Test_Cases/TC052%20%E2%80%93%20Verify%20Loan%20Request%20with%20Negative%20Amount.md">TC052</a></td>
+<td>Verify loan request with negative amount</td>
+<td>Negative</td>
+<td>High</td>
+</tr>
+<tr>
+<td><a
+href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-parabank/03_Test_Cases/TC053%20%E2%80%93%20Verify%20Loan%20Request%20with%20Empty%20Required%20Fields.md">TC053</a></td>
+<td>Verify loan request with empty required fields</td>
+<td>Validation</td>
+<td>High</td>
+</tr>
+<tr>
+<td><a
+href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-parabank/03_Test_Cases/TC054%20%E2%80%93%20Verify%20Loan%20Request%20with%20a%20Large%20Amount.md">TC054</a></td>
+<td>Verify loan request with large amount</td>
+<td>Boundary</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td><a
+href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-parabank/03_Test_Cases/TC055%20%E2%80%93%20Verify%20Loan%20Request%20Using%20Different%20Accounts.md">TC055</a></td>
+<td>Verify loan request using different accounts</td>
+<td>Functional</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td><a
+href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-parabank/03_Test_Cases/TC056%20%E2%80%93%20Verify%20Loan%20Approval%20or%20Rejection%20Message.md">TC056</a></td>
+<td>Verify loan approval or rejection message</td>
+<td>Functional</td>
+<td>High</td>
+</tr>
+</tbody>
+</table>
+<p><a href="#in-page-navigation">⬆ Back to Top</a></p>
+<hr />
+<h1 id="navigation-logout">9. Navigation &amp; Logout</h1>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr>
+<th>ID</th>
+<th>Test Case</th>
+<th>Type</th>
+<th>Priority</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a
+href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-parabank/03_Test_Cases/TC057%20%E2%80%93%20Verify%20Home%20Page%20Navigation.md">TC057</a></td>
+<td>Verify Home navigation link</td>
+<td>UI / Navigation</td>
+<td>Low</td>
+</tr>
+<tr>
+<td><a
+href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-parabank/03_Test_Cases/TC058%20%E2%80%93%20Verify%20About%20Us%20Page.md">TC058</a></td>
+<td>Verify About Us page</td>
+<td>UI / Navigation</td>
+<td>Low</td>
+</tr>
+<tr>
+<td><a
+href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-parabank/03_Test_Cases/TC059%20%E2%80%93%20Verify%20Services%20Page%20Navigation.md">TC059</a></td>
+<td>Verify Services page</td>
+<td>UI / Navigation</td>
+<td>Low</td>
+</tr>
+<tr>
+<td><a
+href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-parabank/03_Test_Cases/TC060%20%E2%80%93%20Verify%20Contact%20Us%20Page.md">TC060</a></td>
+<td>Verify Contact page</td>
+<td>UI / Navigation</td>
+<td>Low</td>
+</tr>
+<tr>
+<td><a
+href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-parabank/03_Test_Cases/TC061%20%E2%80%93%20Verify%20Successful%20Logout.md">TC061</a></td>
+<td>Verify successful logout</td>
+<td>Functional</td>
+<td>High</td>
+</tr>
+<tr>
+<td><a
+href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-parabank/03_Test_Cases/TC062%20%E2%80%93%20Verify%20Browser%20Back%20Button%20After%20Logout.md">TC062</a></td>
+<td>Verify browser Back button after logout</td>
+<td>Security / Session</td>
+<td>High</td>
+</tr>
+</tbody>
+</table>
+<p><a href="#in-page-navigation">⬆ Back to Top</a></p>
+<hr />
+<h1 id="validation-negative-testing">10. Validation &amp; Negative
+Testing</h1>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr>
+<th>ID</th>
+<th>Test Case</th>
+<th>Type</th>
+<th>Priority</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a
+href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-parabank/03_Test_Cases/TC063%20%E2%80%93%20Verify%20SQL-Like%20Input%20Handling%20During%20User%20Registration.md">TC063</a></td>
+<td>Verify SQL injection-like input is handled safely</td>
+<td>Security</td>
+<td>High</td>
+</tr>
+<tr>
+<td><a
+href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-parabank/03_Test_Cases/TC064%20%E2%80%93%20Verify%20HTML%20JavaScript%20Input%20is%20Handled%20Safely.md">TC064</a></td>
+<td>Verify HTML/script input is handled safely</td>
+<td>Security</td>
+<td>High</td>
+</tr>
+<tr>
+<td><a
+href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-parabank/03_Test_Cases/TC065%20%E2%80%93%20Verify%20Maximum%20Input%20Length%20Validation.md">TC065</a></td>
+<td>Verify maximum input length validation</td>
+<td>Boundary</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td><a
+href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-parabank/03_Test_Cases/TC066%20%E2%80%93%20Verify%20Leading%20and%20Trailing%20Spaces%20in%20Input%20Fields.md">TC066</a></td>
+<td>Verify leading and trailing spaces in input fields</td>
+<td>Validation</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td><a
+href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-parabank/03_Test_Cases/TC067%20%E2%80%93%20Verify%20Unicode%20Characters%20in%20Text%20Fields.md">TC067</a></td>
+<td>Verify Unicode characters in text fields</td>
+<td>Validation</td>
+<td>Low</td>
+</tr>
+<tr>
+<td><a
+href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-parabank/03_Test_Cases/TC068%20%E2%80%93%20Verify%20Browser%20Refresh%20During%20Form%20Submission.md">TC068</a></td>
+<td>Verify browser refresh during form submission</td>
+<td>Session / Functional</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td><a
+href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-parabank/03_Test_Cases/TC069%20%E2%80%93%20Verify%20Double-Clicking%20the%20Submit%20Button.md">TC069</a></td>
+<td>Verify double-clicking the Submit button</td>
+<td>Negative / Usability</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td><a
+href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-parabank/03_Test_Cases/TC070%20%E2%80%93%20Verify%20Multiple%20Browser%20Tabs%20with%20the%20Same%20Session.md">TC070</a></td>
+<td>Verify multiple browser tabs with the same session</td>
+<td>Security / Session</td>
+<td>Medium</td>
+</tr>
+</tbody>
+</table>
+<p><a href="#in-page-navigation">⬆ Back to Top</a></p>
+<hr />
+<h1 id="test-design-coverage">Test Design Coverage</h1>
+<table>
+<thead>
+<tr>
+<th>Test Area</th>
+<th style="text-align: center;">Covered</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Functional Testing</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td>Negative Testing</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td>Boundary Testing</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td>Validation Testing</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td>Security Testing</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td>Session Testing</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td>UI Navigation Testing</td>
+<td style="text-align: center;">✅</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="test-case-status">Test Case Status</h1>
+<p>These test cases represent the designed test suite.</p>
+<p>Execution results are tracked separately:</p>
+<p>➡️ <a href="06_Test_Execution.md">06_Test_Execution.md</a></p>
+<hr />
+<p>⬅️ Back to QA ParaBank README</p>
+<p><a href="qa-parabank-README.md">QA-ParaBank-README.md</a></p>
+</body>
+</html>

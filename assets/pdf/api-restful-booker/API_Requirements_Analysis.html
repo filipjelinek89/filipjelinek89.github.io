@@ -1,0 +1,2743 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc 3.10.1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>API Requirements Analysis</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">API Requirements Analysis</h1>
+</header>
+<h1 id="api-requirements-analysis">API Requirements Analysis</h1>
+<p><strong>Project:</strong> Restful Booker API Testing Project
+<strong>Document Type:</strong> API Requirements Analysis
+<strong>Version:</strong> 1.0 <strong>Prepared by:</strong> Filip
+Jelinek <strong>Testing Type:</strong> REST API Testing <strong>Analysis
+Source:</strong> Published Restful Booker API Documentation
+<strong>Project Status:</strong> In Progress</p>
+<hr />
+<h1 id="in-page-navigation">In-page Navigation</h1>
+<ul>
+<li><a href="#1-purpose">1. Purpose</a></li>
+<li><a href="#2-analysis-objective">2. Analysis Objective</a></li>
+<li><a href="#3-source-of-requirements">3. Source of
+Requirements</a></li>
+<li><a href="#4-system-overview">4. System Overview</a></li>
+<li><a href="#5-api-architecture-overview">5. API Architecture
+Overview</a></li>
+<li><a href="#6-identified-api-resources">6. Identified API
+Resources</a></li>
+<li><a href="#7-endpoint-summary">7. Endpoint Summary</a></li>
+<li><a href="#8-general-api-requirements">8. General API
+Requirements</a></li>
+<li><a href="#9-health-check-requirements">9. Health Check
+Requirements</a></li>
+<li><a href="#10-authentication-requirements">10. Authentication
+Requirements</a></li>
+<li><a href="#11-get-booking-ids-requirements">11. Get Booking IDs
+Requirements</a></li>
+<li><a href="#12-get-booking-requirements">12. Get Booking
+Requirements</a></li>
+<li><a href="#13-create-booking-requirements">13. Create Booking
+Requirements</a></li>
+<li><a href="#14-update-booking-requirements">14. Update Booking
+Requirements</a></li>
+<li><a href="#15-partial-update-booking-requirements">15. Partial Update
+Booking Requirements</a></li>
+<li><a href="#16-delete-booking-requirements">16. Delete Booking
+Requirements</a></li>
+<li><a href="#17-booking-data-model-analysis">17. Booking Data Model
+Analysis</a></li>
+<li><a href="#18-authentication-model-analysis">18. Authentication Model
+Analysis</a></li>
+<li><a href="#19-path-parameter-analysis">19. Path Parameter
+Analysis</a></li>
+<li><a href="#20-query-parameter-analysis">20. Query Parameter
+Analysis</a></li>
+<li><a href="#21-request-header-analysis">21. Request Header
+Analysis</a></li>
+<li><a href="#22-response-analysis">22. Response Analysis</a></li>
+<li><a href="#23-http-status-code-analysis">23. HTTP Status Code
+Analysis</a></li>
+<li><a href="#24-data-type-analysis">24. Data Type Analysis</a></li>
+<li><a href="#25-required-and-optional-field-analysis">25. Required and
+Optional Field Analysis</a></li>
+<li><a href="#26-identified-api-dependencies">26. Identified API
+Dependencies</a></li>
+<li><a href="#27-identified-crud-workflow">27. Identified CRUD
+Workflow</a></li>
+<li><a href="#28-identified-positive-test-conditions">28. Identified
+Positive Test Conditions</a></li>
+<li><a href="#29-identified-negative-test-conditions">29. Identified
+Negative Test Conditions</a></li>
+<li><a href="#30-identified-boundary-test-conditions">30. Identified
+Boundary Test Conditions</a></li>
+<li><a href="#31-requirement-ambiguities-and-gaps">31. Requirement
+Ambiguities and Gaps</a></li>
+<li><a href="#32-api-environment-constraints">32. API Environment
+Constraints</a></li>
+<li><a href="#33-requirement-risk-analysis">33. Requirement Risk
+Analysis</a></li>
+<li><a href="#34-requirements-traceability-preparation">34. Requirements
+Traceability Preparation</a></li>
+<li><a href="#35-analysis-conclusions">35. Analysis Conclusions</a></li>
+</ul>
+<hr />
+<h1 id="purpose">1. Purpose</h1>
+<p>The purpose of this document is to analyse the published requirements
+and documented behaviour of the <strong>Restful Booker API</strong>
+before detailed API test scenario and test case design.</p>
+<p>The analysis identifies:</p>
+<ul>
+<li>Available API resources</li>
+<li>Supported HTTP methods</li>
+<li>API endpoints</li>
+<li>Authentication requirements</li>
+<li>Request headers</li>
+<li>Request bodies</li>
+<li>Path parameters</li>
+<li>Query parameters</li>
+<li>Response structures</li>
+<li>Documented HTTP status codes</li>
+<li>API data types</li>
+<li>API dependencies</li>
+<li>CRUD relationships</li>
+<li>Positive test conditions</li>
+<li>Negative test conditions</li>
+<li>Boundary test opportunities</li>
+<li>Requirement ambiguities</li>
+<li>Documentation gaps</li>
+<li>Public test environment constraints</li>
+</ul>
+<p>The analysis provides the requirements baseline used for API test
+design.</p>
+<p>Actual API behaviour will be independently validated during test
+execution.</p>
+<hr />
+<h1 id="analysis-objective">2. Analysis Objective</h1>
+<p>The objective of the API requirements analysis is to transform the
+published API documentation into structured and testable QA
+requirements.</p>
+<p>The analysis process follows this model:</p>
+<pre class="text"><code>Published API Documentation
+        ↓
+Identify API Resources
+        ↓
+Identify Endpoints
+        ↓
+Identify HTTP Methods
+        ↓
+Analyse Request Requirements
+        ↓
+Analyse Response Contract
+        ↓
+Identify Authentication Requirements
+        ↓
+Identify Endpoint Dependencies
+        ↓
+Identify Test Conditions
+        ↓
+Identify Requirement Gaps
+        ↓
+Create Test Scenarios
+        ↓
+Create Test Cases</code></pre>
+<p>The API documentation is treated as the initial specification.</p>
+<p>The analysis does not assume that the implemented API behaves
+correctly.</p>
+<hr />
+<h1 id="source-of-requirements">3. Source of Requirements</h1>
+<p>The primary source of requirements is the published <strong>Restful
+Booker API documentation</strong>.</p>
+<p>The documentation describes the following API operations:</p>
+<pre class="text"><code>Auth - CreateToken
+Booking - GetBookingIds
+Booking - GetBooking
+Booking - CreateBooking
+Booking - UpdateBooking
+Booking - PartialUpdateBooking
+Booking - DeleteBooking
+Ping - HealthCheck</code></pre>
+<p>The published documentation is used to identify the expected API
+contract.</p>
+<p>The public Restful Booker service also describes itself as a CRUD API
+with authentication functionality designed for API testing practice.</p>
+<p>The API is intentionally suitable for exploratory testing and defect
+investigation.</p>
+<h2 id="requirement-interpretation">Requirement Interpretation</h2>
+<p>Requirements are derived from:</p>
+<ol type="1">
+<li>Explicitly documented endpoint behaviour</li>
+<li>Documented request structures</li>
+<li>Documented response structures</li>
+<li>Documented parameter types</li>
+<li>Documented authentication requirements</li>
+<li>Documented status codes</li>
+<li>Standard HTTP semantics where documentation is incomplete</li>
+<li>Behavioural consistency between related API endpoints</li>
+</ol>
+<p>Where the documentation does not define a business rule, the
+condition is recorded as a requirement gap or ambiguity.</p>
+<p>An undocumented assumption is not automatically treated as a
+confirmed requirement.</p>
+<hr />
+<h1 id="system-overview">4. System Overview</h1>
+<p>Restful Booker is a web API that provides hotel booking management
+functionality.</p>
+<p>The primary API resource is:</p>
+<pre class="text"><code>Booking</code></pre>
+<p>The API supports operations to:</p>
+<pre class="text"><code>Create booking
+Read booking
+Update booking
+Partially update booking
+Delete booking</code></pre>
+<p>The API also provides:</p>
+<pre class="text"><code>Authentication token creation
+API health checking
+Booking filtering</code></pre>
+<p>The primary system workflow is:</p>
+<pre class="text"><code>Client
+   ↓
+HTTPS Request
+   ↓
+Restful Booker API
+   ↓
+Process Request
+   ↓
+HTTPS Response
+   ↓
+Client Validates Response</code></pre>
+<p>Testing is performed as black-box API testing.</p>
+<p>No direct access is available to:</p>
+<ul>
+<li>Application source code</li>
+<li>Database</li>
+<li>Server logs</li>
+<li>Internal services</li>
+<li>Infrastructure configuration</li>
+</ul>
+<hr />
+<h1 id="api-architecture-overview">5. API Architecture Overview</h1>
+<h2 id="api-type">API Type</h2>
+<pre class="text"><code>REST API</code></pre>
+<h2 id="communication-protocol">Communication Protocol</h2>
+<pre class="text"><code>HTTPS</code></pre>
+<h2 id="primary-data-format">Primary Data Format</h2>
+<pre class="text"><code>JSON</code></pre>
+<h2 id="base-url">Base URL</h2>
+<pre class="text"><code>https://restful-booker.herokuapp.com</code></pre>
+<h2 id="primary-resource">Primary Resource</h2>
+<pre class="text"><code>/booking</code></pre>
+<h2 id="supporting-resources">Supporting Resources</h2>
+<pre class="text"><code>/auth
+/ping</code></pre>
+<h2 id="identified-http-methods">Identified HTTP Methods</h2>
+<pre class="text"><code>GET
+POST
+PUT
+PATCH
+DELETE</code></pre>
+<p>The API architecture supports CRUD operations on booking
+resources.</p>
+<hr />
+<h1 id="identified-api-resources">6. Identified API Resources</h1>
+<p>Three primary API resource areas were identified.</p>
+<table>
+<thead>
+<tr>
+<th>Resource</th>
+<th>Endpoint</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Authentication</td>
+<td><code>/auth</code></td>
+<td>Create authentication token</td>
+</tr>
+<tr>
+<td>Booking</td>
+<td><code>/booking</code></td>
+<td>Manage booking resources</td>
+</tr>
+<tr>
+<td>Health Check</td>
+<td><code>/ping</code></td>
+<td>Verify API availability</td>
+</tr>
+</tbody>
+</table>
+<h2 id="authentication-resource">Authentication Resource</h2>
+<p>The authentication resource creates a token used for protected
+booking operations.</p>
+<h2 id="booking-resource">Booking Resource</h2>
+<p>The booking resource supports:</p>
+<ul>
+<li>Booking ID retrieval</li>
+<li>Booking filtering</li>
+<li>Individual booking retrieval</li>
+<li>Booking creation</li>
+<li>Full booking update</li>
+<li>Partial booking update</li>
+<li>Booking deletion</li>
+</ul>
+<h2 id="health-check-resource">Health Check Resource</h2>
+<p>The health-check resource verifies that the API is available.</p>
+<hr />
+<h1 id="endpoint-summary">7. Endpoint Summary</h1>
+<table>
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 34%" />
+<col style="width: 9%" />
+<col style="width: 23%" />
+<col style="width: 21%" />
+</colgroup>
+<thead>
+<tr>
+<th>ID</th>
+<th>API Operation</th>
+<th>Method</th>
+<th>Endpoint</th>
+<th>Authentication</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>API-001</td>
+<td>Health Check</td>
+<td>GET</td>
+<td><code>/ping</code></td>
+<td>No</td>
+</tr>
+<tr>
+<td>API-002</td>
+<td>Create Token</td>
+<td>POST</td>
+<td><code>/auth</code></td>
+<td>No</td>
+</tr>
+<tr>
+<td>API-003</td>
+<td>Get Booking IDs</td>
+<td>GET</td>
+<td><code>/booking</code></td>
+<td>No</td>
+</tr>
+<tr>
+<td>API-004</td>
+<td>Get Booking</td>
+<td>GET</td>
+<td><code>/booking/{id}</code></td>
+<td>No</td>
+</tr>
+<tr>
+<td>API-005</td>
+<td>Create Booking</td>
+<td>POST</td>
+<td><code>/booking</code></td>
+<td>No</td>
+</tr>
+<tr>
+<td>API-006</td>
+<td>Update Booking</td>
+<td>PUT</td>
+<td><code>/booking/{id}</code></td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>API-007</td>
+<td>Partial Update Booking</td>
+<td>PATCH</td>
+<td><code>/booking/{id}</code></td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>API-008</td>
+<td>Delete Booking</td>
+<td>DELETE</td>
+<td><code>/booking/{id}</code></td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<p>Eight documented API operations are included in the analysis
+baseline.</p>
+<hr />
+<h1 id="general-api-requirements">8. General API Requirements</h1>
+<p>The following general API requirements were identified.</p>
+<table>
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 89%" />
+</colgroup>
+<thead>
+<tr>
+<th>Requirement ID</th>
+<th>Requirement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>REQ-GEN-001</td>
+<td>The API shall be accessible using HTTPS.</td>
+</tr>
+<tr>
+<td>REQ-GEN-002</td>
+<td>The API shall expose documented REST endpoints.</td>
+</tr>
+<tr>
+<td>REQ-GEN-003</td>
+<td>The API shall process supported HTTP methods for the related
+endpoints.</td>
+</tr>
+<tr>
+<td>REQ-GEN-004</td>
+<td>The API shall return an HTTP response after processing a
+request.</td>
+</tr>
+<tr>
+<td>REQ-GEN-005</td>
+<td>JSON-based endpoints shall process supported JSON request payloads
+where a request body is required.</td>
+</tr>
+<tr>
+<td>REQ-GEN-006</td>
+<td>JSON-based responses shall provide response data in a
+JSON-compatible structure where documented.</td>
+</tr>
+<tr>
+<td>REQ-GEN-007</td>
+<td>API operations requiring authentication shall validate provided
+authentication credentials.</td>
+</tr>
+<tr>
+<td>REQ-GEN-008</td>
+<td>Booking operations shall operate on booking resources identified by
+booking IDs.</td>
+</tr>
+<tr>
+<td>REQ-GEN-009</td>
+<td>API behaviour shall be evaluated against the documented API
+contract.</td>
+</tr>
+<tr>
+<td>REQ-GEN-010</td>
+<td>Related API operations should provide behaviour sufficiently
+consistent to support the documented booking lifecycle.</td>
+</tr>
+</tbody>
+</table>
+<p>These requirements provide a general testing baseline.</p>
+<p>Detailed endpoint requirements are defined in the following
+sections.</p>
+<hr />
+<h1 id="health-check-requirements">9. Health Check Requirements</h1>
+<h2 id="endpoint">Endpoint</h2>
+<pre class="text"><code>GET /ping</code></pre>
+<h2 id="purpose-1">Purpose</h2>
+<p>The health-check endpoint is intended to verify whether the API is
+operational.</p>
+<h2 id="identified-requirements">Identified Requirements</h2>
+<table>
+<colgroup>
+<col style="width: 13%" />
+<col style="width: 86%" />
+</colgroup>
+<thead>
+<tr>
+<th>Requirement ID</th>
+<th>Requirement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>REQ-PING-001</td>
+<td>The API shall expose the <code>/ping</code> endpoint.</td>
+</tr>
+<tr>
+<td>REQ-PING-002</td>
+<td>The <code>/ping</code> endpoint shall support the GET method.</td>
+</tr>
+<tr>
+<td>REQ-PING-003</td>
+<td>A valid GET request to <code>/ping</code> shall return an HTTP
+response indicating API availability.</td>
+</tr>
+<tr>
+<td>REQ-PING-004</td>
+<td>The documented successful health-check response status shall be HTTP
+<code>201 Created</code>.</td>
+</tr>
+<tr>
+<td>REQ-PING-005</td>
+<td>Authentication shall not be required for the health-check
+request.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="identified-test-conditions">Identified Test Conditions</h2>
+<pre class="text"><code>Valid GET request
+Response status
+Response body
+Response headers
+Response time
+Unsupported HTTP method</code></pre>
+<h2 id="analysis-note">Analysis Note</h2>
+<p>The documented use of <code>201 Created</code> for a health-check GET
+request is unusual from an HTTP semantics perspective because the
+request does not appear to create a resource.</p>
+<p>The documented status code will initially be treated as the expected
+API contract.</p>
+<p>The observed behaviour will be recorded during execution.</p>
+<hr />
+<h1 id="authentication-requirements">10. Authentication
+Requirements</h1>
+<h2 id="endpoint-1">Endpoint</h2>
+<pre class="text"><code>POST /auth</code></pre>
+<h2 id="purpose-2">Purpose</h2>
+<p>The authentication endpoint creates an authentication token.</p>
+<p>The token is used for protected booking operations.</p>
+<h2 id="documented-request-body">Documented Request Body</h2>
+<div class="sourceCode" id="cb17"><pre
+class="sourceCode json"><code class="sourceCode json"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;username&quot;</span><span class="fu">:</span> <span class="st">&quot;admin&quot;</span><span class="fu">,</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;password&quot;</span><span class="fu">:</span> <span class="st">&quot;password123&quot;</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+<h2 id="identified-request-fields">Identified Request Fields</h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Documented Type</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>username</code></td>
+<td>String</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>password</code></td>
+<td>String</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<h2 id="identified-requirements-1">Identified Requirements</h2>
+<table>
+<colgroup>
+<col style="width: 14%" />
+<col style="width: 85%" />
+</colgroup>
+<thead>
+<tr>
+<th>Requirement ID</th>
+<th>Requirement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>REQ-AUTH-001</td>
+<td>The API shall expose the <code>/auth</code> endpoint.</td>
+</tr>
+<tr>
+<td>REQ-AUTH-002</td>
+<td>The <code>/auth</code> endpoint shall support POST requests.</td>
+</tr>
+<tr>
+<td>REQ-AUTH-003</td>
+<td>The authentication request shall accept a username.</td>
+</tr>
+<tr>
+<td>REQ-AUTH-004</td>
+<td>The authentication request shall accept a password.</td>
+</tr>
+<tr>
+<td>REQ-AUTH-005</td>
+<td>Valid authentication credentials shall produce an authentication
+token.</td>
+</tr>
+<tr>
+<td>REQ-AUTH-006</td>
+<td>A successful authentication response shall contain a
+<code>token</code> property.</td>
+</tr>
+<tr>
+<td>REQ-AUTH-007</td>
+<td>The authentication token shall be returned as a string.</td>
+</tr>
+<tr>
+<td>REQ-AUTH-008</td>
+<td>The generated token shall be usable for protected booking
+operations.</td>
+</tr>
+<tr>
+<td>REQ-AUTH-009</td>
+<td>Invalid authentication credentials shall not produce a valid
+authentication token.</td>
+</tr>
+<tr>
+<td>REQ-AUTH-010</td>
+<td>Authentication shall not require a previously generated
+authentication token.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="successful-response-structure">Successful Response
+Structure</h2>
+<div class="sourceCode" id="cb18"><pre
+class="sourceCode json"><code class="sourceCode json"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;token&quot;</span><span class="fu">:</span> <span class="st">&quot;abc123&quot;</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+<h2 id="identified-test-conditions-1">Identified Test Conditions</h2>
+<pre class="text"><code>Valid credentials
+Invalid username
+Invalid password
+Both credentials invalid
+Empty username
+Empty password
+Missing username
+Missing password
+Null username
+Null password
+Incorrect username data type
+Incorrect password data type
+Empty JSON object
+Empty request body
+Malformed JSON
+Missing Content-Type
+Incorrect Content-Type</code></pre>
+<h2 id="requirement-gap">Requirement Gap</h2>
+<p>The documentation does not clearly define:</p>
+<ul>
+<li>Token lifetime</li>
+<li>Token expiration behaviour</li>
+<li>Token revocation</li>
+<li>Maximum token length</li>
+<li>Authentication rate limits</li>
+<li>Account lockout behaviour</li>
+<li>Detailed invalid credential status codes</li>
+<li>Standardized authentication error schema</li>
+</ul>
+<p>These areas must be treated carefully during test design.</p>
+<hr />
+<h1 id="get-booking-ids-requirements">11. Get Booking IDs
+Requirements</h1>
+<h2 id="endpoint-2">Endpoint</h2>
+<pre class="text"><code>GET /booking</code></pre>
+<h2 id="purpose-3">Purpose</h2>
+<p>The endpoint returns booking IDs for bookings that exist in the
+API.</p>
+<p>Optional query parameters may be used to filter the returned booking
+IDs.</p>
+<h2 id="identified-requirements-2">Identified Requirements</h2>
+<table>
+<colgroup>
+<col style="width: 14%" />
+<col style="width: 85%" />
+</colgroup>
+<thead>
+<tr>
+<th>Requirement ID</th>
+<th>Requirement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>REQ-GETIDS-001</td>
+<td>The API shall expose the <code>/booking</code> endpoint.</td>
+</tr>
+<tr>
+<td>REQ-GETIDS-002</td>
+<td>The <code>/booking</code> endpoint shall support GET requests.</td>
+</tr>
+<tr>
+<td>REQ-GETIDS-003</td>
+<td>A valid GET request shall return booking identifiers.</td>
+</tr>
+<tr>
+<td>REQ-GETIDS-004</td>
+<td>The response shall use an array structure.</td>
+</tr>
+<tr>
+<td>REQ-GETIDS-005</td>
+<td>Each returned booking identifier object shall contain a
+<code>bookingid</code> property.</td>
+</tr>
+<tr>
+<td>REQ-GETIDS-006</td>
+<td>The <code>bookingid</code> value shall be numeric.</td>
+</tr>
+<tr>
+<td>REQ-GETIDS-007</td>
+<td>Authentication shall not be required.</td>
+</tr>
+<tr>
+<td>REQ-GETIDS-008</td>
+<td>The endpoint shall support documented booking filters.</td>
+</tr>
+<tr>
+<td>REQ-GETIDS-009</td>
+<td>Filtered requests shall return booking IDs matching the supported
+filter conditions.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="expected-response-structure">Expected Response Structure</h2>
+<div class="sourceCode" id="cb21"><pre
+class="sourceCode json"><code class="sourceCode json"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="ot">[</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">{</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;bookingid&quot;</span><span class="fu">:</span> <span class="dv">1</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">}</span><span class="ot">,</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">{</span></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;bookingid&quot;</span><span class="fu">:</span> <span class="dv">2</span></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">}</span></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a><span class="ot">]</span></span></code></pre></div>
+<h2 id="supported-query-parameters">Supported Query Parameters</h2>
+<pre class="text"><code>firstname
+lastname
+checkin
+checkout</code></pre>
+<h2 id="identified-test-conditions-2">Identified Test Conditions</h2>
+<pre class="text"><code>Retrieve all booking IDs
+Filter by firstname
+Filter by lastname
+Filter by checkin
+Filter by checkout
+Combine firstname and lastname
+Combine date filters
+Use multiple supported filters
+Non-existing firstname
+Non-existing lastname
+Empty filter value
+Invalid date format
+Unknown query parameter
+Special characters
+Unicode characters</code></pre>
+<h2 id="requirement-gap-1">Requirement Gap</h2>
+<p>The documentation does not explicitly define:</p>
+<ul>
+<li>Case sensitivity for name filters</li>
+<li>Partial-match behaviour</li>
+<li>Whitespace handling</li>
+<li>URL encoding expectations</li>
+<li>Behaviour for unknown query parameters</li>
+<li>Behaviour for empty query values</li>
+<li>Result ordering</li>
+<li>Pagination</li>
+<li>Maximum result count</li>
+</ul>
+<p>These conditions provide exploratory testing opportunities.</p>
+<hr />
+<h1 id="get-booking-requirements">12. Get Booking Requirements</h1>
+<h2 id="endpoint-3">Endpoint</h2>
+<pre class="text"><code>GET /booking/{id}</code></pre>
+<h2 id="purpose-4">Purpose</h2>
+<p>The endpoint returns the booking identified by the supplied booking
+ID.</p>
+<h2 id="path-parameter">Path Parameter</h2>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Documented Type</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>Number</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<h2 id="identified-requirements-3">Identified Requirements</h2>
+<table>
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 83%" />
+</colgroup>
+<thead>
+<tr>
+<th>Requirement ID</th>
+<th>Requirement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>REQ-GET-001</td>
+<td>The API shall support retrieving an individual booking by booking
+ID.</td>
+</tr>
+<tr>
+<td>REQ-GET-002</td>
+<td>The request shall contain a booking ID in the endpoint path.</td>
+</tr>
+<tr>
+<td>REQ-GET-003</td>
+<td>An existing booking ID shall return the related booking data.</td>
+</tr>
+<tr>
+<td>REQ-GET-004</td>
+<td>A successful booking response shall contain booking data.</td>
+</tr>
+<tr>
+<td>REQ-GET-005</td>
+<td>The returned booking data shall correspond to the requested booking
+ID.</td>
+</tr>
+<tr>
+<td>REQ-GET-006</td>
+<td>Authentication shall not be required.</td>
+</tr>
+<tr>
+<td>REQ-GET-007</td>
+<td>The booking response shall contain the documented booking
+properties.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="expected-booking-response">Expected Booking Response</h2>
+<div class="sourceCode" id="cb25"><pre
+class="sourceCode json"><code class="sourceCode json"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;firstname&quot;</span><span class="fu">:</span> <span class="st">&quot;Jim&quot;</span><span class="fu">,</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;lastname&quot;</span><span class="fu">:</span> <span class="st">&quot;Brown&quot;</span><span class="fu">,</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;totalprice&quot;</span><span class="fu">:</span> <span class="dv">111</span><span class="fu">,</span></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;depositpaid&quot;</span><span class="fu">:</span> <span class="kw">true</span><span class="fu">,</span></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;bookingdates&quot;</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;checkin&quot;</span><span class="fu">:</span> <span class="st">&quot;2018-01-01&quot;</span><span class="fu">,</span></span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;checkout&quot;</span><span class="fu">:</span> <span class="st">&quot;2019-01-01&quot;</span></span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">},</span></span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;additionalneeds&quot;</span><span class="fu">:</span> <span class="st">&quot;Breakfast&quot;</span></span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+<h2 id="identified-test-conditions-3">Identified Test Conditions</h2>
+<pre class="text"><code>Existing booking ID
+Non-existing booking ID
+Booking ID = 0
+Negative booking ID
+String booking ID
+Decimal booking ID
+Special-character booking ID
+Very large booking ID
+Missing booking ID path segment</code></pre>
+<h2 id="requirement-gap-2">Requirement Gap</h2>
+<p>The documentation does not define a detailed error response schema
+for an invalid or non-existing booking ID.</p>
+<p>This behaviour must be observed during test execution.</p>
+<hr />
+<h1 id="create-booking-requirements">13. Create Booking
+Requirements</h1>
+<h2 id="endpoint-4">Endpoint</h2>
+<pre class="text"><code>POST /booking</code></pre>
+<h2 id="purpose-5">Purpose</h2>
+<p>The endpoint creates a new booking.</p>
+<h2 id="documented-request-body-1">Documented Request Body</h2>
+<div class="sourceCode" id="cb28"><pre
+class="sourceCode json"><code class="sourceCode json"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;firstname&quot;</span><span class="fu">:</span> <span class="st">&quot;Jim&quot;</span><span class="fu">,</span></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;lastname&quot;</span><span class="fu">:</span> <span class="st">&quot;Brown&quot;</span><span class="fu">,</span></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;totalprice&quot;</span><span class="fu">:</span> <span class="dv">111</span><span class="fu">,</span></span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;depositpaid&quot;</span><span class="fu">:</span> <span class="kw">true</span><span class="fu">,</span></span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;bookingdates&quot;</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;checkin&quot;</span><span class="fu">:</span> <span class="st">&quot;2018-01-01&quot;</span><span class="fu">,</span></span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;checkout&quot;</span><span class="fu">:</span> <span class="st">&quot;2019-01-01&quot;</span></span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">},</span></span>
+<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;additionalneeds&quot;</span><span class="fu">:</span> <span class="st">&quot;Breakfast&quot;</span></span>
+<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+<h2 id="identified-request-fields-1">Identified Request Fields</h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Documented Type</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>firstname</code></td>
+<td>String</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>lastname</code></td>
+<td>String</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>totalprice</code></td>
+<td>Number</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>depositpaid</code></td>
+<td>Boolean</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>bookingdates</code></td>
+<td>Object</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>bookingdates.checkin</code></td>
+<td>Date</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>bookingdates.checkout</code></td>
+<td>Date</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>additionalneeds</code></td>
+<td>String</td>
+<td>No</td>
+</tr>
+</tbody>
+</table>
+<h2 id="identified-requirements-4">Identified Requirements</h2>
+<table>
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 83%" />
+</colgroup>
+<thead>
+<tr>
+<th>Requirement ID</th>
+<th>Requirement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>REQ-CREATE-001</td>
+<td>The API shall support booking creation using POST
+<code>/booking</code>.</td>
+</tr>
+<tr>
+<td>REQ-CREATE-002</td>
+<td>A booking creation request shall accept a JSON booking payload.</td>
+</tr>
+<tr>
+<td>REQ-CREATE-003</td>
+<td>The booking payload shall support <code>firstname</code>.</td>
+</tr>
+<tr>
+<td>REQ-CREATE-004</td>
+<td>The booking payload shall support <code>lastname</code>.</td>
+</tr>
+<tr>
+<td>REQ-CREATE-005</td>
+<td>The booking payload shall support <code>totalprice</code>.</td>
+</tr>
+<tr>
+<td>REQ-CREATE-006</td>
+<td>The booking payload shall support <code>depositpaid</code>.</td>
+</tr>
+<tr>
+<td>REQ-CREATE-007</td>
+<td>The booking payload shall support a <code>bookingdates</code>
+object.</td>
+</tr>
+<tr>
+<td>REQ-CREATE-008</td>
+<td>The <code>bookingdates</code> object shall support
+<code>checkin</code>.</td>
+</tr>
+<tr>
+<td>REQ-CREATE-009</td>
+<td>The <code>bookingdates</code> object shall support
+<code>checkout</code>.</td>
+</tr>
+<tr>
+<td>REQ-CREATE-010</td>
+<td>The booking payload may contain <code>additionalneeds</code>.</td>
+</tr>
+<tr>
+<td>REQ-CREATE-011</td>
+<td>A successfully created booking shall receive a booking ID.</td>
+</tr>
+<tr>
+<td>REQ-CREATE-012</td>
+<td>The creation response shall contain a <code>bookingid</code>
+property.</td>
+</tr>
+<tr>
+<td>REQ-CREATE-013</td>
+<td>The creation response shall contain a <code>booking</code>
+object.</td>
+</tr>
+<tr>
+<td>REQ-CREATE-014</td>
+<td>The returned booking data shall correspond to the submitted booking
+data.</td>
+</tr>
+<tr>
+<td>REQ-CREATE-015</td>
+<td>Authentication shall not be required for booking creation.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="expected-successful-response-structure">Expected Successful
+Response Structure</h2>
+<div class="sourceCode" id="cb29"><pre
+class="sourceCode json"><code class="sourceCode json"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;bookingid&quot;</span><span class="fu">:</span> <span class="dv">1</span><span class="fu">,</span></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;booking&quot;</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;firstname&quot;</span><span class="fu">:</span> <span class="st">&quot;Jim&quot;</span><span class="fu">,</span></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;lastname&quot;</span><span class="fu">:</span> <span class="st">&quot;Brown&quot;</span><span class="fu">,</span></span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;totalprice&quot;</span><span class="fu">:</span> <span class="dv">111</span><span class="fu">,</span></span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;depositpaid&quot;</span><span class="fu">:</span> <span class="kw">true</span><span class="fu">,</span></span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;bookingdates&quot;</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&quot;checkin&quot;</span><span class="fu">:</span> <span class="st">&quot;2018-01-01&quot;</span><span class="fu">,</span></span>
+<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&quot;checkout&quot;</span><span class="fu">:</span> <span class="st">&quot;2019-01-01&quot;</span></span>
+<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">},</span></span>
+<span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;additionalneeds&quot;</span><span class="fu">:</span> <span class="st">&quot;Breakfast&quot;</span></span>
+<span id="cb29-13"><a href="#cb29-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">}</span></span>
+<span id="cb29-14"><a href="#cb29-14" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+<h2 id="identified-test-conditions-4">Identified Test Conditions</h2>
+<pre class="text"><code>Valid complete booking
+Valid booking without additionalneeds
+Missing firstname
+Missing lastname
+Missing totalprice
+Missing depositpaid
+Missing bookingdates
+Missing checkin
+Missing checkout
+Null fields
+Empty strings
+Incorrect data types
+Negative totalprice
+Zero totalprice
+Large totalprice
+Invalid boolean values
+Invalid date formats
+Check-in equals checkout
+Checkout before check-in
+Unexpected properties
+Empty JSON object
+Empty request body
+Malformed JSON</code></pre>
+<h2 id="requirement-gaps">Requirement Gaps</h2>
+<p>The documentation does not define:</p>
+<ul>
+<li>Minimum firstname length</li>
+<li>Maximum firstname length</li>
+<li>Minimum lastname length</li>
+<li>Maximum lastname length</li>
+<li>Allowed name characters</li>
+<li>Minimum total price</li>
+<li>Maximum total price</li>
+<li>Decimal price behaviour</li>
+<li>Date range restrictions</li>
+<li>Whether check-in must be before checkout</li>
+<li>Whether past booking dates are allowed</li>
+<li>Maximum additional needs length</li>
+<li>Behaviour for unknown JSON properties</li>
+</ul>
+<p>These gaps are significant negative and boundary testing
+opportunities.</p>
+<hr />
+<h1 id="update-booking-requirements">14. Update Booking
+Requirements</h1>
+<h2 id="endpoint-5">Endpoint</h2>
+<pre class="text"><code>PUT /booking/{id}</code></pre>
+<h2 id="purpose-6">Purpose</h2>
+<p>The endpoint performs a full update of an existing booking.</p>
+<h2 id="authentication">Authentication</h2>
+<p>Authentication is required.</p>
+<p>The documentation supports authentication using:</p>
+<pre class="text"><code>Cookie: token=&lt;token&gt;</code></pre>
+<p>or HTTP Basic authentication.</p>
+<h2 id="identified-requirements-5">Identified Requirements</h2>
+<table>
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 84%" />
+</colgroup>
+<thead>
+<tr>
+<th>Requirement ID</th>
+<th>Requirement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>REQ-PUT-001</td>
+<td>The API shall support full booking updates using PUT.</td>
+</tr>
+<tr>
+<td>REQ-PUT-002</td>
+<td>The request shall identify the booking using a booking ID.</td>
+</tr>
+<tr>
+<td>REQ-PUT-003</td>
+<td>The operation shall require valid authentication.</td>
+</tr>
+<tr>
+<td>REQ-PUT-004</td>
+<td>A valid authenticated request shall update the identified
+booking.</td>
+</tr>
+<tr>
+<td>REQ-PUT-005</td>
+<td>The request shall accept a complete booking payload.</td>
+</tr>
+<tr>
+<td>REQ-PUT-006</td>
+<td>The response shall contain the updated booking data.</td>
+</tr>
+<tr>
+<td>REQ-PUT-007</td>
+<td>Updated values shall correspond to the submitted values.</td>
+</tr>
+<tr>
+<td>REQ-PUT-008</td>
+<td>Updated booking data shall be retrievable after the update.</td>
+</tr>
+<tr>
+<td>REQ-PUT-009</td>
+<td>Unauthorized requests shall not successfully update protected
+booking data.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="expected-request-structure">Expected Request Structure</h2>
+<div class="sourceCode" id="cb33"><pre
+class="sourceCode json"><code class="sourceCode json"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;firstname&quot;</span><span class="fu">:</span> <span class="st">&quot;James&quot;</span><span class="fu">,</span></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;lastname&quot;</span><span class="fu">:</span> <span class="st">&quot;Brown&quot;</span><span class="fu">,</span></span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;totalprice&quot;</span><span class="fu">:</span> <span class="dv">111</span><span class="fu">,</span></span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;depositpaid&quot;</span><span class="fu">:</span> <span class="kw">true</span><span class="fu">,</span></span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;bookingdates&quot;</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;checkin&quot;</span><span class="fu">:</span> <span class="st">&quot;2018-01-01&quot;</span><span class="fu">,</span></span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;checkout&quot;</span><span class="fu">:</span> <span class="st">&quot;2019-01-01&quot;</span></span>
+<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">},</span></span>
+<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;additionalneeds&quot;</span><span class="fu">:</span> <span class="st">&quot;Breakfast&quot;</span></span>
+<span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+<h2 id="identified-test-conditions-5">Identified Test Conditions</h2>
+<pre class="text"><code>Valid token
+Valid Basic authentication
+Missing authentication
+Invalid token
+Modified token
+Existing booking ID
+Non-existing booking ID
+Complete valid payload
+Missing firstname
+Missing lastname
+Missing bookingdates
+Empty JSON object
+Empty request body
+Incorrect data types
+Malformed JSON</code></pre>
+<h2 id="requirement-gap-3">Requirement Gap</h2>
+<p>The documentation does not clearly define whether PUT strictly
+requires every documented booking field.</p>
+<p>This must be validated experimentally.</p>
+<hr />
+<h1 id="partial-update-booking-requirements">15. Partial Update Booking
+Requirements</h1>
+<h2 id="endpoint-6">Endpoint</h2>
+<pre class="text"><code>PATCH /booking/{id}</code></pre>
+<h2 id="purpose-7">Purpose</h2>
+<p>The endpoint performs a partial update of an existing booking.</p>
+<h2 id="authentication-1">Authentication</h2>
+<p>Authentication is required.</p>
+<h2 id="identified-requirements-6">Identified Requirements</h2>
+<table>
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 84%" />
+</colgroup>
+<thead>
+<tr>
+<th>Requirement ID</th>
+<th>Requirement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>REQ-PATCH-001</td>
+<td>The API shall support partial booking updates using PATCH.</td>
+</tr>
+<tr>
+<td>REQ-PATCH-002</td>
+<td>The request shall identify the booking using a booking ID.</td>
+</tr>
+<tr>
+<td>REQ-PATCH-003</td>
+<td>The operation shall require valid authentication.</td>
+</tr>
+<tr>
+<td>REQ-PATCH-004</td>
+<td>The request may contain selected booking properties.</td>
+</tr>
+<tr>
+<td>REQ-PATCH-005</td>
+<td>Submitted properties shall be updated.</td>
+</tr>
+<tr>
+<td>REQ-PATCH-006</td>
+<td>Properties not included in the request should remain unchanged.</td>
+</tr>
+<tr>
+<td>REQ-PATCH-007</td>
+<td>The response shall contain the updated booking data.</td>
+</tr>
+<tr>
+<td>REQ-PATCH-008</td>
+<td>Updated data shall remain retrievable after the operation.</td>
+</tr>
+<tr>
+<td>REQ-PATCH-009</td>
+<td>Unauthorized requests shall not successfully modify protected
+booking data.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="documented-partial-request-example">Documented Partial Request
+Example</h2>
+<div class="sourceCode" id="cb36"><pre
+class="sourceCode json"><code class="sourceCode json"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;firstname&quot;</span><span class="fu">:</span> <span class="st">&quot;James&quot;</span><span class="fu">,</span></span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;lastname&quot;</span><span class="fu">:</span> <span class="st">&quot;Brown&quot;</span></span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+<h2 id="identified-test-conditions-6">Identified Test Conditions</h2>
+<pre class="text"><code>Update firstname only
+Update lastname only
+Update totalprice only
+Update depositpaid only
+Update bookingdates
+Update additionalneeds
+Update multiple properties
+Empty JSON object
+Empty request body
+Null property
+Incorrect data type
+Unexpected property
+Missing authentication
+Invalid token
+Modified token
+Non-existing booking ID</code></pre>
+<h2 id="requirement-gaps-1">Requirement Gaps</h2>
+<p>The documentation does not clearly define:</p>
+<ul>
+<li>Behaviour of an empty PATCH object</li>
+<li>Behaviour of null property values</li>
+<li>Behaviour of unknown properties</li>
+<li>Nested partial update semantics for <code>bookingdates</code></li>
+<li>Whether invalid properties are ignored or rejected</li>
+</ul>
+<p>These areas require exploratory testing.</p>
+<hr />
+<h1 id="delete-booking-requirements">16. Delete Booking
+Requirements</h1>
+<h2 id="endpoint-7">Endpoint</h2>
+<pre class="text"><code>DELETE /booking/{id}</code></pre>
+<h2 id="purpose-8">Purpose</h2>
+<p>The endpoint deletes an existing booking.</p>
+<h2 id="authentication-2">Authentication</h2>
+<p>Authentication is required.</p>
+<h2 id="identified-requirements-7">Identified Requirements</h2>
+<table>
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 84%" />
+</colgroup>
+<thead>
+<tr>
+<th>Requirement ID</th>
+<th>Requirement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>REQ-DELETE-001</td>
+<td>The API shall support booking deletion using DELETE.</td>
+</tr>
+<tr>
+<td>REQ-DELETE-002</td>
+<td>The request shall identify the booking using a booking ID.</td>
+</tr>
+<tr>
+<td>REQ-DELETE-003</td>
+<td>The operation shall require valid authentication.</td>
+</tr>
+<tr>
+<td>REQ-DELETE-004</td>
+<td>A valid authenticated request shall delete the identified
+booking.</td>
+</tr>
+<tr>
+<td>REQ-DELETE-005</td>
+<td>A deleted booking shall no longer be retrievable as an existing
+booking.</td>
+</tr>
+<tr>
+<td>REQ-DELETE-006</td>
+<td>Unauthorized requests shall not successfully delete protected
+booking data.</td>
+</tr>
+<tr>
+<td>REQ-DELETE-007</td>
+<td>The documented successful deletion response status shall be HTTP
+<code>201 Created</code>.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="identified-test-conditions-7">Identified Test Conditions</h2>
+<pre class="text"><code>Delete existing booking
+Verify deleted booking
+Delete without authentication
+Delete with invalid token
+Delete with modified token
+Delete non-existing booking
+Delete booking ID = 0
+Delete negative booking ID
+Delete string booking ID
+Delete same booking twice</code></pre>
+<h2 id="analysis-note-1">Analysis Note</h2>
+<p>The documented <code>201 Created</code> response for a DELETE
+operation is unusual from an HTTP semantics perspective.</p>
+<p>The documented value is treated as the initial API contract and will
+be compared with actual behaviour.</p>
+<hr />
+<h1 id="booking-data-model-analysis">17. Booking Data Model
+Analysis</h1>
+<p>The primary booking data model contains the following properties.</p>
+<table>
+<colgroup>
+<col style="width: 28%" />
+<col style="width: 31%" />
+<col style="width: 18%" />
+<col style="width: 21%" />
+</colgroup>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Structure</th>
+<th>Requirement Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>firstname</code></td>
+<td>String</td>
+<td>Primitive</td>
+<td>Required</td>
+</tr>
+<tr>
+<td><code>lastname</code></td>
+<td>String</td>
+<td>Primitive</td>
+<td>Required</td>
+</tr>
+<tr>
+<td><code>totalprice</code></td>
+<td>Number</td>
+<td>Primitive</td>
+<td>Required</td>
+</tr>
+<tr>
+<td><code>depositpaid</code></td>
+<td>Boolean</td>
+<td>Primitive</td>
+<td>Required</td>
+</tr>
+<tr>
+<td><code>bookingdates</code></td>
+<td>Object</td>
+<td>Nested object</td>
+<td>Required</td>
+</tr>
+<tr>
+<td><code>bookingdates.checkin</code></td>
+<td>Date/String representation</td>
+<td>Nested property</td>
+<td>Required</td>
+</tr>
+<tr>
+<td><code>bookingdates.checkout</code></td>
+<td>Date/String representation</td>
+<td>Nested property</td>
+<td>Required</td>
+</tr>
+<tr>
+<td><code>additionalneeds</code></td>
+<td>String</td>
+<td>Primitive</td>
+<td>Optional</td>
+</tr>
+</tbody>
+</table>
+<h2 id="logical-model">Logical Model</h2>
+<pre class="text"><code>Booking
+│
+├── firstname
+├── lastname
+├── totalprice
+├── depositpaid
+├── bookingdates
+│   ├── checkin
+│   └── checkout
+└── additionalneeds</code></pre>
+<h2 id="identified-validation-areas">Identified Validation Areas</h2>
+<pre class="text"><code>Property existence
+Data type
+Null handling
+Empty value handling
+Boundary values
+Nested object structure
+Date format
+Date relationship
+Unexpected properties
+Data persistence</code></pre>
+<hr />
+<h1 id="authentication-model-analysis">18. Authentication Model
+Analysis</h1>
+<p>The API provides a token-generation endpoint.</p>
+<p>Authentication workflow:</p>
+<pre class="text"><code>POST /auth
+      ↓
+Submit Credentials
+      ↓
+Receive Token
+      ↓
+Store Token
+      ↓
+Send Token with Protected Request</code></pre>
+<p>Protected operations identified:</p>
+<pre class="text"><code>PUT /booking/{id}
+PATCH /booking/{id}
+DELETE /booking/{id}</code></pre>
+<p>Unprotected operations identified:</p>
+<pre class="text"><code>GET /ping
+POST /auth
+GET /booking
+GET /booking/{id}
+POST /booking</code></pre>
+<h2 id="cookie-authentication-model">Cookie Authentication Model</h2>
+<pre class="text"><code>Cookie: token={{authToken}}</code></pre>
+<h2 id="basic-authentication">Basic Authentication</h2>
+<p>The documentation also identifies Basic authentication as an option
+for protected booking operations.</p>
+<h2 id="testing-implications">Testing Implications</h2>
+<p>Authentication testing must validate:</p>
+<pre class="text"><code>Valid token
+Missing token
+Invalid token
+Modified token
+Valid Basic authentication
+Invalid Basic authentication</code></pre>
+<p>The project should verify authentication independently for PUT,
+PATCH, and DELETE.</p>
+<p>Successful authentication on one protected method does not prove
+enforcement on another endpoint.</p>
+<hr />
+<h1 id="path-parameter-analysis">19. Path Parameter Analysis</h1>
+<p>The booking resource uses a booking ID as a path parameter.</p>
+<p>Example:</p>
+<pre class="text"><code>/booking/{id}</code></pre>
+<h2 id="documented-parameter">Documented Parameter</h2>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>Number</td>
+</tr>
+</tbody>
+</table>
+<h2 id="identified-equivalence-classes">Identified Equivalence
+Classes</h2>
+<pre class="text"><code>Existing positive integer
+Non-existing positive integer
+Zero
+Negative integer
+Decimal number
+Alphabetic string
+Alphanumeric string
+Special characters
+Very large number</code></pre>
+<h2 id="testing-objective">Testing Objective</h2>
+<p>Validate:</p>
+<ul>
+<li>Resource identification</li>
+<li>Parameter parsing</li>
+<li>Invalid path handling</li>
+<li>Non-existing resource handling</li>
+<li>Error response consistency</li>
+</ul>
+<hr />
+<h1 id="query-parameter-analysis">20. Query Parameter Analysis</h1>
+<p>The Get Booking IDs operation supports optional filters.</p>
+<h2 id="identified-query-parameters">Identified Query Parameters</h2>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Documented Type</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>firstname</code></td>
+<td>String</td>
+<td>Filter bookings by first name</td>
+</tr>
+<tr>
+<td><code>lastname</code></td>
+<td>String</td>
+<td>Filter bookings by last name</td>
+</tr>
+<tr>
+<td><code>checkin</code></td>
+<td>Date</td>
+<td>Filter by check-in date</td>
+</tr>
+<tr>
+<td><code>checkout</code></td>
+<td>Date</td>
+<td>Filter by checkout date</td>
+</tr>
+</tbody>
+</table>
+<h2 id="query-testing-model">Query Testing Model</h2>
+<pre class="text"><code>No Filter
+   ↓
+Single Filter
+   ↓
+Alternative Single Filter
+   ↓
+Combined Filters
+   ↓
+Invalid Filter Value
+   ↓
+Empty Filter Value
+   ↓
+Unknown Filter</code></pre>
+<h2 id="identified-test-conditions-8">Identified Test Conditions</h2>
+<pre class="text"><code>Exact name
+Different case
+Partial name
+Leading whitespace
+Trailing whitespace
+Special characters
+Unicode
+Valid date
+Invalid date
+Empty value
+Unknown parameter
+Multiple parameters</code></pre>
+<p>The actual matching logic must be verified during execution.</p>
+<hr />
+<h1 id="request-header-analysis">21. Request Header Analysis</h1>
+<p>The documentation identifies <code>Content-Type</code> for requests
+containing payload data.</p>
+<p>Primary expected value:</p>
+<pre class="text"><code>Content-Type: application/json</code></pre>
+<p>The documentation also references:</p>
+<pre class="text"><code>application/xml</code></pre>
+<p>for supported payload formats on selected operations.</p>
+<p>Protected booking requests may use:</p>
+<pre class="text"><code>Cookie: token=&lt;token&gt;</code></pre>
+<h2 id="identified-header-test-conditions">Identified Header Test
+Conditions</h2>
+<pre class="text"><code>Correct Content-Type
+Missing Content-Type
+Incorrect Content-Type
+Unsupported Content-Type
+Valid Cookie token
+Missing Cookie header
+Invalid Cookie token
+Modified Cookie token</code></pre>
+<h2 id="requirement-gap-4">Requirement Gap</h2>
+<p>The documentation does not define a standardized response for
+unsupported media types.</p>
+<p>Actual API behaviour must be analysed.</p>
+<hr />
+<h1 id="response-analysis">22. Response Analysis</h1>
+<p>API responses vary by endpoint.</p>
+<h2 id="authentication-response">Authentication Response</h2>
+<div class="sourceCode" id="cb55"><pre
+class="sourceCode json"><code class="sourceCode json"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;token&quot;</span><span class="fu">:</span> <span class="st">&quot;abc123&quot;</span></span>
+<span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+<h2 id="booking-id-list-response">Booking ID List Response</h2>
+<div class="sourceCode" id="cb56"><pre
+class="sourceCode json"><code class="sourceCode json"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="ot">[</span></span>
+<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">{</span></span>
+<span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;bookingid&quot;</span><span class="fu">:</span> <span class="dv">1</span></span>
+<span id="cb56-4"><a href="#cb56-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">}</span></span>
+<span id="cb56-5"><a href="#cb56-5" aria-hidden="true" tabindex="-1"></a><span class="ot">]</span></span></code></pre></div>
+<h2 id="booking-response">Booking Response</h2>
+<div class="sourceCode" id="cb57"><pre
+class="sourceCode json"><code class="sourceCode json"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;firstname&quot;</span><span class="fu">:</span> <span class="st">&quot;Jim&quot;</span><span class="fu">,</span></span>
+<span id="cb57-3"><a href="#cb57-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;lastname&quot;</span><span class="fu">:</span> <span class="st">&quot;Brown&quot;</span><span class="fu">,</span></span>
+<span id="cb57-4"><a href="#cb57-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;totalprice&quot;</span><span class="fu">:</span> <span class="dv">111</span><span class="fu">,</span></span>
+<span id="cb57-5"><a href="#cb57-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;depositpaid&quot;</span><span class="fu">:</span> <span class="kw">true</span><span class="fu">,</span></span>
+<span id="cb57-6"><a href="#cb57-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;bookingdates&quot;</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb57-7"><a href="#cb57-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;checkin&quot;</span><span class="fu">:</span> <span class="st">&quot;2018-01-01&quot;</span><span class="fu">,</span></span>
+<span id="cb57-8"><a href="#cb57-8" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;checkout&quot;</span><span class="fu">:</span> <span class="st">&quot;2019-01-01&quot;</span></span>
+<span id="cb57-9"><a href="#cb57-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">},</span></span>
+<span id="cb57-10"><a href="#cb57-10" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;additionalneeds&quot;</span><span class="fu">:</span> <span class="st">&quot;Breakfast&quot;</span></span>
+<span id="cb57-11"><a href="#cb57-11" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+<h2 id="booking-creation-response">Booking Creation Response</h2>
+<div class="sourceCode" id="cb58"><pre
+class="sourceCode json"><code class="sourceCode json"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;bookingid&quot;</span><span class="fu">:</span> <span class="dv">1</span><span class="fu">,</span></span>
+<span id="cb58-3"><a href="#cb58-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;booking&quot;</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb58-4"><a href="#cb58-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;firstname&quot;</span><span class="fu">:</span> <span class="st">&quot;Jim&quot;</span><span class="fu">,</span></span>
+<span id="cb58-5"><a href="#cb58-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;lastname&quot;</span><span class="fu">:</span> <span class="st">&quot;Brown&quot;</span><span class="fu">,</span></span>
+<span id="cb58-6"><a href="#cb58-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;totalprice&quot;</span><span class="fu">:</span> <span class="dv">111</span><span class="fu">,</span></span>
+<span id="cb58-7"><a href="#cb58-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;depositpaid&quot;</span><span class="fu">:</span> <span class="kw">true</span><span class="fu">,</span></span>
+<span id="cb58-8"><a href="#cb58-8" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;bookingdates&quot;</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb58-9"><a href="#cb58-9" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&quot;checkin&quot;</span><span class="fu">:</span> <span class="st">&quot;2018-01-01&quot;</span><span class="fu">,</span></span>
+<span id="cb58-10"><a href="#cb58-10" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&quot;checkout&quot;</span><span class="fu">:</span> <span class="st">&quot;2019-01-01&quot;</span></span>
+<span id="cb58-11"><a href="#cb58-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">},</span></span>
+<span id="cb58-12"><a href="#cb58-12" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;additionalneeds&quot;</span><span class="fu">:</span> <span class="st">&quot;Breakfast&quot;</span></span>
+<span id="cb58-13"><a href="#cb58-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">}</span></span>
+<span id="cb58-14"><a href="#cb58-14" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+<h2 id="analysis-focus">Analysis Focus</h2>
+<p>Responses must be validated for:</p>
+<pre class="text"><code>Root structure
+Required properties
+Nested properties
+Data types
+Property values
+Content-Type
+Status code
+Data consistency</code></pre>
+<hr />
+<h1 id="http-status-code-analysis">23. HTTP Status Code Analysis</h1>
+<p>The published API documentation identifies successful status codes
+for individual operations.</p>
+<table>
+<thead>
+<tr>
+<th>Operation</th>
+<th>Documented Success Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Health Check</td>
+<td><code>201 Created</code></td>
+</tr>
+<tr>
+<td>Create Token</td>
+<td><code>200 OK</code></td>
+</tr>
+<tr>
+<td>Get Booking IDs</td>
+<td><code>200 OK</code></td>
+</tr>
+<tr>
+<td>Get Booking</td>
+<td><code>200 OK</code></td>
+</tr>
+<tr>
+<td>Create Booking</td>
+<td><code>200 OK</code></td>
+</tr>
+<tr>
+<td>Update Booking</td>
+<td><code>200 OK</code></td>
+</tr>
+<tr>
+<td>Partial Update Booking</td>
+<td><code>200 OK</code></td>
+</tr>
+<tr>
+<td>Delete Booking</td>
+<td><code>201 Created</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="analysis-findings">Analysis Findings</h2>
+<p>Two documented status-code choices require particular attention:</p>
+<pre class="text"><code>GET /ping       → 201 Created
+DELETE /booking → 201 Created</code></pre>
+<p>Both are unusual when compared with common HTTP semantics.</p>
+<p>However:</p>
+<pre class="text"><code>Documented API Behaviour ≠ Assumed REST Best Practice</code></pre>
+<p>The project will initially validate the API against its published
+contract.</p>
+<p>Status-code design observations may be documented separately from
+functional defects.</p>
+<h2 id="negative-status-codes">Negative Status Codes</h2>
+<p>The documentation does not provide a complete endpoint-by-endpoint
+error status matrix.</p>
+<p>Potential responses must therefore be identified through actual
+execution.</p>
+<hr />
+<h1 id="data-type-analysis">24. Data Type Analysis</h1>
+<p>The following documented data types were identified.</p>
+<table>
+<thead>
+<tr>
+<th>Property / Parameter</th>
+<th>Documented Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>username</code></td>
+<td>String</td>
+</tr>
+<tr>
+<td><code>password</code></td>
+<td>String</td>
+</tr>
+<tr>
+<td><code>token</code></td>
+<td>String</td>
+</tr>
+<tr>
+<td><code>bookingid</code></td>
+<td>Number</td>
+</tr>
+<tr>
+<td><code>id</code></td>
+<td>Number</td>
+</tr>
+<tr>
+<td><code>firstname</code></td>
+<td>String</td>
+</tr>
+<tr>
+<td><code>lastname</code></td>
+<td>String</td>
+</tr>
+<tr>
+<td><code>totalprice</code></td>
+<td>Number</td>
+</tr>
+<tr>
+<td><code>depositpaid</code></td>
+<td>Boolean</td>
+</tr>
+<tr>
+<td><code>bookingdates</code></td>
+<td>Object</td>
+</tr>
+<tr>
+<td><code>checkin</code></td>
+<td>Date</td>
+</tr>
+<tr>
+<td><code>checkout</code></td>
+<td>Date</td>
+</tr>
+<tr>
+<td><code>additionalneeds</code></td>
+<td>String</td>
+</tr>
+</tbody>
+</table>
+<h2 id="data-type-test-strategy">Data Type Test Strategy</h2>
+<p>Each field may be tested using:</p>
+<pre class="text"><code>Expected data type
+Alternative primitive type
+Null
+Array
+Object</code></pre>
+<p>Example for <code>totalprice</code>:</p>
+<pre class="text"><code>Number      → Expected type
+String      → Invalid type condition
+Boolean     → Invalid type condition
+Null        → Null condition
+Array       → Invalid structure
+Object      → Invalid structure</code></pre>
+<p>The API’s actual type-validation behaviour will be documented.</p>
+<hr />
+<h1 id="required-and-optional-field-analysis">25. Required and Optional
+Field Analysis</h1>
+<h2 id="booking-request">Booking Request</h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Requirement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>firstname</code></td>
+<td>Required</td>
+</tr>
+<tr>
+<td><code>lastname</code></td>
+<td>Required</td>
+</tr>
+<tr>
+<td><code>totalprice</code></td>
+<td>Required</td>
+</tr>
+<tr>
+<td><code>depositpaid</code></td>
+<td>Required</td>
+</tr>
+<tr>
+<td><code>bookingdates</code></td>
+<td>Required</td>
+</tr>
+<tr>
+<td><code>bookingdates.checkin</code></td>
+<td>Required</td>
+</tr>
+<tr>
+<td><code>bookingdates.checkout</code></td>
+<td>Required</td>
+</tr>
+<tr>
+<td><code>additionalneeds</code></td>
+<td>Optional</td>
+</tr>
+</tbody>
+</table>
+<h2 id="authentication-request">Authentication Request</h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Requirement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>username</code></td>
+<td>Required</td>
+</tr>
+<tr>
+<td><code>password</code></td>
+<td>Required</td>
+</tr>
+</tbody>
+</table>
+<h2 id="testing-approach">Testing Approach</h2>
+<p>Each required property should be tested using:</p>
+<pre class="text"><code>Property present with valid value
+Property missing
+Property = null
+Property = empty value
+Property with incorrect data type</code></pre>
+<p>Optional field testing should verify:</p>
+<pre class="text"><code>Field present
+Field omitted
+Field empty
+Field null</code></pre>
+<p>Observed optional-field behaviour must be compared with the
+documented model.</p>
+<hr />
+<h1 id="identified-api-dependencies">26. Identified API
+Dependencies</h1>
+<p>Several endpoint dependencies were identified.</p>
+<h2 id="authentication-dependency">Authentication Dependency</h2>
+<pre class="text"><code>POST /auth
+      ↓
+authToken
+      ↓
+PUT /booking/{id}
+PATCH /booking/{id}
+DELETE /booking/{id}</code></pre>
+<h2 id="booking-resource-dependency">Booking Resource Dependency</h2>
+<pre class="text"><code>POST /booking
+      ↓
+bookingid
+      ↓
+GET /booking/{id}
+PUT /booking/{id}
+PATCH /booking/{id}
+DELETE /booking/{id}</code></pre>
+<h2 id="post-deletion-dependency">Post-deletion Dependency</h2>
+<pre class="text"><code>DELETE /booking/{id}
+      ↓
+GET /booking/{id}
+      ↓
+Verify resource is no longer retrievable</code></pre>
+<h2 id="testing-implication">Testing Implication</h2>
+<p>Dynamic request chaining is required for reliable automated
+workflows.</p>
+<p>Hardcoded booking IDs should not be used for the primary E2E
+regression workflow.</p>
+<hr />
+<h1 id="identified-crud-workflow">27. Identified CRUD Workflow</h1>
+<p>The booking resource supports a complete CRUD lifecycle.</p>
+<table>
+<thead>
+<tr>
+<th>CRUD Operation</th>
+<th>HTTP Method</th>
+<th>Endpoint</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Create</td>
+<td>POST</td>
+<td><code>/booking</code></td>
+</tr>
+<tr>
+<td>Read</td>
+<td>GET</td>
+<td><code>/booking/{id}</code></td>
+</tr>
+<tr>
+<td>Update</td>
+<td>PUT / PATCH</td>
+<td><code>/booking/{id}</code></td>
+</tr>
+<tr>
+<td>Delete</td>
+<td>DELETE</td>
+<td><code>/booking/{id}</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="identified-workflow">Identified Workflow</h2>
+<pre class="text"><code>CREATE
+POST /booking
+      ↓
+bookingid
+
+READ
+GET /booking/{id}
+      ↓
+booking data
+
+UPDATE
+PUT /booking/{id}
+      ↓
+updated booking
+
+PARTIAL UPDATE
+PATCH /booking/{id}
+      ↓
+partially updated booking
+
+DELETE
+DELETE /booking/{id}
+      ↓
+booking removed
+
+VERIFY
+GET /booking/{id}
+      ↓
+resource not retrievable</code></pre>
+<p>This workflow forms the foundation of the primary E2E API test.</p>
+<hr />
+<h1 id="identified-positive-test-conditions">28. Identified Positive
+Test Conditions</h1>
+<p>The requirements analysis identified the following primary positive
+conditions.</p>
+<table>
+<thead>
+<tr>
+<th>Area</th>
+<th>Positive Condition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Health</td>
+<td>Valid API health check</td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>Valid credentials</td>
+</tr>
+<tr>
+<td>Booking IDs</td>
+<td>Retrieve all booking IDs</td>
+</tr>
+<tr>
+<td>Filtering</td>
+<td>Valid firstname filter</td>
+</tr>
+<tr>
+<td>Filtering</td>
+<td>Valid lastname filter</td>
+</tr>
+<tr>
+<td>Filtering</td>
+<td>Valid check-in filter</td>
+</tr>
+<tr>
+<td>Filtering</td>
+<td>Valid checkout filter</td>
+</tr>
+<tr>
+<td>Booking Retrieval</td>
+<td>Existing booking ID</td>
+</tr>
+<tr>
+<td>Booking Creation</td>
+<td>Complete valid booking</td>
+</tr>
+<tr>
+<td>Booking Creation</td>
+<td>Valid booking without optional field</td>
+</tr>
+<tr>
+<td>Full Update</td>
+<td>Valid authenticated update</td>
+</tr>
+<tr>
+<td>Partial Update</td>
+<td>Valid single-field update</td>
+</tr>
+<tr>
+<td>Partial Update</td>
+<td>Valid multi-field update</td>
+</tr>
+<tr>
+<td>Delete</td>
+<td>Valid authenticated deletion</td>
+</tr>
+<tr>
+<td>Workflow</td>
+<td>Complete booking lifecycle</td>
+</tr>
+</tbody>
+</table>
+<p>Detailed positive test cases will be created in the API Test Cases
+documentation.</p>
+<hr />
+<h1 id="identified-negative-test-conditions">29. Identified Negative
+Test Conditions</h1>
+<p>The analysis identified the following negative test categories.</p>
+<h2 id="authentication-3">Authentication</h2>
+<pre class="text"><code>Invalid username
+Invalid password
+Missing username
+Missing password
+Null credentials
+Incorrect credential data types
+Malformed JSON</code></pre>
+<h2 id="booking-ids">Booking IDs</h2>
+<pre class="text"><code>Non-existing ID
+Zero
+Negative ID
+String ID
+Special-character ID
+Very large ID</code></pre>
+<h2 id="booking-data">Booking Data</h2>
+<pre class="text"><code>Missing required fields
+Null values
+Empty strings
+Incorrect data types
+Malformed JSON
+Unexpected properties
+Invalid dates
+Invalid logical date sequence</code></pre>
+<h2 id="authentication-enforcement">Authentication Enforcement</h2>
+<pre class="text"><code>Missing token
+Invalid token
+Modified token
+Invalid Basic authentication</code></pre>
+<h2 id="headers">Headers</h2>
+<pre class="text"><code>Missing Content-Type
+Incorrect Content-Type
+Unsupported Content-Type</code></pre>
+<h2 id="query-parameters">Query Parameters</h2>
+<pre class="text"><code>Empty values
+Invalid dates
+Unknown parameters
+Special characters</code></pre>
+<p>These categories will be expanded into individual test scenarios and
+test cases.</p>
+<hr />
+<h1 id="identified-boundary-test-conditions">30. Identified Boundary
+Test Conditions</h1>
+<p>The API documentation does not define explicit numeric or string
+limits.</p>
+<p>Boundary testing will therefore focus on meaningful transitions and
+common implementation boundaries.</p>
+<h2 id="numeric-values">Numeric Values</h2>
+<pre class="text"><code>-1
+0
+1
+Large positive value
+2147483647
+2147483648</code></pre>
+<h2 id="string-length">String Length</h2>
+<pre class="text"><code>0 characters
+1 character
+Typical valid string
+255 characters
+256 characters
+1000 characters</code></pre>
+<h2 id="dates">Dates</h2>
+<pre class="text"><code>Past date
+Current date
+Future date
+Leap-year date
+Invalid leap date
+Check-in = checkout
+Checkout before check-in</code></pre>
+<h2 id="booking-ids-1">Booking IDs</h2>
+<pre class="text"><code>-1
+0
+1
+Existing ID
+Non-existing positive ID
+Very large ID</code></pre>
+<p>Because explicit limits are undocumented, acceptance of a boundary
+value is not automatically considered a defect.</p>
+<p>Observed behaviour must be analysed against documented requirements
+and API consistency.</p>
+<hr />
+<h1 id="requirement-ambiguities-and-gaps">31. Requirement Ambiguities
+and Gaps</h1>
+<p>The following requirement gaps were identified during documentation
+analysis.</p>
+<table>
+<colgroup>
+<col style="width: 8%" />
+<col style="width: 19%" />
+<col style="width: 72%" />
+</colgroup>
+<thead>
+<tr>
+<th>Gap ID</th>
+<th>Area</th>
+<th>Missing or Ambiguous Requirement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GAP-001</td>
+<td>Authentication</td>
+<td>Token lifetime is not defined</td>
+</tr>
+<tr>
+<td>GAP-002</td>
+<td>Authentication</td>
+<td>Token expiration behaviour is not defined</td>
+</tr>
+<tr>
+<td>GAP-003</td>
+<td>Authentication</td>
+<td>Token revocation behaviour is not defined</td>
+</tr>
+<tr>
+<td>GAP-004</td>
+<td>Authentication</td>
+<td>Invalid credential status behaviour is not fully defined</td>
+</tr>
+<tr>
+<td>GAP-005</td>
+<td>Booking</td>
+<td>Maximum firstname length is not defined</td>
+</tr>
+<tr>
+<td>GAP-006</td>
+<td>Booking</td>
+<td>Maximum lastname length is not defined</td>
+</tr>
+<tr>
+<td>GAP-007</td>
+<td>Booking</td>
+<td>Allowed name characters are not defined</td>
+</tr>
+<tr>
+<td>GAP-008</td>
+<td>Booking</td>
+<td>Minimum total price is not defined</td>
+</tr>
+<tr>
+<td>GAP-009</td>
+<td>Booking</td>
+<td>Maximum total price is not defined</td>
+</tr>
+<tr>
+<td>GAP-010</td>
+<td>Booking</td>
+<td>Decimal price behaviour is not defined</td>
+</tr>
+<tr>
+<td>GAP-011</td>
+<td>Dates</td>
+<td>Allowed date range is not defined</td>
+</tr>
+<tr>
+<td>GAP-012</td>
+<td>Dates</td>
+<td>Check-in and checkout relationship is not explicitly defined</td>
+</tr>
+<tr>
+<td>GAP-013</td>
+<td>Dates</td>
+<td>Past booking date behaviour is not defined</td>
+</tr>
+<tr>
+<td>GAP-014</td>
+<td>Additional Needs</td>
+<td>Maximum field length is not defined</td>
+</tr>
+<tr>
+<td>GAP-015</td>
+<td>JSON</td>
+<td>Unknown property behaviour is not defined</td>
+</tr>
+<tr>
+<td>GAP-016</td>
+<td>PATCH</td>
+<td>Empty object behaviour is not defined</td>
+</tr>
+<tr>
+<td>GAP-017</td>
+<td>PATCH</td>
+<td>Nested partial update semantics are not fully defined</td>
+</tr>
+<tr>
+<td>GAP-018</td>
+<td>PUT</td>
+<td>Required full replacement semantics are not fully defined</td>
+</tr>
+<tr>
+<td>GAP-019</td>
+<td>Query Filters</td>
+<td>Case sensitivity is not defined</td>
+</tr>
+<tr>
+<td>GAP-020</td>
+<td>Query Filters</td>
+<td>Partial matching behaviour is not defined</td>
+</tr>
+<tr>
+<td>GAP-021</td>
+<td>Query Filters</td>
+<td>Unknown parameter behaviour is not defined</td>
+</tr>
+<tr>
+<td>GAP-022</td>
+<td>Query Filters</td>
+<td>Result ordering is not defined</td>
+</tr>
+<tr>
+<td>GAP-023</td>
+<td>Error Handling</td>
+<td>Standard error response schema is not defined</td>
+</tr>
+<tr>
+<td>GAP-024</td>
+<td>Error Handling</td>
+<td>Complete negative status-code matrix is not defined</td>
+</tr>
+<tr>
+<td>GAP-025</td>
+<td>Media Types</td>
+<td>Unsupported Content-Type behaviour is not fully defined</td>
+</tr>
+</tbody>
+</table>
+<p>These gaps are documented to prevent unsupported assumptions during
+defect classification.</p>
+<hr />
+<h1 id="api-environment-constraints">32. API Environment
+Constraints</h1>
+<p>The public Restful Booker environment has characteristics that
+directly affect test execution.</p>
+<h2 id="shared-public-environment">Shared Public Environment</h2>
+<p>The API is publicly available and may be accessed by multiple testers
+or automated tools.</p>
+<p>Test data may therefore be affected by external activity.</p>
+<h2 id="periodic-data-reset">Periodic Data Reset</h2>
+<p>The public API environment is designed to reset to its default state
+periodically.</p>
+<p>The published service information states that the API resets
+approximately every ten minutes.</p>
+<h2 id="default-records">Default Records</h2>
+<p>The service is pre-loaded with default booking records.</p>
+<h2 id="dynamic-resource-persistence">Dynamic Resource Persistence</h2>
+<p>Bookings created during testing should not be assumed to remain
+permanently available.</p>
+<h2 id="testing-implications-1">Testing Implications</h2>
+<p>The project should:</p>
+<pre class="text"><code>Create required test resources dynamically
+        ↓
+Extract generated booking IDs
+        ↓
+Execute dependent requests promptly
+        ↓
+Avoid permanent hardcoded booking IDs
+        ↓
+Clean up created resources where possible</code></pre>
+<p>Long-running workflows may be affected by environment reset
+behaviour.</p>
+<h2 id="regression-implication">Regression Implication</h2>
+<p>The primary automated regression workflow should be
+self-contained.</p>
+<p>It should create the booking resource required for the test instead
+of depending on an existing booking ID.</p>
+<hr />
+<h1 id="requirement-risk-analysis">33. Requirement Risk Analysis</h1>
+<table>
+<colgroup>
+<col style="width: 9%" />
+<col style="width: 14%" />
+<col style="width: 24%" />
+<col style="width: 51%" />
+</colgroup>
+<thead>
+<tr>
+<th>Risk ID</th>
+<th>Requirement Area</th>
+<th>Risk</th>
+<th>Testing Response</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RISK-REQ-001</td>
+<td>Documentation</td>
+<td>Incomplete validation rules</td>
+<td>Record ambiguities before defect classification</td>
+</tr>
+<tr>
+<td>RISK-REQ-002</td>
+<td>Authentication</td>
+<td>Undefined token lifetime</td>
+<td>Avoid unsupported expiration assumptions</td>
+</tr>
+<tr>
+<td>RISK-REQ-003</td>
+<td>Booking Data</td>
+<td>Undefined field boundaries</td>
+<td>Treat boundary results as exploratory unless requirement
+supported</td>
+</tr>
+<tr>
+<td>RISK-REQ-004</td>
+<td>Dates</td>
+<td>Undefined business rules</td>
+<td>Separate logical observations from confirmed defects</td>
+</tr>
+<tr>
+<td>RISK-REQ-005</td>
+<td>Error Handling</td>
+<td>Missing error contract</td>
+<td>Record exact observed status and body</td>
+</tr>
+<tr>
+<td>RISK-REQ-006</td>
+<td>Public Environment</td>
+<td>External data changes</td>
+<td>Create dynamic resources</td>
+</tr>
+<tr>
+<td>RISK-REQ-007</td>
+<td>Environment Reset</td>
+<td>Booking may disappear</td>
+<td>Execute dependent workflow sequentially</td>
+</tr>
+<tr>
+<td>RISK-REQ-008</td>
+<td>Existing Bookings</td>
+<td>Hardcoded ID may become invalid</td>
+<td>Use dynamically generated booking IDs</td>
+</tr>
+<tr>
+<td>RISK-REQ-009</td>
+<td>Status Codes</td>
+<td>Unusual documented status codes</td>
+<td>Test against documentation before applying best-practice
+judgement</td>
+</tr>
+<tr>
+<td>RISK-REQ-010</td>
+<td>Query Filters</td>
+<td>Matching rules undefined</td>
+<td>Use exploratory and comparative testing</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="requirements-traceability-preparation">34. Requirements
+Traceability Preparation</h1>
+<p>Requirement IDs defined in this document are designed to support
+future traceability.</p>
+<p>Example:</p>
+<pre class="text"><code>REQ-CREATE-011
+      ↓
+API Test Scenario
+      ↓
+API Test Case
+      ↓
+Postman Request
+      ↓
+Automated Assertion
+      ↓
+Test Execution Result
+      ↓
+Bug Report if Failed</code></pre>
+<p>Example traceability chain:</p>
+<pre class="text"><code>REQ-AUTH-005
+Valid authentication credentials shall produce an authentication token.
+        ↓
+TS-AUTH-001
+Verify authentication using valid credentials.
+        ↓
+TC-AUTH-001
+Create token with valid username and password.
+        ↓
+POST - Create Token - Valid Credentials
+        ↓
+Token property assertion
+        ↓
+PASS / FAIL</code></pre>
+<p>The final project may use the following traceability
+relationship:</p>
+<table>
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 13%" />
+<col style="width: 15%" />
+<col style="width: 25%" />
+<col style="width: 15%" />
+<col style="width: 10%" />
+</colgroup>
+<thead>
+<tr>
+<th>Requirement</th>
+<th>Scenario</th>
+<th>Test Case</th>
+<th>Postman Request</th>
+<th>Execution</th>
+<th>Defect</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>REQ ID</td>
+<td>TS ID</td>
+<td>TC ID</td>
+<td>Request Name</td>
+<td>Status</td>
+<td>BUG ID</td>
+</tr>
+</tbody>
+</table>
+<p>Detailed traceability will be developed after test scenarios and test
+cases are finalized.</p>
+<hr />
+<h1 id="analysis-conclusions">35. Analysis Conclusions</h1>
+<p>The requirements analysis identified eight documented API operations
+across three primary API resource areas:</p>
+<pre class="text"><code>Authentication
+Booking
+Health Check</code></pre>
+<p>The API supports a complete booking CRUD lifecycle:</p>
+<pre class="text"><code>CREATE
+READ
+UPDATE
+PARTIAL UPDATE
+DELETE</code></pre>
+<p>The analysis identified requirements for:</p>
+<ul>
+<li>API availability</li>
+<li>Authentication</li>
+<li>Booking ID retrieval</li>
+<li>Booking filtering</li>
+<li>Booking retrieval</li>
+<li>Booking creation</li>
+<li>Full booking update</li>
+<li>Partial booking update</li>
+<li>Booking deletion</li>
+</ul>
+<p>The API provides sufficient functionality to support:</p>
+<pre class="text"><code>Functional API Testing
+Positive Testing
+Negative Testing
+Boundary Testing
+Authentication Testing
+Authorization Testing
+CRUD Testing
+Query Parameter Testing
+Data Validation
+Data Type Validation
+JSON Schema Validation
+Request Chaining
+End-to-End Workflow Testing
+Automated API Regression</code></pre>
+<p>The documentation also contains several undefined or ambiguous
+validation areas.</p>
+<p>These gaps create opportunities for exploratory API testing but
+require careful defect classification.</p>
+<p>The public environment reset behaviour and shared test environment
+are major execution constraints.</p>
+<p>The primary automated workflows should therefore use dynamically
+created resources and avoid permanent hardcoded booking IDs.</p>
+<p>The requirements identified in this document form the baseline
+for:</p>
+<pre class="text"><code>Endpoint Inventory
+        ↓
+API Test Scenarios
+        ↓
+API Test Cases
+        ↓
+Postman Implementation
+        ↓
+API Test Execution
+        ↓
+Defect Reporting
+        ↓
+Requirements Traceability</code></pre>
+<p><strong>Prepared by:</strong> Filip Jelinek <strong>Role:</strong> QA
+Tester <strong>Document Version:</strong> 1.0 <strong>Status:</strong>
+In Progress</p>
+</body>
+</html>

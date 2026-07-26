@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc 3.10.1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Test Execution</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Test Execution</h1>
+</header>
+<h1 id="test-execution">Test Execution</h1>
+<h2 id="project-information">📌 Project Information</h2>
+<p><strong>Project:</strong> SauceDemo Manual Testing Project</p>
+<p><strong>Application:</strong> SauceDemo
+(https://www.saucedemo.com)</p>
+<p><strong>Testing Type:</strong> Manual Functional Testing</p>
+<p><strong>Executed By:</strong> Filip Jelinek</p>
+<hr />
+<h2 id="in-page-navigation">📑 In-page Navigation</h2>
+<ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#execution-summary">Execution Summary</a></li>
+<li><a href="#execution-environment">Execution Environment</a></li>
+<li><a href="#test-execution-results">Test Execution Results</a></li>
+<li><a href="#execution-statistics">Execution Statistics</a></li>
+<li><a href="#defect-summary">Defect Summary</a></li>
+</ul>
+<hr />
+<h1 id="overview">Overview</h1>
+<p>This section documents the execution results of the manual test cases
+prepared for the SauceDemo application.</p>
+<p>Each executed test case records the final execution status together
+with references to any identified defects. This documentation
+demonstrates the practical execution phase of the testing lifecycle and
+provides traceability between test cases and reported bugs.</p>
+<hr />
+<h1 id="execution-summary">Execution Summary</h1>
+<ul>
+<li><strong>Total Test Cases:</strong> 42</li>
+<li><strong>Executed:</strong> 42</li>
+<li><strong>Passed:</strong> 33</li>
+<li><strong>Failed:</strong> 9</li>
+<li><strong>Blocked:</strong> 0</li>
+<li><strong>Not Executed:</strong> 0</li>
+</ul>
+<hr />
+<h1 id="execution-environment">Execution Environment</h1>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Operating System</td>
+<td>Windows 11 Pro (64-bit)</td>
+</tr>
+<tr>
+<td>Browser</td>
+<td>Google Chrome</td>
+</tr>
+<tr>
+<td>Browser Version</td>
+<td>149.0.7827.197</td>
+</tr>
+<tr>
+<td>Application</td>
+<td>SauceDemo</td>
+</tr>
+<tr>
+<td>Testing Type</td>
+<td>Manual Functional Testing</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="test-execution-results">Test Execution Results</h1>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 12%" />
+<col style="width: 20%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 37%" />
+</colgroup>
+<thead>
+<tr>
+<th>TC ID</th>
+<th>Test Case</th>
+<th>Module</th>
+<th style="text-align: center;">Status</th>
+<th>Related Bug Report</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TC001</td>
+<td>Successful Login</td>
+<td>Login</td>
+<td style="text-align: center;">✅ Pass</td>
+<td>—</td>
+</tr>
+<tr>
+<td>TC002</td>
+<td>Login with Invalid Password</td>
+<td>Login</td>
+<td style="text-align: center;">✅ Pass</td>
+<td>—</td>
+</tr>
+<tr>
+<td>TC003</td>
+<td>Login with Invalid Username</td>
+<td>Login</td>
+<td style="text-align: center;">✅ Pass</td>
+<td>—</td>
+</tr>
+<tr>
+<td>TC004</td>
+<td>Login with Empty Username</td>
+<td>Login</td>
+<td style="text-align: center;">✅ Pass</td>
+<td>—</td>
+</tr>
+<tr>
+<td>TC005</td>
+<td>Login with Empty Password</td>
+<td>Login</td>
+<td style="text-align: center;">✅ Pass</td>
+<td>—</td>
+</tr>
+<tr>
+<td>TC006</td>
+<td>Login with Empty Credentials</td>
+<td>Login</td>
+<td style="text-align: center;">✅ Pass</td>
+<td>—</td>
+</tr>
+<tr>
+<td>TC007</td>
+<td>Login with Locked User</td>
+<td>Login</td>
+<td style="text-align: center;">✅ Pass</td>
+<td>—</td>
+</tr>
+<tr>
+<td>TC008</td>
+<td>Verify Inventory Page Display</td>
+<td>Inventory</td>
+<td style="text-align: center;">❌ Fail</td>
+<td><a
+href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-saucedemo/05_Bug_Reports/BUG-001%20Incorrect%20Product%20Images%20Displayed%20on%20Inventory%20Page.md">BUG-001</a></td>
+</tr>
+<tr>
+<td>TC009</td>
+<td>Verify Product Information</td>
+<td>Inventory</td>
+<td style="text-align: center;">❌ Fail</td>
+<td><a
+href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-saucedemo/05_Bug_Reports/BUG-002_Incorrect_Product_Information.md">BUG-002</a></td>
+</tr>
+<tr>
+<td>TC010</td>
+<td>Verify “Add to Cart” Button Functionality</td>
+<td>Inventory</td>
+<td style="text-align: center;">❌ Fail</td>
+<td><a
+href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-saucedemo/05_Bug_Reports/BUG-003%20Add%20to%20Cart%20Button%20Does%20Not%20Work%20for%20Specific%20Products.md">BUG-003</a></td>
+</tr>
+<tr>
+<td>TC011</td>
+<td>Verify Product Details Navigation</td>
+<td>Inventory</td>
+<td style="text-align: center;">✅ Pass</td>
+<td>—</td>
+</tr>
+<tr>
+<td>TC012</td>
+<td>Verify Shopping Cart Badge Update</td>
+<td>Inventory</td>
+<td style="text-align: center;">✅ Pass</td>
+<td>—</td>
+</tr>
+<tr>
+<td>TC013</td>
+<td>Verify Inventory Page After Browser Refresh</td>
+<td>Inventory</td>
+<td style="text-align: center;">✅ Pass</td>
+<td>—</td>
+</tr>
+<tr>
+<td>TC014</td>
+<td>Verify Product Information on Product Details Page</td>
+<td>Product Details</td>
+<td style="text-align: center;">✅ Pass</td>
+<td>—</td>
+</tr>
+<tr>
+<td>TC015</td>
+<td>Verify “Add to Cart” Button on Product Details Page</td>
+<td>Product Details</td>
+<td style="text-align: center;">✅ Pass</td>
+<td>—</td>
+</tr>
+<tr>
+<td>TC016</td>
+<td>Verify “Remove” Button on Product Details Page</td>
+<td>Product Details</td>
+<td style="text-align: center;">❌ Fail</td>
+<td><a
+href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-saucedemo/05_Bug_Reports/BUG-004%20Remove%20Button%20Does%20Not%20Remove%20Product%20on%20Product%20Details%20Page.md">BUG-004</a></td>
+</tr>
+<tr>
+<td>TC017</td>
+<td>Verify “Back to Products” Navigation</td>
+<td>Product Details</td>
+<td style="text-align: center;">✅ Pass</td>
+<td>—</td>
+</tr>
+<tr>
+<td>TC018</td>
+<td>Verify Shopping Cart Page</td>
+<td>Shopping Cart</td>
+<td style="text-align: center;">✅ Pass</td>
+<td>—</td>
+</tr>
+<tr>
+<td>TC019</td>
+<td>Verify Single Product in Shopping Cart</td>
+<td>Shopping Cart</td>
+<td style="text-align: center;">✅ Pass</td>
+<td>—</td>
+</tr>
+<tr>
+<td>TC020</td>
+<td>Verify Multiple Products in Shopping Cart</td>
+<td>Shopping Cart</td>
+<td style="text-align: center;">✅ Pass</td>
+<td>—</td>
+</tr>
+<tr>
+<td>TC021</td>
+<td>Verify Remove Product from Shopping Cart</td>
+<td>Shopping Cart</td>
+<td style="text-align: center;">✅ Pass</td>
+<td>—</td>
+</tr>
+<tr>
+<td>TC022</td>
+<td>Verify “Continue Shopping” Button</td>
+<td>Shopping Cart</td>
+<td style="text-align: center;">✅ Pass</td>
+<td>—</td>
+</tr>
+<tr>
+<td>TC023</td>
+<td>Verify Checkout Button</td>
+<td>Shopping Cart</td>
+<td style="text-align: center;">✅ Pass</td>
+<td>—</td>
+</tr>
+<tr>
+<td>TC024</td>
+<td>Verify Empty Shopping Cart After Removing All Products</td>
+<td>Shopping Cart</td>
+<td style="text-align: center;">✅ Pass</td>
+<td>—</td>
+</tr>
+<tr>
+<td>TC025</td>
+<td>Verify Shopping Cart Persistence After Browser Refresh</td>
+<td>Shopping Cart</td>
+<td style="text-align: center;">✅ Pass</td>
+<td>—</td>
+</tr>
+<tr>
+<td>TC026</td>
+<td>Verify Checkout: Your Information Page</td>
+<td>Checkout</td>
+<td style="text-align: center;">✅ Pass</td>
+<td>—</td>
+</tr>
+<tr>
+<td>TC027</td>
+<td>Complete Checkout Information with Valid Data</td>
+<td>Checkout</td>
+<td style="text-align: center;">❌ Fail</td>
+<td><a
+href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-saucedemo/05_Bug_Reports/BUG-005%20Last%20Name%20Field%20Does%20Not%20Accept%20Input%20During%20Checkout.md">BUG-005</a></td>
+</tr>
+<tr>
+<td>TC028</td>
+<td>Verify Checkout with Empty First Name</td>
+<td>Checkout</td>
+<td style="text-align: center;">✅ Pass</td>
+<td>—</td>
+</tr>
+<tr>
+<td>TC029</td>
+<td>Verify Checkout with Empty Last Name</td>
+<td>Checkout</td>
+<td style="text-align: center;">❌ Fail</td>
+<td><a
+href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-saucedemo/05_Bug_Reports/BUG-006%20Checkout%20Allows%20Progress%20Without%20Required%20Last%20Name.md">BUG-006</a></td>
+</tr>
+<tr>
+<td>TC030</td>
+<td>Verify Checkout with Empty Postal Code</td>
+<td>Checkout</td>
+<td style="text-align: center;">✅ Pass</td>
+<td>—</td>
+</tr>
+<tr>
+<td>TC031</td>
+<td>Verify Checkout: Overview Page</td>
+<td>Checkout</td>
+<td style="text-align: center;">✅ Pass</td>
+<td>—</td>
+</tr>
+<tr>
+<td>TC032</td>
+<td>Verify Successful Order Completion</td>
+<td>Checkout</td>
+<td style="text-align: center;">❌ Fail</td>
+<td><a
+href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-saucedemo/05_Bug_Reports/BUG-007%20Finish%20Button%20Does%20Not%20Complete%20Order.md">BUG-007</a></td>
+</tr>
+<tr>
+<td>)</td>
+<td></td>
+<td></td>
+<td style="text-align: center;"></td>
+<td></td>
+</tr>
+<tr>
+<td>TC033</td>
+<td>Verify Cancel Checkout from Checkout: Overview</td>
+<td>Checkout</td>
+<td style="text-align: center;">✅ Pass</td>
+<td>—</td>
+</tr>
+<tr>
+<td>TC034</td>
+<td>Verify Order Confirmation Page</td>
+<td>Checkout</td>
+<td style="text-align: center;">✅ Pass</td>
+<td>—</td>
+</tr>
+<tr>
+<td>TC035</td>
+<td>Verify “Back Home” Button After Order Completion</td>
+<td>Checkout</td>
+<td style="text-align: center;">✅ Pass</td>
+<td>—</td>
+</tr>
+<tr>
+<td>TC036</td>
+<td>Verify Product Sorting by Name (A–Z)</td>
+<td>Navigation &amp; Session</td>
+<td style="text-align: center;">✅ Pass</td>
+<td>—</td>
+</tr>
+<tr>
+<td>TC037</td>
+<td>Verify Product Sorting by Price (Low to High)</td>
+<td>Navigation &amp; Session</td>
+<td style="text-align: center;">❌ Fail</td>
+<td><a
+href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-saucedemo/05_Bug_Reports/BUG-008%20Product%20Sorting%20by%20Price%20(Low%20to%20High)%20Triggers%20JavaScript%20Error.md">BUG-008</a></td>
+</tr>
+<tr>
+<td>TC038</td>
+<td>Verify Burger Menu Opens</td>
+<td>Navigation &amp; Session</td>
+<td style="text-align: center;">✅ Pass</td>
+<td>—</td>
+</tr>
+<tr>
+<td>TC039</td>
+<td>Verify User Logout</td>
+<td>Navigation &amp; Session</td>
+<td style="text-align: center;">✅ Pass</td>
+<td>—</td>
+</tr>
+<tr>
+<td>TC040</td>
+<td>Verify Reset App State</td>
+<td>Navigation &amp; Session</td>
+<td style="text-align: center;">✅ Pass</td>
+<td>—</td>
+</tr>
+<tr>
+<td>TC041</td>
+<td>Verify About Link</td>
+<td>Navigation &amp; Session</td>
+<td style="text-align: center;">❌ Fail</td>
+<td><a
+href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-saucedemo/05_Bug_Reports/BUG-009%20About%20Link%20Redirects%20to%20404%20Page.md">BUG-009</a></td>
+</tr>
+<tr>
+<td>TC042</td>
+<td>Verify Direct Access to Inventory Without Authentication</td>
+<td>Navigation &amp; Session</td>
+<td style="text-align: center;">✅ Pass</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="execution-statistics">Execution Statistics</h1>
+<table>
+<thead>
+<tr>
+<th>Status</th>
+<th style="text-align: right;">Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>✅ Passed</td>
+<td style="text-align: right;">33</td>
+</tr>
+<tr>
+<td>❌ Failed</td>
+<td style="text-align: right;">9</td>
+</tr>
+<tr>
+<td>⛔ Blocked</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr>
+<td>⏸️ Not Executed</td>
+<td style="text-align: right;">0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Execution Success Rate:</strong> <strong>78.6%</strong></p>
+<hr />
+<h1 id="defect-summary">Defect Summary</h1>
+<table>
+<thead>
+<tr>
+<th>Severity</th>
+<th style="text-align: right;">Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>🔴 Critical</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr>
+<td>🟠 High</td>
+<td style="text-align: right;">5</td>
+</tr>
+<tr>
+<td>🟡 Medium</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr>
+<td>🟢 Low</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr>
+<td><strong>Total Defects</strong></td>
+<td style="text-align: right;"><strong>9</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p>⬅️ <strong>Back to Saucedemo</strong></p>
+<p><a
+href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-saucedemo/qa-saucedemo-README.md">qa-saucedemo-README.md</a></p>
+</body>
+</html>

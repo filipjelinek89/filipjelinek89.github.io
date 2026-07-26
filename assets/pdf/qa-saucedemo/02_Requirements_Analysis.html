@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc 3.10.1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Requirements Analysis</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="../assets/css/docs.css" />
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Requirements Analysis</h1>
+</header>
+<h1 id="requirements-analysis">Requirements Analysis</h1>
+<p><strong>Project:</strong> SauceDemo Manual Testing Project</p>
+<p><strong>Version:</strong> 1.0</p>
+<p><strong>Prepared by:</strong> Filip Jelinek</p>
+<hr />
+<h1 id="in-page-navigation">In-page Navigation</h1>
+<ul>
+<li><a href="#1-purpose">1. Purpose</a></li>
+<li><a href="#2-application-overview">2. Application Overview</a></li>
+<li><a href="#3-functional-requirements">3. Functional
+Requirements</a></li>
+<li><a href="#4-non-functional-observations">4. Non-Functional
+Observations</a></li>
+<li><a href="#5-requirement-coverage">5. Requirement Coverage</a></li>
+<li><a href="#6-conclusion">6. Conclusion</a></li>
+</ul>
+<hr />
+<h1 id="purpose">1. Purpose</h1>
+<p>The purpose of this document is to identify and analyze the
+functional requirements of the SauceDemo application that will be
+verified during manual testing.</p>
+<p>As SauceDemo is a public demo application, no formal Software
+Requirements Specification (SRS) is available. Therefore, the
+requirements documented below have been derived from the application’s
+observed functionality and intended user behavior.</p>
+<hr />
+<h1 id="application-overview">2. Application Overview</h1>
+<p>SauceDemo is a web-based e-commerce application designed to simulate
+a typical online shopping experience.</p>
+<p>The application allows users to:</p>
+<ul>
+<li>Authenticate using predefined user accounts</li>
+<li>Browse available products</li>
+<li>View product details</li>
+<li>Add and remove products from the shopping cart</li>
+<li>Complete the checkout process</li>
+<li>Sort products using different criteria</li>
+<li>Log out of the application</li>
+</ul>
+<hr />
+<h1 id="functional-requirements">3. Functional Requirements</h1>
+<h2 id="fr-001-user-authentication">FR-001 User Authentication</h2>
+<p>The system shall allow registered users to log in using valid
+credentials.</p>
+<h3 id="acceptance-criteria">Acceptance Criteria</h3>
+<ul>
+<li>Username field accepts user input.</li>
+<li>Password field accepts user input.</li>
+<li>Valid credentials authenticate the user.</li>
+<li>Invalid credentials display an appropriate error message.</li>
+<li>Empty fields are validated.</li>
+<li>Locked users cannot access the application.</li>
+</ul>
+<h2 id="fr-002-product-inventory">FR-002 Product Inventory</h2>
+<p>The system shall display all available products after a successful
+login.</p>
+<h3 id="acceptance-criteria-1">Acceptance Criteria</h3>
+<ul>
+<li>Product list loads successfully.</li>
+<li>Product name is displayed.</li>
+<li>Product description is displayed.</li>
+<li>Product price is displayed.</li>
+<li>Product image is displayed.</li>
+<li>Inventory page is accessible only after login.</li>
+</ul>
+<h2 id="fr-003-product-details">FR-003 Product Details</h2>
+<p>The system shall display detailed information for a selected
+product.</p>
+<h3 id="acceptance-criteria-2">Acceptance Criteria</h3>
+<ul>
+<li>Product name is displayed.</li>
+<li>Product description is displayed.</li>
+<li>Product price is displayed.</li>
+<li>User can return to the inventory page.</li>
+</ul>
+<h2 id="fr-004-shopping-cart">FR-004 Shopping Cart</h2>
+<p>The system shall allow users to manage products in the shopping
+cart.</p>
+<h3 id="acceptance-criteria-3">Acceptance Criteria</h3>
+<ul>
+<li>Add product to cart.</li>
+<li>Remove product from cart.</li>
+<li>Cart badge updates correctly.</li>
+<li>Cart contents remain accurate throughout the session.</li>
+</ul>
+<h2 id="fr-005-checkout-process">FR-005 Checkout Process</h2>
+<p>The system shall allow users to purchase selected products.</p>
+<h3 id="acceptance-criteria-4">Acceptance Criteria</h3>
+<ul>
+<li>Checkout can be initiated from the cart.</li>
+<li>Customer information is required.</li>
+<li>Required fields are validated.</li>
+<li>Order overview is displayed.</li>
+<li>Checkout can be completed successfully.</li>
+<li>Confirmation page is displayed.</li>
+</ul>
+<h2 id="fr-006-product-sorting">FR-006 Product Sorting</h2>
+<p>The system shall allow users to sort products.</p>
+<h3 id="acceptance-criteria-5">Acceptance Criteria</h3>
+<p>Products can be sorted by:</p>
+<ul>
+<li>Name (A → Z)</li>
+<li>Name (Z → A)</li>
+<li>Price (Low → High)</li>
+<li>Price (High → Low)</li>
+</ul>
+<h2 id="fr-007-navigation">FR-007 Navigation</h2>
+<p>The system shall provide navigation between application pages.</p>
+<h3 id="acceptance-criteria-6">Acceptance Criteria</h3>
+<ul>
+<li>Navigation menu opens correctly.</li>
+<li>Shopping cart is accessible.</li>
+<li>Product pages are accessible.</li>
+<li>Browser Back button behaves correctly where applicable.</li>
+</ul>
+<h2 id="fr-008-logout">FR-008 Logout</h2>
+<p>The system shall allow authenticated users to log out.</p>
+<h3 id="acceptance-criteria-7">Acceptance Criteria</h3>
+<ul>
+<li>Logout option is available.</li>
+<li>User session ends.</li>
+<li>User is redirected to the Login page.</li>
+<li>Protected pages are no longer accessible without logging in
+again.</li>
+</ul>
+<hr />
+<h1 id="non-functional-observations">4. Non-Functional Observations</h1>
+<p>Although not included in the formal testing scope, the following
+characteristics will be observed during testing:</p>
+<ul>
+<li>User Interface consistency</li>
+<li>Page responsiveness</li>
+<li>Loading behavior</li>
+<li>Error message clarity</li>
+<li>Navigation usability</li>
+</ul>
+<p>Any significant observations will be documented if identified.</p>
+<hr />
+<h1 id="requirement-coverage">5. Requirement Coverage</h1>
+<p>The functional requirements identified in this document will be
+mapped to Test Scenarios, Test Cases, and the Requirements Traceability
+Matrix (RTM) to ensure complete test coverage.</p>
+<table>
+<thead>
+<tr>
+<th>Requirement ID</th>
+<th>Feature</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FR-001</td>
+<td>User Authentication</td>
+</tr>
+<tr>
+<td>FR-002</td>
+<td>Product Inventory</td>
+</tr>
+<tr>
+<td>FR-003</td>
+<td>Product Details</td>
+</tr>
+<tr>
+<td>FR-004</td>
+<td>Shopping Cart</td>
+</tr>
+<tr>
+<td>FR-005</td>
+<td>Checkout Process</td>
+</tr>
+<tr>
+<td>FR-006</td>
+<td>Product Sorting</td>
+</tr>
+<tr>
+<td>FR-007</td>
+<td>Navigation</td>
+</tr>
+<tr>
+<td>FR-008</td>
+<td>Logout</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="conclusion">6. Conclusion</h1>
+<p>This Requirements Analysis establishes the functional baseline for
+the SauceDemo Manual Testing Project. The identified requirements will
+guide the design of test scenarios, detailed test cases, and execution
+activities to ensure comprehensive coverage of the application’s primary
+functionality.</p>
+<hr />
+<p>⬅️ <strong>Back to Saucedemo</strong></p>
+<p><a
+href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-saucedemo/qa-saucedemo-README.md">qa-saucedemo-README.md</a></p>
+</body>
+</html>

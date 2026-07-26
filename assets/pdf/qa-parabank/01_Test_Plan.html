@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc 3.10.1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Test Plan</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Test Plan</h1>
+</header>
+<h1 id="test-plan">Test Plan</h1>
+<p><strong>Project:</strong> ParaBank Manual Testing Project</p>
+<p><strong>Application:</strong> ParaBank</p>
+<p><strong>Application URL:</strong> https://parabank.parasoft.com/</p>
+<p><strong>Version:</strong> 1.0</p>
+<p><strong>Prepared by:</strong> Filip Jelinek</p>
+<hr />
+<h1 id="purpose">1. Purpose</h1>
+<p>The purpose of this Test Plan is to define the testing strategy,
+objectives, scope, resources, schedule, and deliverables for manual
+testing of the ParaBank online banking application.</p>
+<p>This document ensures that testing activities are organized,
+consistent, and aligned with the application’s business
+requirements.</p>
+<hr />
+<h1 id="project-overview">2. Project Overview</h1>
+<p>ParaBank is a web-based online banking application that allows
+customers to manage their accounts through a browser.</p>
+<p>Main business functions include:</p>
+<ul>
+<li>User Registration</li>
+<li>User Authentication</li>
+<li>Account Overview</li>
+<li>Account Activity</li>
+<li>Fund Transfers</li>
+<li>Bill Payments</li>
+<li>Loan Requests</li>
+<li>Account Management</li>
+</ul>
+<p>Since financial applications require high reliability, testing
+focuses on verifying that core banking features operate correctly and
+consistently.</p>
+<hr />
+<h1 id="objectives">3. Objectives</h1>
+<p>The objectives of this project are to:</p>
+<ul>
+<li>Verify that core banking features function correctly.</li>
+<li>Validate user workflows from registration to logout.</li>
+<li>Ensure accurate handling of banking transactions.</li>
+<li>Verify input validation and error messages.</li>
+<li>Identify functional defects.</li>
+<li>Produce professional QA documentation suitable for a testing
+portfolio.</li>
+</ul>
+<hr />
+<h1 id="scope">4. Scope</h1>
+<h2 id="in-scope">In Scope</h2>
+<p>The following features will be tested:</p>
+<ul>
+<li>User Registration</li>
+<li>User Login</li>
+<li>Logout</li>
+<li>Account Overview</li>
+<li>Account Details</li>
+<li>Open New Account</li>
+<li>Transfer Funds</li>
+<li>Bill Payment</li>
+<li>Request Loan</li>
+<li>Navigation</li>
+<li>Session Management</li>
+<li>Form Validation</li>
+<li>Error Handling</li>
+<li>Basic API validation</li>
+</ul>
+<hr />
+<h2 id="out-of-scope">Out of Scope</h2>
+<p>The following activities are excluded from this project:</p>
+<ul>
+<li>Performance Testing</li>
+<li>Load Testing</li>
+<li>Stress Testing</li>
+<li>Security Testing</li>
+<li>Penetration Testing</li>
+<li>Accessibility Testing</li>
+<li>Cross-browser compatibility beyond Google Chrome</li>
+<li>Mobile application testing</li>
+</ul>
+<hr />
+<h1 id="testing-types">5. Testing Types</h1>
+<p>The following testing approaches will be used:</p>
+<ul>
+<li>Functional Testing</li>
+<li>Exploratory Testing</li>
+<li>Smoke Testing</li>
+<li>Regression Testing</li>
+<li>Negative Testing</li>
+<li>Boundary Value Analysis</li>
+<li>Equivalence Partitioning</li>
+<li>API Testing</li>
+</ul>
+<hr />
+<h1 id="test-environment">6. Test Environment</h1>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Application</td>
+<td>ParaBank</td>
+</tr>
+<tr>
+<td>URL</td>
+<td>https://parabank.parasoft.com/</td>
+</tr>
+<tr>
+<td>Browser</td>
+<td>Google Chrome</td>
+</tr>
+<tr>
+<td>Operating System</td>
+<td>Windows 11</td>
+</tr>
+<tr>
+<td>Testing Type</td>
+<td>Manual Testing</td>
+</tr>
+<tr>
+<td>API Tool</td>
+<td>Postman</td>
+</tr>
+<tr>
+<td>Documentation</td>
+<td>Markdown</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="entry-criteria">7. Entry Criteria</h1>
+<p>Testing may begin when:</p>
+<ul>
+<li>Application is accessible.</li>
+<li>Test environment is available.</li>
+<li>Test accounts are created.</li>
+<li>Test documentation is prepared.</li>
+</ul>
+<hr />
+<h1 id="exit-criteria">8. Exit Criteria</h1>
+<p>Testing is considered complete when:</p>
+<ul>
+<li>All planned test cases have been executed.</li>
+<li>Critical defects have been documented.</li>
+<li>Test execution results are recorded.</li>
+<li>Test Summary Report has been completed.</li>
+</ul>
+<hr />
+<h1 id="deliverables">9. Deliverables</h1>
+<p>The project will include:</p>
+<ul>
+<li>Test Plan</li>
+<li>Exploratory Testing Notes</li>
+<li>Test Cases</li>
+<li>Bug Reports</li>
+<li>API Testing</li>
+<li>Test Execution Report</li>
+<li>Test Summary Report</li>
+<li>Screenshots</li>
+<li>Video Evidence</li>
+</ul>
+<hr />
+<h1 id="risks">10. Risks</h1>
+<p>Potential testing risks include:</p>
+<table>
+<thead>
+<tr>
+<th>Risk</th>
+<th>Impact</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Application instability</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>Temporary server downtime</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>Test data limitations</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>Environment changes</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>Existing application defects</td>
+<td>High</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="assumptions">11. Assumptions</h1>
+<p>This project assumes that:</p>
+<ul>
+<li>The application is publicly available.</li>
+<li>Internet connectivity is stable.</li>
+<li>Banking operations use test data only.</li>
+<li>No real financial transactions are performed.</li>
+</ul>
+<hr />
+<h1 id="test-completion-criteria">12. Test Completion Criteria</h1>
+<p>Testing will be considered complete when:</p>
+<ul>
+<li>All planned scenarios have been executed.</li>
+<li>Results have been documented.</li>
+<li>Bugs have been reported.</li>
+<li>Final QA documentation has been reviewed.</li>
+</ul>
+<hr />
+<h1 id="document-version-history">Document Version History</h1>
+<table>
+<thead>
+<tr>
+<th>Version</th>
+<th>Date</th>
+<th>Author</th>
+<th>Changes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.0</td>
+<td>YYYY-MM-DD</td>
+<td>Filip Jelinek</td>
+<td>Initial version</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p>⬅️ Back to QA ParaBank README</p>
+<p><a href="qa-parabank-README.md">QA-ParaBank-README.md</a></p>
+</body>
+</html>

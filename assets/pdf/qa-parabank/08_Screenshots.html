@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc 3.10.1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Screenshots</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Screenshots</h1>
+</header>
+<h1 id="screenshots">Screenshots</h1>
+<p><strong>Project:</strong> ParaBank Manual Testing Project</p>
+<p><strong>Version:</strong> 1.0</p>
+<p><strong>Prepared by:</strong> Filip Jelinek</p>
+<hr />
+<h1 id="in-page-navigation">In-page Navigation</h1>
+<ul>
+<li><a href="#1-purpose">1. Purpose</a></li>
+<li><a href="#2-screenshot-categories">2. Screenshot Categories</a></li>
+<li><a href="#3-screenshot-index">3. Screenshot Index</a></li>
+<li><a href="#4-naming-convention">4. Naming Convention</a></li>
+<li><a href="#5-folder-structure">5. Folder Structure</a></li>
+</ul>
+<hr />
+<h1 id="purpose">1. Purpose</h1>
+<p>This document provides an index of screenshots captured during manual
+testing of the ParaBank application.</p>
+<p>Screenshots serve as supporting evidence for executed test cases and
+confirmed defects. They provide visual documentation of application
+behavior and are referenced throughout the test execution and bug
+reports.</p>
+<p>Screenshots are used for:</p>
+<ul>
+<li>Test execution evidence</li>
+<li>Bug report documentation</li>
+<li>Validation of application behavior</li>
+<li>UI verification</li>
+<li>Functional verification</li>
+</ul>
+<hr />
+<h1 id="screenshot-categories">2. Screenshot Categories</h1>
+<p>The screenshots included in this project cover the following
+functional areas:</p>
+<ul>
+<li>User Registration</li>
+<li>Transfer Funds</li>
+<li>Bill Payment</li>
+<li>Loan Request</li>
+<li>Session Management</li>
+<li>Input Validation</li>
+<li>Security Testing</li>
+<li>Unicode Testing</li>
+<li>Browser Session Handling</li>
+</ul>
+<hr />
+<h1 id="screenshot-index">3. Screenshot Index</h1>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 23%" />
+<col style="width: 22%" />
+<col style="width: 32%" />
+<col style="width: 22%" />
+</colgroup>
+<thead>
+<tr>
+<th>Screenshot ID</th>
+<th>Description</th>
+<th>Related Test Case</th>
+<th>Related Bug</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SS001</td>
+<td>Registration accepts duplicate username</td>
+<td>TC006</td>
+<td>BUG001</td>
+</tr>
+<tr>
+<td>SS002</td>
+<td>Registration accepts special characters</td>
+<td>TC007</td>
+<td>BUG002</td>
+</tr>
+<tr>
+<td>SS003</td>
+<td>Registration accepts numeric values</td>
+<td>TC008</td>
+<td>BUG003</td>
+</tr>
+<tr>
+<td>SS004</td>
+<td>Transfer accepts zero amount</td>
+<td>TC033</td>
+<td>BUG004</td>
+</tr>
+<tr>
+<td>SS005</td>
+<td>Transfer accepts negative amount</td>
+<td>TC034</td>
+<td>BUG005</td>
+</tr>
+<tr>
+<td>SS006</td>
+<td>Transfer exceeds available balance</td>
+<td>TC036</td>
+<td>BUG006</td>
+</tr>
+<tr>
+<td>SS007</td>
+<td>Empty transfer amount causes Internal Server Error</td>
+<td>TC038</td>
+<td>BUG007</td>
+</tr>
+<tr>
+<td>SS008</td>
+<td>Bill payment accepts non-existent account</td>
+<td>TC043</td>
+<td>BUG008</td>
+</tr>
+<tr>
+<td>SS009</td>
+<td>Bill payment accepts negative amount</td>
+<td>TC045</td>
+<td>BUG009</td>
+</tr>
+<tr>
+<td>SS010</td>
+<td>Bill payment accepts invalid ZIP code</td>
+<td>TC047</td>
+<td>BUG010</td>
+</tr>
+<tr>
+<td>SS011</td>
+<td>Bill payment accepts invalid phone number</td>
+<td>TC048</td>
+<td>BUG011</td>
+</tr>
+<tr>
+<td>SS012</td>
+<td>Loan request returns Internal Server Error</td>
+<td>TC050</td>
+<td>BUG012</td>
+</tr>
+<tr>
+<td>SS013</td>
+<td>HTML input blocks JavaScript injection</td>
+<td>TC064</td>
+<td>BUG014</td>
+</tr>
+<tr>
+<td>SS014</td>
+<td>Unicode characters displayed incorrectly</td>
+<td>TC067</td>
+<td>BUG015</td>
+</tr>
+<tr>
+<td>SS015</td>
+<td>Multiple browser tabs produce Internal Server Error</td>
+<td>TC070</td>
+<td>BUG016</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Every confirmed defect documented in this project includes at least
+one supporting screenshot.</p>
+</blockquote>
+<hr />
+<h1 id="naming-convention">4. Naming Convention</h1>
+<p>Screenshots follow the naming convention:</p>
+<pre class="text"><code>BUGXXX_TCXXX_Short_Description.png</code></pre>
+<p>Examples:</p>
+<pre class="text"><code>BUG001_TC006_Registration_Unique_Username_Error.png
+BUG006_TC036_Transfer_Exceeding_Balance_Accepted.png
+BUG012_TC050_Loan_Request_Internal_Error.png</code></pre>
+<p>Benefits:</p>
+<ul>
+<li>Consistent file naming.</li>
+<li>Easy traceability between screenshots, test cases, and bug
+reports.</li>
+<li>Simplified repository navigation.</li>
+<li>Professional documentation structure.</li>
+</ul>
+<hr />
+<h1 id="folder-structure">5. Folder Structure</h1>
+<pre class="text"><code>08_Screenshots/
+│
+├── 08_Screenshots.md
+├── BUG001_TC006_Registration_Unique_Username_Error.png
+├── BUG002_TC007_Registration_Special_Characters_Accepted.png
+├── BUG003_TC008_Registration_Numeric_Values_Accepted.png
+├── BUG004_TC033_Transfer_Zero_Amount_Accepted.png
+├── BUG005_TC034_Transfer_Negative_Amount_Accepted.png
+├── BUG006_TC036_Transfer_Exceeding_Balance_Accepted.png
+├── BUG007_TC038_Transfer_Empty_Amount_Internal_Error.png
+├── BUG008_TC043_Bill_Payment_Non_Existent_Account_Accepted.png
+├── BUG009_TC045_Bill_Payment_Negative_Amount_Accepted.png
+├── BUG010_TC047_Bill_Payment_Invalid_ZIP_Code_Accepted.png
+├── BUG011_TC048_Bill_Payment_Invalid_Phone_Number_Accepted.png
+├── BUG012_TC050_Loan_Request_Internal_Error.png
+├── BUG014_TC064_HTML_JavaScript_Input_Security_Block.png
+├── BUG015_TC067_Unicode_Characters_Display_Incorrectly.png
+└── BUG016_TC070_Multiple_Tabs_Session_Internal_Error.png</code></pre>
+<hr />
+<h1 id="notes">Notes</h1>
+<ul>
+<li>Every confirmed defect is supported by at least one screenshot.</li>
+<li>Screenshots were captured during manual execution of the
+corresponding test cases.</li>
+<li>Images do not contain any sensitive or personal information.</li>
+<li>Screenshot filenames directly correspond to the associated bug
+reports and test cases for full traceability.</li>
+</ul>
+<hr />
+<h1 id="document-version-history">Document Version History</h1>
+<table>
+<thead>
+<tr>
+<th>Version</th>
+<th>Date</th>
+<th>Author</th>
+<th>Changes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.0</td>
+<td>2026-07</td>
+<td>Filip Jelinek</td>
+<td>Initial completed version</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p>⬅️ <strong>Back to QA ParaBank README</strong></p>
+<p><a href="qa-parabank-README.md">QA-ParaBank-README.md</a></p>
+</body>
+</html>

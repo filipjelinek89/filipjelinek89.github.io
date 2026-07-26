@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc 3.10.1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Bug Reports</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Bug Reports</h1>
+</header>
+<h1 id="bug-reports">Bug Reports</h1>
+<h2 id="project-information">📌 Project Information</h2>
+<p><strong>Project:</strong> SauceDemo Manual Testing Project</p>
+<p><strong>Version:</strong> 2.0</p>
+<p><strong>Prepared by:</strong> Filip Jelinek</p>
+<p><strong>Application:</strong> SauceDemo
+(https://www.saucedemo.com)</p>
+<p><strong>Testing Type:</strong> Manual Functional Testing</p>
+<p><strong>Documentation Standard:</strong> IEEE-inspired QA
+Documentation</p>
+<hr />
+<h1 id="in-page-navigation">In-page Navigation</h1>
+<ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#bug-report-structure">Bug Report Structure</a></li>
+<li><a href="#severity-classification">Severity Classification</a></li>
+<li><a href="#priority-classification">Priority Classification</a></li>
+<li><a href="#environment">Environment</a></li>
+<li><a href="#bug-reports">Bug Reports</a></li>
+<li><a href="#summary">Summary</a></li>
+</ul>
+<hr />
+<h1 id="overview">Overview</h1>
+<p>This section contains bug reports identified during manual functional
+testing of the SauceDemo web application.</p>
+<p>The reported defects were discovered while testing different user
+accounts (<code>problem_user</code> and <code>error_user</code>)
+intentionally provided by SauceDemo to simulate application defects.</p>
+<p>Each bug report follows a standardized documentation structure
+commonly used in software testing projects and includes all information
+required to reproduce, classify, and prioritize the issue.</p>
+<p>This documentation demonstrates practical bug reporting skills and
+professional QA documentation practices.</p>
+<hr />
+<h1 id="bug-report-structure">Bug Report Structure</h1>
+<p>Each bug report contains:</p>
+<ul>
+<li>Bug ID</li>
+<li>Related Requirement</li>
+<li>Related Test Case</li>
+<li>Title</li>
+<li>Severity</li>
+<li>Priority</li>
+<li>Status</li>
+<li>Environment</li>
+<li>Preconditions</li>
+<li>Steps to Reproduce</li>
+<li>Expected Result</li>
+<li>Actual Result</li>
+<li>Screenshot</li>
+<li>Additional Notes</li>
+</ul>
+<hr />
+<h1 id="severity-classification">Severity Classification</h1>
+<table>
+<thead>
+<tr>
+<th>Severity</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>🔴 Critical</td>
+<td>Application functionality is blocked or unusable.</td>
+</tr>
+<tr>
+<td>🟠 High</td>
+<td>Core functionality is significantly affected.</td>
+</tr>
+<tr>
+<td>🟡 Medium</td>
+<td>Functionality works incorrectly but workaround exists.</td>
+</tr>
+<tr>
+<td>🟢 Low</td>
+<td>Cosmetic or minor usability issue.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="priority-classification">Priority Classification</h1>
+<table>
+<thead>
+<tr>
+<th>Priority</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>P1</td>
+<td>Fix immediately</td>
+</tr>
+<tr>
+<td>P2</td>
+<td>Fix in the next release</td>
+</tr>
+<tr>
+<td>P3</td>
+<td>Normal priority</td>
+</tr>
+<tr>
+<td>P4</td>
+<td>Low priority / Enhancement</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="environment">Environment</h1>
+<p>All bug reports were documented using the following environment.</p>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Operating System</td>
+<td>Windows 11 Pro (64-bit)</td>
+</tr>
+<tr>
+<td>Browser</td>
+<td>Google Chrome</td>
+</tr>
+<tr>
+<td>Browser Version</td>
+<td>149.0.7827.197</td>
+</tr>
+<tr>
+<td>Application</td>
+<td>SauceDemo</td>
+</tr>
+<tr>
+<td>Testing Type</td>
+<td>Manual Functional Testing</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="bug-reports-1">Bug Reports</h1>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 11%" />
+<col style="width: 18%" />
+<col style="width: 17%" />
+<col style="width: 10%" />
+<col style="width: 15%" />
+<col style="width: 14%" />
+<col style="width: 11%" />
+</colgroup>
+<thead>
+<tr>
+<th>Bug ID</th>
+<th>Requirement</th>
+<th>Related TC</th>
+<th>Title</th>
+<th>Severity</th>
+<th>Priority</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BUG-001</td>
+<td>FR-002</td>
+<td>TC008</td>
+<td><a
+href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-saucedemo/05_Bug_Reports/BUG-001%20Incorrect%20Product%20Images%20Displayed%20on%20Inventory%20Page.md">All
+Product Images Display the Same Image on Inventory Page</a></td>
+<td>🟠 High</td>
+<td>P2</td>
+<td>Open</td>
+</tr>
+<tr>
+<td>BUG-002</td>
+<td>FR-002</td>
+<td>TC009</td>
+<td><a
+href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-saucedemo/05_Bug_Reports/BUG-002_Incorrect_Product_Information.md">Product
+Information Is Missing on Inventory Page</a></td>
+<td>🟠 High</td>
+<td>P2</td>
+<td>Open</td>
+</tr>
+<tr>
+<td>BUG-003</td>
+<td>FR-002</td>
+<td>TC010</td>
+<td><a
+href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-saucedemo/05_Bug_Reports/BUG-003%20Add%20to%20Cart%20Button%20Does%20Not%20Work%20for%20Specific%20Products.md">Add
+to Cart and Remove Buttons Do Not Work for Specific Products</a></td>
+<td>🔴 Critical</td>
+<td>P1</td>
+<td>Open</td>
+</tr>
+<tr>
+<td>BUG-004</td>
+<td>FR-003</td>
+<td>TC016</td>
+<td><a
+href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-saucedemo/05_Bug_Reports/BUG-004%20Remove%20Button%20Does%20Not%20Remove%20Product%20on%20Product%20Details%20Page.md">Remove
+Button Does Not Work on Product Details Page</a></td>
+<td>🟠 High</td>
+<td>P2</td>
+<td>Open</td>
+</tr>
+<tr>
+<td>BUG-005</td>
+<td>FR-005</td>
+<td>TC027</td>
+<td><a
+href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-saucedemo/05_Bug_Reports/BUG-005%20Last%20Name%20Field%20Does%20Not%20Accept%20Input%20During%20Checkout.md">Last
+Name Field Does Not Accept Input During Checkout</a></td>
+<td>🟠 High</td>
+<td>P2</td>
+<td>Open</td>
+</tr>
+<tr>
+<td>BUG-006</td>
+<td>FR-005</td>
+<td>TC029</td>
+<td><a
+href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-saucedemo/05_Bug_Reports/BUG-006%20Checkout%20Allows%20Progress%20Without%20Required%20Last%20Name.md">Checkout
+Allows User to Continue Without Required Last Name</a></td>
+<td>🔴 Critical</td>
+<td>P1</td>
+<td>Open</td>
+</tr>
+<tr>
+<td>BUG-007</td>
+<td>FR-005</td>
+<td>TC032</td>
+<td><a
+href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-saucedemo/05_Bug_Reports/BUG-007%20Finish%20Button%20Does%20Not%20Complete%20Order.md">Finish
+Button Is Not Clickable on Checkout Overview Page</a></td>
+<td>🔴 Critical</td>
+<td>P1</td>
+<td>Open</td>
+</tr>
+<tr>
+<td>BUG-008</td>
+<td>FR-006</td>
+<td>TC037</td>
+<td><a
+href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-saucedemo/05_Bug_Reports/BUG-008%20Product%20Sorting%20by%20Price%20(Low%20to%20High)%20Triggers%20JavaScript%20Error.md">Product
+Sorting by Price (Low to High) Displays Error Page</a></td>
+<td>🟠 High</td>
+<td>P2</td>
+<td>Open</td>
+</tr>
+<tr>
+<td>BUG-009</td>
+<td>FR-007</td>
+<td>TC041</td>
+<td><a
+href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-saucedemo/05_Bug_Reports/BUG-009%20About%20Link%20Redirects%20to%20404%20Page.md">About
+Link Returns 404 Page Not Found</a></td>
+<td>🟡 Medium</td>
+<td>P3</td>
+<td>Open</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="summary">Summary</h1>
+<h2 id="bug-statistics">Bug Statistics</h2>
+<table>
+<thead>
+<tr>
+<th>Severity</th>
+<th style="text-align: right;">Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>🔴 Critical</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr>
+<td>🟠 High</td>
+<td style="text-align: right;">5</td>
+</tr>
+<tr>
+<td>🟡 Medium</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr>
+<td>🟢 Low</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr>
+<td><strong>Total Bug Reports</strong></td>
+<td style="text-align: right;"><strong>9</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="functional-areas-affected">Functional Areas Affected</h2>
+<ul>
+<li>Login</li>
+<li>Inventory</li>
+<li>Product Details</li>
+<li>Shopping Cart</li>
+<li>Checkout</li>
+<li>Navigation</li>
+</ul>
+<hr />
+<h2 id="related-test-cases">Related Test Cases</h2>
+<p>The reported defects are linked to the following executed test
+cases:</p>
+<ul>
+<li>TC008</li>
+<li>TC009</li>
+<li>TC010</li>
+<li>TC016</li>
+<li>TC027</li>
+<li>TC029</li>
+<li>TC032</li>
+<li>TC037</li>
+<li>TC041</li>
+</ul>
+<hr />
+<h2 id="notes">Notes</h2>
+<p>All reported defects were identified during manual functional testing
+of SauceDemo.</p>
+<p>Each issue was successfully reproduced and documented with detailed
+reproduction steps, expected and actual results, severity assessment,
+priority classification, and supporting screenshots.</p>
+<p>The documentation demonstrates practical experience in identifying,
+reproducing, documenting, and communicating software defects using
+industry-standard QA documentation practices.</p>
+<hr />
+<p>⬅️ <strong>Back to Saucedemo</strong></p>
+<p><a
+href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-saucedemo/qa-saucedemo-README.md">qa-saucedemo-README.md</a></p>
+</body>
+</html>

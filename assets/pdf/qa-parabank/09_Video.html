@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc 3.10.1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Video</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Video</h1>
+</header>
+<h1 id="video-evidence">Video Evidence</h1>
+<p><strong>Project:</strong> ParaBank Manual Testing Project</p>
+<p><strong>Version:</strong> 1.0</p>
+<p><strong>Prepared by:</strong> Filip Jelinek</p>
+<hr />
+<h1 id="in-page-navigation">In-page Navigation</h1>
+<ul>
+<li><a href="#1-purpose">1. Purpose</a></li>
+<li><a href="#2-recording-guidelines">2. Recording Guidelines</a></li>
+<li><a href="#3-video-index">3. Video Index</a></li>
+<li><a href="#4-naming-convention">4. Naming Convention</a></li>
+<li><a href="#5-folder-structure">5. Folder Structure</a></li>
+</ul>
+<hr />
+<h1 id="purpose">1. Purpose</h1>
+<p>This document provides an index of screen recordings captured during
+manual testing of the ParaBank application.</p>
+<p>Video recordings supplement screenshots by providing clear evidence
+of application behavior during test execution and bug reproduction.</p>
+<p>Videos are especially useful for:</p>
+<ul>
+<li>Demonstrating defects that require multiple reproduction steps.</li>
+<li>Capturing dynamic UI or browser behavior.</li>
+<li>Supporting bug reports with reproducible evidence.</li>
+<li>Showing complete user workflows when screenshots are
+insufficient.</li>
+</ul>
+<hr />
+<h1 id="recording-guidelines">2. Recording Guidelines</h1>
+<p>Videos should be recorded when:</p>
+<ul>
+<li>A defect cannot be clearly explained using screenshots alone.</li>
+<li>Multiple steps are required to reproduce an issue.</li>
+<li>Browser or session behavior changes over time.</li>
+<li>Dynamic application behavior needs to be demonstrated.</li>
+</ul>
+<p>All recordings should:</p>
+<ul>
+<li>Start from a known application state.</li>
+<li>Clearly demonstrate each reproduction step.</li>
+<li>Show the complete defect from start to finish.</li>
+<li>Avoid including any sensitive or personal information.</li>
+<li>Be saved in MP4 format.</li>
+</ul>
+<hr />
+<h1 id="video-index">3. Video Index</h1>
+<table>
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 20%" />
+<col style="width: 30%" />
+<col style="width: 20%" />
+<col style="width: 12%" />
+</colgroup>
+<thead>
+<tr>
+<th>Video ID</th>
+<th>Description</th>
+<th>Related Test Case</th>
+<th>Related Bug</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>VID001</td>
+<td>Browser Back Button allows access after logout</td>
+<td>TC068</td>
+<td>BUG013</td>
+<td>✅ Recorded</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Additional recordings may be added if future testing identifies
+defects that benefit from video evidence.</p>
+</blockquote>
+<hr />
+<h1 id="naming-convention">4. Naming Convention</h1>
+<p>Video files follow the naming convention:</p>
+<pre class="text"><code>BUGXXX_TCXXX_Short_Description.mp4</code></pre>
+<p>Example:</p>
+<pre class="text"><code>BUG013_TC068_Back_Button_Access_After_Logout.mp4</code></pre>
+<p>Benefits:</p>
+<ul>
+<li>Easy traceability between videos, test cases, and bug reports.</li>
+<li>Consistent naming across the project.</li>
+<li>Simplified navigation within the repository.</li>
+</ul>
+<hr />
+<h1 id="folder-structure">5. Folder Structure</h1>
+<pre class="text"><code>09_Video/
+│
+├── 09_Video.md
+└── BUG013_TC068_Back_Button_Access_After_Logout.mp4</code></pre>
+<hr />
+<h1 id="notes">Notes</h1>
+<ul>
+<li>Videos are recorded only when they provide meaningful evidence
+beyond screenshots.</li>
+<li>Screenshots remain the primary source of visual documentation
+throughout the project.</li>
+<li>Video recordings are used to demonstrate complex or dynamic
+application behavior.</li>
+<li>All recordings are stored in MP4 format for maximum
+compatibility.</li>
+</ul>
+<hr />
+<h1 id="document-version-history">Document Version History</h1>
+<table>
+<thead>
+<tr>
+<th>Version</th>
+<th>Date</th>
+<th>Author</th>
+<th>Changes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.0</td>
+<td>2026-07</td>
+<td>Filip Jelinek</td>
+<td>Initial completed version</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p>⬅️ <strong>Back to QA ParaBank README</strong></p>
+<p><a href="qa-parabank-README.md">QA-ParaBank-README.md</a></p>
+</body>
+</html>

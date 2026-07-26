@@ -1,0 +1,127 @@
+/* ==========================================
+   RESET.CSS
+   QA Portfolio Website v2.0
+   ========================================== */
+
+/* Box sizing */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Remove default margin & padding */
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* Smooth scrolling */
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Body */
+
+body {
+    min-height: 100vh;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Media */
+
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+/* Forms */
+
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+/* Buttons */
+
+button {
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+/* Lists */
+
+ul,
+ol {
+    list-style: none;
+}
+
+/* Links */
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Tables */
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* Headings */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: inherit;
+    line-height: 1.2;
+}
+
+/* Paragraphs */
+
+p {
+    line-height: 1.6;
+}
+
+/* Text overflow */
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    overflow-wrap: break-word;
+}
+
+/* Focus */
+
+:focus-visible {
+    outline: 2px solid #2563eb;
+    outline-offset: 2px;
+}
+
+/* Disabled elements */
+
+:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+}

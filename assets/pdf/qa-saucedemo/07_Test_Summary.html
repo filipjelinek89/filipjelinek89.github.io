@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc 3.10.1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Test Summary</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Test Summary</h1>
+</header>
+<h1 id="test-summary">Test Summary</h1>
+<h2 id="project-information">📌 Project Information</h2>
+<p><strong>Project:</strong> SauceDemo Manual Testing Project</p>
+<p><strong>Application:</strong> SauceDemo
+(https://www.saucedemo.com)</p>
+<p><strong>Testing Type:</strong> Manual Functional Testing</p>
+<p><strong>Prepared By:</strong> Filip Jelinek</p>
+<hr />
+<h2 id="in-page-navigation">📑 In-page Navigation</h2>
+<ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#test-scope">Test Scope</a></li>
+<li><a href="#execution-summary">Execution Summary</a></li>
+<li><a href="#defect-summary">Defect Summary</a></li>
+<li><a href="#coverage-summary">Coverage Summary</a></li>
+<li><a href="#key-findings">Key Findings</a></li>
+<li><a href="#recommendations">Recommendations</a></li>
+<li><a href="#conclusion">Conclusion</a></li>
+</ul>
+<hr />
+<h1 id="overview">Overview</h1>
+<p>This document summarizes the results of the manual testing activities
+performed on the SauceDemo web application.</p>
+<p>The testing process included requirement analysis, test scenario
+preparation, detailed test case execution, defect reporting, and
+documentation of the overall testing outcome.</p>
+<p>The objective of this summary is to provide a high-level overview of
+the testing effort and the overall quality of the application at the
+time of testing.</p>
+<hr />
+<h1 id="test-scope">Test Scope</h1>
+<p>The following functional areas were included in testing:</p>
+<ul>
+<li>User Authentication</li>
+<li>Product Inventory</li>
+<li>Shopping Cart</li>
+<li>Checkout Process</li>
+<li>Navigation</li>
+<li>Session Management</li>
+<li>Input Validation</li>
+<li>User Interface</li>
+<li>Accessibility</li>
+<li>Browser Navigation</li>
+</ul>
+<hr />
+<h1 id="execution-summary">Execution Summary</h1>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th style="text-align: right;">Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Total Test Cases</td>
+<td style="text-align: right;">42</td>
+</tr>
+<tr>
+<td>Executed</td>
+<td style="text-align: right;">42</td>
+</tr>
+<tr>
+<td>Passed</td>
+<td style="text-align: right;">33</td>
+</tr>
+<tr>
+<td>Failed</td>
+<td style="text-align: right;">9</td>
+</tr>
+<tr>
+<td>Blocked</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr>
+<td>Not Executed</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr>
+<td>Pass Rate</td>
+<td style="text-align: right;">78.6%</td>
+</tr>
+<tr>
+<td>Fail Rate</td>
+<td style="text-align: right;">21.4%</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="defect-summary">Defect Summary</h1>
+<table>
+<thead>
+<tr>
+<th>Severity</th>
+<th style="text-align: right;">Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>🔴 Critical</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr>
+<td>🟠 High</td>
+<td style="text-align: right;">5</td>
+</tr>
+<tr>
+<td>🟡 Medium</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr>
+<td>🟢 Low</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr>
+<td><strong>Total Defects</strong></td>
+<td style="text-align: right;"><strong>9</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="coverage-summary">Coverage Summary</h1>
+<table>
+<thead>
+<tr>
+<th>Testing Area</th>
+<th style="text-align: center;">Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Login &amp; Authentication</td>
+<td style="text-align: center;">✅ Completed</td>
+</tr>
+<tr>
+<td>Inventory Management</td>
+<td style="text-align: center;">✅ Completed</td>
+</tr>
+<tr>
+<td>Shopping Cart</td>
+<td style="text-align: center;">✅ Completed</td>
+</tr>
+<tr>
+<td>Checkout</td>
+<td style="text-align: center;">✅ Completed</td>
+</tr>
+<tr>
+<td>Navigation</td>
+<td style="text-align: center;">✅ Completed</td>
+</tr>
+<tr>
+<td>Validation Testing</td>
+<td style="text-align: center;">✅ Completed</td>
+</tr>
+<tr>
+<td>Accessibility Testing</td>
+<td style="text-align: center;">✅ Completed</td>
+</tr>
+<tr>
+<td>Session Management</td>
+<td style="text-align: center;">✅ Completed</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="key-findings">Key Findings</h1>
+<p>Manual functional testing identified <strong>9 unique
+defects</strong> affecting several core areas of the SauceDemo
+application.</p>
+<p>The most significant findings include:</p>
+<ul>
+<li>Product images displayed incorrectly on the Inventory page.</li>
+<li>Missing product information for selected products.</li>
+<li>“Add to Cart” and “Remove” buttons not functioning for specific
+products.</li>
+<li>Checkout validation issues, including an unresponsive Last Name
+field and the ability to continue without entering a required last
+name.</li>
+<li>The <strong>Finish</strong> button was not clickable, preventing
+successful order completion.</li>
+<li>Product sorting by <strong>Price (Low to High)</strong> resulted in
+an application error.</li>
+<li>The <strong>About</strong> link redirected users to a <strong>404
+Page Not Found</strong>.</li>
+</ul>
+<p>No unexpected application crashes were encountered during testing.
+All identified defects were successfully reproduced, documented, and
+linked to their corresponding test cases and bug reports, providing
+complete traceability throughout the testing process.</p>
+<hr />
+<h1 id="recommendations">Recommendations</h1>
+<p>Based on the executed test cases and the identified defects, the
+following improvements are recommended:</p>
+<ul>
+<li>Correct the Inventory page so that each product displays its
+corresponding image and complete product information.</li>
+<li>Fix the functionality of the <strong>Add to Cart</strong> and
+<strong>Remove</strong> buttons for affected products.</li>
+<li>Improve checkout form validation by ensuring all required fields
+accept valid input and prevent users from continuing with incomplete
+information.</li>
+<li>Resolve the issue preventing the <strong>Finish</strong> button from
+completing the checkout process.</li>
+<li>Fix the product sorting functionality to prevent application errors
+when sorting by <strong>Price (Low to High)</strong>.</li>
+<li>Update the <strong>About</strong> link to redirect users to the
+correct destination instead of returning a <strong>404 Page Not
+Found</strong>.</li>
+<li>Perform comprehensive regression testing after implementing the
+fixes to verify that resolved defects do not introduce new issues.</li>
+</ul>
+<hr />
+<h1 id="conclusion">Conclusion</h1>
+<p>A total of <strong>42 manual test cases</strong> were successfully
+executed during this testing cycle.</p>
+<p>The testing identified <strong>9 unique defects</strong> affecting
+several core functional areas, including the Inventory page, Product
+Details, Shopping Cart, Checkout process, and Navigation. While the
+majority of the application functionality performed as expected, the
+reported issues highlight areas requiring improvement to ensure a
+consistent and reliable user experience.</p>
+<p>Overall, the SauceDemo application demonstrates stable core
+functionality suitable for demonstration and learning purposes. The
+executed testing activities successfully identified and documented
+reproducible defects using structured manual testing techniques,
+providing complete traceability between <strong>Requirements
+(FR)</strong>, <strong>Test Cases (TC)</strong>, and <strong>Bug Reports
+(BUG)</strong>. The portfolio demonstrates a systematic approach to test
+planning, execution, defect reporting, and documentation in accordance
+with common QA best practices.</p>
+<hr />
+<p>⬅️ <strong>Back to Saucedemo</strong></p>
+<p><a
+href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-saucedemo/qa-saucedemo-README.md">qa-saucedemo-README.md</a></p>
+</body>
+</html>

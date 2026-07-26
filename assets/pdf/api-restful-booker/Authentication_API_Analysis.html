@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc 3.10.1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Authentication API Analysis</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Authentication API Analysis</h1>
+</header>
+<h1 id="authentication-api-analysis">Authentication API Analysis</h1>
+<h2 id="document-information">Document Information</h2>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Project</td>
+<td>Restful Booker API Testing</td>
+</tr>
+<tr>
+<td>Sprint</td>
+<td>Sprint 2 – Authentication</td>
+</tr>
+<tr>
+<td>Endpoint</td>
+<td>POST /auth</td>
+</tr>
+<tr>
+<td>Version</td>
+<td>1.1</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Completed</td>
+</tr>
+<tr>
+<td>Author</td>
+<td>Filip Jelinek</td>
+</tr>
+<tr>
+<td>Last Updated</td>
+<td>July 2026</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="purpose">Purpose</h1>
+<p>The purpose of this document is to analyze the Authentication
+endpoint of the Restful Booker API before designing test scenarios, test
+cases, and Postman requests.</p>
+<p>The analysis identifies:</p>
+<ul>
+<li>Endpoint purpose</li>
+<li>HTTP method</li>
+<li>Request requirements</li>
+<li>Response structure</li>
+<li>Authentication workflow</li>
+<li>Validation opportunities</li>
+<li>Potential risks</li>
+<li>Requirement gaps</li>
+<li>Test design considerations</li>
+</ul>
+<p>This document serves as the technical foundation for Sprint 2.</p>
+<hr />
+<h1 id="endpoint-information">Endpoint Information</h1>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Endpoint</td>
+<td><code>/auth</code></td>
+</tr>
+<tr>
+<td>HTTP Method</td>
+<td>POST</td>
+</tr>
+<tr>
+<td>Authentication Required</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Content-Type</td>
+<td>application/json</td>
+</tr>
+<tr>
+<td>Response Format</td>
+<td>application/json</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="endpoint-purpose">Endpoint Purpose</h1>
+<p>The endpoint authenticates a user using a username and password.</p>
+<p>If the credentials are valid, the API returns an authentication
+token.</p>
+<p>The generated token is later used to authorize protected
+endpoints:</p>
+<ul>
+<li>PUT /booking/{id}</li>
+<li>PATCH /booking/{id}</li>
+<li>DELETE /booking/{id}</li>
+</ul>
+<hr />
+<h1 id="request-analysis">Request Analysis</h1>
+<h2 id="required-headers">Required Headers</h2>
+<table>
+<thead>
+<tr>
+<th>Header</th>
+<th>Required</th>
+<th>Expected Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Content-Type</td>
+<td>Yes</td>
+<td>application/json</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="request-body">Request Body</h2>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode json"><code class="sourceCode json"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;username&quot;</span><span class="fu">:</span> <span class="st">&quot;admin&quot;</span><span class="fu">,</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;password&quot;</span><span class="fu">:</span> <span class="st">&quot;password123&quot;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+<hr />
+<h2 id="request-properties">Request Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>username</td>
+<td>String</td>
+<td>Yes</td>
+<td>User login name</td>
+</tr>
+<tr>
+<td>password</td>
+<td>String</td>
+<td>Yes</td>
+<td>User password</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="successful-response">Successful Response</h1>
+<p>Example:</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode json"><code class="sourceCode json"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;token&quot;</span><span class="fu">:</span> <span class="st">&quot;abc123456789&quot;</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+<hr />
+<h2 id="response-properties">Response Properties</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>token</td>
+<td>String</td>
+<td>Authentication token used for protected requests</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="authentication-flow">Authentication Flow</h1>
+<pre class="text"><code>Client
+    │
+    ▼
+POST /auth
+    │
+    ▼
+Validate Credentials
+    │
+    ▼
+Generate Token
+    │
+    ▼
+Return Token
+    │
+    ▼
+Store Token
+    │
+    ▼
+Use Token for Protected Requests</code></pre>
+<hr />
+<h1 id="functional-requirements">Functional Requirements</h1>
+<p>The endpoint should:</p>
+<ul>
+<li>Accept valid credentials</li>
+<li>Reject invalid credentials</li>
+<li>Return a token for valid credentials</li>
+<li>Return JSON responses</li>
+<li>Require Content-Type: application/json</li>
+<li>Return meaningful HTTP status codes</li>
+</ul>
+<hr />
+<h1 id="input-validation-analysis">Input Validation Analysis</h1>
+<p>The endpoint should be tested with:</p>
+<h2 id="valid-input">Valid Input</h2>
+<ul>
+<li>Valid username</li>
+<li>Valid password</li>
+</ul>
+<h2 id="invalid-credentials">Invalid Credentials</h2>
+<ul>
+<li>Invalid username</li>
+<li>Invalid password</li>
+<li>Both invalid</li>
+</ul>
+<h2 id="missing-data">Missing Data</h2>
+<ul>
+<li>Missing username</li>
+<li>Missing password</li>
+<li>Empty request body</li>
+<li>Empty JSON object</li>
+</ul>
+<h2 id="invalid-values">Invalid Values</h2>
+<ul>
+<li>Null username</li>
+<li>Null password</li>
+<li>Empty username</li>
+<li>Empty password</li>
+<li>Incorrect data types</li>
+</ul>
+<h2 id="invalid-request-format">Invalid Request Format</h2>
+<ul>
+<li>Malformed JSON</li>
+<li>Missing Content-Type</li>
+<li>Incorrect Content-Type</li>
+</ul>
+<hr />
+<h1 id="expected-response-validation">Expected Response Validation</h1>
+<p>The response should be validated for:</p>
+<ul>
+<li>HTTP status code</li>
+<li>Content-Type</li>
+<li>Response time</li>
+<li>Response body</li>
+<li>Token property existence</li>
+<li>Token data type</li>
+<li>Token value</li>
+</ul>
+<hr />
+<h1 id="http-status-code-analysis">HTTP Status Code Analysis</h1>
+<p>Expected successful response:</p>
+<pre class="text"><code>200 OK</code></pre>
+<p>Negative responses should be documented during testing because the
+public documentation does not define every error condition.</p>
+<hr />
+<h1 id="authentication-token-analysis">Authentication Token
+Analysis</h1>
+<p>The generated token is expected to:</p>
+<ul>
+<li>Be returned as a string</li>
+<li>Be non-empty</li>
+<li>Be usable in protected requests</li>
+</ul>
+<p>The documentation does not define:</p>
+<ul>
+<li>Token expiration</li>
+<li>Token lifetime</li>
+<li>Token revocation</li>
+<li>Token format</li>
+<li>Maximum token length</li>
+</ul>
+<p>These represent exploratory testing opportunities.</p>
+<hr />
+<h1 id="risks">Risks</h1>
+<p>Potential risks include:</p>
+<ul>
+<li>Invalid credentials accepted</li>
+<li>Empty token returned</li>
+<li>Missing token property</li>
+<li>Incorrect status codes</li>
+<li>Missing Content-Type validation</li>
+<li>Inconsistent error responses</li>
+<li>Authentication bypass</li>
+</ul>
+<hr />
+<h1 id="requirement-gaps">Requirement Gaps</h1>
+<p>The published documentation does not specify:</p>
+<ul>
+<li>Token expiration</li>
+<li>Token lifetime</li>
+<li>Account lockout</li>
+<li>Authentication rate limits</li>
+<li>Error response schema</li>
+<li>Invalid credential status codes</li>
+<li>Maximum token length</li>
+</ul>
+<p>These gaps should be documented during execution instead of
+assumed.</p>
+<hr />
+<h1 id="test-design-implications">Test Design Implications</h1>
+<p>The endpoint requires:</p>
+<ul>
+<li>Positive testing</li>
+<li>Negative testing</li>
+<li>Header validation</li>
+<li>Data validation</li>
+<li>Response validation</li>
+<li>Authentication workflow testing</li>
+<li>Response contract validation</li>
+<li>Automated Postman assertions</li>
+</ul>
+<p>The generated authentication token should be extracted dynamically
+and stored as an environment or collection variable for subsequent
+protected requests.</p>
+<hr />
+<h1 id="dependencies">Dependencies</h1>
+<pre class="text"><code>POST /auth
+        │
+        ▼
+Generate Token
+        │
+        ▼
+Store Token
+        │
+        ▼
+PUT /booking/{id}
+
+PATCH /booking/{id}
+
+DELETE /booking/{id}</code></pre>
+<hr />
+<h1 id="conclusion">Conclusion</h1>
+<p>The Authentication endpoint is the entry point for all protected
+operations within the Restful Booker API.</p>
+<p>Although the endpoint itself is relatively simple, it introduces one
+of the project’s most important dependencies because the generated
+authentication token is required for subsequent update and delete
+operations.</p>
+<p>The endpoint should therefore be validated not only for successful
+authentication but also for response structure, token usability, input
+validation, and consistency with the documented API contract.</p>
+<hr />
+<p><strong>Prepared by:</strong> Filip Jelinek</p>
+<p><strong>Role:</strong> QA Tester</p>
+<p><strong>Version:</strong> 1.1</p>
+<p><strong>Status:</strong> Completed</p>
+</body>
+</html>

@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc 3.10.1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Test Summary</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Test Summary</h1>
+</header>
+<h1 id="test-summary-report">Test Summary Report</h1>
+<p><strong>Project:</strong> ParaBank Manual Testing Project</p>
+<p><strong>Version:</strong> 1.0</p>
+<p><strong>Prepared by:</strong> Filip Jelinek</p>
+<hr />
+<h1 id="in-page-navigation">In-page Navigation</h1>
+<ul>
+<li><a href="#1-purpose">1. Purpose</a></li>
+<li><a href="#2-testing-overview">2. Testing Overview</a></li>
+<li><a href="#3-test-execution-summary">3. Test Execution
+Summary</a></li>
+<li><a href="#4-defect-summary">4. Defect Summary</a></li>
+<li><a href="#5-test-coverage">5. Test Coverage</a></li>
+<li><a href="#6-risks--observations">6. Risks &amp;
+Observations</a></li>
+<li><a href="#7-conclusion">7. Conclusion</a></li>
+</ul>
+<hr />
+<h1 id="purpose">1. Purpose</h1>
+<p>The purpose of this Test Summary Report is to summarize the manual
+testing activities performed on the ParaBank application, present the
+overall execution results, provide an overview of identified defects,
+and evaluate the quality and stability of the application after
+completion of the testing cycle.</p>
+<hr />
+<h1 id="testing-overview">2. Testing Overview</h1>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Application</strong></td>
+<td>ParaBank</td>
+</tr>
+<tr>
+<td><strong>Testing Type</strong></td>
+<td>Manual Functional Testing</td>
+</tr>
+<tr>
+<td><strong>Test Cases</strong></td>
+<td>70</td>
+</tr>
+<tr>
+<td><strong>Executed Test Cases</strong></td>
+<td>70</td>
+</tr>
+<tr>
+<td><strong>Test Environment</strong></td>
+<td>Windows 11, Google Chrome</td>
+</tr>
+<tr>
+<td><strong>Tester</strong></td>
+<td>Filip Jelinek</td>
+</tr>
+<tr>
+<td><strong>Test Period</strong></td>
+<td>July 2026</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="test-execution-summary">3. Test Execution Summary</h1>
+<table>
+<thead>
+<tr>
+<th>Status</th>
+<th style="text-align: right;">Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>✅ Passed</td>
+<td style="text-align: right;">47</td>
+</tr>
+<tr>
+<td>❌ Failed</td>
+<td style="text-align: right;">16</td>
+</tr>
+<tr>
+<td>🚫 Blocked</td>
+<td style="text-align: right;">7</td>
+</tr>
+<tr>
+<td>⏳ Not Executed</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td style="text-align: right;"><strong>70</strong></td>
+</tr>
+</tbody>
+</table>
+<h2 id="execution-metrics">Execution Metrics</h2>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th style="text-align: right;">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Pass Rate</td>
+<td style="text-align: right;">67.1%</td>
+</tr>
+<tr>
+<td>Fail Rate</td>
+<td style="text-align: right;">22.9%</td>
+</tr>
+<tr>
+<td>Blocked Rate</td>
+<td style="text-align: right;">10.0%</td>
+</tr>
+<tr>
+<td>Execution Progress</td>
+<td style="text-align: right;">100%</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="defect-summary">4. Defect Summary</h1>
+<p>A total of <strong>16 defects</strong> were identified during the
+execution of the test suite. Additionally, <strong>7 test cases</strong>
+were blocked due to an existing application defect that prevented
+further validation of the loan request functionality.</p>
+<table>
+<thead>
+<tr>
+<th>Severity</th>
+<th style="text-align: right;">Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>🔴 Critical</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr>
+<td>🟠 High</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr>
+<td>🟡 Medium</td>
+<td style="text-align: right;">7</td>
+</tr>
+<tr>
+<td>🔵 Low</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr>
+<td><strong>Total Defects</strong></td>
+<td style="text-align: right;"><strong>16</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="test-coverage">5. Test Coverage</h1>
+<p>The following functional areas were included in the testing
+scope:</p>
+<ul>
+<li>✅ User Registration</li>
+<li>✅ User Login</li>
+<li>✅ Account Overview</li>
+<li>✅ Open New Account</li>
+<li>✅ Transfer Funds</li>
+<li>✅ Bill Payment</li>
+<li>✅ Request Loan</li>
+<li>✅ Navigation &amp; Logout</li>
+<li>✅ Validation &amp; Negative Testing</li>
+<li>✅ Exploratory Testing</li>
+</ul>
+<h3 id="not-included">Not Included</h3>
+<ul>
+<li>API Testing (planned for a future project)</li>
+<li>Performance Testing</li>
+<li>Security Testing</li>
+<li>Cross-browser Compatibility Testing</li>
+<li>Mobile Testing</li>
+</ul>
+<hr />
+<h1 id="risks-observations">6. Risks &amp; Observations</h1>
+<p>The following observations were made during the testing cycle:</p>
+<ul>
+<li>Most core banking features functioned correctly under normal
+conditions.</li>
+<li>Several defects were identified in edge cases and validation
+scenarios.</li>
+<li>One application defect prevented complete verification of the loan
+request workflow, resulting in seven blocked test cases.</li>
+<li>The application demonstrated generally stable behavior during manual
+testing.</li>
+<li>Additional regression testing is recommended after fixing the
+reported defects.</li>
+<li>Future testing should include API, performance, security, and
+cross-browser testing to improve overall test coverage.</li>
+</ul>
+<hr />
+<h1 id="conclusion">7. Conclusion</h1>
+<p>The manual testing cycle has been successfully completed with all
+<strong>70 planned test cases executed</strong>.</p>
+<h3 id="overall-results">Overall Results</h3>
+<ul>
+<li><strong>47</strong> test cases passed successfully.</li>
+<li><strong>16</strong> test cases failed due to confirmed application
+defects.</li>
+<li><strong>7</strong> test cases were blocked because of an existing
+defect affecting loan processing.</li>
+</ul>
+<p>The overall quality of the application is acceptable for
+demonstration purposes; however, several defects should be resolved
+before considering the application production-ready. A complete
+regression test is recommended after defect fixes have been implemented
+to verify system stability and ensure no new issues have been
+introduced.</p>
+<hr />
+<h1 id="document-version-history">Document Version History</h1>
+<table>
+<thead>
+<tr>
+<th>Version</th>
+<th>Date</th>
+<th>Author</th>
+<th>Changes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.0</td>
+<td>2026-07</td>
+<td>Filip Jelinek</td>
+<td>Initial completed version</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p>⬅️ <strong>Back to QA ParaBank README</strong></p>
+<p><a href="qa-parabank-README.md">QA-ParaBank-README.md</a></p>
+</body>
+</html>
