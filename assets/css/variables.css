@@ -1,0 +1,57 @@
+/* ==================================================
+   variables.css
+   QA Portfolio Website
+   Version: 2.0
+================================================== */
+
+:root {
+
+  /* ===== Brand ===== */
+  --primary: #2563eb;
+  --primary-hover: #1d4ed8;
+  --primary-light: #60a5fa;
+
+  /* ===== Status ===== */
+  --success: #22c55e;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+  --info: #06b6d4;
+
+  /* ===== Background ===== */
+  --background: #0f172a;
+  --surface: #1e293b;
+  --surface-light: #334155;
+  --card: #1a2436;
+
+  /* ===== Text ===== */
+  --text: #f8fafc;
+  --text-light: #cbd5e1;
+  --text-muted: #94a3b8;
+
+  /* ===== Borders ===== */
+  --border: rgba(255,255,255,.08);
+
+  /* ===== Radius ===== */
+  --radius-sm: 8px;
+  --radius: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+
+  /* ===== Shadow ===== */
+  --shadow-sm: 0 4px 10px rgba(0,0,0,.15);
+  --shadow: 0 12px 30px rgba(0,0,0,.25);
+  --shadow-lg: 0 20px 50px rgba(0,0,0,.35);
+
+  /* ===== Layout ===== */
+  --container: 1200px;
+  --header-height: 80px;
+  --section-space: 110px;
+
+  /* ===== Transition ===== */
+  --transition: .3s ease;
+  --transition-fast: .2s ease;
+
+  /* ===== Font ===== */
+  --font-main: "Inter", "Segoe UI", Arial, sans-serif;
+
+}

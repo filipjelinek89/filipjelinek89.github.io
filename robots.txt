@@ -1,9 +1,4 @@
-# File: robots.txt
-
-``` text
 User-agent: *
-
 Allow: /
 
-Sitemap: https://YOUR_GITHUB_USERNAME.github.io/sitemap.xml
-```
+Sitemap: https://filipjelinek89.github.io/filipjelinek.github.io/sitemap.xml

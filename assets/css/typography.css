@@ -1,0 +1,108 @@
+/* ==================================================
+   typography.css
+   QA Portfolio Website
+   Version: 2.0
+================================================== */
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:var(--font-main);
+    font-size:16px;
+    line-height:1.7;
+    color:var(--text);
+    background:var(--background);
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6{
+    font-weight:700;
+    line-height:1.2;
+    color:var(--text);
+    margin-bottom:1rem;
+}
+
+h1{
+    font-size:clamp(3rem,6vw,5rem);
+}
+
+h2{
+    font-size:clamp(2rem,4vw,3rem);
+}
+
+h3{
+    font-size:1.5rem;
+}
+
+h4{
+    font-size:1.2rem;
+}
+
+p{
+    color:var(--text-light);
+    margin-bottom:1.25rem;
+}
+
+small{
+    color:var(--text-muted);
+}
+
+a{
+    color:var(--primary);
+    text-decoration:none;
+    transition:var(--transition);
+}
+
+a:hover{
+    color:var(--primary-light);
+}
+
+strong{
+    color:#ffffff;
+    font-weight:700;
+}
+
+ul,
+ol{
+    padding-left:1.5rem;
+}
+
+li{
+    margin-bottom:.5rem;
+}
+
+blockquote{
+    border-left:4px solid var(--primary);
+    padding:1rem 1.5rem;
+    margin:2rem 0;
+    background:var(--surface);
+    border-radius:0 var(--radius) var(--radius) 0;
+}
+
+code{
+    background:var(--surface-light);
+    padding:.2rem .45rem;
+    border-radius:6px;
+    font-family:Consolas, monospace;
+    color:#ffffff;
+}
+
+pre{
+    background:var(--surface);
+    padding:1.5rem;
+    border-radius:var(--radius);
+    overflow:auto;
+}
+
+::selection{
+    background:var(--primary);
+    color:#ffffff;
+}
