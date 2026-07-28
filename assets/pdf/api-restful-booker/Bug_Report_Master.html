@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>07_Bug_Report_Master</title>
+<style>
+body{margin:0;font-family:Segoe UI,Arial,sans-serif;background:#f4f7fb;color:#222}
+header{background:#17324d;color:#fff;padding:40px}
+.container{max-width:1200px;margin:auto;padding:30px}
+nav{position:sticky;top:0;background:#fff;padding:10px;border-bottom:1px solid #ddd}
+nav a{margin-right:15px;text-decoration:none;color:#17324d;font-weight:600}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;margin:25px 0}
+.card{background:#fff;border-radius:10px;padding:20px;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.metric{font-size:30px;font-weight:bold}
+table{width:100%;border-collapse:collapse;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+th{background:#17324d;color:#fff}
+th,td{padding:10px;border:1px solid #ddd;text-align:left}
+.badge{padding:4px 8px;border-radius:12px;color:#fff;font-size:12px}
+.high{background:#d9534f}.medium{background:#f0ad4e}.low{background:#5bc0de}.open{background:#6c757d}
+section{margin:45px 0}
+code{background:#eef;padding:2px 5px}
+footer{margin:40px 0;color:#666;text-align:center}
+</style>
+</head>
+<body>
+<header>
+<h1>Restful Booker API Testing Project</h1>
+<h2>Master Bug Report</h2>
+<p>Version 1.0 | Prepared by Filip Jelinek</p>
+</header>
+
+<nav>
+<a href="#summary">Executive Summary</a>
+<a href="#dashboard">Dashboard</a>
+<a href="#register">Master Register</a>
+<a href="#risk">Risk Assessment</a>
+<a href="#recommendations">Recommendations</a>
+</nav>
+
+<div class="container">
+
+<section id="summary">
+<h2>Executive Summary</h2>
+<p>This document serves as the central defect register for the Restful Booker API Testing Project. It consolidates confirmed API defects into a single management report, providing traceability between endpoints, test scenarios, test cases and individual bug reports.</p>
+<p>The purpose of this document is to provide QA engineers, developers and stakeholders with a high-level overview of the project's quality status.</p>
+</section>
+
+<section id="dashboard">
+<h2>Bug Dashboard</h2>
+<div class="cards">
+<div class="card"><div class="metric">15</div>Total Bugs</div>
+<div class="card"><div class="metric">15</div>Open</div>
+<div class="card"><div class="metric">0</div>Closed</div>
+<div class="card"><div class="metric">GET / POST / PUT / PATCH / DELETE</div>Affected Endpoints</div>
+</div>
+
+<h3>Severity Distribution</h3>
+<table>
+<tr><th>Severity</th><th>Description</th></tr>
+<tr><td><span class="badge high">High</span></td><td>Critical API functionality, server errors or security/business logic failures.</td></tr>
+<tr><td><span class="badge medium">Medium</span></td><td>Validation, contract or functional inconsistencies.</td></tr>
+<tr><td><span class="badge low">Low</span></td><td>Minor issues with limited business impact.</td></tr>
+</table>
+</section>
+
+<section id="register">
+<h2>Master Bug Register</h2>
+<table>
+<tr><th>Bug ID</th><th>Endpoint</th><th>Method</th><th>Status</th><th>Severity</th><th>Reference</th></tr>
+<tr><td>BUG-API-001</td><td><code>/auth</code></td><td>POST</td><td><span class='badge open'>Open</span></td><td><span class='badge high'>High</span></td><td>Individual Bug Report</td></tr>
+<tr><td>BUG-API-002</td><td><code>/booking</code></td><td>GET</td><td><span class='badge open'>Open</span></td><td><span class='badge high'>High</span></td><td>Individual Bug Report</td></tr>
+<tr><td>BUG-API-003</td><td><code>/booking/{id}</code></td><td>PUT</td><td><span class='badge open'>Open</span></td><td><span class='badge high'>High</span></td><td>Individual Bug Report</td></tr>
+<tr><td>BUG-API-004</td><td><code>/booking</code></td><td>DELETE</td><td><span class='badge open'>Open</span></td><td><span class='badge high'>High</span></td><td>Individual Bug Report</td></tr>
+<tr><td>BUG-API-005</td><td><code>/ping</code></td><td>GET</td><td><span class='badge open'>Open</span></td><td><span class='badge high'>High</span></td><td>Individual Bug Report</td></tr>
+<tr><td>BUG-API-006</td><td><code>/auth</code></td><td>POST</td><td><span class='badge open'>Open</span></td><td><span class='badge medium'>Medium</span></td><td>Individual Bug Report</td></tr>
+<tr><td>BUG-API-007</td><td><code>/booking</code></td><td>GET</td><td><span class='badge open'>Open</span></td><td><span class='badge medium'>Medium</span></td><td>Individual Bug Report</td></tr>
+<tr><td>BUG-API-008</td><td><code>/booking/{id}</code></td><td>PUT</td><td><span class='badge open'>Open</span></td><td><span class='badge medium'>Medium</span></td><td>Individual Bug Report</td></tr>
+<tr><td>BUG-API-009</td><td><code>/booking</code></td><td>DELETE</td><td><span class='badge open'>Open</span></td><td><span class='badge medium'>Medium</span></td><td>Individual Bug Report</td></tr>
+<tr><td>BUG-API-010</td><td><code>/ping</code></td><td>GET</td><td><span class='badge open'>Open</span></td><td><span class='badge medium'>Medium</span></td><td>Individual Bug Report</td></tr>
+<tr><td>BUG-API-011</td><td><code>/auth</code></td><td>POST</td><td><span class='badge open'>Open</span></td><td><span class='badge medium'>Medium</span></td><td>Individual Bug Report</td></tr>
+<tr><td>BUG-API-012</td><td><code>/booking</code></td><td>GET</td><td><span class='badge open'>Open</span></td><td><span class='badge low'>Low</span></td><td>Individual Bug Report</td></tr>
+<tr><td>BUG-API-013</td><td><code>/booking/{id}</code></td><td>PUT</td><td><span class='badge open'>Open</span></td><td><span class='badge low'>Low</span></td><td>Individual Bug Report</td></tr>
+<tr><td>BUG-API-014</td><td><code>/booking</code></td><td>DELETE</td><td><span class='badge open'>Open</span></td><td><span class='badge low'>Low</span></td><td>Individual Bug Report</td></tr>
+<tr><td>BUG-API-015</td><td><code>/ping</code></td><td>GET</td><td><span class='badge open'>Open</span></td><td><span class='badge low'>Low</span></td><td>Individual Bug Report</td></tr>
+
+</table>
+</section>
+
+<section id="risk">
+<h2>Risk Assessment</h2>
+<table>
+<tr><th>Area</th><th>Assessment</th></tr>
+<tr><td>API Contract</td><td>Medium Risk</td></tr>
+<tr><td>Business Logic</td><td>High Risk</td></tr>
+<tr><td>Authentication</td><td>Medium Risk</td></tr>
+<tr><td>Data Integrity</td><td>High Risk</td></tr>
+<tr><td>Performance</td><td>Low Risk</td></tr>
+</table>
+</section>
+
+<section id="recommendations">
+<h2>Recommendations</h2>
+<ul>
+<li>Resolve High severity defects before release.</li>
+<li>Repeat regression testing after fixes.</li>
+<li>Extend negative API testing.</li>
+<li>Add automated regression tests in Newman and GitHub Actions.</li>
+<li>Validate JSON Schema for every endpoint.</li>
+<li>Include security-focused API testing in future iterations.</li>
+</ul>
+
+<h2>Document Structure</h2>
+<pre>07_Bug_Reports/
+├── 07_Bug_Report_Master.html
+├── BUG-API-001_...
+├── BUG-API-002_...
+└── BUG-API-015_...</pre>
+
+<h2>Version History</h2>
+<table>
+<tr><th>Version</th><th>Date</th><th>Author</th><th>Description</th></tr>
+<tr><td>1.0</td><td>2026-07</td><td>Filip Jelinek</td><td>Initial professional release.</td></tr>
+</table>
+</section>
+
+<footer>
+Restful Booker API Testing Project • Master Defect Log • QA Portfolio
+</footer>
+
+</div>
+</body>
+</html>

@@ -1,613 +1,1296 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc 3.10.1" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>Test Cases</title>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="pandoc 3.10.1" name="generator"/>
+  <meta content="width=device-width, initial-scale=1.0, user-scalable=yes" name="viewport"/>
+  <title>
+   Test Cases
+  </title>
   <style>
-    /* Default styles provided by pandoc.
-    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
-    */
-    span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: 1.5em;}
-    div.column{flex: auto;}
-    @media screen {
-    div.columns{gap: min(4vw, 1.5em);}
-    div.column{overflow-x: auto;}
-    }
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    /* The extra [class] is a hack that increases specificity enough to
-       override a similar rule in reveal.js */
-    ul.task-list[class]{list-style: none;}
-    ul.task-list li input[type="checkbox"] {
-      font-size: inherit;
-      width: 0.8em;
-      margin: 0 0.8em 0.2em -1.6em;
-      vertical-align: middle;
-    }
-    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+   html{color:#1a1a1a;background-color:#fdfdfd}
+body{margin:0 auto;max-width:36em;padding:50px;hyphens:auto;overflow-wrap:break-word;text-rendering:optimizeLegibility;font-kerning:normal}
+@media (max-width:600px){body{font-size:.9em;padding:12px}h1{font-size:1.8em}}
+@media print{html{background:white}body{background:transparent;color:black}p,h2,h3{orphans:3;widows:3}h2,h3,h4{page-break-after:avoid}}
+p{margin:1em 0}a,a:visited{color:#1a1a1a}img,svg{max-width:100%}svg{height:auto}
+h1,h2,h3,h4,h5,h6{margin-top:1.4em}h5,h6{font-size:1em;font-style:italic}h6{font-weight:normal}
+ol,ul{padding-left:1.7em;margin-top:1em}li>ol,li>ul{margin-top:0}
+blockquote{margin:1em 0 1em 1.7em;padding-left:1em;border-left:2px solid #e6e6e6;color:#606060}
+code{white-space:pre-wrap;font-family:Menlo,Monaco,Consolas,'Lucida Console',monospace;font-size:85%}
+pre{margin:1em 0;overflow:auto}pre code{padding:0;overflow:visible;overflow-wrap:normal}
+hr{border:none;border-top:1px solid #1a1a1a;height:1px;margin:1em 0}
+table{margin:1em 0;border-collapse:collapse;width:100%;overflow-x:auto;display:block;font-variant-numeric:lining-nums tabular-nums}
+tbody{margin-top:.5em;border-top:1px solid #1a1a1a;border-bottom:1px solid #1a1a1a}
+th{border-top:1px solid #1a1a1a;padding:.25em .5em}
+td{padding:.125em .5em .25em}
+header{margin-bottom:4em;text-align:center}
   </style>
-  <link rel="stylesheet" href="../assets/css/docs.css" />
-</head>
-<body>
-<header id="title-block-header">
-<h1 class="title">Test Cases</h1>
-</header>
-<h1 id="test-cases">Test Cases</h1>
-<p><strong>Project:</strong> SauceDemo Manual Testing Project</p>
-<p><strong>Version:</strong> 2.0</p>
-<p><strong>Prepared by:</strong> Filip Jelinek</p>
-<hr />
-<h1 id="purpose">Purpose</h1>
-<p>This document provides an overview of all manual test cases created
-for the SauceDemo application.</p>
-<p>The test cases are organized by functional area and linked to their
+ </head>
+ <body>
+  <header id="title-block-header">
+   <h1 class="title">
+    Test Cases
+   </h1>
+  </header>
+  <h1 id="test-cases">
+   Test Cases
+  </h1>
+  <p>
+   <strong>
+    Project:
+   </strong>
+   SauceDemo Manual Testing Project
+  </p>
+  <p>
+   <strong>
+    Version:
+   </strong>
+   2.0
+  </p>
+  <p>
+   <strong>
+    Prepared by:
+   </strong>
+   Filip Jelinek
+  </p>
+  <hr/>
+  <h1 id="purpose">
+   Purpose
+  </h1>
+  <p>
+   This document provides an overview of all manual test cases created
+for the SauceDemo application.
+  </p>
+  <p>
+   The test cases are organized by functional area and linked to their
 individual Markdown documents. Each test case follows a standardized
 structure including Preconditions, Test Data, Test Steps, Expected
-Result, Actual Result, Status, and Notes.</p>
-<hr />
-<h1 id="test-case-summary">Test Case Summary</h1>
-<table>
-<thead>
-<tr>
-<th>Module</th>
-<th style="text-align: right;">Number of Test Cases</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Login</td>
-<td style="text-align: right;">7</td>
-</tr>
-<tr>
-<td>Inventory</td>
-<td style="text-align: right;">6</td>
-</tr>
-<tr>
-<td>Product Details</td>
-<td style="text-align: right;">4</td>
-</tr>
-<tr>
-<td>Shopping Cart</td>
-<td style="text-align: right;">8</td>
-</tr>
-<tr>
-<td>Checkout</td>
-<td style="text-align: right;">10</td>
-</tr>
-<tr>
-<td>Navigation &amp; Session</td>
-<td style="text-align: right;">7</td>
-</tr>
-<tr>
-<td><strong>Total</strong></td>
-<td style="text-align: right;"><strong>42</strong></td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h1 id="in-page-navigation">In-page Navigation</h1>
-<ul>
-<li><a href="#login">Login</a></li>
-<li><a href="#inventory">Inventory</a></li>
-<li><a href="#product-details">Product Details</a></li>
-<li><a href="#shopping-cart">Shopping Cart</a></li>
-<li><a href="#checkout">Checkout</a></li>
-<li><a href="#navigation--session">Navigation &amp; Session</a></li>
-<li><a href="#test-execution-status">Test Execution Status</a></li>
-</ul>
-<hr />
-<h1 id="login">Login</h1>
-<table>
-<colgroup>
-<col style="width: 42%" />
-<col style="width: 26%" />
-<col style="width: 7%" />
-<col style="width: 10%" />
-<col style="width: 13%" />
-</colgroup>
-<thead>
-<tr>
-<th>ID</th>
-<th>Test Case</th>
-<th>Priority</th>
-<th>Requirement</th>
-<th>Status</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a
-href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-saucedemo/04_Test_Cases/TC001%20Successful%20Login.md">TC001</a></td>
-<td>Successful Login</td>
-<td>High</td>
-<td>FR-001</td>
-<td>✅ Passed</td>
-</tr>
-<tr>
-<td><a
-href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-saucedemo/04_Test_Cases/TC002%20Login%20with%20Invalid%20Password.md">TC002</a></td>
-<td>Login with Invalid Password</td>
-<td>High</td>
-<td>FR-001</td>
-<td>✅ Passed</td>
-</tr>
-<tr>
-<td><a
-href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-saucedemo/04_Test_Cases/TC003%20Login%20with%20Invalid%20Username.md">TC003</a></td>
-<td>Login with Invalid Username</td>
-<td>High</td>
-<td>FR-001</td>
-<td>✅ Passed</td>
-</tr>
-<tr>
-<td><a
-href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-saucedemo/04_Test_Cases/TC004%20Login%20with%20Empty%20Username.md">TC004</a></td>
-<td>Login with Empty Username</td>
-<td>Medium</td>
-<td>FR-001</td>
-<td>✅ Passed</td>
-</tr>
-<tr>
-<td><a
-href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-saucedemo/04_Test_Cases/TC005%20Login%20with%20Empty%20Password.md">TC005</a></td>
-<td>Login with Empty Password</td>
-<td>Medium</td>
-<td>FR-001</td>
-<td>✅ Passed</td>
-</tr>
-<tr>
-<td><a
-href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-saucedemo/04_Test_Cases/TC006%20%20Login%20with%20Empty%20Username%20and%20Password.md">TC006</a></td>
-<td>Login with Empty Credentials</td>
-<td>Medium</td>
-<td>FR-001</td>
-<td>✅ Passed</td>
-</tr>
-<tr>
-<td><a
-href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-saucedemo/04_Test_Cases/TC007%20Login%20with%20Locked%20User.md">TC007</a></td>
-<td>Login with Locked User</td>
-<td>High</td>
-<td>FR-001</td>
-<td>✅ Passed</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h1 id="inventory">Inventory</h1>
-<table>
-<colgroup>
-<col style="width: 41%" />
-<col style="width: 33%" />
-<col style="width: 6%" />
-<col style="width: 8%" />
-<col style="width: 10%" />
-</colgroup>
-<thead>
-<tr>
-<th>ID</th>
-<th>Test Case</th>
-<th>Priority</th>
-<th>Requirement</th>
-<th>Status</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a
-href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-saucedemo/04_Test_Cases/TC008%20Verify%20Inventory%20Page%20Display.md">TC008</a></td>
-<td>Verify Inventory Page Display</td>
-<td>High</td>
-<td>FR-002</td>
-<td>❌ Failed</td>
-</tr>
-<tr>
-<td><a
-href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-saucedemo/04_Test_Cases/TC009%20Verify%20Product%20Information.md">TC009</a></td>
-<td>Verify Product Information</td>
-<td>Medium</td>
-<td>FR-002</td>
-<td>❌ Failed</td>
-</tr>
-<tr>
-<td><a
-href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-saucedemo/04_Test_Cases/TC010%20Verify%20Add%20to%20Cart%20Button%20Functionality.md">TC010</a></td>
-<td>Verify “Add to Cart” Button Functionality</td>
-<td>High</td>
-<td>FR-002</td>
-<td>❌ Failed</td>
-</tr>
-<tr>
-<td><a
-href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-saucedemo/04_Test_Cases/TC011%20Verify%20Product%20Details%20Navigation.md">TC011</a></td>
-<td>Verify Product Details Navigation</td>
-<td>High</td>
-<td>FR-003</td>
-<td>✅ Passed</td>
-</tr>
-<tr>
-<td><a
-href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-saucedemo/04_Test_Cases/TC012%20Verify%20Shopping%20Cart%20Badge%20Update.md">TC012</a></td>
-<td>Verify Shopping Cart Badge Update</td>
-<td>High</td>
-<td>FR-004</td>
-<td>✅ Passed</td>
-</tr>
-<tr>
-<td><a
-href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-saucedemo/04_Test_Cases/TC013%20Verify%20Inventory%20Page%20After%20Browser%20Refresh.md">TC013</a></td>
-<td>Verify Inventory Page After Browser Refresh</td>
-<td>Medium</td>
-<td>FR-002</td>
-<td>✅ Passed</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h1 id="product-details">Product Details</h1>
-<table>
-<colgroup>
-<col style="width: 44%" />
-<col style="width: 33%" />
-<col style="width: 5%" />
-<col style="width: 7%" />
-<col style="width: 9%" />
-</colgroup>
-<thead>
-<tr>
-<th>ID</th>
-<th>Test Case</th>
-<th>Priority</th>
-<th>Requirement</th>
-<th>Status</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a
-href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-saucedemo/04_Test_Cases/TC014%20Verify%20Product%20Information%20on%20Product%20Details%20Page.md">TC014</a></td>
-<td>Verify Product Information on Product Details Page</td>
-<td>High</td>
-<td>FR-003</td>
-<td>✅ Passed</td>
-</tr>
-<tr>
-<td><a
-href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-saucedemo/04_Test_Cases/TC015%20Verify%20Add%20to%20Cart%20Button%20on%20Product%20Details%20Page.md">TC015</a></td>
-<td>Verify “Add to Cart” Button on Product Details Page</td>
-<td>High</td>
-<td>FR-003</td>
-<td>✅ Passed</td>
-</tr>
-<tr>
-<td><a
-href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-saucedemo/04_Test_Cases/TC016%20Verify%20Remove%20Button%20on%20Product%20Details%20Page.mdd">TC016</a></td>
-<td>Verify “Remove” Button on Product Details Page</td>
-<td>High</td>
-<td>FR-003</td>
-<td>❌ Failed</td>
-</tr>
-<tr>
-<td><a
-href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-saucedemo/04_Test_Cases/TC017%20Verify%20Back%20to%20Products%20Navigation.md">TC017</a></td>
-<td>Verify “Back to Products” Navigation</td>
-<td>Medium</td>
-<td>FR-003</td>
-<td>✅ Passed</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h1 id="shopping-cart">Shopping Cart</h1>
-<table>
-<colgroup>
-<col style="width: 45%" />
-<col style="width: 33%" />
-<col style="width: 5%" />
-<col style="width: 6%" />
-<col style="width: 8%" />
-</colgroup>
-<thead>
-<tr>
-<th>ID</th>
-<th>Test Case</th>
-<th>Priority</th>
-<th>Requirement</th>
-<th>Status</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a
-href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-saucedemo/04_Test_Cases/TC018%20Verify%20Shopping%20Cart%20Page.md">TC018</a></td>
-<td>Verify Shopping Cart Page</td>
-<td>High</td>
-<td>FR-004</td>
-<td>✅ Passed</td>
-</tr>
-<tr>
-<td><a
-href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-saucedemo/04_Test_Cases/TC019%20Verify%20Single%20Product%20in%20Shopping%20Cart.md">TC019</a></td>
-<td>Verify Single Product in Shopping Cart</td>
-<td>High</td>
-<td>FR-004</td>
-<td>✅ Passed</td>
-</tr>
-<tr>
-<td><a
-href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-saucedemo/04_Test_Cases/TC020%20Verify%20Multiple%20Products%20in%20Shopping%20Cart.md">TC020</a></td>
-<td>Verify Multiple Products in Shopping Cart</td>
-<td>High</td>
-<td>FR-004</td>
-<td>✅ Passed</td>
-</tr>
-<tr>
-<td><a
-href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-saucedemo/04_Test_Cases/TC021%20Verify%20Remove%20Product%20from%20Shopping%20Cart.md">TC021</a></td>
-<td>Verify Remove Product from Shopping Cart</td>
-<td>High</td>
-<td>FR-004</td>
-<td>✅ Passed</td>
-</tr>
-<tr>
-<td><a
-href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-saucedemo/04_Test_Cases/TC022%20Verify%20Continue%20Shopping%20Button.md">TC022</a></td>
-<td>Verify “Continue Shopping” Button</td>
-<td>Medium</td>
-<td>FR-004</td>
-<td>✅ Passed</td>
-</tr>
-<tr>
-<td><a href="">TC022</a></td>
-<td>Verify “Continue Shopping” Button</td>
-<td>Medium</td>
-<td>FR-004</td>
-<td>✅ Passed</td>
-</tr>
-<tr>
-<td><a
-href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-saucedemo/04_Test_Cases/TC023%20Verify%20Checkout%20Button.md">TC023</a></td>
-<td>Verify Checkout Button</td>
-<td>High</td>
-<td>FR-005</td>
-<td>✅ Passed</td>
-</tr>
-<tr>
-<td><a
-href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-saucedemo/04_Test_Cases/TC024%20Verify%20Empty%20Shopping%20Cart%20After%20Removing%20All%20Products.md">TC024</a></td>
-<td>Verify Empty Shopping Cart After Removing All Products</td>
-<td>Medium</td>
-<td>FR-004</td>
-<td>✅ Passed</td>
-</tr>
-<tr>
-<td><a
-href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-saucedemo/04_Test_Cases/TC025%20Verify%20Shopping%20Cart%20Persistence%20After%20Browser%20Refresh.md">TC025</a></td>
-<td>Verify Shopping Cart Persistence After Browser Refresh</td>
-<td>Medium</td>
-<td>FR-004</td>
-<td>✅ Passed</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h1 id="checkout">Checkout</h1>
-<table>
-<colgroup>
-<col style="width: 44%" />
-<col style="width: 33%" />
-<col style="width: 5%" />
-<col style="width: 7%" />
-<col style="width: 9%" />
-</colgroup>
-<thead>
-<tr>
-<th>ID</th>
-<th>Test Case</th>
-<th>Priority</th>
-<th>Requirement</th>
-<th>Status</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a
-href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-saucedemo/04_Test_Cases/TC026%20Verify%20Checkout%20Your%20Information%20Page.md">TC026</a></td>
-<td>Verify Checkout: Your Information Page</td>
-<td>High</td>
-<td>FR-005</td>
-<td>✅ Passed</td>
-</tr>
-<tr>
-<td><a
-href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-saucedemo/04_Test_Cases/TC027%20Complete%20Checkout%20Information%20with%20Valid%20Data.md">TC027</a></td>
-<td>Complete Checkout Information with Valid Data</td>
-<td>High</td>
-<td>FR-005</td>
-<td>❌ Failed</td>
-</tr>
-<tr>
-<td><a
-href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-saucedemo/04_Test_Cases/TC028%20Verify%20Checkout%20with%20Empty%20First%20Name.md">TC028</a></td>
-<td>Verify Checkout with Empty First Name</td>
-<td>Medium</td>
-<td>FR-005</td>
-<td>✅ Passed</td>
-</tr>
-<tr>
-<td><a
-href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-saucedemo/04_Test_Cases/TC029%20Verify%20Checkout%20with%20Empty%20Last%20Name.md">TC029</a></td>
-<td>Verify Checkout with Empty Last Name</td>
-<td>Medium</td>
-<td>FR-005</td>
-<td>❌ Failed</td>
-</tr>
-<tr>
-<td><a
-href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-saucedemo/04_Test_Cases/TC030%20Verify%20Checkout%20with%20Empty%20Postal%20Code.md">TC030</a></td>
-<td>Verify Checkout with Empty Postal Code</td>
-<td>Medium</td>
-<td>FR-005</td>
-<td>✅ Passed</td>
-</tr>
-<tr>
-<td><a
-href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-saucedemo/04_Test_Cases/TC031%20Verify%20Checkout%20Overview%20Page.md">TC031</a></td>
-<td>Verify Checkout: Overview Page</td>
-<td>High</td>
-<td>FR-005</td>
-<td>✅ Passed</td>
-</tr>
-<tr>
-<td><a
-href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-saucedemo/04_Test_Cases/TC032%20Verify%20Successful%20Order%20Completion.md">TC032</a></td>
-<td>Verify Successful Order Completion</td>
-<td>High</td>
-<td>FR-005</td>
-<td>❌ Failed</td>
-</tr>
-<tr>
-<td><a
-href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-saucedemo/04_Test_Cases/TC033%20Verify%20Cancel%20Checkout%20from%20Checkout%20Overview.md">TC033</a></td>
-<td>Verify Cancel Checkout from Checkout: Overview</td>
-<td>Medium</td>
-<td>FR-005</td>
-<td>✅ Passed</td>
-</tr>
-<tr>
-<td><a
-href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-saucedemo/04_Test_Cases/TC034%20Verify%20Order%20Confirmation%20Page.md">TC034</a></td>
-<td>Verify Order Confirmation Page</td>
-<td>High</td>
-<td>FR-005</td>
-<td>✅ Passed</td>
-</tr>
-<tr>
-<td><a
-href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-saucedemo/04_Test_Cases/TC035%20Verify%20Back%20Home%20Button%20After%20Order%20Completion.md">TC035</a></td>
-<td>Verify “Back Home” Button After Order Completion</td>
-<td>Medium</td>
-<td>FR-005</td>
-<td>✅ Passed</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h1 id="navigation-session">Navigation &amp; Session</h1>
-<table>
-<colgroup>
-<col style="width: 45%" />
-<col style="width: 34%" />
-<col style="width: 4%" />
-<col style="width: 6%" />
-<col style="width: 8%" />
-</colgroup>
-<thead>
-<tr>
-<th>ID</th>
-<th>Test Case</th>
-<th>Priority</th>
-<th>Requirement</th>
-<th>Status</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a
-href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-saucedemo/04_Test_Cases/TC036%20Verify%20Product%20Sorting%20by%20Name%20(A-Z).md">TC036</a></td>
-<td>Verify Product Sorting by Name (A–Z)</td>
-<td>Medium</td>
-<td>FR-006</td>
-<td>✅ Passed</td>
-</tr>
-<tr>
-<td><a
-href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-saucedemo/04_Test_Cases/TC037%20Verify%20Product%20Sorting%20by%20Price%20(Low%20to%20High).md">TC037</a></td>
-<td>Verify Product Sorting by Price (Low to High)</td>
-<td>Medium</td>
-<td>FR-006</td>
-<td>❌ Failed</td>
-</tr>
-<tr>
-<td><a
-href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-saucedemo/04_Test_Cases/TC038%20Verify%20Burger%20Menu%20Opens.md">TC038</a></td>
-<td>Verify Burger Menu Opens</td>
-<td>Medium</td>
-<td>FR-007</td>
-<td>✅ Passed</td>
-</tr>
-<tr>
-<td><a
-href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-saucedemo/04_Test_Cases/TC039%20Verify%20User%20Logout.md">TC039</a></td>
-<td>Verify User Logout</td>
-<td>High</td>
-<td>FR-007</td>
-<td>✅ Passed</td>
-</tr>
-<tr>
-<td><a
-href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-saucedemo/04_Test_Cases/TC040%20Verify%20Reset%20App%20State.md">TC040</a></td>
-<td>Verify Reset App State</td>
-<td>Medium</td>
-<td>FR-007</td>
-<td>✅ Passed</td>
-</tr>
-<tr>
-<td><a
-href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-saucedemo/04_Test_Cases/TC041%20Verify%20About%20Link.md">TC041</a></td>
-<td>Verify About Link</td>
-<td>Low</td>
-<td>FR-007</td>
-<td>❌ Failed</td>
-</tr>
-<tr>
-<td><a
-href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-saucedemo/04_Test_Cases/TC042%20Verify%20Direct%20Access%20to%20Inventory%20Without%20Authentication.md">TC042</a></td>
-<td>Verify Direct Access to Inventory Without Authentication</td>
-<td>High</td>
-<td>FR-001</td>
-<td>✅ Passed</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h1 id="test-execution-status">Test Execution Status</h1>
-<p>Current Progress</p>
-<table>
-<thead>
-<tr>
-<th>Status</th>
-<th style="text-align: right;">Count</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>✅ Passed</td>
-<td style="text-align: right;"><strong>33</strong></td>
-</tr>
-<tr>
-<td>❌ Failed</td>
-<td style="text-align: right;"><strong>9</strong></td>
-</tr>
-<tr>
-<td>🚫 Blocked</td>
-<td style="text-align: right;"><strong>0</strong></td>
-</tr>
-<tr>
-<td>⏳ Not Executed</td>
-<td style="text-align: right;"><strong>0</strong></td>
-</tr>
-<tr>
-<td><strong>Total</strong></td>
-<td style="text-align: right;"><strong>42</strong></td>
-</tr>
-</tbody>
-</table>
-<hr />
-<p>⬅️ <strong>Back to Saucedemo</strong></p>
-<p><a
-href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-saucedemo/qa-saucedemo-README.md">qa-saucedemo-README.md</a></p>
-</body>
+Result, Actual Result, Status, and Notes.
+  </p>
+  <hr/>
+  <h1 id="test-case-summary">
+   Test Case Summary
+  </h1>
+  <table>
+   <thead>
+    <tr>
+     <th>
+      Module
+     </th>
+     <th style="text-align: right;">
+      Number of Test Cases
+     </th>
+    </tr>
+   </thead>
+   <tbody>
+    <tr>
+     <td>
+      Login
+     </td>
+     <td style="text-align: right;">
+      7
+     </td>
+    </tr>
+    <tr>
+     <td>
+      Inventory
+     </td>
+     <td style="text-align: right;">
+      6
+     </td>
+    </tr>
+    <tr>
+     <td>
+      Product Details
+     </td>
+     <td style="text-align: right;">
+      4
+     </td>
+    </tr>
+    <tr>
+     <td>
+      Shopping Cart
+     </td>
+     <td style="text-align: right;">
+      8
+     </td>
+    </tr>
+    <tr>
+     <td>
+      Checkout
+     </td>
+     <td style="text-align: right;">
+      10
+     </td>
+    </tr>
+    <tr>
+     <td>
+      Navigation &amp; Session
+     </td>
+     <td style="text-align: right;">
+      7
+     </td>
+    </tr>
+    <tr>
+     <td>
+      <strong>
+       Total
+      </strong>
+     </td>
+     <td style="text-align: right;">
+      <strong>
+       42
+      </strong>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+  <hr/>
+  <h1 id="in-page-navigation">
+   In-page Navigation
+  </h1>
+  <ul>
+   <li>
+    <a href="#login">
+     Login
+    </a>
+   </li>
+   <li>
+    <a href="#inventory">
+     Inventory
+    </a>
+   </li>
+   <li>
+    <a href="#product-details">
+     Product Details
+    </a>
+   </li>
+   <li>
+    <a href="#shopping-cart">
+     Shopping Cart
+    </a>
+   </li>
+   <li>
+    <a href="#checkout">
+     Checkout
+    </a>
+   </li>
+   <li>
+    <a href="#navigation--session">
+     Navigation &amp; Session
+    </a>
+   </li>
+   <li>
+    <a href="#test-execution-status">
+     Test Execution Status
+    </a>
+   </li>
+  </ul>
+  <hr/>
+  <h1 id="login">
+   Login
+  </h1>
+  <table>
+   <colgroup>
+    <col style="width: 42%"/>
+    <col style="width: 26%"/>
+    <col style="width: 7%"/>
+    <col style="width: 10%"/>
+    <col style="width: 13%"/>
+   </colgroup>
+   <thead>
+    <tr>
+     <th>
+      ID
+     </th>
+     <th>
+      Test Case
+     </th>
+     <th>
+      Priority
+     </th>
+     <th>
+      Requirement
+     </th>
+     <th>
+      Status
+     </th>
+    </tr>
+   </thead>
+   <tbody>
+    <tr>
+     <td>
+      <a href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-saucedemo/04_Test_Cases/TC001%20Successful%20Login.md">
+       TC001
+      </a>
+     </td>
+     <td>
+      Successful Login
+     </td>
+     <td>
+      High
+     </td>
+     <td>
+      FR-001
+     </td>
+     <td>
+      ✅ Passed
+     </td>
+    </tr>
+    <tr>
+     <td>
+      <a href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-saucedemo/04_Test_Cases/TC002%20Login%20with%20Invalid%20Password.md">
+       TC002
+      </a>
+     </td>
+     <td>
+      Login with Invalid Password
+     </td>
+     <td>
+      High
+     </td>
+     <td>
+      FR-001
+     </td>
+     <td>
+      ✅ Passed
+     </td>
+    </tr>
+    <tr>
+     <td>
+      <a href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-saucedemo/04_Test_Cases/TC003%20Login%20with%20Invalid%20Username.md">
+       TC003
+      </a>
+     </td>
+     <td>
+      Login with Invalid Username
+     </td>
+     <td>
+      High
+     </td>
+     <td>
+      FR-001
+     </td>
+     <td>
+      ✅ Passed
+     </td>
+    </tr>
+    <tr>
+     <td>
+      <a href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-saucedemo/04_Test_Cases/TC004%20Login%20with%20Empty%20Username.md">
+       TC004
+      </a>
+     </td>
+     <td>
+      Login with Empty Username
+     </td>
+     <td>
+      Medium
+     </td>
+     <td>
+      FR-001
+     </td>
+     <td>
+      ✅ Passed
+     </td>
+    </tr>
+    <tr>
+     <td>
+      <a href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-saucedemo/04_Test_Cases/TC005%20Login%20with%20Empty%20Password.md">
+       TC005
+      </a>
+     </td>
+     <td>
+      Login with Empty Password
+     </td>
+     <td>
+      Medium
+     </td>
+     <td>
+      FR-001
+     </td>
+     <td>
+      ✅ Passed
+     </td>
+    </tr>
+    <tr>
+     <td>
+      <a href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-saucedemo/04_Test_Cases/TC006%20%20Login%20with%20Empty%20Username%20and%20Password.md">
+       TC006
+      </a>
+     </td>
+     <td>
+      Login with Empty Credentials
+     </td>
+     <td>
+      Medium
+     </td>
+     <td>
+      FR-001
+     </td>
+     <td>
+      ✅ Passed
+     </td>
+    </tr>
+    <tr>
+     <td>
+      <a href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-saucedemo/04_Test_Cases/TC007%20Login%20with%20Locked%20User.md">
+       TC007
+      </a>
+     </td>
+     <td>
+      Login with Locked User
+     </td>
+     <td>
+      High
+     </td>
+     <td>
+      FR-001
+     </td>
+     <td>
+      ✅ Passed
+     </td>
+    </tr>
+   </tbody>
+  </table>
+  <hr/>
+  <h1 id="inventory">
+   Inventory
+  </h1>
+  <table>
+   <colgroup>
+    <col style="width: 41%"/>
+    <col style="width: 33%"/>
+    <col style="width: 6%"/>
+    <col style="width: 8%"/>
+    <col style="width: 10%"/>
+   </colgroup>
+   <thead>
+    <tr>
+     <th>
+      ID
+     </th>
+     <th>
+      Test Case
+     </th>
+     <th>
+      Priority
+     </th>
+     <th>
+      Requirement
+     </th>
+     <th>
+      Status
+     </th>
+    </tr>
+   </thead>
+   <tbody>
+    <tr>
+     <td>
+      <a href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-saucedemo/04_Test_Cases/TC008%20Verify%20Inventory%20Page%20Display.md">
+       TC008
+      </a>
+     </td>
+     <td>
+      Verify Inventory Page Display
+     </td>
+     <td>
+      High
+     </td>
+     <td>
+      FR-002
+     </td>
+     <td>
+      ❌ Failed
+     </td>
+    </tr>
+    <tr>
+     <td>
+      <a href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-saucedemo/04_Test_Cases/TC009%20Verify%20Product%20Information.md">
+       TC009
+      </a>
+     </td>
+     <td>
+      Verify Product Information
+     </td>
+     <td>
+      Medium
+     </td>
+     <td>
+      FR-002
+     </td>
+     <td>
+      ❌ Failed
+     </td>
+    </tr>
+    <tr>
+     <td>
+      <a href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-saucedemo/04_Test_Cases/TC010%20Verify%20Add%20to%20Cart%20Button%20Functionality.md">
+       TC010
+      </a>
+     </td>
+     <td>
+      Verify “Add to Cart” Button Functionality
+     </td>
+     <td>
+      High
+     </td>
+     <td>
+      FR-002
+     </td>
+     <td>
+      ❌ Failed
+     </td>
+    </tr>
+    <tr>
+     <td>
+      <a href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-saucedemo/04_Test_Cases/TC011%20Verify%20Product%20Details%20Navigation.md">
+       TC011
+      </a>
+     </td>
+     <td>
+      Verify Product Details Navigation
+     </td>
+     <td>
+      High
+     </td>
+     <td>
+      FR-003
+     </td>
+     <td>
+      ✅ Passed
+     </td>
+    </tr>
+    <tr>
+     <td>
+      <a href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-saucedemo/04_Test_Cases/TC012%20Verify%20Shopping%20Cart%20Badge%20Update.md">
+       TC012
+      </a>
+     </td>
+     <td>
+      Verify Shopping Cart Badge Update
+     </td>
+     <td>
+      High
+     </td>
+     <td>
+      FR-004
+     </td>
+     <td>
+      ✅ Passed
+     </td>
+    </tr>
+    <tr>
+     <td>
+      <a href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-saucedemo/04_Test_Cases/TC013%20Verify%20Inventory%20Page%20After%20Browser%20Refresh.md">
+       TC013
+      </a>
+     </td>
+     <td>
+      Verify Inventory Page After Browser Refresh
+     </td>
+     <td>
+      Medium
+     </td>
+     <td>
+      FR-002
+     </td>
+     <td>
+      ✅ Passed
+     </td>
+    </tr>
+   </tbody>
+  </table>
+  <hr/>
+  <h1 id="product-details">
+   Product Details
+  </h1>
+  <table>
+   <colgroup>
+    <col style="width: 44%"/>
+    <col style="width: 33%"/>
+    <col style="width: 5%"/>
+    <col style="width: 7%"/>
+    <col style="width: 9%"/>
+   </colgroup>
+   <thead>
+    <tr>
+     <th>
+      ID
+     </th>
+     <th>
+      Test Case
+     </th>
+     <th>
+      Priority
+     </th>
+     <th>
+      Requirement
+     </th>
+     <th>
+      Status
+     </th>
+    </tr>
+   </thead>
+   <tbody>
+    <tr>
+     <td>
+      <a href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-saucedemo/04_Test_Cases/TC014%20Verify%20Product%20Information%20on%20Product%20Details%20Page.md">
+       TC014
+      </a>
+     </td>
+     <td>
+      Verify Product Information on Product Details Page
+     </td>
+     <td>
+      High
+     </td>
+     <td>
+      FR-003
+     </td>
+     <td>
+      ✅ Passed
+     </td>
+    </tr>
+    <tr>
+     <td>
+      <a href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-saucedemo/04_Test_Cases/TC015%20Verify%20Add%20to%20Cart%20Button%20on%20Product%20Details%20Page.md">
+       TC015
+      </a>
+     </td>
+     <td>
+      Verify “Add to Cart” Button on Product Details Page
+     </td>
+     <td>
+      High
+     </td>
+     <td>
+      FR-003
+     </td>
+     <td>
+      ✅ Passed
+     </td>
+    </tr>
+    <tr>
+     <td>
+      <a href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-saucedemo/04_Test_Cases/TC016%20Verify%20Remove%20Button%20on%20Product%20Details%20Page.mdd">
+       TC016
+      </a>
+     </td>
+     <td>
+      Verify “Remove” Button on Product Details Page
+     </td>
+     <td>
+      High
+     </td>
+     <td>
+      FR-003
+     </td>
+     <td>
+      ❌ Failed
+     </td>
+    </tr>
+    <tr>
+     <td>
+      <a href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-saucedemo/04_Test_Cases/TC017%20Verify%20Back%20to%20Products%20Navigation.md">
+       TC017
+      </a>
+     </td>
+     <td>
+      Verify “Back to Products” Navigation
+     </td>
+     <td>
+      Medium
+     </td>
+     <td>
+      FR-003
+     </td>
+     <td>
+      ✅ Passed
+     </td>
+    </tr>
+   </tbody>
+  </table>
+  <hr/>
+  <h1 id="shopping-cart">
+   Shopping Cart
+  </h1>
+  <table>
+   <colgroup>
+    <col style="width: 45%"/>
+    <col style="width: 33%"/>
+    <col style="width: 5%"/>
+    <col style="width: 6%"/>
+    <col style="width: 8%"/>
+   </colgroup>
+   <thead>
+    <tr>
+     <th>
+      ID
+     </th>
+     <th>
+      Test Case
+     </th>
+     <th>
+      Priority
+     </th>
+     <th>
+      Requirement
+     </th>
+     <th>
+      Status
+     </th>
+    </tr>
+   </thead>
+   <tbody>
+    <tr>
+     <td>
+      <a href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-saucedemo/04_Test_Cases/TC018%20Verify%20Shopping%20Cart%20Page.md">
+       TC018
+      </a>
+     </td>
+     <td>
+      Verify Shopping Cart Page
+     </td>
+     <td>
+      High
+     </td>
+     <td>
+      FR-004
+     </td>
+     <td>
+      ✅ Passed
+     </td>
+    </tr>
+    <tr>
+     <td>
+      <a href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-saucedemo/04_Test_Cases/TC019%20Verify%20Single%20Product%20in%20Shopping%20Cart.md">
+       TC019
+      </a>
+     </td>
+     <td>
+      Verify Single Product in Shopping Cart
+     </td>
+     <td>
+      High
+     </td>
+     <td>
+      FR-004
+     </td>
+     <td>
+      ✅ Passed
+     </td>
+    </tr>
+    <tr>
+     <td>
+      <a href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-saucedemo/04_Test_Cases/TC020%20Verify%20Multiple%20Products%20in%20Shopping%20Cart.md">
+       TC020
+      </a>
+     </td>
+     <td>
+      Verify Multiple Products in Shopping Cart
+     </td>
+     <td>
+      High
+     </td>
+     <td>
+      FR-004
+     </td>
+     <td>
+      ✅ Passed
+     </td>
+    </tr>
+    <tr>
+     <td>
+      <a href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-saucedemo/04_Test_Cases/TC021%20Verify%20Remove%20Product%20from%20Shopping%20Cart.md">
+       TC021
+      </a>
+     </td>
+     <td>
+      Verify Remove Product from Shopping Cart
+     </td>
+     <td>
+      High
+     </td>
+     <td>
+      FR-004
+     </td>
+     <td>
+      ✅ Passed
+     </td>
+    </tr>
+    <tr>
+     <td>
+      <a href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-saucedemo/04_Test_Cases/TC022%20Verify%20Continue%20Shopping%20Button.md">
+       TC022
+      </a>
+     </td>
+     <td>
+      Verify “Continue Shopping” Button
+     </td>
+     <td>
+      Medium
+     </td>
+     <td>
+      FR-004
+     </td>
+     <td>
+      ✅ Passed
+     </td>
+    </tr>
+    <tr>
+     <td>
+      <a href="">
+       TC022
+      </a>
+     </td>
+     <td>
+      Verify “Continue Shopping” Button
+     </td>
+     <td>
+      Medium
+     </td>
+     <td>
+      FR-004
+     </td>
+     <td>
+      ✅ Passed
+     </td>
+    </tr>
+    <tr>
+     <td>
+      <a href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-saucedemo/04_Test_Cases/TC023%20Verify%20Checkout%20Button.md">
+       TC023
+      </a>
+     </td>
+     <td>
+      Verify Checkout Button
+     </td>
+     <td>
+      High
+     </td>
+     <td>
+      FR-005
+     </td>
+     <td>
+      ✅ Passed
+     </td>
+    </tr>
+    <tr>
+     <td>
+      <a href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-saucedemo/04_Test_Cases/TC024%20Verify%20Empty%20Shopping%20Cart%20After%20Removing%20All%20Products.md">
+       TC024
+      </a>
+     </td>
+     <td>
+      Verify Empty Shopping Cart After Removing All Products
+     </td>
+     <td>
+      Medium
+     </td>
+     <td>
+      FR-004
+     </td>
+     <td>
+      ✅ Passed
+     </td>
+    </tr>
+    <tr>
+     <td>
+      <a href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-saucedemo/04_Test_Cases/TC025%20Verify%20Shopping%20Cart%20Persistence%20After%20Browser%20Refresh.md">
+       TC025
+      </a>
+     </td>
+     <td>
+      Verify Shopping Cart Persistence After Browser Refresh
+     </td>
+     <td>
+      Medium
+     </td>
+     <td>
+      FR-004
+     </td>
+     <td>
+      ✅ Passed
+     </td>
+    </tr>
+   </tbody>
+  </table>
+  <hr/>
+  <h1 id="checkout">
+   Checkout
+  </h1>
+  <table>
+   <colgroup>
+    <col style="width: 44%"/>
+    <col style="width: 33%"/>
+    <col style="width: 5%"/>
+    <col style="width: 7%"/>
+    <col style="width: 9%"/>
+   </colgroup>
+   <thead>
+    <tr>
+     <th>
+      ID
+     </th>
+     <th>
+      Test Case
+     </th>
+     <th>
+      Priority
+     </th>
+     <th>
+      Requirement
+     </th>
+     <th>
+      Status
+     </th>
+    </tr>
+   </thead>
+   <tbody>
+    <tr>
+     <td>
+      <a href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-saucedemo/04_Test_Cases/TC026%20Verify%20Checkout%20Your%20Information%20Page.md">
+       TC026
+      </a>
+     </td>
+     <td>
+      Verify Checkout: Your Information Page
+     </td>
+     <td>
+      High
+     </td>
+     <td>
+      FR-005
+     </td>
+     <td>
+      ✅ Passed
+     </td>
+    </tr>
+    <tr>
+     <td>
+      <a href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-saucedemo/04_Test_Cases/TC027%20Complete%20Checkout%20Information%20with%20Valid%20Data.md">
+       TC027
+      </a>
+     </td>
+     <td>
+      Complete Checkout Information with Valid Data
+     </td>
+     <td>
+      High
+     </td>
+     <td>
+      FR-005
+     </td>
+     <td>
+      ❌ Failed
+     </td>
+    </tr>
+    <tr>
+     <td>
+      <a href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-saucedemo/04_Test_Cases/TC028%20Verify%20Checkout%20with%20Empty%20First%20Name.md">
+       TC028
+      </a>
+     </td>
+     <td>
+      Verify Checkout with Empty First Name
+     </td>
+     <td>
+      Medium
+     </td>
+     <td>
+      FR-005
+     </td>
+     <td>
+      ✅ Passed
+     </td>
+    </tr>
+    <tr>
+     <td>
+      <a href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-saucedemo/04_Test_Cases/TC029%20Verify%20Checkout%20with%20Empty%20Last%20Name.md">
+       TC029
+      </a>
+     </td>
+     <td>
+      Verify Checkout with Empty Last Name
+     </td>
+     <td>
+      Medium
+     </td>
+     <td>
+      FR-005
+     </td>
+     <td>
+      ❌ Failed
+     </td>
+    </tr>
+    <tr>
+     <td>
+      <a href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-saucedemo/04_Test_Cases/TC030%20Verify%20Checkout%20with%20Empty%20Postal%20Code.md">
+       TC030
+      </a>
+     </td>
+     <td>
+      Verify Checkout with Empty Postal Code
+     </td>
+     <td>
+      Medium
+     </td>
+     <td>
+      FR-005
+     </td>
+     <td>
+      ✅ Passed
+     </td>
+    </tr>
+    <tr>
+     <td>
+      <a href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-saucedemo/04_Test_Cases/TC031%20Verify%20Checkout%20Overview%20Page.md">
+       TC031
+      </a>
+     </td>
+     <td>
+      Verify Checkout: Overview Page
+     </td>
+     <td>
+      High
+     </td>
+     <td>
+      FR-005
+     </td>
+     <td>
+      ✅ Passed
+     </td>
+    </tr>
+    <tr>
+     <td>
+      <a href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-saucedemo/04_Test_Cases/TC032%20Verify%20Successful%20Order%20Completion.md">
+       TC032
+      </a>
+     </td>
+     <td>
+      Verify Successful Order Completion
+     </td>
+     <td>
+      High
+     </td>
+     <td>
+      FR-005
+     </td>
+     <td>
+      ❌ Failed
+     </td>
+    </tr>
+    <tr>
+     <td>
+      <a href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-saucedemo/04_Test_Cases/TC033%20Verify%20Cancel%20Checkout%20from%20Checkout%20Overview.md">
+       TC033
+      </a>
+     </td>
+     <td>
+      Verify Cancel Checkout from Checkout: Overview
+     </td>
+     <td>
+      Medium
+     </td>
+     <td>
+      FR-005
+     </td>
+     <td>
+      ✅ Passed
+     </td>
+    </tr>
+    <tr>
+     <td>
+      <a href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-saucedemo/04_Test_Cases/TC034%20Verify%20Order%20Confirmation%20Page.md">
+       TC034
+      </a>
+     </td>
+     <td>
+      Verify Order Confirmation Page
+     </td>
+     <td>
+      High
+     </td>
+     <td>
+      FR-005
+     </td>
+     <td>
+      ✅ Passed
+     </td>
+    </tr>
+    <tr>
+     <td>
+      <a href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-saucedemo/04_Test_Cases/TC035%20Verify%20Back%20Home%20Button%20After%20Order%20Completion.md">
+       TC035
+      </a>
+     </td>
+     <td>
+      Verify “Back Home” Button After Order Completion
+     </td>
+     <td>
+      Medium
+     </td>
+     <td>
+      FR-005
+     </td>
+     <td>
+      ✅ Passed
+     </td>
+    </tr>
+   </tbody>
+  </table>
+  <hr/>
+  <h1 id="navigation-session">
+   Navigation &amp; Session
+  </h1>
+  <table>
+   <colgroup>
+    <col style="width: 45%"/>
+    <col style="width: 34%"/>
+    <col style="width: 4%"/>
+    <col style="width: 6%"/>
+    <col style="width: 8%"/>
+   </colgroup>
+   <thead>
+    <tr>
+     <th>
+      ID
+     </th>
+     <th>
+      Test Case
+     </th>
+     <th>
+      Priority
+     </th>
+     <th>
+      Requirement
+     </th>
+     <th>
+      Status
+     </th>
+    </tr>
+   </thead>
+   <tbody>
+    <tr>
+     <td>
+      <a href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-saucedemo/04_Test_Cases/TC036%20Verify%20Product%20Sorting%20by%20Name%20(A-Z).md">
+       TC036
+      </a>
+     </td>
+     <td>
+      Verify Product Sorting by Name (A–Z)
+     </td>
+     <td>
+      Medium
+     </td>
+     <td>
+      FR-006
+     </td>
+     <td>
+      ✅ Passed
+     </td>
+    </tr>
+    <tr>
+     <td>
+      <a href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-saucedemo/04_Test_Cases/TC037%20Verify%20Product%20Sorting%20by%20Price%20(Low%20to%20High).md">
+       TC037
+      </a>
+     </td>
+     <td>
+      Verify Product Sorting by Price (Low to High)
+     </td>
+     <td>
+      Medium
+     </td>
+     <td>
+      FR-006
+     </td>
+     <td>
+      ❌ Failed
+     </td>
+    </tr>
+    <tr>
+     <td>
+      <a href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-saucedemo/04_Test_Cases/TC038%20Verify%20Burger%20Menu%20Opens.md">
+       TC038
+      </a>
+     </td>
+     <td>
+      Verify Burger Menu Opens
+     </td>
+     <td>
+      Medium
+     </td>
+     <td>
+      FR-007
+     </td>
+     <td>
+      ✅ Passed
+     </td>
+    </tr>
+    <tr>
+     <td>
+      <a href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-saucedemo/04_Test_Cases/TC039%20Verify%20User%20Logout.md">
+       TC039
+      </a>
+     </td>
+     <td>
+      Verify User Logout
+     </td>
+     <td>
+      High
+     </td>
+     <td>
+      FR-007
+     </td>
+     <td>
+      ✅ Passed
+     </td>
+    </tr>
+    <tr>
+     <td>
+      <a href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-saucedemo/04_Test_Cases/TC040%20Verify%20Reset%20App%20State.md">
+       TC040
+      </a>
+     </td>
+     <td>
+      Verify Reset App State
+     </td>
+     <td>
+      Medium
+     </td>
+     <td>
+      FR-007
+     </td>
+     <td>
+      ✅ Passed
+     </td>
+    </tr>
+    <tr>
+     <td>
+      <a href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-saucedemo/04_Test_Cases/TC041%20Verify%20About%20Link.md">
+       TC041
+      </a>
+     </td>
+     <td>
+      Verify About Link
+     </td>
+     <td>
+      Low
+     </td>
+     <td>
+      FR-007
+     </td>
+     <td>
+      ❌ Failed
+     </td>
+    </tr>
+    <tr>
+     <td>
+      <a href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-saucedemo/04_Test_Cases/TC042%20Verify%20Direct%20Access%20to%20Inventory%20Without%20Authentication.md">
+       TC042
+      </a>
+     </td>
+     <td>
+      Verify Direct Access to Inventory Without Authentication
+     </td>
+     <td>
+      High
+     </td>
+     <td>
+      FR-001
+     </td>
+     <td>
+      ✅ Passed
+     </td>
+    </tr>
+   </tbody>
+  </table>
+  <hr/>
+  <h1 id="test-execution-status">
+   Test Execution Status
+  </h1>
+  <p>
+   Current Progress
+  </p>
+  <table>
+   <thead>
+    <tr>
+     <th>
+      Status
+     </th>
+     <th style="text-align: right;">
+      Count
+     </th>
+    </tr>
+   </thead>
+   <tbody>
+    <tr>
+     <td>
+      ✅ Passed
+     </td>
+     <td style="text-align: right;">
+      <strong>
+       33
+      </strong>
+     </td>
+    </tr>
+    <tr>
+     <td>
+      ❌ Failed
+     </td>
+     <td style="text-align: right;">
+      <strong>
+       9
+      </strong>
+     </td>
+    </tr>
+    <tr>
+     <td>
+      🚫 Blocked
+     </td>
+     <td style="text-align: right;">
+      <strong>
+       0
+      </strong>
+     </td>
+    </tr>
+    <tr>
+     <td>
+      ⏳ Not Executed
+     </td>
+     <td style="text-align: right;">
+      <strong>
+       0
+      </strong>
+     </td>
+    </tr>
+    <tr>
+     <td>
+      <strong>
+       Total
+      </strong>
+     </td>
+     <td style="text-align: right;">
+      <strong>
+       42
+      </strong>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+  <hr/>
+  <p>
+   ⬅️
+   <strong>
+    Back to Saucedemo
+   </strong>
+  </p>
+  <p>
+   <a href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-saucedemo/qa-saucedemo-README.md">
+    qa-saucedemo-README.md
+   </a>
+  </p>
+ </body>
 </html>

@@ -1,485 +1,781 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc 3.10.1" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>Test Data</title>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="pandoc 3.10.1" name="generator"/>
+  <meta content="width=device-width, initial-scale=1.0, user-scalable=yes" name="viewport"/>
+  <title>
+   Test Data
+  </title>
   <style>
-    /* Default styles provided by pandoc.
-    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
-    */
-    html {
-      color: #1a1a1a;
-      background-color: #fdfdfd;
-    }
-    body {
-      margin: 0 auto;
-      max-width: 36em;
-      padding-left: 50px;
-      padding-right: 50px;
-      padding-top: 50px;
-      padding-bottom: 50px;
-      hyphens: auto;
-      overflow-wrap: break-word;
-      text-rendering: optimizeLegibility;
-      font-kerning: normal;
-    }
-    @media (max-width: 600px) {
-      body {
-        font-size: 0.9em;
-        padding: 12px;
-      }
-      h1 {
-        font-size: 1.8em;
-      }
-    }
-    @media print {
-      html {
-        background-color: white;
-      }
-      body {
-        background-color: transparent;
-        color: black;
-      }
-      p, h2, h3 {
-        orphans: 3;
-        widows: 3;
-      }
-      h2, h3, h4 {
-        page-break-after: avoid;
-      }
-    }
-    p {
-      margin: 1em 0;
-    }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
-      color: #1a1a1a;
-    }
-    img {
-      max-width: 100%;
-    }
-    svg {
-      height: auto;
-      max-width: 100%;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: 1.4em;
-    }
-    h5, h6 {
-      font-size: 1em;
-      font-style: italic;
-    }
-    h6 {
-      font-weight: normal;
-    }
-    ol, ul {
-      padding-left: 1.7em;
-      margin-top: 1em;
-    }
-    li > ol, li > ul {
-      margin-top: 0;
-    }
-    blockquote {
-      margin: 1em 0 1em 1.7em;
-      padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
-      color: #606060;
-    }
-    code {
-      white-space: pre-wrap;
-      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
-      font-size: 85%;
-      margin: 0;
-      hyphens: manual;
-    }
-    pre {
-      margin: 1em 0;
-      overflow: auto;
-    }
-    pre code {
-      padding: 0;
-      overflow: visible;
-      overflow-wrap: normal;
-    }
-    .sourceCode {
-     background-color: transparent;
-     overflow: visible;
-    }
-    hr {
-      border: none;
-      border-top: 1px solid #1a1a1a;
-      height: 1px;
-      margin: 1em 0;
-    }
-    table {
-      margin: 1em 0;
-      border-collapse: collapse;
-      width: 100%;
-      overflow-x: auto;
-      display: block;
-      font-variant-numeric: lining-nums tabular-nums;
-    }
-    table caption {
-      margin-bottom: 0.75em;
-    }
-    tbody {
-      margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    th {
-      border-top: 1px solid #1a1a1a;
-      padding: 0.25em 0.5em 0.25em 0.5em;
-    }
-    td {
-      padding: 0.125em 0.5em 0.25em 0.5em;
-    }
-    header {
-      margin-bottom: 4em;
-      text-align: center;
-    }
-    #TOC li {
-      list-style: none;
-    }
-    #TOC ul {
-      padding-left: 1.3em;
-    }
-    #TOC > ul {
-      padding-left: 0;
-    }
-    #TOC a:not(:hover) {
-      text-decoration: none;
-    }
-    span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: 1.5em;}
-    div.column{flex: auto;}
-    @media screen {
-    div.columns{gap: min(4vw, 1.5em);}
-    div.column{overflow-x: auto;}
-    }
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    /* The extra [class] is a hack that increases specificity enough to
-       override a similar rule in reveal.js */
-    ul.task-list[class]{list-style: none;}
-    ul.task-list li input[type="checkbox"] {
-      font-size: inherit;
-      width: 0.8em;
-      margin: 0 0.8em 0.2em -1.6em;
-      vertical-align: middle;
-    }
-    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+   html{color:#1a1a1a;background:#fdfdfd}
+body{margin:0 auto;max-width:36em;padding:50px;hyphens:auto;overflow-wrap:break-word;text-rendering:optimizeLegibility;font-kerning:normal}
+@media(max-width:600px){body{font-size:.9em;padding:12px}h1{font-size:1.8em}}
+@media print{html{background:#fff}body{background:transparent;color:#000}p,h2,h3{orphans:3;widows:3}h2,h3,h4{page-break-after:avoid}}
+p{margin:1em 0}
+a,a:visited{color:#1a1a1a}
+img,svg{max-width:100%}
+h1,h2,h3,h4,h5,h6{margin-top:1.4em}
+h5,h6{font-size:1em;font-style:italic}
+h6{font-weight:normal}
+ol,ul{padding-left:1.7em;margin-top:1em}
+li>ol,li>ul{margin-top:0}
+blockquote{margin:1em 0 1em 1.7em;padding-left:1em;border-left:2px solid #e6e6e6;color:#606060}
+code{white-space:pre-wrap;font-family:Menlo,Monaco,Consolas,'Lucida Console',monospace;font-size:85%}
+pre{margin:1em 0;overflow:auto}
+pre code{padding:0;overflow:visible}
+hr{border:none;border-top:1px solid #1a1a1a;height:1px;margin:1em 0}
+table{margin:1em 0;border-collapse:collapse;width:100%;overflow-x:auto;display:block;font-variant-numeric:lining-nums tabular-nums}
+tbody{border-top:1px solid #1a1a1a;border-bottom:1px solid #1a1a1a}
+th{border-top:1px solid #1a1a1a;padding:.25em .5em}
+td{padding:.125em .5em .25em}
+header{margin-bottom:4em;text-align:center}
   </style>
-</head>
-<body>
-<header id="title-block-header">
-<h1 class="title">Test Data</h1>
-</header>
-<h1 id="test-data">Test Data</h1>
-<h2 id="project-information">📌 Project Information</h2>
-<p><strong>Project:</strong> SauceDemo Manual Testing Project</p>
-<p><strong>Application:</strong> SauceDemo
-(https://www.saucedemo.com)</p>
-<p><strong>Testing Type:</strong> Manual Functional Testing</p>
-<p><strong>Prepared By:</strong> Filip Jelinek</p>
-<hr />
-<h2 id="in-page-navigation">📑 In-page Navigation</h2>
-<ul>
-<li><a href="#overview">Overview</a></li>
-<li><a href="#objectives">Objectives</a></li>
-<li><a href="#login-test-data">Login Test Data</a></li>
-<li><a href="#checkout-test-data">Checkout Test Data</a></li>
-<li><a href="#invalid-test-data">Invalid Test Data</a></li>
-<li><a href="#boundary-test-data">Boundary Test Data</a></li>
-<li><a href="#summary">Summary</a></li>
-</ul>
-<hr />
-<h1 id="overview">Overview</h1>
-<p>This document contains the test data used during manual functional
-testing of the SauceDemo web application.</p>
-<p>The documented datasets support consistent and repeatable test
+ </head>
+ <body>
+  <header id="title-block-header">
+   <h1 class="title">
+    Test Data
+   </h1>
+  </header>
+  <h1 id="test-data">
+   Test Data
+  </h1>
+  <h2 id="project-information">
+   📌 Project Information
+  </h2>
+  <p>
+   <strong>
+    Project:
+   </strong>
+   SauceDemo Manual Testing Project
+  </p>
+  <p>
+   <strong>
+    Application:
+   </strong>
+   SauceDemo
+(https://www.saucedemo.com)
+  </p>
+  <p>
+   <strong>
+    Testing Type:
+   </strong>
+   Manual Functional Testing
+  </p>
+  <p>
+   <strong>
+    Prepared By:
+   </strong>
+   Filip Jelinek
+  </p>
+  <hr/>
+  <h2 id="in-page-navigation">
+   📑 In-page Navigation
+  </h2>
+  <ul>
+   <li>
+    <a href="#overview">
+     Overview
+    </a>
+   </li>
+   <li>
+    <a href="#objectives">
+     Objectives
+    </a>
+   </li>
+   <li>
+    <a href="#login-test-data">
+     Login Test Data
+    </a>
+   </li>
+   <li>
+    <a href="#checkout-test-data">
+     Checkout Test Data
+    </a>
+   </li>
+   <li>
+    <a href="#invalid-test-data">
+     Invalid Test Data
+    </a>
+   </li>
+   <li>
+    <a href="#boundary-test-data">
+     Boundary Test Data
+    </a>
+   </li>
+   <li>
+    <a href="#summary">
+     Summary
+    </a>
+   </li>
+  </ul>
+  <hr/>
+  <h1 id="overview">
+   Overview
+  </h1>
+  <p>
+   This document contains the test data used during manual functional
+testing of the SauceDemo web application.
+  </p>
+  <p>
+   The documented datasets support consistent and repeatable test
 execution across authentication, inventory, shopping cart, checkout, and
 navigation test scenarios. The test data includes valid credentials,
 invalid inputs, boundary values, and validation datasets used throughout
-the testing process.</p>
-<p>Maintaining test data separately from test cases improves test
+the testing process.
+  </p>
+  <p>
+   Maintaining test data separately from test cases improves test
 repeatability, simplifies regression testing, and ensures consistent
-execution across multiple testing cycles.</p>
-<hr />
-<h1 id="objectives">Objectives</h1>
-<p>The prepared test data supports verification of the following
-functional areas:</p>
-<ul>
-<li>User authentication (Login)</li>
-<li>Product inventory and product details</li>
-<li>Shopping cart functionality</li>
-<li>Checkout process</li>
-<li>Input validation</li>
-<li>Positive and negative test scenarios</li>
-<li>Boundary value testing</li>
-<li>Error handling and validation messages</li>
-</ul>
-<hr />
-<h1 id="login-test-data">Login Test Data</h1>
-<table style="width:100%;">
-<colgroup>
-<col style="width: 19%" />
-<col style="width: 17%" />
-<col style="width: 21%" />
-<col style="width: 19%" />
-<col style="width: 21%" />
-</colgroup>
-<thead>
-<tr>
-<th>Test Data ID</th>
-<th>Description</th>
-<th>Username</th>
-<th>Password</th>
-<th>Expected Result</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>TD-001</td>
-<td>Standard User</td>
-<td><code>standard_user</code></td>
-<td><code>secret_sauce</code></td>
-<td>Successful login</td>
-</tr>
-<tr>
-<td>TD-002</td>
-<td>Locked Out User</td>
-<td><code>locked_out_user</code></td>
-<td><code>secret_sauce</code></td>
-<td>Login blocked with error message</td>
-</tr>
-<tr>
-<td>TD-003</td>
-<td>Problem User</td>
-<td><code>problem_user</code></td>
-<td><code>secret_sauce</code></td>
-<td>Successful login with simulated UI defects</td>
-</tr>
-<tr>
-<td>TD-004</td>
-<td>Error User</td>
-<td><code>error_user</code></td>
-<td><code>secret_sauce</code></td>
-<td>Successful login with simulated application errors</td>
-</tr>
-<tr>
-<td>TD-005</td>
-<td>Performance Glitch User</td>
-<td><code>performance_glitch_user</code></td>
-<td><code>secret_sauce</code></td>
-<td>Successful login (slow response)</td>
-</tr>
-<tr>
-<td>TD-006</td>
-<td>Invalid Username</td>
-<td><code>invalid_user</code></td>
-<td><code>secret_sauce</code></td>
-<td>Error message displayed</td>
-</tr>
-<tr>
-<td>TD-007</td>
-<td>Invalid Password</td>
-<td><code>standard_user</code></td>
-<td><code>invalid_password</code></td>
-<td>Error message displayed</td>
-</tr>
-<tr>
-<td>TD-008</td>
-<td>Empty Credentials</td>
-<td><em>(blank)</em></td>
-<td><em>(blank)</em></td>
-<td>Validation error displayed</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h1 id="checkout-test-data">Checkout Test Data</h1>
-<table>
-<thead>
-<tr>
-<th>Test Data ID</th>
-<th>First Name</th>
-<th>Last Name</th>
-<th>ZIP / Postal Code</th>
-<th>Purpose</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>TD-101</td>
-<td>John</td>
-<td>Smith</td>
-<td>90210</td>
-<td>Valid checkout</td>
-</tr>
-<tr>
-<td>TD-102</td>
-<td>Alice</td>
-<td>Brown</td>
-<td>10001</td>
-<td>Valid checkout</td>
-</tr>
-<tr>
-<td>TD-103</td>
-<td>Michael</td>
-<td>Johnson</td>
-<td>75001</td>
-<td>Valid checkout</td>
-</tr>
-<tr>
-<td>TD-104</td>
-<td><em>(blank)</em></td>
-<td>Smith</td>
-<td>90210</td>
-<td>Empty First Name validation</td>
-</tr>
-<tr>
-<td>TD-105</td>
-<td>John</td>
-<td><em>(blank)</em></td>
-<td>90210</td>
-<td>Empty Last Name validation</td>
-</tr>
-<tr>
-<td>TD-106</td>
-<td>John</td>
-<td>Smith</td>
-<td><em>(blank)</em></td>
-<td>Empty Postal Code validation</td>
-</tr>
-<tr>
-<td>TD-107</td>
-<td>John</td>
-<td>Smith</td>
-<td>ABCDE</td>
-<td>Invalid Postal Code validation</td>
-</tr>
-<tr>
-<td>TD-108</td>
-<td>John</td>
-<td>Smith</td>
-<td>1234567890</td>
-<td>Long Postal Code validation</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h1 id="invalid-test-data">Invalid Test Data</h1>
-<table>
-<thead>
-<tr>
-<th>Test Data ID</th>
-<th>Input</th>
-<th>Test Scenario</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>TD-201</td>
-<td><code>"   "</code></td>
-<td>Whitespace validation</td>
-</tr>
-<tr>
-<td>TD-202</td>
-<td><code>ABCDE</code></td>
-<td>Invalid Postal Code validation</td>
-</tr>
-<tr>
-<td>TD-203</td>
-<td><code>12345678901234567890</code></td>
-<td>Input length validation</td>
-</tr>
-<tr>
-<td>TD-204</td>
-<td><code>!@#$%^&amp;*</code></td>
-<td>Special character validation</td>
-</tr>
-<tr>
-<td>TD-205</td>
-<td><code>&lt;script&gt;alert()&lt;/script&gt;</code></td>
-<td>Invalid text input validation</td>
-</tr>
-<tr>
-<td>TD-206</td>
-<td><code>123ABC</code></td>
-<td>Alphanumeric Postal Code validation</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h1 id="boundary-test-data">Boundary Test Data</h1>
-<table>
-<colgroup>
-<col style="width: 32%" />
-<col style="width: 16%" />
-<col style="width: 16%" />
-<col style="width: 34%" />
-</colgroup>
-<thead>
-<tr>
-<th>Test Data ID</th>
-<th>Field</th>
-<th>Value</th>
-<th>Test Scenario</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>TD-301</td>
-<td>First Name</td>
-<td><code>A</code></td>
-<td>Minimum length validation</td>
-</tr>
-<tr>
-<td>TD-302</td>
-<td>Last Name</td>
-<td><code>Z</code></td>
-<td>Minimum length validation</td>
-</tr>
-<tr>
-<td>TD-303</td>
-<td>ZIP / Postal Code</td>
-<td><code>1</code></td>
-<td>Minimum numeric value</td>
-</tr>
-<tr>
-<td>TD-304</td>
-<td>First Name</td>
-<td><code>ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWX</code></td>
-<td>Maximum length validation (50 characters)</td>
-</tr>
-<tr>
-<td>TD-305</td>
-<td>ZIP / Postal Code</td>
-<td><code>99999</code></td>
-<td>Maximum valid postal code value</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h1 id="summary">Summary</h1>
-<p>The prepared test datasets support positive, negative, validation,
+execution across multiple testing cycles.
+  </p>
+  <hr/>
+  <h1 id="objectives">
+   Objectives
+  </h1>
+  <p>
+   The prepared test data supports verification of the following
+functional areas:
+  </p>
+  <ul>
+   <li>
+    User authentication (Login)
+   </li>
+   <li>
+    Product inventory and product details
+   </li>
+   <li>
+    Shopping cart functionality
+   </li>
+   <li>
+    Checkout process
+   </li>
+   <li>
+    Input validation
+   </li>
+   <li>
+    Positive and negative test scenarios
+   </li>
+   <li>
+    Boundary value testing
+   </li>
+   <li>
+    Error handling and validation messages
+   </li>
+  </ul>
+  <hr/>
+  <h1 id="login-test-data">
+   Login Test Data
+  </h1>
+  <table style="width:100%;">
+   <colgroup>
+    <col style="width: 19%"/>
+    <col style="width: 17%"/>
+    <col style="width: 21%"/>
+    <col style="width: 19%"/>
+    <col style="width: 21%"/>
+   </colgroup>
+   <thead>
+    <tr>
+     <th>
+      Test Data ID
+     </th>
+     <th>
+      Description
+     </th>
+     <th>
+      Username
+     </th>
+     <th>
+      Password
+     </th>
+     <th>
+      Expected Result
+     </th>
+    </tr>
+   </thead>
+   <tbody>
+    <tr>
+     <td>
+      TD-001
+     </td>
+     <td>
+      Standard User
+     </td>
+     <td>
+      <code>
+       standard_user
+      </code>
+     </td>
+     <td>
+      <code>
+       secret_sauce
+      </code>
+     </td>
+     <td>
+      Successful login
+     </td>
+    </tr>
+    <tr>
+     <td>
+      TD-002
+     </td>
+     <td>
+      Locked Out User
+     </td>
+     <td>
+      <code>
+       locked_out_user
+      </code>
+     </td>
+     <td>
+      <code>
+       secret_sauce
+      </code>
+     </td>
+     <td>
+      Login blocked with error message
+     </td>
+    </tr>
+    <tr>
+     <td>
+      TD-003
+     </td>
+     <td>
+      Problem User
+     </td>
+     <td>
+      <code>
+       problem_user
+      </code>
+     </td>
+     <td>
+      <code>
+       secret_sauce
+      </code>
+     </td>
+     <td>
+      Successful login with simulated UI defects
+     </td>
+    </tr>
+    <tr>
+     <td>
+      TD-004
+     </td>
+     <td>
+      Error User
+     </td>
+     <td>
+      <code>
+       error_user
+      </code>
+     </td>
+     <td>
+      <code>
+       secret_sauce
+      </code>
+     </td>
+     <td>
+      Successful login with simulated application errors
+     </td>
+    </tr>
+    <tr>
+     <td>
+      TD-005
+     </td>
+     <td>
+      Performance Glitch User
+     </td>
+     <td>
+      <code>
+       performance_glitch_user
+      </code>
+     </td>
+     <td>
+      <code>
+       secret_sauce
+      </code>
+     </td>
+     <td>
+      Successful login (slow response)
+     </td>
+    </tr>
+    <tr>
+     <td>
+      TD-006
+     </td>
+     <td>
+      Invalid Username
+     </td>
+     <td>
+      <code>
+       invalid_user
+      </code>
+     </td>
+     <td>
+      <code>
+       secret_sauce
+      </code>
+     </td>
+     <td>
+      Error message displayed
+     </td>
+    </tr>
+    <tr>
+     <td>
+      TD-007
+     </td>
+     <td>
+      Invalid Password
+     </td>
+     <td>
+      <code>
+       standard_user
+      </code>
+     </td>
+     <td>
+      <code>
+       invalid_password
+      </code>
+     </td>
+     <td>
+      Error message displayed
+     </td>
+    </tr>
+    <tr>
+     <td>
+      TD-008
+     </td>
+     <td>
+      Empty Credentials
+     </td>
+     <td>
+      <em>
+       (blank)
+      </em>
+     </td>
+     <td>
+      <em>
+       (blank)
+      </em>
+     </td>
+     <td>
+      Validation error displayed
+     </td>
+    </tr>
+   </tbody>
+  </table>
+  <hr/>
+  <h1 id="checkout-test-data">
+   Checkout Test Data
+  </h1>
+  <table>
+   <thead>
+    <tr>
+     <th>
+      Test Data ID
+     </th>
+     <th>
+      First Name
+     </th>
+     <th>
+      Last Name
+     </th>
+     <th>
+      ZIP / Postal Code
+     </th>
+     <th>
+      Purpose
+     </th>
+    </tr>
+   </thead>
+   <tbody>
+    <tr>
+     <td>
+      TD-101
+     </td>
+     <td>
+      John
+     </td>
+     <td>
+      Smith
+     </td>
+     <td>
+      90210
+     </td>
+     <td>
+      Valid checkout
+     </td>
+    </tr>
+    <tr>
+     <td>
+      TD-102
+     </td>
+     <td>
+      Alice
+     </td>
+     <td>
+      Brown
+     </td>
+     <td>
+      10001
+     </td>
+     <td>
+      Valid checkout
+     </td>
+    </tr>
+    <tr>
+     <td>
+      TD-103
+     </td>
+     <td>
+      Michael
+     </td>
+     <td>
+      Johnson
+     </td>
+     <td>
+      75001
+     </td>
+     <td>
+      Valid checkout
+     </td>
+    </tr>
+    <tr>
+     <td>
+      TD-104
+     </td>
+     <td>
+      <em>
+       (blank)
+      </em>
+     </td>
+     <td>
+      Smith
+     </td>
+     <td>
+      90210
+     </td>
+     <td>
+      Empty First Name validation
+     </td>
+    </tr>
+    <tr>
+     <td>
+      TD-105
+     </td>
+     <td>
+      John
+     </td>
+     <td>
+      <em>
+       (blank)
+      </em>
+     </td>
+     <td>
+      90210
+     </td>
+     <td>
+      Empty Last Name validation
+     </td>
+    </tr>
+    <tr>
+     <td>
+      TD-106
+     </td>
+     <td>
+      John
+     </td>
+     <td>
+      Smith
+     </td>
+     <td>
+      <em>
+       (blank)
+      </em>
+     </td>
+     <td>
+      Empty Postal Code validation
+     </td>
+    </tr>
+    <tr>
+     <td>
+      TD-107
+     </td>
+     <td>
+      John
+     </td>
+     <td>
+      Smith
+     </td>
+     <td>
+      ABCDE
+     </td>
+     <td>
+      Invalid Postal Code validation
+     </td>
+    </tr>
+    <tr>
+     <td>
+      TD-108
+     </td>
+     <td>
+      John
+     </td>
+     <td>
+      Smith
+     </td>
+     <td>
+      1234567890
+     </td>
+     <td>
+      Long Postal Code validation
+     </td>
+    </tr>
+   </tbody>
+  </table>
+  <hr/>
+  <h1 id="invalid-test-data">
+   Invalid Test Data
+  </h1>
+  <table>
+   <thead>
+    <tr>
+     <th>
+      Test Data ID
+     </th>
+     <th>
+      Input
+     </th>
+     <th>
+      Test Scenario
+     </th>
+    </tr>
+   </thead>
+   <tbody>
+    <tr>
+     <td>
+      TD-201
+     </td>
+     <td>
+      <code>
+       "   "
+      </code>
+     </td>
+     <td>
+      Whitespace validation
+     </td>
+    </tr>
+    <tr>
+     <td>
+      TD-202
+     </td>
+     <td>
+      <code>
+       ABCDE
+      </code>
+     </td>
+     <td>
+      Invalid Postal Code validation
+     </td>
+    </tr>
+    <tr>
+     <td>
+      TD-203
+     </td>
+     <td>
+      <code>
+       12345678901234567890
+      </code>
+     </td>
+     <td>
+      Input length validation
+     </td>
+    </tr>
+    <tr>
+     <td>
+      TD-204
+     </td>
+     <td>
+      <code>
+       !@#$%^&amp;*
+      </code>
+     </td>
+     <td>
+      Special character validation
+     </td>
+    </tr>
+    <tr>
+     <td>
+      TD-205
+     </td>
+     <td>
+      <code>
+       &lt;script&gt;alert()&lt;/script&gt;
+      </code>
+     </td>
+     <td>
+      Invalid text input validation
+     </td>
+    </tr>
+    <tr>
+     <td>
+      TD-206
+     </td>
+     <td>
+      <code>
+       123ABC
+      </code>
+     </td>
+     <td>
+      Alphanumeric Postal Code validation
+     </td>
+    </tr>
+   </tbody>
+  </table>
+  <hr/>
+  <h1 id="boundary-test-data">
+   Boundary Test Data
+  </h1>
+  <table>
+   <colgroup>
+    <col style="width: 32%"/>
+    <col style="width: 16%"/>
+    <col style="width: 16%"/>
+    <col style="width: 34%"/>
+   </colgroup>
+   <thead>
+    <tr>
+     <th>
+      Test Data ID
+     </th>
+     <th>
+      Field
+     </th>
+     <th>
+      Value
+     </th>
+     <th>
+      Test Scenario
+     </th>
+    </tr>
+   </thead>
+   <tbody>
+    <tr>
+     <td>
+      TD-301
+     </td>
+     <td>
+      First Name
+     </td>
+     <td>
+      <code>
+       A
+      </code>
+     </td>
+     <td>
+      Minimum length validation
+     </td>
+    </tr>
+    <tr>
+     <td>
+      TD-302
+     </td>
+     <td>
+      Last Name
+     </td>
+     <td>
+      <code>
+       Z
+      </code>
+     </td>
+     <td>
+      Minimum length validation
+     </td>
+    </tr>
+    <tr>
+     <td>
+      TD-303
+     </td>
+     <td>
+      ZIP / Postal Code
+     </td>
+     <td>
+      <code>
+       1
+      </code>
+     </td>
+     <td>
+      Minimum numeric value
+     </td>
+    </tr>
+    <tr>
+     <td>
+      TD-304
+     </td>
+     <td>
+      First Name
+     </td>
+     <td>
+      <code>
+       ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWX
+      </code>
+     </td>
+     <td>
+      Maximum length validation (50 characters)
+     </td>
+    </tr>
+    <tr>
+     <td>
+      TD-305
+     </td>
+     <td>
+      ZIP / Postal Code
+     </td>
+     <td>
+      <code>
+       99999
+      </code>
+     </td>
+     <td>
+      Maximum valid postal code value
+     </td>
+    </tr>
+   </tbody>
+  </table>
+  <hr/>
+  <h1 id="summary">
+   Summary
+  </h1>
+  <p>
+   The prepared test datasets support positive, negative, validation,
 and boundary testing scenarios executed during manual functional testing
-of the SauceDemo web application.</p>
-<p>The documented data was used throughout the testing process to verify
+of the SauceDemo web application.
+  </p>
+  <p>
+   The documented data was used throughout the testing process to verify
 authentication, inventory functionality, product details, shopping cart
-behavior, checkout validation, and navigation features.</p>
-<p>Maintaining test data separately from test cases improves test
+behavior, checkout validation, and navigation features.
+  </p>
+  <p>
+   Maintaining test data separately from test cases improves test
 repeatability, simplifies regression testing, and ensures consistent
 execution across multiple testing cycles. The structured datasets also
 support clear traceability between test data, test cases, test execution
-results, and reported defects.</p>
-<hr />
-<p>⬅️ <strong>Back to Saucedemo</strong></p>
-<p><a
-href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-saucedemo/qa-saucedemo-README.md">qa-saucedemo-README.md</a></p>
-</body>
+results, and reported defects.
+  </p>
+  <hr/>
+  <p>
+   ⬅️
+   <strong>
+    Back to Saucedemo
+   </strong>
+  </p>
+  <p>
+   <a href="https://github.com/filipjelinek89/QA-Portfolio/blob/main/qa-saucedemo/qa-saucedemo-README.md">
+    qa-saucedemo-README.md
+   </a>
+  </p>
+ </body>
 </html>

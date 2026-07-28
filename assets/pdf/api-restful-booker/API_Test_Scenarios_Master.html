@@ -1,190 +1,45 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc 3.10.1" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>API Test Scenarios Master</title>
-  <style>
-    /* Default styles provided by pandoc.
-    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
-    */
-    html {
-      color: #1a1a1a;
-      background-color: #fdfdfd;
-    }
-    body {
-      margin: 0 auto;
-      max-width: 36em;
-      padding-left: 50px;
-      padding-right: 50px;
-      padding-top: 50px;
-      padding-bottom: 50px;
-      hyphens: auto;
-      overflow-wrap: break-word;
-      text-rendering: optimizeLegibility;
-      font-kerning: normal;
-    }
-    @media (max-width: 600px) {
-      body {
-        font-size: 0.9em;
-        padding: 12px;
-      }
-      h1 {
-        font-size: 1.8em;
-      }
-    }
-    @media print {
-      html {
-        background-color: white;
-      }
-      body {
-        background-color: transparent;
-        color: black;
-      }
-      p, h2, h3 {
-        orphans: 3;
-        widows: 3;
-      }
-      h2, h3, h4 {
-        page-break-after: avoid;
-      }
-    }
-    p {
-      margin: 1em 0;
-    }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
-      color: #1a1a1a;
-    }
-    img {
-      max-width: 100%;
-    }
-    svg {
-      height: auto;
-      max-width: 100%;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: 1.4em;
-    }
-    h5, h6 {
-      font-size: 1em;
-      font-style: italic;
-    }
-    h6 {
-      font-weight: normal;
-    }
-    ol, ul {
-      padding-left: 1.7em;
-      margin-top: 1em;
-    }
-    li > ol, li > ul {
-      margin-top: 0;
-    }
-    blockquote {
-      margin: 1em 0 1em 1.7em;
-      padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
-      color: #606060;
-    }
-    code {
-      white-space: pre-wrap;
-      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
-      font-size: 85%;
-      margin: 0;
-      hyphens: manual;
-    }
-    pre {
-      margin: 1em 0;
-      overflow: auto;
-    }
-    pre code {
-      padding: 0;
-      overflow: visible;
-      overflow-wrap: normal;
-    }
-    .sourceCode {
-     background-color: transparent;
-     overflow: visible;
-    }
-    hr {
-      border: none;
-      border-top: 1px solid #1a1a1a;
-      height: 1px;
-      margin: 1em 0;
-    }
-    table {
-      margin: 1em 0;
-      border-collapse: collapse;
-      width: 100%;
-      overflow-x: auto;
-      display: block;
-      font-variant-numeric: lining-nums tabular-nums;
-    }
-    table caption {
-      margin-bottom: 0.75em;
-    }
-    tbody {
-      margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    th {
-      border-top: 1px solid #1a1a1a;
-      padding: 0.25em 0.5em 0.25em 0.5em;
-    }
-    td {
-      padding: 0.125em 0.5em 0.25em 0.5em;
-    }
-    header {
-      margin-bottom: 4em;
-      text-align: center;
-    }
-    #TOC li {
-      list-style: none;
-    }
-    #TOC ul {
-      padding-left: 1.3em;
-    }
-    #TOC > ul {
-      padding-left: 0;
-    }
-    #TOC a:not(:hover) {
-      text-decoration: none;
-    }
-    span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: 1.5em;}
-    div.column{flex: auto;}
-    @media screen {
-    div.columns{gap: min(4vw, 1.5em);}
-    div.column{overflow-x: auto;}
-    }
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    /* The extra [class] is a hack that increases specificity enough to
-       override a similar rule in reveal.js */
-    ul.task-list[class]{list-style: none;}
-    ul.task-list li input[type="checkbox"] {
-      font-size: inherit;
-      width: 0.8em;
-      margin: 0 0.8em 0.2em -1.6em;
-      vertical-align: middle;
-    }
-    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
-  </style>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>07_Bug_Report_Master</title>
+<style>
+body{margin:0;font-family:Segoe UI,Arial,sans-serif;background:#f4f7fb;color:#222}
+header{background:#17324d;color:#fff;padding:40px}
+.container{max-width:1200px;margin:auto;padding:30px}
+nav{position:sticky;top:0;background:#fff;padding:10px;border-bottom:1px solid #ddd}
+nav a{margin-right:15px;text-decoration:none;color:#17324d;font-weight:600}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;margin:25px 0}
+.card{background:#fff;border-radius:10px;padding:20px;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.metric{font-size:30px;font-weight:bold}
+table{width:100%;border-collapse:collapse;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+th{background:#17324d;color:#fff}
+th,td{padding:10px;border:1px solid #ddd;text-align:left}
+.badge{padding:4px 8px;border-radius:12px;color:#fff;font-size:12px}
+.high{background:#d9534f}.medium{background:#f0ad4e}.low{background:#5bc0de}.open{background:#6c757d}
+section{margin:45px 0}
+code{background:#eef;padding:2px 5px}
+footer{margin:40px 0;color:#666;text-align:center}
+</style>
 </head>
 <body>
-<header id="title-block-header">
-<h1 class="title">API Test Scenarios Master</h1>
+<header>
+<h1>Restful Booker API Testing Project</h1>
+<h2>API Test Scenarios</h2>
+<p>Version 1.0 | Prepared by Filip Jelinek</p>
 </header>
+
+<div class="container">
+
 <h1 id="api-test-scenarios">API Test Scenarios</h1>
-<p><strong>Project:</strong> Restful Booker API Testing Project<br />
-<strong>Document Type:</strong> API Test Scenarios<br />
-<strong>Version:</strong> 5.0<br />
-<strong>Prepared by:</strong> Filip Jelinek<br />
+<p><strong>Project:</strong> Restful Booker API Testing Project<br/>
+<strong>Document Type:</strong> API Test Scenarios<br/>
+<strong>Version:</strong> 5.0<br/>
+<strong>Prepared by:</strong> Filip Jelinek<br/>
 <strong>Project Status:</strong> Sprint 10 – Newman CLI (Completed)</p>
-<hr />
+<hr/><h1 id="in-page-navigation">In-page Navigation</h1><ul><li><a href="#sprint-progress">1. Sprint Progress</a></li><li><a href="#scenario-coverage">2. Scenario Coverage</a></li><li><a href="#traceability">3. Traceability</a></li><li><a href="#regression-coverage">4. Regression Coverage</a></li><li><a href="#revision-history">5. Revision History</a></li></ul>
 <h2 id="summary">Summary</h2>
 <p>Version 5.0 synchronizes the Test Scenarios document with the current
 project status.</p>
@@ -205,7 +60,7 @@ project status.</p>
 requests and Test Execution.</li>
 <li>Regression scenarios synchronized with Newman execution.</li>
 </ul>
-<hr />
+<hr/>
 <h1 id="sprint-progress">Sprint Progress</h1>
 <table>
 <thead>
@@ -268,7 +123,7 @@ requests and Test Execution.</li>
 </tr>
 </tbody>
 </table>
-<hr />
+<hr/>
 <h1 id="scenario-coverage">Scenario Coverage</h1>
 <p>The project currently contains scenarios covering:</p>
 <ul>
@@ -283,7 +138,7 @@ requests and Test Execution.</li>
 <li>End-to-End Workflow</li>
 <li>Newman Regression Validation</li>
 </ul>
-<hr />
+<hr/>
 <h1 id="traceability">Traceability</h1>
 <p>All scenarios are linked to:</p>
 <pre class="text"><code>Requirements
@@ -301,7 +156,7 @@ Manual Execution
 Newman CLI Execution
         ↓
 Bug Reports</code></pre>
-<hr />
+<hr/>
 <h1 id="regression-coverage">Regression Coverage</h1>
 <p>The regression suite includes scenarios for:</p>
 <ul>
@@ -312,12 +167,12 @@ Bug Reports</code></pre>
 <li>End-to-End Workflow</li>
 </ul>
 <p>The regression suite is executed using Newman CLI.</p>
-<hr />
+<hr/>
 <h1 id="revision-history">Revision History</h1>
 <table>
 <colgroup>
-<col style="width: 43%" />
-<col style="width: 56%" />
+<col style="width: 43%"/>
+<col style="width: 56%"/>
 </colgroup>
 <thead>
 <tr>
@@ -349,5 +204,6 @@ updated traceability and project progress</td>
 </tr>
 </tbody>
 </table>
+</div>
 </body>
 </html>

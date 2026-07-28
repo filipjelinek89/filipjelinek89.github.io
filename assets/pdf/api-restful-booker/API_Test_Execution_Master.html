@@ -1,203 +1,58 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc 3.10.1" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>API Test Execution Master</title>
-  <style>
-    /* Default styles provided by pandoc.
-    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
-    */
-    html {
-      color: #1a1a1a;
-      background-color: #fdfdfd;
-    }
-    body {
-      margin: 0 auto;
-      max-width: 36em;
-      padding-left: 50px;
-      padding-right: 50px;
-      padding-top: 50px;
-      padding-bottom: 50px;
-      hyphens: auto;
-      overflow-wrap: break-word;
-      text-rendering: optimizeLegibility;
-      font-kerning: normal;
-    }
-    @media (max-width: 600px) {
-      body {
-        font-size: 0.9em;
-        padding: 12px;
-      }
-      h1 {
-        font-size: 1.8em;
-      }
-    }
-    @media print {
-      html {
-        background-color: white;
-      }
-      body {
-        background-color: transparent;
-        color: black;
-      }
-      p, h2, h3 {
-        orphans: 3;
-        widows: 3;
-      }
-      h2, h3, h4 {
-        page-break-after: avoid;
-      }
-    }
-    p {
-      margin: 1em 0;
-    }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
-      color: #1a1a1a;
-    }
-    img {
-      max-width: 100%;
-    }
-    svg {
-      height: auto;
-      max-width: 100%;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: 1.4em;
-    }
-    h5, h6 {
-      font-size: 1em;
-      font-style: italic;
-    }
-    h6 {
-      font-weight: normal;
-    }
-    ol, ul {
-      padding-left: 1.7em;
-      margin-top: 1em;
-    }
-    li > ol, li > ul {
-      margin-top: 0;
-    }
-    blockquote {
-      margin: 1em 0 1em 1.7em;
-      padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
-      color: #606060;
-    }
-    code {
-      white-space: pre-wrap;
-      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
-      font-size: 85%;
-      margin: 0;
-      hyphens: manual;
-    }
-    pre {
-      margin: 1em 0;
-      overflow: auto;
-    }
-    pre code {
-      padding: 0;
-      overflow: visible;
-      overflow-wrap: normal;
-    }
-    .sourceCode {
-     background-color: transparent;
-     overflow: visible;
-    }
-    hr {
-      border: none;
-      border-top: 1px solid #1a1a1a;
-      height: 1px;
-      margin: 1em 0;
-    }
-    table {
-      margin: 1em 0;
-      border-collapse: collapse;
-      width: 100%;
-      overflow-x: auto;
-      display: block;
-      font-variant-numeric: lining-nums tabular-nums;
-    }
-    table caption {
-      margin-bottom: 0.75em;
-    }
-    tbody {
-      margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    th {
-      border-top: 1px solid #1a1a1a;
-      padding: 0.25em 0.5em 0.25em 0.5em;
-    }
-    td {
-      padding: 0.125em 0.5em 0.25em 0.5em;
-    }
-    header {
-      margin-bottom: 4em;
-      text-align: center;
-    }
-    #TOC li {
-      list-style: none;
-    }
-    #TOC ul {
-      padding-left: 1.3em;
-    }
-    #TOC > ul {
-      padding-left: 0;
-    }
-    #TOC a:not(:hover) {
-      text-decoration: none;
-    }
-    span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: 1.5em;}
-    div.column{flex: auto;}
-    @media screen {
-    div.columns{gap: min(4vw, 1.5em);}
-    div.column{overflow-x: auto;}
-    }
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    /* The extra [class] is a hack that increases specificity enough to
-       override a similar rule in reveal.js */
-    ul.task-list[class]{list-style: none;}
-    ul.task-list li input[type="checkbox"] {
-      font-size: inherit;
-      width: 0.8em;
-      margin: 0 0.8em 0.2em -1.6em;
-      vertical-align: middle;
-    }
-    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
-  </style>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>07_Bug_Report_Master</title>
+<style>
+body{margin:0;font-family:Segoe UI,Arial,sans-serif;background:#f4f7fb;color:#222}
+header{background:#17324d;color:#fff;padding:40px}
+.container{max-width:1200px;margin:auto;padding:30px}
+nav{position:sticky;top:0;background:#fff;padding:10px;border-bottom:1px solid #ddd}
+nav a{margin-right:15px;text-decoration:none;color:#17324d;font-weight:600}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;margin:25px 0}
+.card{background:#fff;border-radius:10px;padding:20px;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.metric{font-size:30px;font-weight:bold}
+table{width:100%;border-collapse:collapse;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+th{background:#17324d;color:#fff}
+th,td{padding:10px;border:1px solid #ddd;text-align:left}
+.badge{padding:4px 8px;border-radius:12px;color:#fff;font-size:12px}
+.high{background:#d9534f}.medium{background:#f0ad4e}.low{background:#5bc0de}.open{background:#6c757d}
+section{margin:45px 0}
+code{background:#eef;padding:2px 5px}
+footer{margin:40px 0;color:#666;text-align:center}
+</style>
 </head>
 <body>
-<header id="title-block-header">
-<h1 class="title">API Test Execution Master</h1>
+<header>
+<h1>Restful Booker API Testing Project</h1>
+<h2>API Test Execution Master</h2>
+<p>Version 1.0 | Prepared by Filip Jelinek</p>
 </header>
+
+<div class="container">
+
 <h1 id="api-test-execution-master">API Test Execution — Master</h1>
-<p><strong>Project:</strong> Restful Booker API Testing Project<br />
-<strong>Document Type:</strong> API Test Execution Master<br />
-<strong>Version:</strong> 2.0<br />
-<strong>Prepared by:</strong> Filip Jelinek<br />
+<p><strong>Project:</strong> Restful Booker API Testing Project<br/>
+<strong>Document Type:</strong> API Test Execution Master<br/>
+<strong>Version:</strong> 2.0<br/>
+<strong>Prepared by:</strong> Filip Jelinek<br/>
 <strong>Project Status:</strong> Sprint 10 – Newman CLI (Completed)</p>
-<hr />
+<hr/>
 <h1 id="in-page-navigation">In-page Navigation</h1>
 <ol type="1">
-<li>Purpose</li>
-<li>Scope</li>
-<li>Related Documents</li>
-<li>Execution Workflow</li>
-<li>Sprint Overview</li>
-<li>Execution Summary</li>
-<li>Progress Dashboard</li>
-<li>Repository Structure</li>
-<li>Revision History</li>
+<li><a href="#purpose">Purpose</a></li>
+<li><a href="#scope">Scope</a></li>
+<li><a href="#related-documents">Related Documents</a></li>
+<li><a href="#execution-workflow">Execution Workflow</a></li>
+<li><a href="#sprint-overview">Sprint Overview</a></li>
+<li><a href="#execution-summary">Execution Summary</a></li>
+<li><a href="#progress-dashboard">Progress Dashboard</a></li>
+<li><a href="#repository-structure">Repository Structure</a></li>
+<li><a href="#revision-history">Revision History</a></li>
 </ol>
-<hr />
+<hr/>
 <h1 id="purpose">1. Purpose</h1>
 <p>This document provides a high-level overview of all API Test
 Execution activities performed during the Restful Booker API Testing
@@ -206,7 +61,7 @@ Project.</p>
 and provides a consolidated view of project execution progress.</p>
 <p>Detailed execution reports are maintained separately for each
 sprint.</p>
-<hr />
+<hr/>
 <h1 id="scope">2. Scope</h1>
 <p>This master document does not contain detailed execution results.</p>
 <p>Instead, it provides:</p>
@@ -219,7 +74,7 @@ sprint.</p>
 </ul>
 <p>Detailed execution results, evidence and defect information are
 maintained in individual sprint execution reports.</p>
-<hr />
+<hr/>
 <h1 id="related-documents">3. Related Documents</h1>
 <h2 id="standards">Standards</h2>
 <pre class="text"><code>06_Test_Execution/
@@ -235,7 +90,7 @@ Sprint_07/API_Test_Execution_Sprint_07_Delete_Booking.md
 Sprint_08/API_Test_Execution_Sprint_08_JSON_Schema_Validation.md
 Sprint_09/API_Test_Execution_Sprint_09_End_to_End_Workflow.md
 Sprint_10/API_Test_Execution_Sprint_10_Newman_CLI.md</code></pre>
-<hr />
+<hr/>
 <h1 id="execution-workflow">4. Execution Workflow</h1>
 <pre class="text"><code>Requirements
       ↓
@@ -256,7 +111,7 @@ Evidence Collection
 Bug Reporting
       ↓
 Newman CLI Validation</code></pre>
-<hr />
+<hr/>
 <h1 id="sprint-overview">5. Sprint Overview</h1>
 <table>
 <thead>
@@ -319,7 +174,7 @@ Newman CLI Validation</code></pre>
 </tr>
 </tbody>
 </table>
-<hr />
+<hr/>
 <h1 id="execution-summary">6. Execution Summary</h1>
 <table>
 <thead>
@@ -392,7 +247,7 @@ Newman CLI Validation</code></pre>
 <li>End-to-End workflow validation</li>
 <li>Newman CLI regression execution</li>
 </ul>
-<hr />
+<hr/>
 <h1 id="progress-dashboard">7. Progress Dashboard</h1>
 <table>
 <thead>
@@ -424,7 +279,7 @@ Newman CLI Validation</code></pre>
 </tr>
 </tbody>
 </table>
-<hr />
+<hr/>
 <h1 id="repository-structure">8. Repository Structure</h1>
 <pre class="text"><code>06_Test_Execution/
 │
@@ -441,13 +296,13 @@ Newman CLI Validation</code></pre>
 ├── Sprint_08/
 ├── Sprint_09/
 └── Sprint_10/</code></pre>
-<hr />
+<hr/>
 <h1 id="revision-history">9. Revision History</h1>
 <table>
 <colgroup>
-<col style="width: 34%" />
-<col style="width: 20%" />
-<col style="width: 44%" />
+<col style="width: 34%"/>
+<col style="width: 20%"/>
+<col style="width: 44%"/>
 </colgroup>
 <thead>
 <tr>
@@ -470,7 +325,8 @@ workflow, repository structure and Newman CLI validation</td>
 </tr>
 </tbody>
 </table>
-<hr />
+<hr/>
 <h1 id="end-of-document">End of Document</h1>
+</div>
 </body>
 </html>
