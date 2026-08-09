@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GitHub Actions</title>
+<style>
+body{margin:0;font-family:Segoe UI,Arial,sans-serif;background:#f4f7fb;color:#222;line-height:1.6}
+header{background:#17324d;color:#fff;padding:40px}
+header h1{margin:0 0 8px;font-size:32px} header h2{margin:0 0 8px;font-size:22px;font-weight:500}
+header p{margin:0;color:#dbe7f2}.container{max-width:1200px;margin:auto;padding:30px}
+section{margin:45px 0} h1,h2,h3{color:#17324d} h2{border-bottom:2px solid #dce5ee;padding-bottom:8px}
+table{width:100%;border-collapse:collapse;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.08);margin:20px 0}
+th{background:#17324d;color:#fff} th,td{padding:10px;border:1px solid #ddd;text-align:left;vertical-align:top}
+code{background:#eef2f7;padding:2px 5px;border-radius:4px}
+pre{background:#17202b;color:#fff;padding:16px;border-radius:8px;overflow:auto}
+ul,ol{padding-left:24px} li{margin:6px 0}
+.badge{display:inline-block;padding:4px 10px;border-radius:12px;background:#198754;color:#fff;font-size:13px;font-weight:600}
+.callout{background:#fff;border-left:4px solid #17324d;padding:16px 20px;margin:20px 0;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+footer{margin:40px 0;color:#666;text-align:center}
+</style>
+</head><body>
+<header><h1>Playwright-ParaBank-Automation</h1><h2>GitHub Actions</h2>
+<p>Version 1.0.0 | Playwright + TypeScript | <span class="badge">Completed / Portfolio Ready</span></p></header>
+<div class="container"><section id="status"><h2>Status</h2><p><strong>Completed / Configured for Portfolio Baseline</strong></p></section><section id="workflow"><h2>Workflow</h2><p>The repository contains <code>.github/workflows/playwright.yml</code>.</p>
+<p>The workflow:</p>
+<ol><li>Checks out the repository.</li><li>Installs Node.js.</li><li>Runs <code>npm ci</code>.</li><li>Installs Playwright browsers and dependencies.</li><li>Runs Playwright tests.</li><li>Uploads the Playwright HTML report as an artifact when the job finishes.</li></ol></section><section id="important-environment-constraint"><h2>Important Environment Constraint</h2><p>The current Playwright configuration targets:</p>
+<pre>http://localhost:8081/parabank/</pre>
+<p>A GitHub-hosted runner does not automatically have the local ParaBank application. Therefore, the workflow is correctly configured as a CI workflow template, but a fully green remote run requires a ParaBank instance available to the runner.</p></section><section id="completion-interpretation"><h2>Completion Interpretation</h2><p>CI/CD configuration is complete for the current repository baseline. Making the application itself available in remote CI is an optional infrastructure enhancement.</p></section>
+<footer><p>Playwright-ParaBank-Automation · GitHub Actions · Version 1.0.0</p></footer>
+</div></body></html>

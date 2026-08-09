@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>04_Test_Case_Mapping</title>
+<style>
+body{margin:0;font-family:Segoe UI,Arial,sans-serif;background:#f4f7fb;color:#222;line-height:1.6}
+header{background:#17324d;color:#fff;padding:40px}
+header h1{margin:0 0 8px;font-size:32px}
+header h2{margin:0 0 8px;font-size:22px;font-weight:500}
+header p{margin:0;color:#dbe7f2}
+.container{max-width:1200px;margin:auto;padding:30px}
+section{margin:45px 0}
+h1,h2,h3{color:#17324d}
+h1{margin-top:0}
+h2{border-bottom:2px solid #dce5ee;padding-bottom:8px}
+h3{margin-top:28px}
+table{width:100%;border-collapse:collapse;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.08);margin:20px 0}
+th{background:#17324d;color:#fff}
+th,td{padding:10px;border:1px solid #ddd;text-align:left;vertical-align:top}
+code{background:#eef2f7;padding:2px 5px;border-radius:4px}
+pre{background:#17202b;color:#fff;padding:16px;border-radius:8px;overflow:auto}
+ul,ol{padding-left:24px}
+li{margin:6px 0}
+.badge{display:inline-block;padding:4px 10px;border-radius:12px;background:#198754;color:#fff;font-size:13px;font-weight:600}
+.callout{background:#fff;border-left:4px solid #17324d;padding:16px 20px;margin:20px 0;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+footer{margin:40px 0;color:#666;text-align:center}
+</style>
+</head>
+<body>
+<header><h1>Playwright-ParaBank-Automation</h1><h2>Test Case Mapping</h2><p>Version 1.0.0 | Playwright + TypeScript | <span class="badge">Completed / Portfolio Ready</span></p></header>
+<div class="container">
+<div class="callout"><p><strong>Playwright-ParaBank-Automation – Test Case Mapping</strong></p></div>
+<section id="document-information"><h2>Document Information</h2>
+<table><thead><tr><th>Item</th><th>Value</th></tr></thead><tbody>
+<tr><td>Version</td><td>1.0.0</td></tr>
+<tr><td>Status</td><td><strong>Completed / Portfolio Ready</strong></td></tr>
+<tr><td>Mapping scope</td><td>TC001–TC070</td></tr>
+<tr><td>Automation coverage</td><td><strong>70 / 70 (100%)</strong></td></tr>
+</tbody></table>
+</section>
+<section id="purpose"><h2>Purpose</h2>
+<p>This document provides traceability between the manual ParaBank test cases and their Playwright implementations.</p>
+<p>The manual test design remains the business source of truth. This repository provides the automation implementation and execution evidence.</p>
+</section>
+<section id="mapping-rules"><h2>Mapping Rules</h2>
+<ul><li>The manual Test Case ID is preserved in the automation filename.</li><li>One manual case maps to one automation specification wherever practical.</li><li>Data-driven demonstrations are additional framework examples and do not replace the mapped cases.</li><li>Application defects or environmental limitations are recorded through execution evidence and investigations.</li></ul>
+</section>
+<section id="coverage-summary"><h2>Coverage Summary</h2>
+<table><thead><tr><th>Module</th><th>Test Cases</th><th>Automated</th></tr></thead><tbody>
+<tr><td>Registration</td><td>TC001–TC008</td><td>8/8</td></tr>
+<tr><td>Login</td><td>TC009–TC016</td><td>8/8</td></tr>
+<tr><td>Account Overview</td><td>TC017–TC023</td><td>7/7</td></tr>
+<tr><td>Open New Account</td><td>TC024–TC030</td><td>7/7</td></tr>
+<tr><td>Transfer Funds</td><td>TC031–TC040</td><td>10/10</td></tr>
+<tr><td>Bill Payment</td><td>TC041–TC049</td><td>9/9</td></tr>
+<tr><td>Request Loan</td><td>TC050–TC056</td><td>7/7</td></tr>
+<tr><td>Navigation &amp; Logout</td><td>TC057–TC062</td><td>6/6</td></tr>
+<tr><td>Validation &amp; Security</td><td>TC063–TC070</td><td>8/8</td></tr>
+<tr><td><strong>Total</strong></td><td><strong>70</strong></td><td><strong>70/70</strong></td></tr>
+</tbody></table>
+</section>
+<section id="full-mapping"><h2>Full Mapping</h2>
+<table><thead><tr><th>Manual Test Case</th><th>Automation Test</th><th>Module</th><th>Status</th></tr></thead><tbody>
+<tr><td>TC017</td><td><code>tests/account-overview/TC017_account_overview.spec.ts</code></td><td>Account Overview</td><td>Automated</td></tr>
+<tr><td>TC018</td><td><code>tests/account-overview/TC018_account_table.spec.ts</code></td><td>Account Overview</td><td>Automated</td></tr>
+<tr><td>TC019</td><td><code>tests/account-overview/TC019_account_details_page.spec.ts</code></td><td>Account Overview</td><td>Automated</td></tr>
+<tr><td>TC020</td><td><code>tests/account-overview/TC020_transaction_history.spec.ts</code></td><td>Account Overview</td><td>Automated</td></tr>
+<tr><td>TC021</td><td><code>tests/account-overview/TC021_multiple_accounts_are_displayed.spec.ts</code></td><td>Account Overview</td><td>Automated</td></tr>
+<tr><td>TC022</td><td><code>tests/account-overview/TC022_verify_user_session_sersists_after_page_refresh.spec.ts</code></td><td>Account Overview</td><td>Automated</td></tr>
+<tr><td>TC023</td><td><code>tests/account-overview/TC023_transaction_history_for_new_account.spec.ts</code></td><td>Account Overview</td><td>Automated</td></tr>
+<tr><td>TC041</td><td><code>tests/bill-payment/TC041_successful_bill_payment.spec.ts</code></td><td>Bill Payment</td><td>Automated</td></tr>
+<tr><td>TC042</td><td><code>tests/bill-payment/TC042_empty_required_fields.spec.ts</code></td><td>Bill Payment</td><td>Automated</td></tr>
+<tr><td>TC043</td><td><code>tests/bill-payment/TC043_bill_payment_with_invalid_account_number.spec.ts</code></td><td>Bill Payment</td><td>Automated</td></tr>
+<tr><td>TC044</td><td><code>tests/bill-payment/TC044_bill_payment_with_empty_amount.spec.ts</code></td><td>Bill Payment</td><td>Automated</td></tr>
+<tr><td>TC045</td><td><code>tests/bill-payment/TC045_bill_payment_with_negative_amount.spec.ts</code></td><td>Bill Payment</td><td>Automated</td></tr>
+<tr><td>TC046</td><td><code>tests/bill-payment/TC046_bill_payment_with_decimal_amount.spec.ts</code></td><td>Bill Payment</td><td>Automated</td></tr>
+<tr><td>TC047</td><td><code>tests/bill-payment/TC047_bill_payment_with_invalid_ZIP_code.spec.ts</code></td><td>Bill Payment</td><td>Automated</td></tr>
+<tr><td>TC048</td><td><code>tests/bill-payment/TC048_bill_payment_with_invalid_phone_number.spec.ts</code></td><td>Bill Payment</td><td>Automated</td></tr>
+<tr><td>TC049</td><td><code>tests/bill-payment/TC049_payment_confirmation_message.spec.ts</code></td><td>Bill Payment</td><td>Automated</td></tr>
+<tr><td>TC009</td><td><code>tests/login/TC009_successful_login.spec.ts</code></td><td>Login</td><td>Automated</td></tr>
+<tr><td>TC010</td><td><code>tests/login/TC010_invalid_username.spec.ts</code></td><td>Login</td><td>Automated</td></tr>
+<tr><td>TC011</td><td><code>tests/login/TC011_invalid_password.spec.ts</code></td><td>Login</td><td>Automated</td></tr>
+<tr><td>TC012</td><td><code>tests/login/TC012_invalid_username_and_password.spec.ts</code></td><td>Login</td><td>Automated</td></tr>
+<tr><td>TC013</td><td><code>tests/login/TC013_empty_username.spec.ts</code></td><td>Login</td><td>Automated</td></tr>
+<tr><td>TC014</td><td><code>tests/login/TC014_empty_password.spec.ts</code></td><td>Login</td><td>Automated</td></tr>
+<tr><td>TC015</td><td><code>tests/login/TC015_empty_username_and_password.spec.ts</code></td><td>Login</td><td>Automated</td></tr>
+<tr><td>TC016</td><td><code>tests/login/TC016_logout_after_successful_login.spec.ts</code></td><td>Login</td><td>Automated</td></tr>
+<tr><td>TC057</td><td><code>tests/navigation/TC057_Home_navigation_link.spec.ts</code></td><td>Navigation &amp; Logout</td><td>Automated</td></tr>
+<tr><td>TC058</td><td><code>tests/navigation/TC058_About_Us_page.spec.ts</code></td><td>Navigation &amp; Logout</td><td>Automated</td></tr>
+<tr><td>TC059</td><td><code>tests/navigation/TC059_Services_page.spec.ts</code></td><td>Navigation &amp; Logout</td><td>Automated</td></tr>
+<tr><td>TC060</td><td><code>tests/navigation/TC060_Contact_page.spec.ts</code></td><td>Navigation &amp; Logout</td><td>Automated</td></tr>
+<tr><td>TC061</td><td><code>tests/navigation/TC061_successful_logout.spec.ts</code></td><td>Navigation &amp; Logout</td><td>Automated</td></tr>
+<tr><td>TC062</td><td><code>tests/navigation/TC062_browser_Back_button_after_logout.spec.ts</code></td><td>Navigation &amp; Logout</td><td>Automated</td></tr>
+<tr><td>TC024</td><td><code>tests/open-account/TC024_opening_a_new_checking_account.spec.ts</code></td><td>Open New Account</td><td>Automated</td></tr>
+<tr><td>TC025</td><td><code>tests/open-account/TC025_opening_a_new_savings_account.spec.ts</code></td><td>Open New Account</td><td>Automated</td></tr>
+<tr><td>TC026</td><td><code>tests/open-account/TC026_newly_created_account_appears_in_Account_Overview.spec.ts</code></td><td>Open New Account</td><td>Automated</td></tr>
+<tr><td>TC027</td><td><code>tests/open-account/TC027_unique_account_number_is_generated.spec.ts</code></td><td>Open New Account</td><td>Automated</td></tr>
+<tr><td>TC028</td><td><code>tests/open-account/TC028_initial_account_balance.spec.ts</code></td><td>Open New Account</td><td>Automated</td></tr>
+<tr><td>TC029</td><td><code>tests/open-account/TC029_opening_multiple_accounts.spec.ts</code></td><td>Open New Account</td><td>Automated</td></tr>
+<tr><td>TC030</td><td><code>tests/open-account/TC030_account_creation_using_different_funding_accounts.spec.ts</code></td><td>Open New Account</td><td>Automated</td></tr>
+<tr><td>TC001</td><td><code>tests/registration/TC001_successful_user_registration.spec.ts</code></td><td>Registration</td><td>Automated</td></tr>
+<tr><td>TC002</td><td><code>tests/registration/TC002_Registration_With_Required_Fields_Only.spec.ts</code></td><td>Registration</td><td>Automated</td></tr>
+<tr><td>TC003</td><td><code>tests/registration/TC003_registration_with_empty_required_fields.spec.ts</code></td><td>Registration</td><td>Automated</td></tr>
+<tr><td>TC004</td><td><code>tests/registration/TC004_registration_with_an_existing_username.spec.ts</code></td><td>Registration</td><td>Automated</td></tr>
+<tr><td>TC005</td><td><code>tests/registration/TC005_password_confirmation_validation.spec.ts</code></td><td>Registration</td><td>Automated</td></tr>
+<tr><td>TC006</td><td><code>tests/registration/TC006_Username_Length_Boundary_Validation.spec.ts</code></td><td>Registration</td><td>Automated</td></tr>
+<tr><td>TC007</td><td><code>tests/registration/TC007_special_characters_validation.spec.ts</code></td><td>Registration</td><td>Automated</td></tr>
+<tr><td>TC008</td><td><code>tests/registration/TC008_registration_with_alphabetic_zip_code.spec.ts</code></td><td>Registration</td><td>Automated</td></tr>
+<tr><td>TC050</td><td><code>tests/request-loan/TC050_successful_loan_request.spec.ts</code></td><td>Request Loan</td><td>Automated</td></tr>
+<tr><td>TC051</td><td><code>tests/request-loan/TC051_loan_request_with_zero_amount.spec.ts</code></td><td>Request Loan</td><td>Automated</td></tr>
+<tr><td>TC052</td><td><code>tests/request-loan/TC052_loan_request_with_negative_amount.spec.ts</code></td><td>Request Loan</td><td>Automated</td></tr>
+<tr><td>TC053</td><td><code>tests/request-loan/TC053_loan_request_with_empty_required_fields.spec.ts</code></td><td>Request Loan</td><td>Automated</td></tr>
+<tr><td>TC054</td><td><code>tests/request-loan/TC054_loan_request_with_large_amount.spec.ts</code></td><td>Request Loan</td><td>Automated</td></tr>
+<tr><td>TC055</td><td><code>tests/request-loan/TC055_loan_request_using_different_accounts.spec.ts</code></td><td>Request Loan</td><td>Automated</td></tr>
+<tr><td>TC056</td><td><code>tests/request-loan/TC056_loan_approval_or_rejection_message.spec.ts</code></td><td>Request Loan</td><td>Automated</td></tr>
+<tr><td>TC031</td><td><code>tests/transfer-funds/TC031_successful_transfer_between_accounts.spec.ts</code></td><td>Transfer Funds</td><td>Automated</td></tr>
+<tr><td>TC032</td><td><code>tests/transfer-funds/TC032_transfer_of_entire_account_balance.spec.ts</code></td><td>Transfer Funds</td><td>Automated</td></tr>
+<tr><td>TC033</td><td><code>tests/transfer-funds/TC033_transfer_with_zero_amount.spec.ts</code></td><td>Transfer Funds</td><td>Automated</td></tr>
+<tr><td>TC034</td><td><code>tests/transfer-funds/TC034_transfer_with_negative_amount.spec.ts</code></td><td>Transfer Funds</td><td>Automated</td></tr>
+<tr><td>TC035</td><td><code>tests/transfer-funds/TC035_transfer_with_decimal_amount.spec.ts</code></td><td>Transfer Funds</td><td>Automated</td></tr>
+<tr><td>TC036</td><td><code>tests/transfer-funds/TC036_transfer_with_a_large_amount.spec.ts</code></td><td>Transfer Funds</td><td>Automated</td></tr>
+<tr><td>TC037</td><td><code>tests/transfer-funds/TC037_transfer_between_the_same_account.spec.ts</code></td><td>Transfer Funds</td><td>Automated</td></tr>
+<tr><td>TC038</td><td><code>tests/transfer-funds/TC038_transfer_with_empty_amount.spec.ts</code></td><td>Transfer Funds</td><td>Automated</td></tr>
+<tr><td>TC039</td><td><code>tests/transfer-funds/TC039_account_balances_update_after_transfer.spec.ts</code></td><td>Transfer Funds</td><td>Automated</td></tr>
+<tr><td>TC040</td><td><code>tests/transfer-funds/TC040_transfer_confirmation_message.spec.ts</code></td><td>Transfer Funds</td><td>Automated</td></tr>
+<tr><td>TC063</td><td><code>tests/validation/TC063_SQL_injection_like_input_is_handled_safely.spec.ts</code></td><td>Validation &amp; Security</td><td>Automated</td></tr>
+<tr><td>TC064</td><td><code>tests/validation/TC064_HTML_script_input_is_handled_safely.spec.ts</code></td><td>Validation &amp; Security</td><td>Automated</td></tr>
+<tr><td>TC065</td><td><code>tests/validation/TC065_maximum_input_length_validation.spec.ts</code></td><td>Validation &amp; Security</td><td>Automated</td></tr>
+<tr><td>TC066</td><td><code>tests/validation/TC066_leading_and_trailing_spaces_in_input_fields.spec.ts</code></td><td>Validation &amp; Security</td><td>Automated</td></tr>
+<tr><td>TC067</td><td><code>tests/validation/TC067_Unicode_characters_in_text_fields.spec.ts</code></td><td>Validation &amp; Security</td><td>Automated</td></tr>
+<tr><td>TC068</td><td><code>tests/validation/TC068_browser_refresh_during_form_submission.spec.ts</code></td><td>Validation &amp; Security</td><td>Automated</td></tr>
+<tr><td>TC069</td><td><code>tests/validation/TC069_double_clicking_the_Submit_button.spec.ts</code></td><td>Validation &amp; Security</td><td>Automated</td></tr>
+<tr><td>TC070</td><td><code>tests/validation/TC070_multiple_browser_tabs_with_the_same_session.spec.ts</code></td><td>Validation &amp; Security</td><td>Automated</td></tr>
+</tbody></table>
+</section>
+<section id="additional-automation-assets"><h2>Additional Automation Assets</h2>
+<p>These are not additional manual test cases:</p>
+<table><thead><tr><th>Asset</th><th>Purpose</th></tr></thead><tbody>
+<tr><td><code>tests/data-driven/DD001_invalid_passwords.spec.ts</code></td><td>Demonstrates data-driven invalid-password coverage.</td></tr>
+<tr><td><code>tests/data-driven/DD002_username_boundary.spec.ts</code></td><td>Demonstrates data-driven boundary testing using 19/20/21-character datasets.</td></tr>
+<tr><td><code>tests/investigation/Find_Username_Boundary.spec.ts</code></td><td>Exploratory investigation used to establish the username boundary behavior.</td></tr>
+</tbody></table>
+</section>
+<section id="coverage-interpretation"><h2>Coverage Interpretation</h2>
+<p><strong>100% automation coverage</strong> means that every planned manual test case TC001–TC070 has a corresponding automation specification. It does <strong>not</strong> mean that every execution result is expected to pass. Known application defects, misleading validation and environment limitations are preserved as QA findings.</p>
+</section>
+<section id="completion-statement"><h2>Completion Statement</h2>
+<p>The TC001–TC070 automation mapping is complete and synchronized with the current test filenames.</p>
+</section>
+<footer><p>Playwright-ParaBank-Automation · 04_Test_Case_Mapping · Version 1.0.0</p></footer>
+</div>
+</body></html>

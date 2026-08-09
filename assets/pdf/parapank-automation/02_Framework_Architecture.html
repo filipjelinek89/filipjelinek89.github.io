@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>02_Framework_Architecture</title>
+<style>
+body{margin:0;font-family:Segoe UI,Arial,sans-serif;background:#f4f7fb;color:#222;line-height:1.6}
+header{background:#17324d;color:#fff;padding:40px}
+header h1{margin:0 0 8px;font-size:32px}
+header h2{margin:0 0 8px;font-size:22px;font-weight:500}
+header p{margin:0;color:#dbe7f2}
+.container{max-width:1200px;margin:auto;padding:30px}
+section{margin:45px 0}
+h1,h2,h3{color:#17324d}
+h1{margin-top:0}
+h2{border-bottom:2px solid #dce5ee;padding-bottom:8px}
+h3{margin-top:28px}
+table{width:100%;border-collapse:collapse;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.08);margin:20px 0}
+th{background:#17324d;color:#fff}
+th,td{padding:10px;border:1px solid #ddd;text-align:left;vertical-align:top}
+code{background:#eef2f7;padding:2px 5px;border-radius:4px}
+pre{background:#17202b;color:#fff;padding:16px;border-radius:8px;overflow:auto}
+ul,ol{padding-left:24px}
+li{margin:6px 0}
+.badge{display:inline-block;padding:4px 10px;border-radius:12px;background:#198754;color:#fff;font-size:13px;font-weight:600}
+.callout{background:#fff;border-left:4px solid #17324d;padding:16px 20px;margin:20px 0;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+footer{margin:40px 0;color:#666;text-align:center}
+</style>
+</head>
+<body>
+<header><h1>Playwright-ParaBank-Automation</h1><h2>Framework Architecture</h2><p>Version 1.0.0 | Playwright + TypeScript | <span class="badge">Completed / Portfolio Ready</span></p></header>
+<div class="container">
+<div class="callout"><p><strong>Playwright-ParaBank-Automation – Framework Architecture</strong></p></div>
+<section id="document-information"><h2>Document Information</h2>
+<table><thead><tr><th>Item</th><th>Value</th></tr></thead><tbody>
+<tr><td>Version</td><td>1.0.0</td></tr>
+<tr><td>Status</td><td><strong>Completed / Portfolio Ready</strong></td></tr>
+<tr><td>Framework</td><td>Playwright + TypeScript</td></tr>
+</tbody></table>
+</section>
+<section id="architecture"><h2>Architecture</h2>
+<pre>                    Playwright Test
+                           │
+                           ▼
+                  tests/*.spec.ts
+                           │
+                           ▼
+                    Page Objects
+                           │
+                           ▼
+                       BasePage
+                           │
+                           ▼
+                       Browser UI
+
+       ┌───────────────────┼───────────────────┐
+       ▼                   ▼                   ▼
+    Fixtures          Test Data           Configuration
+       │                   │                   │
+       ▼                   ▼                   ▼
+  shared setup      models/factories/    playwright.config.ts
+                    generators/users
+
+                           │
+                           ▼
+                    Test Execution
+                           │
+              ┌────────────┼────────────┐
+              ▼            ▼            ▼
+        Playwright HTML  Allure     Failure Evidence
+                                    screenshot/video/trace</pre>
+</section>
+<section id="repository-structure"><h2>Repository Structure</h2>
+<pre>Playwright-ParaBank-Automation/
+├── .github/workflows/
+├── docs/
+├── fixtures/
+├── pages/
+├── test-data/
+│   ├── factories/
+│   ├── generators/
+│   ├── models/
+│   └── users/
+├── tests/
+│   ├── registration/
+│   ├── login/
+│   ├── account-overview/
+│   ├── open-account/
+│   ├── transfer-funds/
+│   ├── bill-payment/
+│   ├── request-loan/
+│   ├── navigation/
+│   ├── validation/
+│   ├── data-driven/
+│   └── investigation/
+├── playwright.config.ts
+├── package.json
+└── README.md</pre>
+</section>
+<section id="implemented-components"><h2>Implemented Components</h2>
+
+</section>
+<section id="basepage"><h3>BasePage</h3>
+<p>Provides common browser operations such as navigation, page-load waiting, URL access and URL validation.</p>
+</section>
+<section id="page-objects"><h3>Page Objects</h3>
+<p>The framework contains page classes for the major ParaBank workflows, including registration, login, account overview, account opening, transfers, bill payment and loans.</p>
+</section>
+<section id="fixture"><h3>Fixture</h3>
+<p><code>fixtures/base.ts</code> provides shared setup, including cookie cleanup and the intentional 3-second stabilization wait used during local ParaBank execution.</p>
+</section>
+<section id="test-data"><h3>Test Data</h3>
+<p>Test data is separated from test logic using TypeScript models, factories, generators and reusable users.</p>
+</section>
+<section id="configuration"><h3>Configuration</h3>
+<p><code>playwright.config.ts</code> defines the test directory, worker strategy, timeouts, browser project, evidence collection and reporters. The default project is Google Chrome.</p>
+</section>
+<section id="reporting-architecture"><h2>Reporting Architecture</h2>
+<p>The framework currently produces:</p>
+<ul><li>Playwright list output.</li><li>Playwright HTML report.</li><li>Allure results and report.</li><li>Screenshots on failure.</li><li>Videos on failure.</li><li>Traces on first retry.</li></ul>
+</section>
+<section id="design-principles"><h2>Design Principles</h2>
+<ul><li>Separation of concerns.</li><li>Reusable Page Objects.</li><li>Centralized test data.</li><li>Explicit assertions.</li><li>Stable locators where application behavior permits them.</li><li>Evidence-driven investigation for application limitations.</li><li>Minimal duplication.</li><li>Documentation aligned with the implemented framework.</li></ul>
+</section>
+<section id="completion-statement"><h2>Completion Statement</h2>
+<p>The planned framework architecture is implemented and documented. New architecture work is optional and belongs to future enhancement work rather than the completed baseline.</p>
+</section>
+<footer><p>Playwright-ParaBank-Automation · 02_Framework_Architecture · Version 1.0.0</p></footer>
+</div>
+</body></html>

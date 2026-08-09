@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>01_Project_Overview</title>
+<style>
+body{margin:0;font-family:Segoe UI,Arial,sans-serif;background:#f4f7fb;color:#222;line-height:1.6}
+header{background:#17324d;color:#fff;padding:40px}
+header h1{margin:0 0 8px;font-size:32px}
+header h2{margin:0 0 8px;font-size:22px;font-weight:500}
+header p{margin:0;color:#dbe7f2}
+.container{max-width:1200px;margin:auto;padding:30px}
+section{margin:45px 0}
+h1,h2{color:#17324d}
+h1{margin-top:0}
+h2{border-bottom:2px solid #dce5ee;padding-bottom:8px}
+table{width:100%;border-collapse:collapse;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.08);margin:20px 0}
+th{background:#17324d;color:#fff}
+th,td{padding:10px;border:1px solid #ddd;text-align:left;vertical-align:top}
+code{background:#eef2f7;padding:2px 5px;border-radius:4px}
+pre{background:#17202b;color:#fff;padding:16px;border-radius:8px;overflow:auto}
+ul{padding-left:24px}
+li{margin:6px 0}
+.badge{display:inline-block;padding:4px 10px;border-radius:12px;background:#198754;color:#fff;font-size:13px;font-weight:600}
+.callout{background:#fff;border-left:4px solid #17324d;padding:16px 20px;margin:20px 0;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+footer{margin:40px 0;color:#666;text-align:center}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Playwright-ParaBank-Automation</h1>
+  <h2>Project Overview</h2>
+  <p>Version 1.0 | Playwright + TypeScript | <span class="badge">Completed / Portfolio Ready</span></p>
+</header>
+
+<div class="container">
+
+<section id="document-information">
+<h2>Document Information</h2>
+<table>
+<thead><tr><th>Item</th><th>Value</th></tr></thead>
+<tbody>
+<tr><td>Project</td><td>Playwright-ParaBank-Automation</td></tr>
+<tr><td>Version</td><td>1.0.0</td></tr>
+<tr><td>Framework</td><td>Playwright + TypeScript</td></tr>
+<tr><td>Application</td><td>ParaBank demo banking application</td></tr>
+<tr><td>Status</td><td><strong>Completed / Portfolio Ready</strong></td></tr>
+<tr><td>Scope</td><td>70 mapped functional/security automation cases + framework demonstrations</td></tr>
+</tbody>
+</table>
+</section>
+
+<section id="purpose">
+<h2>Purpose</h2>
+<p>This project is a professional end-to-end UI automation framework for the ParaBank demo banking application. It demonstrates maintainable Playwright engineering practices rather than only individual browser scripts.</p>
+</section>
+
+<section id="objectives">
+<h2>Objectives</h2>
+<ul>
+<li>Implement a reusable Playwright + TypeScript framework.</li>
+<li>Apply the Page Object Model (POM).</li>
+<li>Centralize reusable test data and generation logic.</li>
+<li>Automate the 70 planned manual test cases (TC001–TC070).</li>
+<li>Cover positive, negative, validation, boundary, robustness and security-oriented scenarios.</li>
+<li>Provide Playwright HTML and Allure reporting with failure evidence.</li>
+<li>Maintain traceability between manual test design and automation.</li>
+<li>Provide a GitHub Actions CI workflow configuration.</li>
+</ul>
+</section>
+
+<section id="automated-scope">
+<h2>Automated Scope</h2>
+<ul>
+<li>Registration: TC001–TC008</li>
+<li>Login: TC009–TC016</li>
+<li>Account Overview: TC017–TC023</li>
+<li>Open New Account: TC024–TC030</li>
+<li>Transfer Funds: TC031–TC040</li>
+<li>Bill Payment: TC041–TC049</li>
+<li>Request Loan: TC050–TC056</li>
+<li>Navigation &amp; Logout: TC057–TC062</li>
+<li>Validation &amp; Security: TC063–TC070</li>
+</ul>
+
+<div class="callout">
+<p><strong>Additional framework demonstrations are kept separate from the 70 mapped cases:</strong></p>
+<ul>
+<li><code>DD001_invalid_passwords.spec.ts</code> — data-driven authentication examples.</li>
+<li><code>DD002_username_boundary.spec.ts</code> — data-driven username boundary examples.</li>
+<li><code>Find_Username_Boundary.spec.ts</code> — exploratory investigation supporting the username boundary decision.</li>
+</ul>
+</div>
+</section>
+
+<section id="technology-stack">
+<h2>Technology Stack</h2>
+<ul>
+<li>Playwright Test 1.62.x</li>
+<li>TypeScript</li>
+<li>Node.js</li>
+<li>Google Chrome project</li>
+<li>dotenv</li>
+<li>Allure Report 3 / <code>allure-playwright</code></li>
+<li>Git / GitHub</li>
+<li>GitHub Actions</li>
+<li>Visual Studio Code</li>
+</ul>
+</section>
+
+<section id="current-framework-characteristics">
+<h2>Current Framework Characteristics</h2>
+<ul>
+<li>Page Objects inherit from <code>BasePage</code>.</li>
+<li>Shared browser setup is provided through the project fixture.</li>
+<li>Registration data is generated through factories and generators.</li>
+<li>Tests use explicit business-oriented assertions.</li>
+<li>Playwright HTML and Allure reports are generated from the same execution.</li>
+<li>Screenshots are captured on failure, videos are retained on failure, and traces are collected on first retry.</li>
+<li>A deliberate 3-second stabilization wait is used by the shared fixture because the local ParaBank environment demonstrated timing instability during development.</li>
+</ul>
+</section>
+
+<section id="environment-and-limitations">
+<h2>Environment and Limitations</h2>
+<p>The framework targets a locally hosted ParaBank instance using:</p>
+<pre>http://localhost:8081/parabank/</pre>
+
+<p>The application is a demo system and does not always behave like a production banking application. Some negative/validation scenarios expose application defects or misleading responses. These are intentionally preserved as QA findings rather than changing assertions merely to obtain a green run.</p>
+
+<p>The CI workflow is configured, but a GitHub runner requires a ParaBank instance reachable from the runner before the full UI suite can execute successfully. The workflow configuration is therefore documented as infrastructure-ready rather than claiming a verified remote application environment.</p>
+</section>
+
+<section id="completion-statement">
+<h2>Completion Statement</h2>
+<p>The planned automation framework scope is implemented. Remaining improvements are optional portfolio enhancements and are not required to consider the project complete.</p>
+</section>
+
+<section id="future-enhancements">
+<h2>Future Enhancements</h2>
+<p>Future work may include Dockerized ParaBank execution, broader browser projects, richer CI publication, and additional portfolio presentation. These are optional enhancements and are outside the completed baseline.</p>
+</section>
+
+<footer>
+  <p>Playwright-ParaBank-Automation · Project Overview · Version 1.0.0</p>
+</footer>
+
+</div>
+</body>
+</html>

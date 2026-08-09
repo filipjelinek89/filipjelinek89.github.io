@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>03_Automation_Strategy</title>
+<style>
+body{margin:0;font-family:Segoe UI,Arial,sans-serif;background:#f4f7fb;color:#222;line-height:1.6}
+header{background:#17324d;color:#fff;padding:40px}
+header h1{margin:0 0 8px;font-size:32px}
+header h2{margin:0 0 8px;font-size:22px;font-weight:500}
+header p{margin:0;color:#dbe7f2}
+.container{max-width:1200px;margin:auto;padding:30px}
+section{margin:45px 0}
+h1,h2,h3{color:#17324d}
+h1{margin-top:0}
+h2{border-bottom:2px solid #dce5ee;padding-bottom:8px}
+h3{margin-top:28px}
+table{width:100%;border-collapse:collapse;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.08);margin:20px 0}
+th{background:#17324d;color:#fff}
+th,td{padding:10px;border:1px solid #ddd;text-align:left;vertical-align:top}
+code{background:#eef2f7;padding:2px 5px;border-radius:4px}
+pre{background:#17202b;color:#fff;padding:16px;border-radius:8px;overflow:auto}
+ul,ol{padding-left:24px}
+li{margin:6px 0}
+.badge{display:inline-block;padding:4px 10px;border-radius:12px;background:#198754;color:#fff;font-size:13px;font-weight:600}
+.callout{background:#fff;border-left:4px solid #17324d;padding:16px 20px;margin:20px 0;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+footer{margin:40px 0;color:#666;text-align:center}
+</style>
+</head>
+<body>
+<header><h1>Playwright-ParaBank-Automation</h1><h2>Automation Strategy</h2><p>Version 1.0.0 | Playwright + TypeScript | <span class="badge">Completed / Portfolio Ready</span></p></header>
+<div class="container">
+<div class="callout"><p><strong>Playwright-ParaBank-Automation – Automation Strategy</strong></p></div>
+<section id="document-information"><h2>Document Information</h2>
+<table><thead><tr><th>Item</th><th>Value</th></tr></thead><tbody>
+<tr><td>Version</td><td>1.0.0</td></tr>
+<tr><td>Status</td><td><strong>Completed / Portfolio Ready</strong></td></tr>
+<tr><td>Primary browser</td><td>Google Chrome</td></tr>
+<tr><td>Execution model</td><td>Playwright Test</td></tr>
+</tbody></table>
+</section>
+<section id="strategy"><h2>Strategy</h2>
+<p>The automation strategy is based on the existing manual QA scenarios. Each mapped TC001–TC070 case is implemented as a Playwright test where the application and environment permit reliable automation.</p>
+</section>
+<section id="test-design-coverage"><h2>Test Design Coverage</h2>
+<ul><li>Positive / happy-path testing</li><li>Negative testing</li><li>Required-field validation</li><li>Boundary testing</li><li>Robustness testing</li><li>Security-oriented input handling</li><li>Session and navigation testing</li><li>Business workflow validation</li></ul>
+</section>
+<section id="test-organization"><h2>Test Organization</h2>
+<p>Tests are grouped by business module. Data-driven framework demonstrations are intentionally separated into <code>tests/data-driven/</code> and do not replace the original TC001–TC070 mapping.</p>
+</section>
+<section id="locator-strategy"><h2>Locator Strategy</h2>
+<p>The framework prefers semantic and stable locators such as role, label, name and stable application attributes. CSS selectors are used where ParaBank does not expose a suitable semantic locator.</p>
+<p>Known ParaBank instability is documented rather than hidden. For TC033, TC034, TC036, TC037 and TC053, application behavior/locator limitations were established during execution and investigation; the tests preserve the best available evidence for the environment.</p>
+</section>
+<section id="waiting-strategy"><h2>Waiting Strategy</h2>
+<p>The framework relies primarily on Playwright's auto-waiting and explicit assertions. A shared 3-second stabilization wait is retained because the local ParaBank instance demonstrated timing instability during development. This is an environment-specific mitigation, not a general recommendation to use arbitrary sleeps.</p>
+</section>
+<section id="test-isolation"><h2>Test Isolation</h2>
+<p>Tests create unique registration users through <code>RegistrationDataFactory</code> where registration is part of the flow. Shared browser cookies are cleared by the base fixture before each test.</p>
+</section>
+<section id="execution"><h2>Execution</h2>
+<p>Default configuration uses one worker to reduce interference against the unstable local demo application. A command-line <code>--workers=N</code> override can be used for controlled parallel experiments or CI environments.</p>
+</section>
+<section id="evidence"><h2>Evidence</h2>
+<p>The configuration uses:</p>
+<pre>screenshot: only-on-failure
+video: retain-on-failure
+trace: on-first-retry</pre>
+<p>This provides actionable evidence without storing unnecessary artifacts for every successful test.</p>
+</section>
+<section id="reporting"><h2>Reporting</h2>
+<p>The framework uses three reporters:</p>
+<ol><li><code>list</code> for immediate terminal feedback.</li><li><code>html</code> for Playwright's interactive report.</li><li><code>allure-playwright</code> for the portfolio-oriented Allure report.</li></ol>
+</section>
+<section id="defect-philosophy"><h2>Defect Philosophy</h2>
+<p>A failing automation test is not automatically treated as an automation defect. Where the application accepts invalid data, exposes misleading validation, or behaves inconsistently, the test records the observed behavior and supporting evidence. Assertions are not weakened solely to make the suite green.</p>
+</section>
+<section id="completion-statement"><h2>Completion Statement</h2>
+<p>The automation strategy for the completed project baseline is established and implemented.</p>
+</section>
+<footer><p>Playwright-ParaBank-Automation · 03_Automation_Strategy · Version 1.0.0</p></footer>
+</div>
+</body></html>

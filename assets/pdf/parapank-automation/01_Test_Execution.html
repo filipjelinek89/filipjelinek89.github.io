@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Test Execution</title>
+<style>
+body{margin:0;font-family:Segoe UI,Arial,sans-serif;background:#f4f7fb;color:#222;line-height:1.6}
+header{background:#17324d;color:#fff;padding:40px}
+header h1{margin:0 0 8px;font-size:32px} header h2{margin:0 0 8px;font-size:22px;font-weight:500}
+header p{margin:0;color:#dbe7f2}.container{max-width:1200px;margin:auto;padding:30px}
+section{margin:45px 0} h1,h2,h3{color:#17324d} h2{border-bottom:2px solid #dce5ee;padding-bottom:8px}
+table{width:100%;border-collapse:collapse;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.08);margin:20px 0}
+th{background:#17324d;color:#fff} th,td{padding:10px;border:1px solid #ddd;text-align:left;vertical-align:top}
+code{background:#eef2f7;padding:2px 5px;border-radius:4px}
+pre{background:#17202b;color:#fff;padding:16px;border-radius:8px;overflow:auto}
+ul,ol{padding-left:24px} li{margin:6px 0}
+.badge{display:inline-block;padding:4px 10px;border-radius:12px;background:#198754;color:#fff;font-size:13px;font-weight:600}
+.callout{background:#fff;border-left:4px solid #17324d;padding:16px 20px;margin:20px 0;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+footer{margin:40px 0;color:#666;text-align:center}
+</style>
+</head><body>
+<header><h1>Playwright-ParaBank-Automation</h1><h2>Test Execution</h2>
+<p>Version 1.0.0 | Playwright + TypeScript | <span class="badge">Completed / Portfolio Ready</span></p></header>
+<div class="container"><section id="status"><h2>Status</h2><p><strong>Completed / Portfolio Ready</strong></p></section><section id="execution-configuration"><h2>Execution Configuration</h2><ul><li>Framework: Playwright Test</li><li>Language: TypeScript</li><li>Browser: Google Chrome</li><li>Default workers: 1</li><li>CLI override: <code>--workers=N</code></li><li>Headless: false in the local configuration</li><li>Base URL: <code>http://localhost:8081/parabank/</code></li><li>Navigation timeout: 60 seconds</li><li>Action timeout: 15 seconds</li><li>Shared stabilization wait: 3 seconds</li></ul></section><section id="evidence-configuration"><h2>Evidence Configuration</h2><ul><li>Screenshot: failure only</li><li>Video: failure only</li><li>Trace: first retry</li><li>Playwright HTML report: enabled</li><li>Allure report: enabled</li></ul></section><section id="execution-approach"><h2>Execution Approach</h2><p>The suite can be executed with:</p>
+<pre>npx playwright test --workers=1</pre>
+<p>Allure-enabled execution:</p>
+<pre>npm run test:allure -- --workers=1</pre></section><section id="result-interpretation"><h2>Result Interpretation</h2><p>A failed test may represent an application defect or environment limitation rather than an automation defect. The project intentionally preserves meaningful assertions and documents known ParaBank behavior.</p></section><section id="known-environment-constraints"><h2>Known Environment Constraints</h2><ul><li>Local ParaBank response timing can require the documented 3-second stabilization delay.</li><li>Some ParaBank workflows do not expose stable locators or expected validation behavior; TC033, TC034, TC036, TC037 and TC053 were explicitly investigated.</li><li>Public/demo environments may rate-limit repeated requests.</li></ul></section><section id="completion-statement"><h2>Completion Statement</h2><p>The execution process, configuration and evidence strategy are established for the completed project baseline.</p></section>
+<footer><p>Playwright-ParaBank-Automation · Test Execution · Version 1.0.0</p></footer>
+</div></body></html>

@@ -1,0 +1,971 @@
+
+[2mRunning [22m88[2m tests using [22m4[2m workers[22m
+
+⏳ Waiting 3 seconds before test...
+⏳ Waiting 3 seconds before test...
+⏳ Waiting 3 seconds before test...
+⏳ Waiting 3 seconds before test...
+  [32mok[39m [2m 4 [22m[Google Chrome] › tests\account-overview\TC019_account_details_page.spec.ts:9:5 › TC019 - Account details[2m (6.0s)[22m
+  [32mok[39m [2m 1 [22m[Google Chrome] › tests\account-overview\TC017_account_overview.spec.ts:9:5 › TC017 - Verify Account Overview Page After Successful Login[2m (6.7s)[22m
+⏳ Waiting 3 seconds before test...
+  [32mok[39m [2m 2 [22m[Google Chrome] › tests\account-overview\TC018_account_table.spec.ts:10:5 › TC018 - Verify Account Overview Table Structure[2m (6.9s)[22m
+⏳ Waiting 3 seconds before test...
+  [32mok[39m [2m 3 [22m[Google Chrome] › tests\account-overview\TC020_transaction_history.spec.ts:9:5 › TC020 - Verify Transaction History Is Displayed[2m (6.9s)[22m
+⏳ Waiting 3 seconds before test...
+⏳ Waiting 3 seconds before test...
+Number of accounts: 2
+  [32mok[39m [2m 5 [22m[Google Chrome] › tests\account-overview\TC021_multiple_accounts_are_displayed.spec.ts:10:5 › TC021 - Verify Multiple Accounts Are Displayed[2m (5.7s)[22m
+⏳ Waiting 3 seconds before test...
+  [32mok[39m [2m 6 [22m[Google Chrome] › tests\account-overview\TC022_verify_user_session_sersists_after_page_refresh.spec.ts:9:5 › TC022 - Verify User Session Persists After Page Refresh[2m (6.2s)[22m
+⏳ Waiting 3 seconds before test...
+  [32mok[39m [2m 8 [22m[Google Chrome] › tests\bill-payment\TC041_successful_bill_payment.spec.ts:9:5 › TC041 - Verify Successful Bill Payment[2m (6.3s)[22m
+  [32mok[39m [2m 7 [22m[Google Chrome] › tests\account-overview\TC023_transaction_history_for_new_account.spec.ts:10:5 › TC023 - Verify Transaction History for Newly Created Account[2m (6.6s)[22m
+⏳ Waiting 3 seconds before test...
+⏳ Waiting 3 seconds before test...
+  [31mx[39m  [2m10 [22m[31m[Google Chrome] › tests\bill-payment\TC043_bill_payment_with_invalid_account_number.spec.ts:9:5 › TC043 - Verify Bill Payment with Invalid Account Number[39m[2m (5.7s)[22m
+  [31mx[39m  [2m12 [22m[31m[Google Chrome] › tests\bill-payment\TC045_bill_payment_with_negative_amount.spec.ts:9:5 › TC045 - Verify Bill Payment with Negative Amount[39m[2m (5.5s)[22m
+⏳ Waiting 3 seconds before test...
+⏳ Waiting 3 seconds before test...
+  [32mok[39m [2m11 [22m[Google Chrome] › tests\bill-payment\TC044_bill_payment_with_empty_amount.spec.ts:9:5 › TC044 - Verify Bill Payment with Empty Amount[2m (11.1s)[22m
+⏳ Waiting 3 seconds before test...
+  [31mx[39m  [2m13 [22m[31m[Google Chrome] › tests\bill-payment\TC043_bill_payment_with_invalid_account_number.spec.ts:9:5 › TC043 - Verify Bill Payment with Invalid Account Number[39m[33m (retry #1)[39m[2m (6.3s)[22m
+  [31mx[39m  [2m14 [22m[31m[Google Chrome] › tests\bill-payment\TC045_bill_payment_with_negative_amount.spec.ts:9:5 › TC045 - Verify Bill Payment with Negative Amount[39m[33m (retry #1)[39m[2m (6.2s)[22m
+⏳ Waiting 3 seconds before test...
+  [32mok[39m [2m15 [22m[Google Chrome] › tests\bill-payment\TC046_bill_payment_with_decimal_amount.spec.ts:9:5 › TC046 - Verify Bill Payment with Decimal Amount[2m (5.4s)[22m
+⏳ Waiting 3 seconds before test...
+⏳ Waiting 3 seconds before test...
+  [31mx[39m  [2m16 [22m[31m[Google Chrome] › tests\bill-payment\TC047_bill_payment_with_invalid_ZIP_code.spec.ts:9:5 › TC047 - Verify Bill Payment with Invalid ZIP Code[39m[2m (5.8s)[22m
+  [31mx[39m  [2m17 [22m[31m[Google Chrome] › tests\bill-payment\TC048_bill_payment_with_invalid_phone_number.spec.ts:10:5 › TC048 - Verify Bill Payment with Invalid Phone Number[39m[2m (5.6s)[22m
+  [32mok[39m [2m18 [22m[Google Chrome] › tests\bill-payment\TC049_payment_confirmation_message.spec.ts:10:5 › TC049 - Verify Payment Confirmation Message[2m (5.6s)[22m
+⏳ Waiting 3 seconds before test...
+⏳ Waiting 3 seconds before test...
+⏳ Waiting 3 seconds before test...
+  [32mok[39m [2m19 [22m[Google Chrome] › tests\data-driven\DD001_invalid_passwords.spec.ts:30:21 › Data-Driven Login Validation › Invalid password - Incorrect password[2m (4.5s)[22m
+⏳ Waiting 3 seconds before test...
+  [31mx[39m  [2m20 [22m[31m[Google Chrome] › tests\bill-payment\TC047_bill_payment_with_invalid_ZIP_code.spec.ts:9:5 › TC047 - Verify Bill Payment with Invalid ZIP Code[39m[33m (retry #1)[39m[2m (6.3s)[22m
+  [31mx[39m  [2m21 [22m[31m[Google Chrome] › tests\bill-payment\TC048_bill_payment_with_invalid_phone_number.spec.ts:10:5 › TC048 - Verify Bill Payment with Invalid Phone Number[39m[33m (retry #1)[39m[2m (6.1s)[22m
+  [32m-[39m  [2m23 [22m[36m[Google Chrome] › tests\investigation\Find_Username_Boundary.spec.ts:20:9 › INV001 - Username Length 19[39m
+  [32m-[39m  [2m24 [22m[36m[Google Chrome] › tests\investigation\Find_Username_Boundary.spec.ts:20:9 › INV001 - Username Length 20[39m
+  [32m-[39m  [2m25 [22m[36m[Google Chrome] › tests\investigation\Find_Username_Boundary.spec.ts:20:9 › INV001 - Username Length 21[39m
+  [32mok[39m [2m22 [22m[Google Chrome] › tests\data-driven\DD001_invalid_passwords.spec.ts:30:21 › Data-Driven Login Validation › Invalid password - Wrong password with different case[2m (4.6s)[22m
+⏳ Waiting 3 seconds before test...
+⏳ Waiting 3 seconds before test...
+⏳ Waiting 3 seconds before test...
+  [32mok[39m [2m26 [22m[Google Chrome] › tests\data-driven\DD001_invalid_passwords.spec.ts:30:21 › Data-Driven Login Validation › Invalid password - Completely invalid password[2m (4.6s)[22m
+⏳ Waiting 3 seconds before test...
+  [32mok[39m [2m27 [22m[Google Chrome] › tests\data-driven\DD002_username_boundary.spec.ts:46:21 › Data-Driven Username Boundary Validation › DD002 - Username Length - Below boundary (19)[2m (4.9s)[22m
+⏳ Waiting 3 seconds before test...
+  [32mok[39m [2m28 [22m[Google Chrome] › tests\login\TC009_successful_login.spec.ts:8:5 › TC009 - Successful Login[2m (5.2s)[22m
+⏳ Waiting 3 seconds before test...
+  [32mok[39m [2m29 [22m[Google Chrome] › tests\login\TC010_invalid_username.spec.ts:5:5 › TC010 - Invalid Username[2m (4.3s)[22m
+⏳ Waiting 3 seconds before test...
+  [32mok[39m [2m30 [22m[Google Chrome] › tests\data-driven\DD002_username_boundary.spec.ts:46:21 › Data-Driven Username Boundary Validation › DD002 - Username Length - At boundary (20)[2m (4.3s)[22m
+⏳ Waiting 3 seconds before test...
+  [32mok[39m [2m31 [22m[Google Chrome] › tests\login\TC011_invalid_password.spec.ts:8:5 › TC011 Invalid password[2m (4.4s)[22m
+⏳ Waiting 3 seconds before test...
+  [32mok[39m [2m32 [22m[Google Chrome] › tests\login\TC012_invalid_username_and_password.spec.ts:5:5 › TC012 - Invalid Username and Password[2m (4.0s)[22m
+⏳ Waiting 3 seconds before test...
+  [32mok[39m [2m33 [22m[Google Chrome] › tests\data-driven\DD002_username_boundary.spec.ts:46:21 › Data-Driven Username Boundary Validation › DD002 - Username Length - Above boundary (21)[2m (4.0s)[22m
+⏳ Waiting 3 seconds before test...
+  [32mok[39m [2m34 [22m[Google Chrome] › tests\login\TC013_empty_username.spec.ts:5:5 › TC013 - Empty Username[2m (3.9s)[22m
+⏳ Waiting 3 seconds before test...
+  [32mok[39m [2m35 [22m[Google Chrome] › tests\login\TC014_empty_password.spec.ts:5:5 › TC014 Empty password[2m (4.0s)[22m
+⏳ Waiting 3 seconds before test...
+  [32mok[39m [2m36 [22m[Google Chrome] › tests\login\TC015_empty_username_and_password.spec.ts:5:5 › TC015 Empty username and password[2m (3.9s)[22m
+⏳ Waiting 3 seconds before test...
+  [32mok[39m [2m37 [22m[Google Chrome] › tests\login\TC016_logout_after_successful_login.spec.ts:8:5 › TC016 - Logout After Successful Login[2m (4.4s)[22m
+⏳ Waiting 3 seconds before test...
+  [32mok[39m [2m38 [22m[Google Chrome] › tests\navigation\TC057_Home_navigation_link.spec.ts:9:5 › TC057 - Verify Home Navigation Link[2m (4.4s)[22m
+⏳ Waiting 3 seconds before test...
+  [32mok[39m [2m39 [22m[Google Chrome] › tests\navigation\TC058_About_Us_page.spec.ts:9:5 › TC058 - Verify About Us Page[2m (4.7s)[22m
+⏳ Waiting 3 seconds before test...
+  [32mok[39m [2m40 [22m[Google Chrome] › tests\navigation\TC059_Services_page.spec.ts:9:5 › TC059 - Verify Services Page[2m (4.6s)[22m
+⏳ Waiting 3 seconds before test...
+  [32mok[39m [2m41 [22m[Google Chrome] › tests\navigation\TC060_Contact_page.spec.ts:9:5 › TC060 - Verify Contact Page[2m (4.6s)[22m
+⏳ Waiting 3 seconds before test...
+  [32mok[39m [2m42 [22m[Google Chrome] › tests\navigation\TC061_successful_logout.spec.ts:9:5 › TC061 - Verify Successful Logout[2m (4.7s)[22m
+  [32mok[39m [2m 9 [22m[Google Chrome] › tests\bill-payment\TC042_empty_required_fields.spec.ts:9:5 › TC042 - Verify Bill Payment with Empty Required Fields[2m (1.0m)[22m
+⏳ Waiting 3 seconds before test...
+⏳ Waiting 3 seconds before test...
+  [32mok[39m [2m43 [22m[Google Chrome] › tests\navigation\TC062_browser_Back_button_after_logout.spec.ts:9:5 › TC062 - Verify Browser Back Button After Logout[2m (4.9s)[22m
+⏳ Waiting 3 seconds before test...
+  [32mok[39m [2m44 [22m[Google Chrome] › tests\open-account\TC024_opening_a_new_checking_account.spec.ts:9:5 › TC024 - Opening a New Checking Account[2m (4.5s)[22m
+⏳ Waiting 3 seconds before test...
+  [32mok[39m [2m45 [22m[Google Chrome] › tests\open-account\TC025_opening_a_new_savings_account.spec.ts:9:5 › TC025 - Opening a New Savings Account[2m (5.5s)[22m
+⏳ Waiting 3 seconds before test...
+  [32mok[39m [2m46 [22m[Google Chrome] › tests\open-account\TC026_newly_created_account_appears_in_Account_Overview.spec.ts:10:5 › TC026 - Verify Newly Created Account Appears in Account Overview[2m (5.8s)[22m
+⏳ Waiting 3 seconds before test...
+  [32mok[39m [2m47 [22m[Google Chrome] › tests\open-account\TC027_unique_account_number_is_generated.spec.ts:9:5 › TC027 - Verify Unique Account Number Is Generated[2m (5.6s)[22m
+⏳ Waiting 3 seconds before test...
+  [32mok[39m [2m48 [22m[Google Chrome] › tests\open-account\TC028_initial_account_balance.spec.ts:10:5 › TC028 - Verify Initial Account Balance[2m (4.9s)[22m
+⏳ Waiting 3 seconds before test...
+  [32mok[39m [2m49 [22m[Google Chrome] › tests\open-account\TC029_opening_multiple_accounts.spec.ts:10:5 › TC029 - Verify Opening Multiple Accounts[2m (5.5s)[22m
+  [32mok[39m [2m50 [22m[Google Chrome] › tests\open-account\TC030_account_creation_using_different_funding_accounts.spec.ts:9:5 › TC030 - Verify Account Creation Using Different Funding Accounts[2m (5.5s)[22m
+⏳ Waiting 3 seconds before test...
+  [32mok[39m [2m51 [22m[Google Chrome] › tests\registration\TC001_successful_user_registration.spec.ts:6:5 › TC001 - Verify Successful User Registration[2m (4.6s)[22m
+⏳ Waiting 3 seconds before test...
+⏳ Waiting 3 seconds before test...
+  [32mok[39m [2m52 [22m[Google Chrome] › tests\registration\TC002_Registration_With_Required_Fields_Only.spec.ts:6:5 › TC002 -  Registration With Required Fields Only.spec[2m (4.4s)[22m
+⏳ Waiting 3 seconds before test...
+  [32mok[39m [2m53 [22m[Google Chrome] › tests\registration\TC003_registration_with_empty_required_fields.spec.ts:10:5 › TC003 - Registration Without First Name[2m (4.3s)[22m
+⏳ Waiting 3 seconds before test...
+  [32mok[39m [2m55 [22m[Google Chrome] › tests\registration\TC005_password_confirmation_validation.spec.ts:6:5 › TC005 - Password Confirmation Validation[2m (4.7s)[22m
+⏳ Waiting 3 seconds before test...
+  [32mok[39m [2m54 [22m[Google Chrome] › tests\registration\TC004_registration_with_an_existing_username.spec.ts:8:5 › TC004 - Registration with an Existing Username[2m (5.5s)[22m
+⏳ Waiting 3 seconds before test...
+  [32mok[39m [2m56 [22m[Google Chrome] › tests\registration\TC006_Username_Length_Boundary_Validation.spec.ts:8:5 › TC006 - Username Length Boundary Validation[2m (5.5s)[22m
+⏳ Waiting 3 seconds before test...
+  [32mok[39m [2m57 [22m[Google Chrome] › tests\registration\TC003_registration_with_empty_required_fields.spec.ts:29:5 › TC004 - Registration Without Last Name[2m (4.4s)[22m
+⏳ Waiting 3 seconds before test...
+  [32mok[39m [2m58 [22m[Google Chrome] › tests\registration\TC007_special_characters_validation.spec.ts:6:5 › TC007 - Special Characters Validation[2m (4.3s)[22m
+⏳ Waiting 3 seconds before test...
+  [32mok[39m [2m59 [22m[Google Chrome] › tests\registration\TC008_registration_with_alphabetic_zip_code.spec.ts:6:5 › TC008 - Registration with Alphabetic ZIP Code[2m (4.2s)[22m
+⏳ Waiting 3 seconds before test...
+  [32mok[39m [2m60 [22m[Google Chrome] › tests\request-loan\TC050_successful_loan_request.spec.ts:10:5 › TC050 - Verify Successful Loan Request[2m (4.7s)[22m
+⏳ Waiting 3 seconds before test...
+  [32mok[39m [2m61 [22m[Google Chrome] › tests\registration\TC003_registration_with_empty_required_fields.spec.ts:48:5 › TC005 - Registration Without Street[2m (3.9s)[22m
+⏳ Waiting 3 seconds before test...
+  [32mok[39m [2m62 [22m[Google Chrome] › tests\request-loan\TC051_loan_request_with_zero_amount.spec.ts:10:5 › TC051 - Verify Loan Request with Zero Amount[2m (4.9s)[22m
+⏳ Waiting 3 seconds before test...
+  [32mok[39m [2m63 [22m[Google Chrome] › tests\request-loan\TC052_loan_request_with_negative_amount.spec.ts:10:5 › TC052 - Verify Loan Request with Negative Amount[2m (5.0s)[22m
+⏳ Waiting 3 seconds before test...
+  [32mok[39m [2m65 [22m[Google Chrome] › tests\registration\TC003_registration_with_empty_required_fields.spec.ts:67:5 › TC006 - Registration Without City[2m (3.9s)[22m
+⏳ Waiting 3 seconds before test...
+  [32mok[39m [2m66 [22m[Google Chrome] › tests\request-loan\TC054_loan_request_with_large_amount.spec.ts:10:5 › TC054 - Verify Loan Request with Large Amount[2m (4.9s)[22m
+⏳ Waiting 3 seconds before test...
+  [32mok[39m [2m67 [22m[Google Chrome] › tests\request-loan\TC055_loan_request_using_different_accounts.spec.ts:11:5 › TC055 - Verify Loan Request Using Different Accounts[2m (5.4s)[22m
+  [32mok[39m [2m68 [22m[Google Chrome] › tests\registration\TC003_registration_with_empty_required_fields.spec.ts:86:5 › TC007 - Registration Without State[2m (4.2s)[22m
+⏳ Waiting 3 seconds before test...
+⏳ Waiting 3 seconds before test...
+  [31mx[39m  [2m64 [22m[31m[Google Chrome] › tests\request-loan\TC053_loan_request_with_empty_required_fields.spec.ts:10:5 › TC053 - Verify Loan Request with Empty Required Fields[39m[2m (10.2s)[22m
+⏳ Waiting 3 seconds before test...
+  [32mok[39m [2m71 [22m[Google Chrome] › tests\registration\TC003_registration_with_empty_required_fields.spec.ts:105:5 › TC008 - Registration Without Zip Code[2m (4.5s)[22m
+  [32mok[39m [2m69 [22m[Google Chrome] › tests\request-loan\TC056_loan_approval_or_rejection_message.spec.ts:10:5 › TC056 - Verify Loan Approval or Rejection Message[2m (5.9s)[22m
+⏳ Waiting 3 seconds before test...
+⏳ Waiting 3 seconds before test...
+  [32mok[39m [2m70 [22m[Google Chrome] › tests\transfer-funds\TC031_successful_transfer_between_accounts.spec.ts:9:5 › TC031 - Successful Transfer Between Accounts[2m (5.7s)[22m
+⏳ Waiting 3 seconds before test...
+  [32mok[39m [2m73 [22m[Google Chrome] › tests\registration\TC003_registration_with_empty_required_fields.spec.ts:124:5 › TC009 - Registration Without SSN[2m (4.3s)[22m
+⏳ Waiting 3 seconds before test...
+====================================
+Balance from Account Overview: 415.50
+====================================
+  [32mok[39m [2m74 [22m[Google Chrome] › tests\transfer-funds\TC032_transfer_of_entire_account_balance.spec.ts:10:5 › TC032 - Transfer of Entire Account Balance[2m (5.7s)[22m
+⏳ Waiting 3 seconds before test...
+  [32mok[39m [2m76 [22m[Google Chrome] › tests\registration\TC003_registration_with_empty_required_fields.spec.ts:143:5 › TC010 - Registration Without Username[2m (4.2s)[22m
+⏳ Waiting 3 seconds before test...
+  [31mx[39m  [2m72 [22m[31m[Google Chrome] › tests\request-loan\TC053_loan_request_with_empty_required_fields.spec.ts:10:5 › TC053 - Verify Loan Request with Empty Required Fields[39m[33m (retry #1)[39m[2m (11.0s)[22m
+⏳ Waiting 3 seconds before test...
+  [31mx[39m  [2m75 [22m[31m[Google Chrome] › tests\transfer-funds\TC033_transfer_with_zero_amount.spec.ts:9:5 › TC033 - Transfer with Zero Amount[39m[2m (10.3s)[22m
+  [32mok[39m [2m78 [22m[Google Chrome] › tests\registration\TC003_registration_with_empty_required_fields.spec.ts:162:5 › TC011 - Registration Without Password[2m (4.1s)[22m
+⏳ Waiting 3 seconds before test...
+⏳ Waiting 3 seconds before test...
+  [32mok[39m [2m79 [22m[Google Chrome] › tests\transfer-funds\TC035_transfer_with_decimal_amount.spec.ts:9:5 › TC035 - Transfer with Decimal Amount[2m (5.2s)[22m
+⏳ Waiting 3 seconds before test...
+  [32mok[39m [2m81 [22m[Google Chrome] › tests\registration\TC003_registration_with_empty_required_fields.spec.ts:181:5 › TC012 - Registration Without Confirm Password[2m (4.4s)[22m
+⏳ Waiting 3 seconds before test...
+  [31mx[39m  [2m77 [22m[31m[Google Chrome] › tests\transfer-funds\TC034_transfer_with_negative_amount.spec.ts:9:5 › TC034 - Transfer with Negative Amount[39m[2m (11.0s)[22m
+⏳ Waiting 3 seconds before test...
+  [31mx[39m  [2m80 [22m[31m[Google Chrome] › tests\transfer-funds\TC033_transfer_with_zero_amount.spec.ts:9:5 › TC033 - Transfer with Zero Amount[39m[33m (retry #1)[39m[2m (11.5s)[22m
+⏳ Waiting 3 seconds before test...
+  [31mx[39m  [2m82 [22m[31m[Google Chrome] › tests\transfer-funds\TC036_transfer_with_a_large_amount.spec.ts:9:5 › TC036 - Transfer with a Large Amount[39m[2m (10.9s)[22m
+  [31mx[39m  [2m83 [22m[31m[Google Chrome] › tests\transfer-funds\TC037_transfer_between_the_same_account.spec.ts:9:5 › TC037 - Transfer Between the Same Account[39m[2m (10.6s)[22m
+⏳ Waiting 3 seconds before test...
+⏳ Waiting 3 seconds before test...
+  [31mx[39m  [2m84 [22m[31m[Google Chrome] › tests\transfer-funds\TC034_transfer_with_negative_amount.spec.ts:9:5 › TC034 - Transfer with Negative Amount[39m[33m (retry #1)[39m[2m (11.6s)[22m
+  [32mok[39m [2m85 [22m[Google Chrome] › tests\transfer-funds\TC038_transfer_with_empty_amount.spec.ts:9:5 › TC038 - Transfer with Empty Amount[2m (5.8s)[22m
+⏳ Waiting 3 seconds before test...
+⏳ Waiting 3 seconds before test...
+  [32mok[39m [2m88 [22m[Google Chrome] › tests\transfer-funds\TC040_transfer_confirmation_message.spec.ts:9:5 › TC040 - Transfer Confirmation Message[2m (5.1s)[22m
+⏳ Waiting 3 seconds before test...
+  [32mok[39m [2m89 [22m[Google Chrome] › tests\transfer-funds\TC039_account_balances_update_after_transfer.spec.ts:10:5 › TC039 - Account Balances Update After Transfer[2m (5.9s)[22m
+⏳ Waiting 3 seconds before test...
+  [31mx[39m  [2m86 [22m[31m[Google Chrome] › tests\transfer-funds\TC036_transfer_with_a_large_amount.spec.ts:9:5 › TC036 - Transfer with a Large Amount[39m[33m (retry #1)[39m[2m (11.7s)[22m
+  [32mok[39m [2m90 [22m[Google Chrome] › tests\validation\TC063_SQL_injection_like_input_is_handled_safely.spec.ts:9:5 › TC063 - Verify SQL Injection-Like Input Is Handled Safely[2m (4.4s)[22m
+⏳ Waiting 3 seconds before test...
+⏳ Waiting 3 seconds before test...
+  [31mx[39m  [2m87 [22m[31m[Google Chrome] › tests\transfer-funds\TC037_transfer_between_the_same_account.spec.ts:9:5 › TC037 - Transfer Between the Same Account[39m[33m (retry #1)[39m[2m (12.0s)[22m
+  [32mok[39m [2m91 [22m[Google Chrome] › tests\validation\TC064_HTML_script_input_is_handled_safely.spec.ts:9:5 › TC064 - Verify HTML/script input is handled safely[2m (4.4s)[22m
+⏳ Waiting 3 seconds before test...
+⏳ Waiting 3 seconds before test...
+  [32mok[39m [2m93 [22m[Google Chrome] › tests\validation\TC066_leading_and_trailing_spaces_in_input_fields.spec.ts:9:5 › TC066 - Verify Leading and Trailing Spaces in Input Fields[2m (4.6s)[22m
+⏳ Waiting 3 seconds before test...
+  [32mok[39m [2m92 [22m[Google Chrome] › tests\validation\TC065_maximum_input_length_validation.spec.ts:10:5 › TC065 - Verify Maximum Input Length Validation[2m (5.3s)[22m
+⏳ Waiting 3 seconds before test...
+  [32mok[39m [2m94 [22m[Google Chrome] › tests\validation\TC068_browser_refresh_during_form_submission.spec.ts:10:5 › TC068 - Verify Browser Refresh During Form Submission[2m (5.5s)[22m
+  [32mok[39m [2m95 [22m[Google Chrome] › tests\validation\TC067_Unicode_characters_in_text_fields.spec.ts:10:5 › TC067 - Verify Unicode Characters in Text Fields[2m (5.4s)[22m
+  [31mx[39m  [2m96 [22m[31m[Google Chrome] › tests\validation\TC069_double_clicking_the_Submit_button.spec.ts:11:5 › TC069 - Verify Double-Clicking the Submit Button[39m[2m (5.3s)[22m
+⏳ Waiting 3 seconds before test...
+  [32mok[39m [2m97 [22m[Google Chrome] › tests\validation\TC070_multiple_browser_tabs_with_the_same_session.spec.ts:9:5 › TC070 - Verify Multiple Browser Tabs With the Same Session[2m (5.5s)[22m
+  [31mx[39m  [2m98 [22m[31m[Google Chrome] › tests\validation\TC069_double_clicking_the_Submit_button.spec.ts:11:5 › TC069 - Verify Double-Clicking the Submit Button[39m[33m (retry #1)[39m[2m (5.6s)[22m
+
+
+[31m  1) [Google Chrome] › tests\bill-payment\TC043_bill_payment_with_invalid_account_number.spec.ts:9:5 › TC043 - Verify Bill Payment with Invalid Account Number [39m
+
+    Error: Payment was completed unexpectedly. The application accepted invalid payment data.
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32mfalse[39m
+    Received: [31mtrue[39m
+
+    [90m   at [39m..\pages\BillPaymentPage.ts:563
+
+    [0m [90m 561 |[39m             [32m'Payment was completed unexpectedly. '[39m [33m+[39m
+     [90m 562 |[39m             [32m'The application accepted invalid payment data.'[39m
+    [31m[1m>[22m[39m[90m 563 |[39m         )[33m.[39mtoBe([36mfalse[39m)[33m;[39m
+     [90m     |[39m           [31m[1m^[22m[39m
+     [90m 564 |[39m
+     [90m 565 |[39m     }
+     [90m 566 |[39m[0m
+    [2m    at BillPaymentPage.verifyPaymentNotCompleted (C:\Users\filip\Documents\GitHub\QA-Portfolio\Playwright-ParaBank-Automation\pages\BillPaymentPage.ts:563:11)[22m
+    [2m    at C:\Users\filip\Documents\GitHub\QA-Portfolio\Playwright-ParaBank-Automation\tests\bill-payment\TC043_bill_payment_with_invalid_account_number.spec.ts:62:5[22m
+
+[2m    attachment #1: [1mscreenshot[2m (image/png) [2m──────────────────────────────────────────────────────────[2m[22m
+[2m    test-results\bill-payment-TC043_bill_pa-3bf28-with-Invalid-Account-Number-Google-Chrome\test-failed-1.png[22m
+[2m    [2m────────────────────────────────────────────────────────────────────────────────────────────────[2m[22m
+
+[2m    attachment #2: [1mvideo[2m (video/webm) [2m──────────────────────────────────────────────────────────────[2m[22m
+[2m    test-results\bill-payment-TC043_bill_pa-3bf28-with-Invalid-Account-Number-Google-Chrome\video.webm[22m
+[2m    [2m────────────────────────────────────────────────────────────────────────────────────────────────[2m[22m
+
+[2m    Error Context: test-results\bill-payment-TC043_bill_pa-3bf28-with-Invalid-Account-Number-Google-Chrome\error-context.md[22m
+
+[90m    Retry #1 [2m───────────────────────────────────────────────────────────────────────────────────────[22m[39m
+
+    Error: Payment was completed unexpectedly. The application accepted invalid payment data.
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32mfalse[39m
+    Received: [31mtrue[39m
+
+    [90m   at [39m..\pages\BillPaymentPage.ts:563
+
+    [0m [90m 561 |[39m             [32m'Payment was completed unexpectedly. '[39m [33m+[39m
+     [90m 562 |[39m             [32m'The application accepted invalid payment data.'[39m
+    [31m[1m>[22m[39m[90m 563 |[39m         )[33m.[39mtoBe([36mfalse[39m)[33m;[39m
+     [90m     |[39m           [31m[1m^[22m[39m
+     [90m 564 |[39m
+     [90m 565 |[39m     }
+     [90m 566 |[39m[0m
+    [2m    at BillPaymentPage.verifyPaymentNotCompleted (C:\Users\filip\Documents\GitHub\QA-Portfolio\Playwright-ParaBank-Automation\pages\BillPaymentPage.ts:563:11)[22m
+    [2m    at C:\Users\filip\Documents\GitHub\QA-Portfolio\Playwright-ParaBank-Automation\tests\bill-payment\TC043_bill_payment_with_invalid_account_number.spec.ts:62:5[22m
+
+[2m    attachment #1: [1mscreenshot[2m (image/png) [2m──────────────────────────────────────────────────────────[2m[22m
+[2m    test-results\bill-payment-TC043_bill_pa-3bf28-with-Invalid-Account-Number-Google-Chrome-retry1\test-failed-1.png[22m
+[2m    [2m────────────────────────────────────────────────────────────────────────────────────────────────[2m[22m
+
+[2m    attachment #2: [1mvideo[2m (video/webm) [2m──────────────────────────────────────────────────────────────[2m[22m
+[2m    test-results\bill-payment-TC043_bill_pa-3bf28-with-Invalid-Account-Number-Google-Chrome-retry1\video.webm[22m
+[2m    [2m────────────────────────────────────────────────────────────────────────────────────────────────[2m[22m
+
+[2m    Error Context: test-results\bill-payment-TC043_bill_pa-3bf28-with-Invalid-Account-Number-Google-Chrome-retry1\error-context.md[22m
+
+[2m    attachment #4: [1mtrace[2m (application/zip) [2m─────────────────────────────────────────────────────────[2m[22m
+[2m    test-results\bill-payment-TC043_bill_pa-3bf28-with-Invalid-Account-Number-Google-Chrome-retry1\trace.zip[22m
+[2m    Usage:[22m
+
+[2m        npx playwright show-trace test-results\bill-payment-TC043_bill_pa-3bf28-with-Invalid-Account-Number-Google-Chrome-retry1\trace.zip[22m
+
+[2m    [2m────────────────────────────────────────────────────────────────────────────────────────────────[2m[22m
+
+[31m  2) [Google Chrome] › tests\bill-payment\TC045_bill_payment_with_negative_amount.spec.ts:9:5 › TC045 - Verify Bill Payment with Negative Amount [39m
+
+    Error: Payment was completed unexpectedly. The application accepted invalid payment data.
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32mfalse[39m
+    Received: [31mtrue[39m
+
+    [90m   at [39m..\pages\BillPaymentPage.ts:563
+
+    [0m [90m 561 |[39m             [32m'Payment was completed unexpectedly. '[39m [33m+[39m
+     [90m 562 |[39m             [32m'The application accepted invalid payment data.'[39m
+    [31m[1m>[22m[39m[90m 563 |[39m         )[33m.[39mtoBe([36mfalse[39m)[33m;[39m
+     [90m     |[39m           [31m[1m^[22m[39m
+     [90m 564 |[39m
+     [90m 565 |[39m     }
+     [90m 566 |[39m[0m
+    [2m    at BillPaymentPage.verifyPaymentNotCompleted (C:\Users\filip\Documents\GitHub\QA-Portfolio\Playwright-ParaBank-Automation\pages\BillPaymentPage.ts:563:11)[22m
+    [2m    at C:\Users\filip\Documents\GitHub\QA-Portfolio\Playwright-ParaBank-Automation\tests\bill-payment\TC045_bill_payment_with_negative_amount.spec.ts:69:5[22m
+
+[2m    attachment #1: [1mscreenshot[2m (image/png) [2m──────────────────────────────────────────────────────────[2m[22m
+[2m    test-results\bill-payment-TC045_bill_pa-3979f-ayment-with-Negative-Amount-Google-Chrome\test-failed-1.png[22m
+[2m    [2m────────────────────────────────────────────────────────────────────────────────────────────────[2m[22m
+
+[2m    attachment #2: [1mvideo[2m (video/webm) [2m──────────────────────────────────────────────────────────────[2m[22m
+[2m    test-results\bill-payment-TC045_bill_pa-3979f-ayment-with-Negative-Amount-Google-Chrome\video.webm[22m
+[2m    [2m────────────────────────────────────────────────────────────────────────────────────────────────[2m[22m
+
+[2m    Error Context: test-results\bill-payment-TC045_bill_pa-3979f-ayment-with-Negative-Amount-Google-Chrome\error-context.md[22m
+
+[90m    Retry #1 [2m───────────────────────────────────────────────────────────────────────────────────────[22m[39m
+
+    Error: Payment was completed unexpectedly. The application accepted invalid payment data.
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32mfalse[39m
+    Received: [31mtrue[39m
+
+    [90m   at [39m..\pages\BillPaymentPage.ts:563
+
+    [0m [90m 561 |[39m             [32m'Payment was completed unexpectedly. '[39m [33m+[39m
+     [90m 562 |[39m             [32m'The application accepted invalid payment data.'[39m
+    [31m[1m>[22m[39m[90m 563 |[39m         )[33m.[39mtoBe([36mfalse[39m)[33m;[39m
+     [90m     |[39m           [31m[1m^[22m[39m
+     [90m 564 |[39m
+     [90m 565 |[39m     }
+     [90m 566 |[39m[0m
+    [2m    at BillPaymentPage.verifyPaymentNotCompleted (C:\Users\filip\Documents\GitHub\QA-Portfolio\Playwright-ParaBank-Automation\pages\BillPaymentPage.ts:563:11)[22m
+    [2m    at C:\Users\filip\Documents\GitHub\QA-Portfolio\Playwright-ParaBank-Automation\tests\bill-payment\TC045_bill_payment_with_negative_amount.spec.ts:69:5[22m
+
+[2m    attachment #1: [1mscreenshot[2m (image/png) [2m──────────────────────────────────────────────────────────[2m[22m
+[2m    test-results\bill-payment-TC045_bill_pa-3979f-ayment-with-Negative-Amount-Google-Chrome-retry1\test-failed-1.png[22m
+[2m    [2m────────────────────────────────────────────────────────────────────────────────────────────────[2m[22m
+
+[2m    attachment #2: [1mvideo[2m (video/webm) [2m──────────────────────────────────────────────────────────────[2m[22m
+[2m    test-results\bill-payment-TC045_bill_pa-3979f-ayment-with-Negative-Amount-Google-Chrome-retry1\video.webm[22m
+[2m    [2m────────────────────────────────────────────────────────────────────────────────────────────────[2m[22m
+
+[2m    Error Context: test-results\bill-payment-TC045_bill_pa-3979f-ayment-with-Negative-Amount-Google-Chrome-retry1\error-context.md[22m
+
+[2m    attachment #4: [1mtrace[2m (application/zip) [2m─────────────────────────────────────────────────────────[2m[22m
+[2m    test-results\bill-payment-TC045_bill_pa-3979f-ayment-with-Negative-Amount-Google-Chrome-retry1\trace.zip[22m
+[2m    Usage:[22m
+
+[2m        npx playwright show-trace test-results\bill-payment-TC045_bill_pa-3979f-ayment-with-Negative-Amount-Google-Chrome-retry1\trace.zip[22m
+
+[2m    [2m────────────────────────────────────────────────────────────────────────────────────────────────[2m[22m
+
+[31m  3) [Google Chrome] › tests\bill-payment\TC047_bill_payment_with_invalid_ZIP_code.spec.ts:9:5 › TC047 - Verify Bill Payment with Invalid ZIP Code [39m
+
+    Error: Payment was completed unexpectedly. The application accepted invalid payment data.
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32mfalse[39m
+    Received: [31mtrue[39m
+
+    [90m   at [39m..\pages\BillPaymentPage.ts:563
+
+    [0m [90m 561 |[39m             [32m'Payment was completed unexpectedly. '[39m [33m+[39m
+     [90m 562 |[39m             [32m'The application accepted invalid payment data.'[39m
+    [31m[1m>[22m[39m[90m 563 |[39m         )[33m.[39mtoBe([36mfalse[39m)[33m;[39m
+     [90m     |[39m           [31m[1m^[22m[39m
+     [90m 564 |[39m
+     [90m 565 |[39m     }
+     [90m 566 |[39m[0m
+    [2m    at BillPaymentPage.verifyPaymentNotCompleted (C:\Users\filip\Documents\GitHub\QA-Portfolio\Playwright-ParaBank-Automation\pages\BillPaymentPage.ts:563:11)[22m
+    [2m    at C:\Users\filip\Documents\GitHub\QA-Portfolio\Playwright-ParaBank-Automation\tests\bill-payment\TC047_bill_payment_with_invalid_ZIP_code.spec.ts:79:5[22m
+
+[2m    attachment #1: [1mscreenshot[2m (image/png) [2m──────────────────────────────────────────────────────────[2m[22m
+[2m    test-results\bill-payment-TC047_bill_pa-a61ad-yment-with-Invalid-ZIP-Code-Google-Chrome\test-failed-1.png[22m
+[2m    [2m────────────────────────────────────────────────────────────────────────────────────────────────[2m[22m
+
+[2m    attachment #2: [1mvideo[2m (video/webm) [2m──────────────────────────────────────────────────────────────[2m[22m
+[2m    test-results\bill-payment-TC047_bill_pa-a61ad-yment-with-Invalid-ZIP-Code-Google-Chrome\video.webm[22m
+[2m    [2m────────────────────────────────────────────────────────────────────────────────────────────────[2m[22m
+
+[2m    Error Context: test-results\bill-payment-TC047_bill_pa-a61ad-yment-with-Invalid-ZIP-Code-Google-Chrome\error-context.md[22m
+
+[90m    Retry #1 [2m───────────────────────────────────────────────────────────────────────────────────────[22m[39m
+
+    Error: Payment was completed unexpectedly. The application accepted invalid payment data.
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32mfalse[39m
+    Received: [31mtrue[39m
+
+    [90m   at [39m..\pages\BillPaymentPage.ts:563
+
+    [0m [90m 561 |[39m             [32m'Payment was completed unexpectedly. '[39m [33m+[39m
+     [90m 562 |[39m             [32m'The application accepted invalid payment data.'[39m
+    [31m[1m>[22m[39m[90m 563 |[39m         )[33m.[39mtoBe([36mfalse[39m)[33m;[39m
+     [90m     |[39m           [31m[1m^[22m[39m
+     [90m 564 |[39m
+     [90m 565 |[39m     }
+     [90m 566 |[39m[0m
+    [2m    at BillPaymentPage.verifyPaymentNotCompleted (C:\Users\filip\Documents\GitHub\QA-Portfolio\Playwright-ParaBank-Automation\pages\BillPaymentPage.ts:563:11)[22m
+    [2m    at C:\Users\filip\Documents\GitHub\QA-Portfolio\Playwright-ParaBank-Automation\tests\bill-payment\TC047_bill_payment_with_invalid_ZIP_code.spec.ts:79:5[22m
+
+[2m    attachment #1: [1mscreenshot[2m (image/png) [2m──────────────────────────────────────────────────────────[2m[22m
+[2m    test-results\bill-payment-TC047_bill_pa-a61ad-yment-with-Invalid-ZIP-Code-Google-Chrome-retry1\test-failed-1.png[22m
+[2m    [2m────────────────────────────────────────────────────────────────────────────────────────────────[2m[22m
+
+[2m    attachment #2: [1mvideo[2m (video/webm) [2m──────────────────────────────────────────────────────────────[2m[22m
+[2m    test-results\bill-payment-TC047_bill_pa-a61ad-yment-with-Invalid-ZIP-Code-Google-Chrome-retry1\video.webm[22m
+[2m    [2m────────────────────────────────────────────────────────────────────────────────────────────────[2m[22m
+
+[2m    Error Context: test-results\bill-payment-TC047_bill_pa-a61ad-yment-with-Invalid-ZIP-Code-Google-Chrome-retry1\error-context.md[22m
+
+[2m    attachment #4: [1mtrace[2m (application/zip) [2m─────────────────────────────────────────────────────────[2m[22m
+[2m    test-results\bill-payment-TC047_bill_pa-a61ad-yment-with-Invalid-ZIP-Code-Google-Chrome-retry1\trace.zip[22m
+[2m    Usage:[22m
+
+[2m        npx playwright show-trace test-results\bill-payment-TC047_bill_pa-a61ad-yment-with-Invalid-ZIP-Code-Google-Chrome-retry1\trace.zip[22m
+
+[2m    [2m────────────────────────────────────────────────────────────────────────────────────────────────[2m[22m
+
+[31m  4) [Google Chrome] › tests\bill-payment\TC048_bill_payment_with_invalid_phone_number.spec.ts:10:5 › TC048 - Verify Bill Payment with Invalid Phone Number [39m
+
+    Error: Payment was completed unexpectedly. The application accepted invalid payment data.
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32mfalse[39m
+    Received: [31mtrue[39m
+
+    [90m   at [39m..\pages\BillPaymentPage.ts:563
+
+    [0m [90m 561 |[39m             [32m'Payment was completed unexpectedly. '[39m [33m+[39m
+     [90m 562 |[39m             [32m'The application accepted invalid payment data.'[39m
+    [31m[1m>[22m[39m[90m 563 |[39m         )[33m.[39mtoBe([36mfalse[39m)[33m;[39m
+     [90m     |[39m           [31m[1m^[22m[39m
+     [90m 564 |[39m
+     [90m 565 |[39m     }
+     [90m 566 |[39m[0m
+    [2m    at BillPaymentPage.verifyPaymentNotCompleted (C:\Users\filip\Documents\GitHub\QA-Portfolio\Playwright-ParaBank-Automation\pages\BillPaymentPage.ts:563:11)[22m
+    [2m    at C:\Users\filip\Documents\GitHub\QA-Portfolio\Playwright-ParaBank-Automation\tests\bill-payment\TC048_bill_payment_with_invalid_phone_number.spec.ts:89:9[22m
+
+[2m    attachment #1: [1mscreenshot[2m (image/png) [2m──────────────────────────────────────────────────────────[2m[22m
+[2m    test-results\bill-payment-TC048_bill_pa-31560-t-with-Invalid-Phone-Number-Google-Chrome\test-failed-1.png[22m
+[2m    [2m────────────────────────────────────────────────────────────────────────────────────────────────[2m[22m
+
+[2m    attachment #2: [1mvideo[2m (video/webm) [2m──────────────────────────────────────────────────────────────[2m[22m
+[2m    test-results\bill-payment-TC048_bill_pa-31560-t-with-Invalid-Phone-Number-Google-Chrome\video.webm[22m
+[2m    [2m────────────────────────────────────────────────────────────────────────────────────────────────[2m[22m
+
+[2m    Error Context: test-results\bill-payment-TC048_bill_pa-31560-t-with-Invalid-Phone-Number-Google-Chrome\error-context.md[22m
+
+[90m    Retry #1 [2m───────────────────────────────────────────────────────────────────────────────────────[22m[39m
+
+    Error: Payment was completed unexpectedly. The application accepted invalid payment data.
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32mfalse[39m
+    Received: [31mtrue[39m
+
+    [90m   at [39m..\pages\BillPaymentPage.ts:563
+
+    [0m [90m 561 |[39m             [32m'Payment was completed unexpectedly. '[39m [33m+[39m
+     [90m 562 |[39m             [32m'The application accepted invalid payment data.'[39m
+    [31m[1m>[22m[39m[90m 563 |[39m         )[33m.[39mtoBe([36mfalse[39m)[33m;[39m
+     [90m     |[39m           [31m[1m^[22m[39m
+     [90m 564 |[39m
+     [90m 565 |[39m     }
+     [90m 566 |[39m[0m
+    [2m    at BillPaymentPage.verifyPaymentNotCompleted (C:\Users\filip\Documents\GitHub\QA-Portfolio\Playwright-ParaBank-Automation\pages\BillPaymentPage.ts:563:11)[22m
+    [2m    at C:\Users\filip\Documents\GitHub\QA-Portfolio\Playwright-ParaBank-Automation\tests\bill-payment\TC048_bill_payment_with_invalid_phone_number.spec.ts:89:9[22m
+
+[2m    attachment #1: [1mscreenshot[2m (image/png) [2m──────────────────────────────────────────────────────────[2m[22m
+[2m    test-results\bill-payment-TC048_bill_pa-31560-t-with-Invalid-Phone-Number-Google-Chrome-retry1\test-failed-1.png[22m
+[2m    [2m────────────────────────────────────────────────────────────────────────────────────────────────[2m[22m
+
+[2m    attachment #2: [1mvideo[2m (video/webm) [2m──────────────────────────────────────────────────────────────[2m[22m
+[2m    test-results\bill-payment-TC048_bill_pa-31560-t-with-Invalid-Phone-Number-Google-Chrome-retry1\video.webm[22m
+[2m    [2m────────────────────────────────────────────────────────────────────────────────────────────────[2m[22m
+
+[2m    Error Context: test-results\bill-payment-TC048_bill_pa-31560-t-with-Invalid-Phone-Number-Google-Chrome-retry1\error-context.md[22m
+
+[2m    attachment #4: [1mtrace[2m (application/zip) [2m─────────────────────────────────────────────────────────[2m[22m
+[2m    test-results\bill-payment-TC048_bill_pa-31560-t-with-Invalid-Phone-Number-Google-Chrome-retry1\trace.zip[22m
+[2m    Usage:[22m
+
+[2m        npx playwright show-trace test-results\bill-payment-TC048_bill_pa-31560-t-with-Invalid-Phone-Number-Google-Chrome-retry1\trace.zip[22m
+
+[2m    [2m────────────────────────────────────────────────────────────────────────────────────────────────[2m[22m
+
+[31m  5) [Google Chrome] › tests\request-loan\TC053_loan_request_with_empty_required_fields.spec.ts:10:5 › TC053 - Verify Loan Request with Empty Required Fields [39m
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).not.[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator:  getByRole('heading', { name: 'Error!' })
+    Expected: not visible
+    Received: visible
+    Timeout:  5000ms
+
+    Call log:
+    [2m  - Expect "not toBeVisible" with timeout 5000ms[22m
+    [2m  - waiting for getByRole('heading', { name: 'Error!' })[22m
+    [2m    14 × locator resolved to <h1 class="title">↵⇆⇆⇆Error!↵⇆⇆</h1>[22m
+    [2m       - unexpected value "visible"[22m
+
+
+    [90m   at [39m..\pages\LoanPage.ts:345
+
+    [0m [90m 343 |[39m
+     [90m 344 |[39m         [36mawait[39m expect([36mthis[39m[33m.[39merrorTitle)
+    [31m[1m>[22m[39m[90m 345 |[39m             [33m.[39mnot[33m.[39mtoBeVisible()[33m;[39m
+     [90m     |[39m                  [31m[1m^[22m[39m
+     [90m 346 |[39m
+     [90m 347 |[39m         [36mawait[39m expect([36mthis[39m[33m.[39minternalErrorMessage)
+     [90m 348 |[39m             [33m.[39mnot[33m.[39mtoBeVisible()[33m;[39m[0m
+    [2m    at LoanPage.verifyNoInternalError (C:\Users\filip\Documents\GitHub\QA-Portfolio\Playwright-ParaBank-Automation\pages\LoanPage.ts:345:18)[22m
+    [2m    at C:\Users\filip\Documents\GitHub\QA-Portfolio\Playwright-ParaBank-Automation\tests\request-loan\TC053_loan_request_with_empty_required_fields.spec.ts:60:24[22m
+
+[2m    attachment #1: [1mscreenshot[2m (image/png) [2m──────────────────────────────────────────────────────────[2m[22m
+[2m    test-results\request-loan-TC053_loan_re-8eddd--with-Empty-Required-Fields-Google-Chrome\test-failed-1.png[22m
+[2m    [2m────────────────────────────────────────────────────────────────────────────────────────────────[2m[22m
+
+[2m    attachment #2: [1mvideo[2m (video/webm) [2m──────────────────────────────────────────────────────────────[2m[22m
+[2m    test-results\request-loan-TC053_loan_re-8eddd--with-Empty-Required-Fields-Google-Chrome\video.webm[22m
+[2m    [2m────────────────────────────────────────────────────────────────────────────────────────────────[2m[22m
+
+[2m    Error Context: test-results\request-loan-TC053_loan_re-8eddd--with-Empty-Required-Fields-Google-Chrome\error-context.md[22m
+
+[90m    Retry #1 [2m───────────────────────────────────────────────────────────────────────────────────────[22m[39m
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).not.[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator:  getByRole('heading', { name: 'Error!' })
+    Expected: not visible
+    Received: visible
+    Timeout:  5000ms
+
+    Call log:
+    [2m  - Expect "not toBeVisible" with timeout 5000ms[22m
+    [2m  - waiting for getByRole('heading', { name: 'Error!' })[22m
+    [2m    14 × locator resolved to <h1 class="title">↵⇆⇆⇆Error!↵⇆⇆</h1>[22m
+    [2m       - unexpected value "visible"[22m
+
+
+    [90m   at [39m..\pages\LoanPage.ts:345
+
+    [0m [90m 343 |[39m
+     [90m 344 |[39m         [36mawait[39m expect([36mthis[39m[33m.[39merrorTitle)
+    [31m[1m>[22m[39m[90m 345 |[39m             [33m.[39mnot[33m.[39mtoBeVisible()[33m;[39m
+     [90m     |[39m                  [31m[1m^[22m[39m
+     [90m 346 |[39m
+     [90m 347 |[39m         [36mawait[39m expect([36mthis[39m[33m.[39minternalErrorMessage)
+     [90m 348 |[39m             [33m.[39mnot[33m.[39mtoBeVisible()[33m;[39m[0m
+    [2m    at LoanPage.verifyNoInternalError (C:\Users\filip\Documents\GitHub\QA-Portfolio\Playwright-ParaBank-Automation\pages\LoanPage.ts:345:18)[22m
+    [2m    at C:\Users\filip\Documents\GitHub\QA-Portfolio\Playwright-ParaBank-Automation\tests\request-loan\TC053_loan_request_with_empty_required_fields.spec.ts:60:24[22m
+
+[2m    attachment #1: [1mscreenshot[2m (image/png) [2m──────────────────────────────────────────────────────────[2m[22m
+[2m    test-results\request-loan-TC053_loan_re-8eddd--with-Empty-Required-Fields-Google-Chrome-retry1\test-failed-1.png[22m
+[2m    [2m────────────────────────────────────────────────────────────────────────────────────────────────[2m[22m
+
+[2m    attachment #2: [1mvideo[2m (video/webm) [2m──────────────────────────────────────────────────────────────[2m[22m
+[2m    test-results\request-loan-TC053_loan_re-8eddd--with-Empty-Required-Fields-Google-Chrome-retry1\video.webm[22m
+[2m    [2m────────────────────────────────────────────────────────────────────────────────────────────────[2m[22m
+
+[2m    Error Context: test-results\request-loan-TC053_loan_re-8eddd--with-Empty-Required-Fields-Google-Chrome-retry1\error-context.md[22m
+
+[2m    attachment #4: [1mtrace[2m (application/zip) [2m─────────────────────────────────────────────────────────[2m[22m
+[2m    test-results\request-loan-TC053_loan_re-8eddd--with-Empty-Required-Fields-Google-Chrome-retry1\trace.zip[22m
+[2m    Usage:[22m
+
+[2m        npx playwright show-trace test-results\request-loan-TC053_loan_re-8eddd--with-Empty-Required-Fields-Google-Chrome-retry1\trace.zip[22m
+
+[2m    [2m────────────────────────────────────────────────────────────────────────────────────────────────[2m[22m
+
+[31m  6) [Google Chrome] › tests\transfer-funds\TC033_transfer_with_zero_amount.spec.ts:9:5 › TC033 - Transfer with Zero Amount [39m
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: getByRole('heading', { name: 'Account Opened!' })
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 5000ms[22m
+    [2m  - waiting for getByRole('heading', { name: 'Account Opened!' })[22m
+
+
+    [90m   at [39m..\pages\OpenNewAccountPage.ts:135
+
+    [0m [90m 133 |[39m     [36mpublic[39m [36masync[39m verifyAccountCreated()[33m:[39m [33mPromise[39m[33m<[39m[36mvoid[39m[33m>[39m {
+     [90m 134 |[39m
+    [31m[1m>[22m[39m[90m 135 |[39m         [36mawait[39m expect([36mthis[39m[33m.[39maccountOpenedTitle)[33m.[39mtoBeVisible()[33m;[39m
+     [90m     |[39m                                               [31m[1m^[22m[39m
+     [90m 136 |[39m
+     [90m 137 |[39m         [36mawait[39m expect([36mthis[39m[33m.[39maccountOpenedMessage)[33m.[39mtoBeVisible()[33m;[39m
+     [90m 138 |[39m[0m
+    [2m    at OpenNewAccountPage.verifyAccountCreated (C:\Users\filip\Documents\GitHub\QA-Portfolio\Playwright-ParaBank-Automation\pages\OpenNewAccountPage.ts:135:47)[22m
+    [2m    at C:\Users\filip\Documents\GitHub\QA-Portfolio\Playwright-ParaBank-Automation\tests\transfer-funds\TC033_transfer_with_zero_amount.spec.ts:38:30[22m
+
+[2m    attachment #1: [1mscreenshot[2m (image/png) [2m──────────────────────────────────────────────────────────[2m[22m
+[2m    test-results\transfer-funds-TC033_trans-9790c---Transfer-with-Zero-Amount-Google-Chrome\test-failed-1.png[22m
+[2m    [2m────────────────────────────────────────────────────────────────────────────────────────────────[2m[22m
+
+[2m    attachment #2: [1mvideo[2m (video/webm) [2m──────────────────────────────────────────────────────────────[2m[22m
+[2m    test-results\transfer-funds-TC033_trans-9790c---Transfer-with-Zero-Amount-Google-Chrome\video.webm[22m
+[2m    [2m────────────────────────────────────────────────────────────────────────────────────────────────[2m[22m
+
+[2m    Error Context: test-results\transfer-funds-TC033_trans-9790c---Transfer-with-Zero-Amount-Google-Chrome\error-context.md[22m
+
+[90m    Retry #1 [2m───────────────────────────────────────────────────────────────────────────────────────[22m[39m
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: getByRole('heading', { name: 'Transfer Funds' })
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 5000ms[22m
+    [2m  - waiting for getByRole('heading', { name: 'Transfer Funds' })[22m
+
+
+    [90m   at [39m..\pages\TransferFundsPage.ts:152
+
+    [0m [90m 150 |[39m
+     [90m 151 |[39m         [90m// Application should remain on Transfer Funds page[39m
+    [31m[1m>[22m[39m[90m 152 |[39m         [36mawait[39m expect([36mthis[39m[33m.[39mtransferFundsTitle)[33m.[39mtoBeVisible()[33m;[39m
+     [90m     |[39m                                               [31m[1m^[22m[39m
+     [90m 153 |[39m
+     [90m 154 |[39m         [90m// Transfer Complete page must never be shown[39m
+     [90m 155 |[39m         [36mawait[39m expect([36mthis[39m[33m.[39mtransferCompleteTitle)[33m.[39mnot[33m.[39mtoBeVisible()[33m;[39m[0m
+    [2m    at TransferFundsPage.verifyTransferRejected (C:\Users\filip\Documents\GitHub\QA-Portfolio\Playwright-ParaBank-Automation\pages\TransferFundsPage.ts:152:47)[22m
+    [2m    at C:\Users\filip\Documents\GitHub\QA-Portfolio\Playwright-ParaBank-Automation\tests\transfer-funds\TC033_transfer_with_zero_amount.spec.ts:48:29[22m
+
+[2m    attachment #1: [1mscreenshot[2m (image/png) [2m──────────────────────────────────────────────────────────[2m[22m
+[2m    test-results\transfer-funds-TC033_trans-9790c---Transfer-with-Zero-Amount-Google-Chrome-retry1\test-failed-1.png[22m
+[2m    [2m────────────────────────────────────────────────────────────────────────────────────────────────[2m[22m
+
+[2m    attachment #2: [1mvideo[2m (video/webm) [2m──────────────────────────────────────────────────────────────[2m[22m
+[2m    test-results\transfer-funds-TC033_trans-9790c---Transfer-with-Zero-Amount-Google-Chrome-retry1\video.webm[22m
+[2m    [2m────────────────────────────────────────────────────────────────────────────────────────────────[2m[22m
+
+[2m    Error Context: test-results\transfer-funds-TC033_trans-9790c---Transfer-with-Zero-Amount-Google-Chrome-retry1\error-context.md[22m
+
+[2m    attachment #4: [1mtrace[2m (application/zip) [2m─────────────────────────────────────────────────────────[2m[22m
+[2m    test-results\transfer-funds-TC033_trans-9790c---Transfer-with-Zero-Amount-Google-Chrome-retry1\trace.zip[22m
+[2m    Usage:[22m
+
+[2m        npx playwright show-trace test-results\transfer-funds-TC033_trans-9790c---Transfer-with-Zero-Amount-Google-Chrome-retry1\trace.zip[22m
+
+[2m    [2m────────────────────────────────────────────────────────────────────────────────────────────────[2m[22m
+
+[31m  7) [Google Chrome] › tests\transfer-funds\TC034_transfer_with_negative_amount.spec.ts:9:5 › TC034 - Transfer with Negative Amount [39m
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: getByRole('heading', { name: 'Transfer Funds' })
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 5000ms[22m
+    [2m  - waiting for getByRole('heading', { name: 'Transfer Funds' })[22m
+
+
+    [90m   at [39m..\pages\TransferFundsPage.ts:152
+
+    [0m [90m 150 |[39m
+     [90m 151 |[39m         [90m// Application should remain on Transfer Funds page[39m
+    [31m[1m>[22m[39m[90m 152 |[39m         [36mawait[39m expect([36mthis[39m[33m.[39mtransferFundsTitle)[33m.[39mtoBeVisible()[33m;[39m
+     [90m     |[39m                                               [31m[1m^[22m[39m
+     [90m 153 |[39m
+     [90m 154 |[39m         [90m// Transfer Complete page must never be shown[39m
+     [90m 155 |[39m         [36mawait[39m expect([36mthis[39m[33m.[39mtransferCompleteTitle)[33m.[39mnot[33m.[39mtoBeVisible()[33m;[39m[0m
+    [2m    at TransferFundsPage.verifyTransferRejected (C:\Users\filip\Documents\GitHub\QA-Portfolio\Playwright-ParaBank-Automation\pages\TransferFundsPage.ts:152:47)[22m
+    [2m    at C:\Users\filip\Documents\GitHub\QA-Portfolio\Playwright-ParaBank-Automation\tests\transfer-funds\TC034_transfer_with_negative_amount.spec.ts:48:29[22m
+
+[2m    attachment #1: [1mscreenshot[2m (image/png) [2m──────────────────────────────────────────────────────────[2m[22m
+[2m    test-results\transfer-funds-TC034_trans-d1693-ansfer-with-Negative-Amount-Google-Chrome\test-failed-1.png[22m
+[2m    [2m────────────────────────────────────────────────────────────────────────────────────────────────[2m[22m
+
+[2m    attachment #2: [1mvideo[2m (video/webm) [2m──────────────────────────────────────────────────────────────[2m[22m
+[2m    test-results\transfer-funds-TC034_trans-d1693-ansfer-with-Negative-Amount-Google-Chrome\video.webm[22m
+[2m    [2m────────────────────────────────────────────────────────────────────────────────────────────────[2m[22m
+
+[2m    Error Context: test-results\transfer-funds-TC034_trans-d1693-ansfer-with-Negative-Amount-Google-Chrome\error-context.md[22m
+
+[90m    Retry #1 [2m───────────────────────────────────────────────────────────────────────────────────────[22m[39m
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: getByRole('heading', { name: 'Transfer Funds' })
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 5000ms[22m
+    [2m  - waiting for getByRole('heading', { name: 'Transfer Funds' })[22m
+
+
+    [90m   at [39m..\pages\TransferFundsPage.ts:152
+
+    [0m [90m 150 |[39m
+     [90m 151 |[39m         [90m// Application should remain on Transfer Funds page[39m
+    [31m[1m>[22m[39m[90m 152 |[39m         [36mawait[39m expect([36mthis[39m[33m.[39mtransferFundsTitle)[33m.[39mtoBeVisible()[33m;[39m
+     [90m     |[39m                                               [31m[1m^[22m[39m
+     [90m 153 |[39m
+     [90m 154 |[39m         [90m// Transfer Complete page must never be shown[39m
+     [90m 155 |[39m         [36mawait[39m expect([36mthis[39m[33m.[39mtransferCompleteTitle)[33m.[39mnot[33m.[39mtoBeVisible()[33m;[39m[0m
+    [2m    at TransferFundsPage.verifyTransferRejected (C:\Users\filip\Documents\GitHub\QA-Portfolio\Playwright-ParaBank-Automation\pages\TransferFundsPage.ts:152:47)[22m
+    [2m    at C:\Users\filip\Documents\GitHub\QA-Portfolio\Playwright-ParaBank-Automation\tests\transfer-funds\TC034_transfer_with_negative_amount.spec.ts:48:29[22m
+
+[2m    attachment #1: [1mscreenshot[2m (image/png) [2m──────────────────────────────────────────────────────────[2m[22m
+[2m    test-results\transfer-funds-TC034_trans-d1693-ansfer-with-Negative-Amount-Google-Chrome-retry1\test-failed-1.png[22m
+[2m    [2m────────────────────────────────────────────────────────────────────────────────────────────────[2m[22m
+
+[2m    attachment #2: [1mvideo[2m (video/webm) [2m──────────────────────────────────────────────────────────────[2m[22m
+[2m    test-results\transfer-funds-TC034_trans-d1693-ansfer-with-Negative-Amount-Google-Chrome-retry1\video.webm[22m
+[2m    [2m────────────────────────────────────────────────────────────────────────────────────────────────[2m[22m
+
+[2m    Error Context: test-results\transfer-funds-TC034_trans-d1693-ansfer-with-Negative-Amount-Google-Chrome-retry1\error-context.md[22m
+
+[2m    attachment #4: [1mtrace[2m (application/zip) [2m─────────────────────────────────────────────────────────[2m[22m
+[2m    test-results\transfer-funds-TC034_trans-d1693-ansfer-with-Negative-Amount-Google-Chrome-retry1\trace.zip[22m
+[2m    Usage:[22m
+
+[2m        npx playwright show-trace test-results\transfer-funds-TC034_trans-d1693-ansfer-with-Negative-Amount-Google-Chrome-retry1\trace.zip[22m
+
+[2m    [2m────────────────────────────────────────────────────────────────────────────────────────────────[2m[22m
+
+[31m  8) [Google Chrome] › tests\transfer-funds\TC036_transfer_with_a_large_amount.spec.ts:9:5 › TC036 - Transfer with a Large Amount [39m
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: getByRole('heading', { name: 'Transfer Funds' })
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 5000ms[22m
+    [2m  - waiting for getByRole('heading', { name: 'Transfer Funds' })[22m
+
+
+    [90m   at [39m..\pages\TransferFundsPage.ts:152
+
+    [0m [90m 150 |[39m
+     [90m 151 |[39m         [90m// Application should remain on Transfer Funds page[39m
+    [31m[1m>[22m[39m[90m 152 |[39m         [36mawait[39m expect([36mthis[39m[33m.[39mtransferFundsTitle)[33m.[39mtoBeVisible()[33m;[39m
+     [90m     |[39m                                               [31m[1m^[22m[39m
+     [90m 153 |[39m
+     [90m 154 |[39m         [90m// Transfer Complete page must never be shown[39m
+     [90m 155 |[39m         [36mawait[39m expect([36mthis[39m[33m.[39mtransferCompleteTitle)[33m.[39mnot[33m.[39mtoBeVisible()[33m;[39m[0m
+    [2m    at TransferFundsPage.verifyTransferRejected (C:\Users\filip\Documents\GitHub\QA-Portfolio\Playwright-ParaBank-Automation\pages\TransferFundsPage.ts:152:47)[22m
+    [2m    at C:\Users\filip\Documents\GitHub\QA-Portfolio\Playwright-ParaBank-Automation\tests\transfer-funds\TC036_transfer_with_a_large_amount.spec.ts:48:29[22m
+
+[2m    attachment #1: [1mscreenshot[2m (image/png) [2m──────────────────────────────────────────────────────────[2m[22m
+[2m    test-results\transfer-funds-TC036_trans-3e17b-ransfer-with-a-Large-Amount-Google-Chrome\test-failed-1.png[22m
+[2m    [2m────────────────────────────────────────────────────────────────────────────────────────────────[2m[22m
+
+[2m    attachment #2: [1mvideo[2m (video/webm) [2m──────────────────────────────────────────────────────────────[2m[22m
+[2m    test-results\transfer-funds-TC036_trans-3e17b-ransfer-with-a-Large-Amount-Google-Chrome\video.webm[22m
+[2m    [2m────────────────────────────────────────────────────────────────────────────────────────────────[2m[22m
+
+[2m    Error Context: test-results\transfer-funds-TC036_trans-3e17b-ransfer-with-a-Large-Amount-Google-Chrome\error-context.md[22m
+
+[90m    Retry #1 [2m───────────────────────────────────────────────────────────────────────────────────────[22m[39m
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: getByRole('heading', { name: 'Transfer Funds' })
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 5000ms[22m
+    [2m  - waiting for getByRole('heading', { name: 'Transfer Funds' })[22m
+
+
+    [90m   at [39m..\pages\TransferFundsPage.ts:152
+
+    [0m [90m 150 |[39m
+     [90m 151 |[39m         [90m// Application should remain on Transfer Funds page[39m
+    [31m[1m>[22m[39m[90m 152 |[39m         [36mawait[39m expect([36mthis[39m[33m.[39mtransferFundsTitle)[33m.[39mtoBeVisible()[33m;[39m
+     [90m     |[39m                                               [31m[1m^[22m[39m
+     [90m 153 |[39m
+     [90m 154 |[39m         [90m// Transfer Complete page must never be shown[39m
+     [90m 155 |[39m         [36mawait[39m expect([36mthis[39m[33m.[39mtransferCompleteTitle)[33m.[39mnot[33m.[39mtoBeVisible()[33m;[39m[0m
+    [2m    at TransferFundsPage.verifyTransferRejected (C:\Users\filip\Documents\GitHub\QA-Portfolio\Playwright-ParaBank-Automation\pages\TransferFundsPage.ts:152:47)[22m
+    [2m    at C:\Users\filip\Documents\GitHub\QA-Portfolio\Playwright-ParaBank-Automation\tests\transfer-funds\TC036_transfer_with_a_large_amount.spec.ts:48:29[22m
+
+[2m    attachment #1: [1mscreenshot[2m (image/png) [2m──────────────────────────────────────────────────────────[2m[22m
+[2m    test-results\transfer-funds-TC036_trans-3e17b-ransfer-with-a-Large-Amount-Google-Chrome-retry1\test-failed-1.png[22m
+[2m    [2m────────────────────────────────────────────────────────────────────────────────────────────────[2m[22m
+
+[2m    attachment #2: [1mvideo[2m (video/webm) [2m──────────────────────────────────────────────────────────────[2m[22m
+[2m    test-results\transfer-funds-TC036_trans-3e17b-ransfer-with-a-Large-Amount-Google-Chrome-retry1\video.webm[22m
+[2m    [2m────────────────────────────────────────────────────────────────────────────────────────────────[2m[22m
+
+[2m    Error Context: test-results\transfer-funds-TC036_trans-3e17b-ransfer-with-a-Large-Amount-Google-Chrome-retry1\error-context.md[22m
+
+[2m    attachment #4: [1mtrace[2m (application/zip) [2m─────────────────────────────────────────────────────────[2m[22m
+[2m    test-results\transfer-funds-TC036_trans-3e17b-ransfer-with-a-Large-Amount-Google-Chrome-retry1\trace.zip[22m
+[2m    Usage:[22m
+
+[2m        npx playwright show-trace test-results\transfer-funds-TC036_trans-3e17b-ransfer-with-a-Large-Amount-Google-Chrome-retry1\trace.zip[22m
+
+[2m    [2m────────────────────────────────────────────────────────────────────────────────────────────────[2m[22m
+
+[31m  9) [Google Chrome] › tests\transfer-funds\TC037_transfer_between_the_same_account.spec.ts:9:5 › TC037 - Transfer Between the Same Account [39m
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: getByRole('heading', { name: 'Transfer Funds' })
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 5000ms[22m
+    [2m  - waiting for getByRole('heading', { name: 'Transfer Funds' })[22m
+
+
+    [90m   at [39m..\pages\TransferFundsPage.ts:152
+
+    [0m [90m 150 |[39m
+     [90m 151 |[39m         [90m// Application should remain on Transfer Funds page[39m
+    [31m[1m>[22m[39m[90m 152 |[39m         [36mawait[39m expect([36mthis[39m[33m.[39mtransferFundsTitle)[33m.[39mtoBeVisible()[33m;[39m
+     [90m     |[39m                                               [31m[1m^[22m[39m
+     [90m 153 |[39m
+     [90m 154 |[39m         [90m// Transfer Complete page must never be shown[39m
+     [90m 155 |[39m         [36mawait[39m expect([36mthis[39m[33m.[39mtransferCompleteTitle)[33m.[39mnot[33m.[39mtoBeVisible()[33m;[39m[0m
+    [2m    at TransferFundsPage.verifyTransferRejected (C:\Users\filip\Documents\GitHub\QA-Portfolio\Playwright-ParaBank-Automation\pages\TransferFundsPage.ts:152:47)[22m
+    [2m    at C:\Users\filip\Documents\GitHub\QA-Portfolio\Playwright-ParaBank-Automation\tests\transfer-funds\TC037_transfer_between_the_same_account.spec.ts:54:29[22m
+
+[2m    attachment #1: [1mscreenshot[2m (image/png) [2m──────────────────────────────────────────────────────────[2m[22m
+[2m    test-results\transfer-funds-TC037_trans-29932-er-Between-the-Same-Account-Google-Chrome\test-failed-1.png[22m
+[2m    [2m────────────────────────────────────────────────────────────────────────────────────────────────[2m[22m
+
+[2m    attachment #2: [1mvideo[2m (video/webm) [2m──────────────────────────────────────────────────────────────[2m[22m
+[2m    test-results\transfer-funds-TC037_trans-29932-er-Between-the-Same-Account-Google-Chrome\video.webm[22m
+[2m    [2m────────────────────────────────────────────────────────────────────────────────────────────────[2m[22m
+
+[2m    Error Context: test-results\transfer-funds-TC037_trans-29932-er-Between-the-Same-Account-Google-Chrome\error-context.md[22m
+
+[90m    Retry #1 [2m───────────────────────────────────────────────────────────────────────────────────────[22m[39m
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: getByRole('heading', { name: 'Transfer Funds' })
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 5000ms[22m
+    [2m  - waiting for getByRole('heading', { name: 'Transfer Funds' })[22m
+
+
+    [90m   at [39m..\pages\TransferFundsPage.ts:152
+
+    [0m [90m 150 |[39m
+     [90m 151 |[39m         [90m// Application should remain on Transfer Funds page[39m
+    [31m[1m>[22m[39m[90m 152 |[39m         [36mawait[39m expect([36mthis[39m[33m.[39mtransferFundsTitle)[33m.[39mtoBeVisible()[33m;[39m
+     [90m     |[39m                                               [31m[1m^[22m[39m
+     [90m 153 |[39m
+     [90m 154 |[39m         [90m// Transfer Complete page must never be shown[39m
+     [90m 155 |[39m         [36mawait[39m expect([36mthis[39m[33m.[39mtransferCompleteTitle)[33m.[39mnot[33m.[39mtoBeVisible()[33m;[39m[0m
+    [2m    at TransferFundsPage.verifyTransferRejected (C:\Users\filip\Documents\GitHub\QA-Portfolio\Playwright-ParaBank-Automation\pages\TransferFundsPage.ts:152:47)[22m
+    [2m    at C:\Users\filip\Documents\GitHub\QA-Portfolio\Playwright-ParaBank-Automation\tests\transfer-funds\TC037_transfer_between_the_same_account.spec.ts:54:29[22m
+
+[2m    attachment #1: [1mscreenshot[2m (image/png) [2m──────────────────────────────────────────────────────────[2m[22m
+[2m    test-results\transfer-funds-TC037_trans-29932-er-Between-the-Same-Account-Google-Chrome-retry1\test-failed-1.png[22m
+[2m    [2m────────────────────────────────────────────────────────────────────────────────────────────────[2m[22m
+
+[2m    attachment #2: [1mvideo[2m (video/webm) [2m──────────────────────────────────────────────────────────────[2m[22m
+[2m    test-results\transfer-funds-TC037_trans-29932-er-Between-the-Same-Account-Google-Chrome-retry1\video.webm[22m
+[2m    [2m────────────────────────────────────────────────────────────────────────────────────────────────[2m[22m
+
+[2m    Error Context: test-results\transfer-funds-TC037_trans-29932-er-Between-the-Same-Account-Google-Chrome-retry1\error-context.md[22m
+
+[2m    attachment #4: [1mtrace[2m (application/zip) [2m─────────────────────────────────────────────────────────[2m[22m
+[2m    test-results\transfer-funds-TC037_trans-29932-er-Between-the-Same-Account-Google-Chrome-retry1\trace.zip[22m
+[2m    Usage:[22m
+
+[2m        npx playwright show-trace test-results\transfer-funds-TC037_trans-29932-er-Between-the-Same-Account-Google-Chrome-retry1\trace.zip[22m
+
+[2m    [2m────────────────────────────────────────────────────────────────────────────────────────────────[2m[22m
+
+[31m  10) [Google Chrome] › tests\validation\TC069_double_clicking_the_Submit_button.spec.ts:11:5 › TC069 - Verify Double-Clicking the Submit Button › Verify payment was processed only once [39m
+
+    Error: Expected "Bill Payment to TC069_1786262536822" to occur exactly once, but found 2 transactions.
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m1[39m
+    Received: [31m2[39m
+
+    [90m   at [39m..\pages\AccountOverviewPage.ts:243
+
+    [0m [90m 241 |[39m             count[33m,[39m
+     [90m 242 |[39m             [32m`Expected "${transactionText}" to occur exactly once, but found ${count} transactions.`[39m
+    [31m[1m>[22m[39m[90m 243 |[39m         )[33m.[39mtoBe([35m1[39m)[33m;[39m
+     [90m     |[39m           [31m[1m^[22m[39m
+     [90m 244 |[39m
+     [90m 245 |[39m }
+     [90m 246 |[39m[0m
+    [2m    at AccountOverviewPage.verifyTransactionOccursOnce (C:\Users\filip\Documents\GitHub\QA-Portfolio\Playwright-ParaBank-Automation\pages\AccountOverviewPage.ts:243:11)[22m
+    [2m    at C:\Users\filip\Documents\GitHub\QA-Portfolio\Playwright-ParaBank-Automation\tests\validation\TC069_double_clicking_the_Submit_button.spec.ts:175:17[22m
+    [2m    at C:\Users\filip\Documents\GitHub\QA-Portfolio\Playwright-ParaBank-Automation\tests\validation\TC069_double_clicking_the_Submit_button.spec.ts:171:9[22m
+
+[2m    attachment #1: [1mscreenshot[2m (image/png) [2m──────────────────────────────────────────────────────────[2m[22m
+[2m    test-results\validation-TC069_double_cl-afd21--Clicking-the-Submit-Button-Google-Chrome\test-failed-1.png[22m
+[2m    [2m────────────────────────────────────────────────────────────────────────────────────────────────[2m[22m
+
+[2m    attachment #2: [1mvideo[2m (video/webm) [2m──────────────────────────────────────────────────────────────[2m[22m
+[2m    test-results\validation-TC069_double_cl-afd21--Clicking-the-Submit-Button-Google-Chrome\video.webm[22m
+[2m    [2m────────────────────────────────────────────────────────────────────────────────────────────────[2m[22m
+
+[2m    Error Context: test-results\validation-TC069_double_cl-afd21--Clicking-the-Submit-Button-Google-Chrome\error-context.md[22m
+
+[90m    Retry #1 [2m───────────────────────────────────────────────────────────────────────────────────────[22m[39m
+
+    Error: Expected "Bill Payment to TC069_1786262542484" to occur exactly once, but found 2 transactions.
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m1[39m
+    Received: [31m2[39m
+
+    [90m   at [39m..\pages\AccountOverviewPage.ts:243
+
+    [0m [90m 241 |[39m             count[33m,[39m
+     [90m 242 |[39m             [32m`Expected "${transactionText}" to occur exactly once, but found ${count} transactions.`[39m
+    [31m[1m>[22m[39m[90m 243 |[39m         )[33m.[39mtoBe([35m1[39m)[33m;[39m
+     [90m     |[39m           [31m[1m^[22m[39m
+     [90m 244 |[39m
+     [90m 245 |[39m }
+     [90m 246 |[39m[0m
+    [2m    at AccountOverviewPage.verifyTransactionOccursOnce (C:\Users\filip\Documents\GitHub\QA-Portfolio\Playwright-ParaBank-Automation\pages\AccountOverviewPage.ts:243:11)[22m
+    [2m    at C:\Users\filip\Documents\GitHub\QA-Portfolio\Playwright-ParaBank-Automation\tests\validation\TC069_double_clicking_the_Submit_button.spec.ts:175:17[22m
+    [2m    at C:\Users\filip\Documents\GitHub\QA-Portfolio\Playwright-ParaBank-Automation\tests\validation\TC069_double_clicking_the_Submit_button.spec.ts:171:9[22m
+
+[2m    attachment #1: [1mscreenshot[2m (image/png) [2m──────────────────────────────────────────────────────────[2m[22m
+[2m    test-results\validation-TC069_double_cl-afd21--Clicking-the-Submit-Button-Google-Chrome-retry1\test-failed-1.png[22m
+[2m    [2m────────────────────────────────────────────────────────────────────────────────────────────────[2m[22m
+
+[2m    attachment #2: [1mvideo[2m (video/webm) [2m──────────────────────────────────────────────────────────────[2m[22m
+[2m    test-results\validation-TC069_double_cl-afd21--Clicking-the-Submit-Button-Google-Chrome-retry1\video.webm[22m
+[2m    [2m────────────────────────────────────────────────────────────────────────────────────────────────[2m[22m
+
+[2m    Error Context: test-results\validation-TC069_double_cl-afd21--Clicking-the-Submit-Button-Google-Chrome-retry1\error-context.md[22m
+
+[2m    attachment #4: [1mtrace[2m (application/zip) [2m─────────────────────────────────────────────────────────[2m[22m
+[2m    test-results\validation-TC069_double_cl-afd21--Clicking-the-Submit-Button-Google-Chrome-retry1\trace.zip[22m
+[2m    Usage:[22m
+
+[2m        npx playwright show-trace test-results\validation-TC069_double_cl-afd21--Clicking-the-Submit-Button-Google-Chrome-retry1\trace.zip[22m
+
+[2m    [2m────────────────────────────────────────────────────────────────────────────────────────────────[2m[22m
+
+[31m  10 failed[39m
+[31m    [Google Chrome] › tests\bill-payment\TC043_bill_payment_with_invalid_account_number.spec.ts:9:5 › TC043 - Verify Bill Payment with Invalid Account Number [39m
+[31m    [Google Chrome] › tests\bill-payment\TC045_bill_payment_with_negative_amount.spec.ts:9:5 › TC045 - Verify Bill Payment with Negative Amount [39m
+[31m    [Google Chrome] › tests\bill-payment\TC047_bill_payment_with_invalid_ZIP_code.spec.ts:9:5 › TC047 - Verify Bill Payment with Invalid ZIP Code [39m
+[31m    [Google Chrome] › tests\bill-payment\TC048_bill_payment_with_invalid_phone_number.spec.ts:10:5 › TC048 - Verify Bill Payment with Invalid Phone Number [39m
+[31m    [Google Chrome] › tests\request-loan\TC053_loan_request_with_empty_required_fields.spec.ts:10:5 › TC053 - Verify Loan Request with Empty Required Fields [39m
+[31m    [Google Chrome] › tests\transfer-funds\TC033_transfer_with_zero_amount.spec.ts:9:5 › TC033 - Transfer with Zero Amount [39m
+[31m    [Google Chrome] › tests\transfer-funds\TC034_transfer_with_negative_amount.spec.ts:9:5 › TC034 - Transfer with Negative Amount [39m
+[31m    [Google Chrome] › tests\transfer-funds\TC036_transfer_with_a_large_amount.spec.ts:9:5 › TC036 - Transfer with a Large Amount [39m
+[31m    [Google Chrome] › tests\transfer-funds\TC037_transfer_between_the_same_account.spec.ts:9:5 › TC037 - Transfer Between the Same Account [39m
+[31m    [Google Chrome] › tests\validation\TC069_double_clicking_the_Submit_button.spec.ts:11:5 › TC069 - Verify Double-Clicking the Submit Button [39m
+[33m  3 skipped[39m
+[32m  75 passed[39m[2m (2.8m)[22m
